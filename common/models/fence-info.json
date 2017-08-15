@@ -61,7 +61,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "fenceInfoId",
-      "through": "RodeFenceInfo"
+      "through": "RodeContain"
     }
   },
   "acls": [],

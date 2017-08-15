@@ -55,7 +55,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "keyPlaceid",
-      "through": "RodeKeyPlace"
+      "through": "RodeContain"
     }
   },
   "acls": [],

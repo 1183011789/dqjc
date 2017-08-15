@@ -53,7 +53,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "levelcrossingId",
-      "through": "RodeLevelCrossing"
+      "through": "RodeContain"
     }
   },
   "acls": [],

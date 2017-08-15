@@ -40,7 +40,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "baseStationId",
-      "through": "RodeBaseStation"
+      "through": "RodeContain"
     }
   },
   "acls": [],

@@ -15,19 +15,19 @@
     ]
   },
   "User": {
-    "dataSource": "mzbaseserver_mysql",
+    "dataSource": "db",
     "public": false
   },
   "accessToken": {
-    "dataSource": "mzbaseserver_mysql",
+    "dataSource": "db",
     "public": true
   },
   "userCredential": {
-    "dataSource": "mzbaseserver_mysql",
+    "dataSource": "db",
     "public": true
   },
   "userIdentity": {
-    "dataSource": "mzbaseserver_mysql",
+    "dataSource": "db",
     "public": true
   },
   "ACL": {
@@ -59,7 +59,7 @@
     "public": true
   },
   "Meta": {
-    "dataSource": "mzbaseserver_mysql",
+    "dataSource": "db",
     "public": true
   },
   "Rode": {
@@ -142,55 +142,7 @@
     "dataSource": "mzbaseserver_mysql",
     "public": true
   },
-  "RodeStation": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeBridge": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeTunnel": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeCulvert": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeLevelCrossing": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeCrossIronBridge": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeServicePort": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeBaseStation": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeKeyPlace": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeHiddenDangerPlace": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeBroadcastWarningPost": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeAPropagandaPoint": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeFenceInfo": {
+  "RodeContain": {
     "dataSource": "mzbaseserver_mysql",
     "public": true
   }

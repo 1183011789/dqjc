@@ -68,7 +68,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "culvertId",
-      "through": "RodeCulvert"
+      "through": "RodeContain"
     }
   },
   "acls": [],

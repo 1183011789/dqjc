@@ -53,7 +53,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "tunnelId",
-      "through": "RodeTunnel"
+      "through": "RodeContain"
     }
   },
   "acls": [],

@@ -35,7 +35,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "hiddenDangerPlaceId",
-      "through": "RodeHiddenDangerPlace"
+      "through": "RodeContain"
     }
   },
   "acls": [],

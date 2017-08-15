@@ -4,59 +4,25 @@
 */
 module.exports = function(Rode) {
 
-    Rode.observe('before save', function setDefaultUsername(ctx, next) {
-        console.log("ctx-----", JSON.stringify(ctx));
-        if (ctx.instance) {
-            ctx.instance.created = Date.now();
-            ctx.instance.lastUpdated = Date.now();
-        } else {
-            ctx.data.lastUpdated = Date.now();
+  // 模糊查询  rodename    精确查询  classification
+    Rode.greet = function(rodename,classification,callback) {
+          Rode.find({where: {or: [{rodename:{like: '%'+rodename+'%'}}, {classification:classification}]}},
+                  function (err, result) {
+                    if (!err) {
+                      var tempResult = result.map(function(obj) {
+                      //  console.log('----'+JSON.stringify(obj) );
+                          //return Rode.fromDatabase('Rode', obj);
+                          return obj;
+                      });
+                      callback(null, tempResult);
+                      } else {
+                      callback(err);
+                      console.log(err);
+                      }
+                  });
         }
-        next();
-    });
-
-    Rode.listMapRodes = function(rodename, classification, fn) {
-        console.log(rodename, classification);
-        var ParkModel = this;
-        // 'SELECT p.* \ FROM  Rode AS p\  WHERE X(coordinate) \BETWEEN ' + bottomLeftLat + '\AND ' + topRightLat + ' \ AND Y(coordinate) \ BETWEEN ' + bottomLeftLng + ' \AND ' + topRightLng + ' \';
-        // var sql = 'select * from Rode where rodename LIKE ' + '%' + rodename + '%' +
-        //     'or classification =' + classification;
-        // console.log('sql---', sql);
-        // ParkModel.app.datasources.mzbaseserver_mysql.Rode.query(sql, function(err, result) {
-        //     var self = ParkModel.app.datasources.demo.Rode;
-        //     if (!err) {
-        //         var tempResult = result.map(function(obj) {
-        //             return self.fromDatabase('Rode', obj);
-        //         });
-        //         fn(null, tempResult);
-        //     } else {
-        //         fn(err);
-        //         console.log(err);
-        //     }
-        // });
-        console.log(rodename, classification);
-        Rode.find({
-            // where: {
-            rodename: rodename,
-            classification: classification,
-            limit: 3
-                // }
-        }, function(err, rodes) {
-            console.log("rodes---", JSON.stringify(rodes));
-            if (rodes) {
-                // var tempResult = rodes.map(function(obj) {
-                //     return obj;
-                // });
-                // console.log('tempResult---', JSON.stringify(tempResult));
-                fn(null, rodes)
-            } else {
-                fn(err);
-            }
-        })
-
-    };
-    Rode.remoteMethod(
-        'listMapRodes', {
+        Rode.remoteMethod(
+        'greet', {
             accepts: [{
                 arg: 'rodename',
                 type: 'string'
@@ -71,4 +37,38 @@ module.exports = function(Rode) {
                 ]
             }
         });
+        // 分页查询
+        Rode.PagingFind = function(one,callback){
+    
+        var one = one-1;
+        var last = one+5;
+        console.log(last);
+          Rode.find({limit:last, skip:one},
+            function (err, result) {
+              if (!err) {
+                var tempResult1 = result.map(function(obj) {
+                //  console.log('----'+JSON.stringify(obj) );
+                    return obj;
+                });
+                callback(null, tempResult1);
+                } else {
+                callback(err);
+                console.log(err);
+                }
+            });
+        }
+        Rode.remoteMethod(
+        'PagingFind', {
+            accepts: [{
+                arg: 'one',
+                type: 'number'
+            }],
+            returns: {
+                arg: 'rodes',
+                type: [
+                    'object'
+                ]
+            }
+          });
+
 };

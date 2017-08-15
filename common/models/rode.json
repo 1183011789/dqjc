@@ -1,136 +1,130 @@
 {
-    "name": "Rode",
-    "plural": "rodes",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Rode",
+  "plural": "rodes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rodename": {
+      "type": "string"
     },
-    "properties": {
-        "rodename": {
-            "type": "string"
-        },
-        "classification": {
-            "type": "string"
-        },
-        "startendmileage": {
-            "type": "number"
-        },
-        "rodelenth": {
-            "type": "number"
-        },
-        "stationnumber": {
-            "type": "string"
-        },
-        "bridgenumber": {
-            "type": "number"
-        },
-        "tunnelnumber": {
-            "type": "number"
-        },
-        "levelcrossingnumber": {
-            "type": "number"
-        },
-        "culvertnumber": {
-            "type": "number"
-        },
-        "Kwamerailwaynumber": {
-            "type": "number"
-        },
-        "created": {
-            "type": "date"
-        },
-        "lastUpdated": {
-            "type": "date"
-        },
-        "remark1": {
-            "type": "string"
-        },
-        "remark2": {
-            "type": "string"
-        }
+    "classification": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {
-        "aPropagandaPoints": {
-            "type": "hasMany",
-            "model": "APropagandaPoint",
-            "foreignKey": "rodeId",
-            "through": "RodeAPropagandaPoint"
-        },
-        "baseStations": {
-            "type": "hasMany",
-            "model": "BaseStation",
-            "foreignKey": "rodeId",
-            "through": "RodeBaseStation"
-        },
-        "bridges": {
-            "type": "hasMany",
-            "model": "Bridge",
-            "foreignKey": "rodeId",
-            "through": "RodeBridge"
-        },
-        "broadcastWarningPosts": {
-            "type": "hasMany",
-            "model": "BroadcastWarningPost",
-            "foreignKey": "rodeId",
-            "through": "RodeBroadcastWarningPost"
-        },
-        "crossIronBridges": {
-            "type": "hasMany",
-            "model": "CrossIronBridge",
-            "foreignKey": "rodeId",
-            "through": "RodeCrossIronBridge"
-        },
-        "culverts": {
-            "type": "hasMany",
-            "model": "Culvert",
-            "foreignKey": "rodeId",
-            "through": "RodeCulvert"
-        },
-        "hiddenDangerPlaces": {
-            "type": "hasMany",
-            "model": "HiddenDangerPlace",
-            "foreignKey": "rodeId",
-            "through": "RodeHiddenDangerPlace"
-        },
-        "fenceInfos": {
-            "type": "hasMany",
-            "model": "FenceInfo",
-            "foreignKey": "rodeId",
-            "through": "RodeFenceInfo"
-        },
-        "keyPlaces": {
-            "type": "hasMany",
-            "model": "KeyPlace",
-            "foreignKey": "rodeId",
-            "through": "RodeKeyPlace"
-        },
-        "levelCrossings": {
-            "type": "hasMany",
-            "model": "LevelCrossing",
-            "foreignKey": "rodeId",
-            "through": "RodeLevelCrossing"
-        },
-        "servicePorts": {
-            "type": "hasMany",
-            "model": "ServicePort",
-            "foreignKey": "rodeId",
-            "through": "RodeServicePort"
-        },
-        "stations": {
-            "type": "hasMany",
-            "model": "Station",
-            "foreignKey": "rodeId",
-            "through": "RodeStation"
-        },
-        "tunnels": {
-            "type": "hasMany",
-            "model": "Tunnel",
-            "foreignKey": "rodeiId",
-            "through": "RodeTunnel"
-        }
+    "startendmileage": {
+      "type": "number"
     },
-    "acls": [],
-    "methods": {}
+    "rodelenth": {
+      "type": "number"
+    },
+    "stationnumber": {
+      "type": "string"
+    },
+    "bridgenumber": {
+      "type": "number"
+    },
+    "tunnelnumber": {
+      "type": "number"
+    },
+    "levelcrossingnumber": {
+      "type": "number"
+    },
+    "culvertnumber": {
+      "type": "number"
+    },
+    "Kwamerailwaynumber": {
+      "type": "number"
+    },
+    "remark1": {
+      "type": "string"
+    },
+    "remark2": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "aPropagandaPoints": {
+      "type": "hasMany",
+      "model": "APropagandaPoint",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "baseStations": {
+      "type": "hasMany",
+      "model": "BaseStation",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "broadcastWarningPosts": {
+      "type": "hasMany",
+      "model": "BroadcastWarningPost",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "crossIronBridges": {
+      "type": "hasMany",
+      "model": "CrossIronBridge",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "hiddenDangerPlaces": {
+      "type": "hasMany",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "fenceInfos": {
+      "type": "hasMany",
+      "model": "FenceInfo",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "keyPlaces": {
+      "type": "hasMany",
+      "model": "KeyPlace",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "levelCrossings": {
+      "type": "hasMany",
+      "model": "LevelCrossing",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "servicePorts": {
+      "type": "hasMany",
+      "model": "ServicePort",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "stations": {
+      "type": "hasMany",
+      "model": "Station",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "tunnels": {
+      "type": "hasMany",
+      "model": "Tunnel",
+      "foreignKey": "rodeiId",
+      "through": "RodeContain"
+    }
+  },
+  "acls": [],
+  "methods": {}
 }

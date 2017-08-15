@@ -1,0 +1,88 @@
+{
+  "name": "RodeContain",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "station": {
+      "type": "belongsTo",
+      "model": "Station",
+      "foreignKey": "stationId"
+    },
+    "tunnel": {
+      "type": "belongsTo",
+      "model": "Tunnel",
+      "foreignKey": "tunnelId"
+    },
+    "servicePort": {
+      "type": "belongsTo",
+      "model": "ServicePort",
+      "foreignKey": "servicePortId"
+    },
+    "levelCrossing": {
+      "type": "belongsTo",
+      "model": "LevelCrossing",
+      "foreignKey": "levelCrossingId"
+    },
+    "keyPlace": {
+      "type": "belongsTo",
+      "model": "KeyPlace",
+      "foreignKey": "keyPlaceId"
+    },
+    "hiddenDangerPlace": {
+      "type": "belongsTo",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "hiddenDangerPlaceId"
+    },
+    "fenceInfos": {
+      "type": "belongsTo",
+      "model": "FenceInfo",
+      "foreignKey": "fenceInfoId"
+    },
+    "culvert": {
+      "type": "belongsTo",
+      "model": "Culvert",
+      "foreignKey": "culvertId"
+    },
+    "crossIronBridge": {
+      "type": "belongsTo",
+      "model": "CrossIronBridge",
+      "foreignKey": "crossIronBridgeId"
+    },
+    "broadcastWarningPost": {
+      "type": "belongsTo",
+      "model": "BroadcastWarningPost",
+      "foreignKey": "broadcastWarningPostId"
+    },
+    "bridge": {
+      "type": "belongsTo",
+      "model": "Bridge",
+      "foreignKey": "bridgeId"
+    },
+    "baseStation": {
+      "type": "belongsTo",
+      "model": "BaseStation",
+      "foreignKey": "baseStationId"
+    },
+    "aPropagandaPoint": {
+      "type": "belongsTo",
+      "model": "APropagandaPoint",
+      "foreignKey": "aPropagandaPointId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
