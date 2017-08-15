@@ -1,0 +1,88 @@
+{
+  "name": "Bridge",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "brdgenumber": {
+      "type": "number"
+    },
+    "bridgename": {
+      "type": "string"
+    },
+    "bridgeclass": {
+      "type": "string"
+    },
+    "bridgestructure": {
+      "type": "string"
+    },
+    "bridgematerial": {
+      "type": "string"
+    },
+    "brgdgelength": {
+      "type": "number"
+    },
+    "bridgehight": {
+      "type": "number"
+    },
+    "bridgealignment": {
+      "type": "string"
+    },
+    "startendmileage": {
+      "type": "string"
+    },
+    "centermileage": {
+      "type": "number"
+    },
+    "railwayhighwaypublic": {
+      "type": "boolean",
+      "default": true
+    },
+    "crosshighway": {
+      "type": "string"
+    },
+    "crosswatersystem": {
+      "type": "string"
+    },
+    "crossbrooks": {
+      "type": "string"
+    },
+    "crossother": {
+      "type": "string"
+    },
+    "guardian": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "localpolicestation": {
+      "type": "string"
+    },
+    "admimdepartment": {
+      "type": "string"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "brdgeremark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "bridgeId",
+      "through": "RodeBridge"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

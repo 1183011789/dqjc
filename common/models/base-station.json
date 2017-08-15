@@ -1,0 +1,48 @@
+{
+  "name": "BaseStation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "remark2": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "baseStationId",
+      "through": "RodeBaseStation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

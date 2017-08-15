@@ -1,0 +1,69 @@
+{
+  "name": "FenceInfo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "length": {
+      "type": "Number"
+    },
+    "LengthOfRollingCage": {
+      "type": "Number"
+    },
+    "TextureOfMaterial": {
+      "type": "string"
+    },
+    "Height": {
+      "type": "Number"
+    },
+    "SubgradeSection": {
+      "type": "boolean"
+    },
+    "LineSpeedPerHour": {
+      "type": "Number"
+    },
+    "KilometerMark": {
+      "type": "string"
+    },
+    "WorkGateUseUnit": {
+      "type": "string"
+    },
+    "DoOther": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "AdministrativeDepartment": {
+      "type": "string"
+    },
+    "PersonCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "Number"
+    },
+    "AffiliatedInstitution": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "fenceInfoId",
+      "through": "RodeFenceInfo"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Tunnel",
+  "plural": "tunnels",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tunnelname": {
+      "type": "string"
+    },
+    "tunnelnumber": {
+      "type": "number"
+    },
+    "tunnellength": {
+      "type": "number"
+    },
+    "tunnelalignment": {
+      "type": "string"
+    },
+    "startendmileage": {
+      "type": "string"
+    },
+    "centermileage": {
+      "type": "number"
+    },
+    "guardian": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "localpolicestation": {
+      "type": "string"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "tunnelId",
+      "through": "RodeTunnel"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,60 @@
+{
+  "name": "KeyPersion",
+  "plural": "KeyPersions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "boolean"
+    },
+    "age": {
+      "type": "number"
+    },
+    "height": {
+      "type": "number"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "idnumber": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "residencenow": {
+      "type": "string"
+    },
+    "familysize": {
+      "type": "number"
+    },
+    "familymemberone": {
+      "type": "string"
+    },
+    "familymembertwo": {
+      "type": "string"
+    },
+    "familyaddress": {
+      "type": "string"
+    },
+    "familycontactnumber": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

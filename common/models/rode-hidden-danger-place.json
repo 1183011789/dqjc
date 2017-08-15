@@ -1,0 +1,28 @@
+{
+  "name": "RodeHiddenDangerPlace",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+        "type": "date"
+      }
+  },
+  "validations": [],
+  "relations": {
+    "hiddenDangerPlace": {
+      "type": "belongsTo",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "hiddenDangerPlaceId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

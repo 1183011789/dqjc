@@ -1,0 +1,60 @@
+{
+  "name": "Station",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "StationName": {
+      "type": "string"
+    },
+    "StationRank": {
+      "type": "string"
+    },
+    "StationNature": {
+      "type": "string"
+    },
+    "Highspeed_rail_station": {
+      "type": "boolean"
+    },
+    "CenterMileage": {
+      "type": "string"
+    },
+    "Railway_Administration": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "PoliceStation": {
+      "type": "string"
+    },
+    "PersonInCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "number"
+    },
+    "Longitudelatitude": {
+      "type": "number"
+    },
+    "Latitude": {
+      "type": "number"
+    },
+    "Remarks": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "stationId",
+      "through": "RodeStation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

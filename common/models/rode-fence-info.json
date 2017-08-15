@@ -1,0 +1,28 @@
+{
+  "name": "RodeFenceInfo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fenceInfos": {
+      "type": "belongsTo",
+      "model": "FenceInfo",
+      "foreignKey": "fenceInfoId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,63 @@
+{
+  "name": "KeyPlace",
+  "plural": "KeyPlaces",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "peoplenumber": {
+      "type": "number"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "images": {
+      "type": [
+        "string"
+      ]
+    },
+    "hazardlevel": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "culverradius": {
+      "type": "number"
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "keyPlaceid",
+      "through": "RodeKeyPlace"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,28 @@
+{
+  "name": "RodeBaseStation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "baseStation": {
+      "type": "belongsTo",
+      "model": "BaseStation",
+      "foreignKey": "baseStationId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

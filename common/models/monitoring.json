@@ -1,0 +1,65 @@
+{
+  "name": "Monitoring",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Number": {
+      "type": "number"
+    },
+    "DeviceName": {
+      "type": "string"
+    },
+    "Position": {
+      "type": "string"
+    },
+    "AccessSector": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "AdministrativeDepartment": {
+      "type": "string"
+    },
+    "PersonCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "Number"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "string"
+    },
+    "PortNumber": {
+      "type": "string"
+    },
+    "ChannelNumber": {
+      "type": "string"
+    },
+    "CallClass": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "Latitude": {
+      "type": "number"
+    },
+    "AffiliatedInstitution": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

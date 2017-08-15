@@ -1,0 +1,28 @@
+{
+  "name": "RodeKeyPlace",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "keyPlace": {
+      "type": "belongsTo",
+      "model": "KeyPlace",
+      "foreignKey": "keyPlaceId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

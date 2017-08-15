@@ -1,0 +1,41 @@
+{
+  "name": "EmergencyAccesss",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "CenterMileage": {
+      "type": "string"
+    },
+    "DoOther": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "AdministrativeDepartment": {
+      "type": "string"
+    },
+    "PersonCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "number"
+    },
+    "AffiliatedInstitution": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

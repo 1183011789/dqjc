@@ -1,0 +1,43 @@
+{
+  "name": "HiddenDangerPlace",
+  "plural": "HiddenDangerPlaces",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "images": {
+      "type": [
+        "string"
+      ]
+    },
+    "state": {
+      "type": "boolean",
+      "default": false
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "hiddenDangerPlaceId",
+      "through": "RodeHiddenDangerPlace"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,371 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: client/app/modules/about/controllers/about.config.js:6
+#: client/app/modules/about/views/main.html:2
+msgid "About"
+msgstr ""
+
+#: client/app/modules/settings/views/form.html:5
+msgid "Add a new setting"
+msgstr ""
+
+#: client/app/modules/users/views/form.html:5
+msgid "Add a new user"
+msgstr ""
+
+#: client/app/modules/about/views/main.html:3
+msgid "All about this application!"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:23
+#: client/app/modules/core/services/meta.service.js:97
+#: client/app/modules/settings/services/setting.service.js:36
+#: client/app/modules/users/services/user.service.js:36
+msgid "Are you sure?"
+msgstr ""
+
+#: client/app/modules/users/views/profile.html:28
+msgid "Change it here!"
+msgstr ""
+
+#: client/app/modules/settings/views/list.html:31
+msgid "Click <a href=\"\" ui-sref=\"^.add\">here</a> to add a setting!"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:79
+msgid "Confirm Password"
+msgstr ""
+
+#: client/app/modules/users/views/form.html:11
+msgid "Could not add user!"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:25
+msgid "Current user"
+msgstr ""
+
+#: client/app/modules/core/config/core.config.js:26
+#: client/app/modules/core/views/home.html:13
+msgid "Dashboard"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:24
+#: client/app/modules/core/services/meta.service.js:98
+#: client/app/modules/settings/services/setting.service.js:37
+#: client/app/modules/users/services/user.service.js:37
+msgid "Deleting this cannot be undone"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:54
+msgid "Don't worry we won't spam your inbox"
+msgstr ""
+
+#: client/app/modules/settings/views/form.html:6
+msgid "Edit setting"
+msgstr ""
+
+#: client/app/modules/users/views/form.html:6
+msgid "Edit user"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:32
+#: client/app/modules/users/controllers/register.ctrl.js:52
+#: client/app/modules/users/services/user.service.js:72
+msgid "Email"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:40
+#: client/app/modules/users/controllers/register.ctrl.js:62
+msgid "Email address needs to be valid"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:107
+msgid "Error deleting item"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:33
+msgid "Error deleting item:"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:46
+msgid "Error deleting setting"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:46
+msgid "Error deleting user"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:136
+msgid "Error registering!"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:86
+msgid "Error saving item"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:27
+msgid "Error saving setting"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:27
+msgid "Error saving user"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:127
+msgid "Error signin in after registration!"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:80
+msgid "First name"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:26
+msgid "First Name"
+msgstr ""
+
+#: client/app/modules/core/views/app.html:16
+msgid "Hello,"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:5
+msgid "Home"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:27
+#: client/app/modules/core/services/meta.service.js:102
+msgid "Item deleted"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:80
+msgid "Item saved"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:72
+msgid "Key"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:88
+msgid "Last name"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:39
+msgid "Last Name"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:101
+msgid "Logged in"
+msgstr ""
+
+#: client/app/modules/core/controllers/main.ctrl.js:26
+msgid "Logged out"
+msgstr ""
+
+#: client/app/modules/settings/views/main.html:3
+msgid "Manage your settings here!"
+msgstr ""
+
+#: client/app/modules/users/views/main.html:3
+msgid "Manage your users here!"
+msgstr ""
+
+#: client/app/modules/core/views/elements/small-box.html:8
+msgid "More info"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:33
+#: client/app/modules/users/controllers/register.ctrl.js:46
+msgid "Needs to have at least 4 characters"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:41
+#: client/app/modules/users/controllers/register.ctrl.js:63
+msgid "Nice email address!"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:32
+msgid "Oops"
+msgstr ""
+
+#: client/app/modules/users/views/login.html:17
+msgid "Or register"
+msgstr ""
+
+#: client/app/modules/users/views/register.html:20
+msgid "Or sign in"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:47
+#: client/app/modules/users/controllers/register.ctrl.js:70
+#: client/app/modules/users/services/user.service.js:98
+msgid "Password"
+msgstr ""
+
+#: client/app/modules/core/views/elements/navbar.html:40
+msgid "Profile"
+msgstr ""
+
+#: client/app/modules/users/views/register.html:17
+#: client/app/modules/users/views/register.html:7
+msgid "Register"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:121
+msgid "Registered"
+msgstr ""
+
+#: client/app/modules/users/views/view.html:16
+msgid "Roles"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:41
+msgid "Setting deleted"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:21
+msgid "Setting saved"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:29
+#: client/app/modules/settings/config/settings.config.js:6
+#: client/app/modules/settings/views/main.html:2
+msgid "Settings"
+msgstr ""
+
+#: client/app/modules/users/views/login.html:16
+msgid "Sign in"
+msgstr ""
+
+#: client/app/modules/users/views/login.html:7
+msgid "Sign In"
+msgstr ""
+
+#: client/app/modules/core/views/elements/navbar.html:43
+msgid "Sign out"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:55
+msgid "Stay signed in"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:34
+#: client/app/modules/core/views/home.html:37
+msgid "Theme"
+msgstr ""
+
+#: client/app/modules/settings/views/list.html:27
+msgid "There are no settings"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:87
+msgid "This item could no be saved:"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:28
+msgid "This setting could no be saved:"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:28
+msgid "This user could no be saved:"
+msgstr ""
+
+#: client/app/modules/core/views/elements/navbar.html:3
+msgid "Toggle navigation"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:41
+msgid "User deleted"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:21
+msgid "User saved"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:64
+msgid "Username"
+msgstr ""
+
+#: client/app/modules/users/config/users.config.js:5
+#: client/app/modules/users/views/main.html:2
+msgid "Users"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:64
+msgid "Value"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:22
+msgid "Variables"
+msgstr ""
+
+#: client/app/modules/core/views/home.html:6
+msgid "Welcome!"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:102
+msgid "You are logged in!"
+msgstr ""
+
+#: client/app/modules/core/controllers/main.ctrl.js:27
+msgid "You are logged out!"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:122
+msgid "You are registered!"
+msgstr ""
+
+#: client/app/modules/users/controllers/login.ctrl.js:39
+#: client/app/modules/users/controllers/register.ctrl.js:61
+msgid "You need an email address"
+msgstr ""
+
+#: client/app/modules/users/views/profile.html:24
+msgid "Your Gravatar"
+msgstr ""
+
+#: client/app/modules/core/helpers/FormHelper.js:28
+msgid "Your item has been deleted!"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:103
+msgid "Your item is deleted!"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:108
+msgid "Your item is not deleted!"
+msgstr ""
+
+#: client/app/modules/core/services/meta.service.js:81
+msgid "Your item is safe with us!"
+msgstr ""
+
+#: client/app/modules/users/controllers/register.ctrl.js:87
+msgid "Your passwords need to match"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:42
+msgid "Your setting is deleted!"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:47
+msgid "Your setting is not deleted!"
+msgstr ""
+
+#: client/app/modules/settings/services/setting.service.js:22
+msgid "Your setting is safe with us!"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:42
+msgid "Your user is deleted!"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:47
+msgid "Your user is not deleted!"
+msgstr ""
+
+#: client/app/modules/users/services/user.service.js:22
+msgid "Your user is safe with us!"
+msgstr ""

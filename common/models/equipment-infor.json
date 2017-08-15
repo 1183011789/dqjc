@@ -1,0 +1,53 @@
+{
+  "name": "EquipmentInfor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Number": {
+      "type": "Number"
+    },
+    "DeviceName": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "CenterMileage": {
+      "type": "string"
+    },
+    "ProtectiveFacilities": {
+      "type": "string"
+    },
+    "DoOther": {
+      "type": "string"
+    },
+    "Purpose": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "AdministrativeDepartment": {
+      "type": "string"
+    },
+    "PersonCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "Number"
+    },
+    "AffiliatedInstitution": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

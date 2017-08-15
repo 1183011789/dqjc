@@ -1,0 +1,14 @@
+{
+    "mzbaseserver_mysql": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "url": "mysql://root:qweqwe@192.168.1.116/demo",
+        "database": "demo",
+        "password": "qweqwe",
+        "name": "mzbaseserver_mysql",
+        "user": "root",
+        "connector": "mysql",
+        "charset": "utf8mb4",
+        "createDatabase": true
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "APropagandaPoint",
+  "plural": "APropagandaPoints",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "number": {
+      "type": "string"
+    },
+    "images": {
+      "type": [
+        "string"
+      ]
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "aPropagandaPointId",
+      "through": "RodeAPropagandaPoint"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,197 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": false
+  },
+  "accessToken": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "userCredential": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AppModel": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Setting": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AuthProvider": {
+    "dataSource": "db",
+    "public": true
+  },
+  "user": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Meta": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Rode": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Bridge": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Tunnel": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "LevelCrossing": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Culvert": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "CrossIronBridge": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "ServicePort": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "BaseStation": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "KeyPlace": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "HiddenDangerPlace": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "KeyPersion": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "BroadcastWarningPost": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "APropagandaPoint": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "InstitutionalTeam": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Station": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "EquipmentInfor": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "Monitoring": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "EmergencyAccesss": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "FenceInfo": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "SecurityEquipmentInformation": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeStation": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeBridge": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeTunnel": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeCulvert": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeLevelCrossing": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeCrossIronBridge": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeServicePort": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeBaseStation": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeKeyPlace": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeHiddenDangerPlace": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeBroadcastWarningPost": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeAPropagandaPoint": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  },
+  "RodeFenceInfo": {
+    "dataSource": "mzbaseserver_mysql",
+    "public": true
+  }
+}

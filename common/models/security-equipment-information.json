@@ -1,0 +1,47 @@
+{
+  "name": "SecurityEquipmentInformation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string"
+    },
+    "Position": {
+      "type": "string"
+    },
+    "Station": {
+      "type": "string"
+    },
+    "Other": {
+      "type": "string"
+    },
+    "Number": {
+      "type": "Number"
+    },
+    "SiteOfUse": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "AdministrativeDepartment": {
+      "type": "string"
+    },
+    "PersonCharge": {
+      "type": "string"
+    },
+    "ContactNumber": {
+      "type": "Number"
+    },
+    "AffiliatedInstitution": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

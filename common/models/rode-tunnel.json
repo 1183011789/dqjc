@@ -1,0 +1,28 @@
+{
+  "name": "RodeTunnel",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "appointmentDate": {
+        "type": "date"
+      }
+  },
+  "validations": [],
+  "relations": {
+    "tunnel": {
+      "type": "belongsTo",
+      "model": "Tunnel",
+      "foreignKey": "tunnelId"
+    },
+    "rode": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,45 @@
+{
+  "name": "ServicePort",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "long": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "remark": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "servicePortId",
+      "through": "RodeServicePort"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
