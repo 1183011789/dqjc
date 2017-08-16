@@ -1,6 +1,10 @@
 {
   "name": "AppModel",
   "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
   "properties": {
     "created": {
       "type": "date"

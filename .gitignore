@@ -3,7 +3,7 @@
 npm-debug.log
 #node_modules
 downloaded
-docular_generated
+#docular_generated
 #client/app/js/lb-services.js
 #client/app/js/config.js
 #client/app/index.html
@@ -13,7 +13,7 @@ docular_generated
 .sass-cache
 providers.json
 #bower_components
-docs
+#docs
 client/coverage
 .vagrant
 /.project

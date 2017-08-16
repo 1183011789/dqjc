@@ -1,5 +1,5 @@
 'use strict';
-
+//应急疏散通道
 module.exports = function(Emergencyaccesss) {
   // 模糊查询  name    精确查询  address
 Emergencyaccesss.fuzzyQuery = function(name, address, callback) {

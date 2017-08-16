@@ -3,7 +3,9 @@
 涵洞基本信息
 */
 module.exports = function(Culvert) {
+
   // 模糊查询  rodename    精确查询  classification
+
     Culvert.fuzzyQuery = function(name, address, culvertnumber, callback) {
         Culvert.find({
                 where: {

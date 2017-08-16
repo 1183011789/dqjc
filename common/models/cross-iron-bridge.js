@@ -1,6 +1,7 @@
 'use strict';
-
+// 横跨铁桥
 module.exports = function(Crossironbridge) {
+
   // 模糊查询  rodename    精确查询  classification
    Crossironbridge.fuzzyQuery = function(name, address, callback) {
        Crossironbridge.find({

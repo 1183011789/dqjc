@@ -1,5 +1,5 @@
 'use strict';
-
+////道口
 module.exports = function(LevelCrossing) {
   // 模糊查询  rodename    精确查询  classification
    LevelCrossing.fuzzyQuery = function(name, address, callback) {

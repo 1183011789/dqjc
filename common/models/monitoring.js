@@ -1,5 +1,5 @@
 'use strict';
-
+//监控设备信息
 module.exports = function(Monitoring) {
   // 模糊查询    精确查询
   Monitoring.fuzzyQuery = function(DeviceName, Address, Number, callback) {
