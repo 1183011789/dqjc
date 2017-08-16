@@ -3,6 +3,10 @@
   "plural": "AuthProviders",
   "base": "PersistedModel",
   "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
   "properties": {},
   "validations": [],
   "relations": {},

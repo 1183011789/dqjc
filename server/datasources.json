@@ -1,14 +1,14 @@
 {
-    "mzbaseserver_mysql": {
-        "host": "127.0.0.1",
+    "bjhlb_mysql": {
+        "host": "localhost",
         "port": 3306,
         "url": "",
-        "database": "demo",
-        "password": "orcl",
-        "name": "mzbaseserver_mysql",
+        "database": "bjhlb",
+        "password": "",
+        "name": "bjhlb_mysql",
         "user": "root",
         "connector": "mysql",
-        "charset": "utf8mb4",
+        "charset": "utf8",
         "createDatabase": true
     }
 }

@@ -2,17 +2,45 @@
   "name": "Setting",
   "plural": "settings",
   "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
   "properties": {
     "key": {
       "type": "string",
       "required": true
     },
+    "description": {
+      "type": "string",
+      "required": true
+    },
     "value": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

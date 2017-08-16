@@ -1,149 +1,151 @@
 {
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models",
-      "../node_modules/loopback-component-passport/lib/models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
-    ]
-  },
-  "User": {
-    "dataSource": "db",
-    "public": false
-  },
-  "accessToken": {
-    "dataSource": "db",
-    "public": true
-  },
-  "userCredential": {
-    "dataSource": "db",
-    "public": true
-  },
-  "userIdentity": {
-    "dataSource": "db",
-    "public": true
-  },
-  "ACL": {
-    "dataSource": "db",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Role": {
-    "dataSource": "db",
-    "public": true
-  },
-  "AppModel": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Setting": {
-    "dataSource": "db",
-    "public": true
-  },
-  "AuthProvider": {
-    "dataSource": "db",
-    "public": true
-  },
-  "user": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Meta": {
-    "dataSource": "db",
-    "public": true
-  },
-  "Rode": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "Bridge": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "Tunnel": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "LevelCrossing": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "Culvert": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "CrossIronBridge": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "ServicePort": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "BaseStation": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "KeyPlace": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "HiddenDangerPlace": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "KeyPersion": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "BroadcastWarningPost": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "APropagandaPoint": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "InstitutionalTeam": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "Station": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "EquipmentInfor": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "Monitoring": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "EmergencyAccesss": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "FenceInfo": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "SecurityEquipmentInformation": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  },
-  "RodeContain": {
-    "dataSource": "mzbaseserver_mysql",
-    "public": true
-  }
+    "_meta": {
+        "sources": [
+            "loopback/common/models",
+            "loopback/server/models",
+            "../common/models",
+            "./models",
+            "../node_modules/loopback-component-passport/lib/models"
+        ],
+        "mixins": [
+            "loopback/common/mixins",
+            "loopback/server/mixins",
+            "../common/mixins",
+            "./mixins"
+        ]
+    },
+    "User": {
+        "dataSource": "bjhlb_mysql",
+        "public": false
+    },
+    "accessToken": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "userCredential": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "userIdentity": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "ACL": {
+        "dataSource": "bjhlb_mysql",
+        "public": false
+    },
+    "RoleMapping": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Role": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "AppModel": {
+        "dataSource": "bjhlb_mysql",
+        "public": false
+    },
+    "Setting": {
+        "dataSource": "bjhlb_mysql",
+        "public": true,
+        "$promise": {},
+        "$resolved": true
+    },
+    "AuthProvider": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "user": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Meta": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Rode": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Bridge": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Tunnel": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "LevelCrossing": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Culvert": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "CrossIronBridge": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "ServicePort": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "BaseStation": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "KeyPlace": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "HiddenDangerPlace": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "KeyPersion": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "BroadcastWarningPost": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "APropagandaPoint": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "InstitutionalTeam": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Station": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "EquipmentInfor": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "Monitoring": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "EmergencyAccesss": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "FenceInfo": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "SecurityEquipmentInformation": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    },
+    "RodeContain": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
+    }
 }
