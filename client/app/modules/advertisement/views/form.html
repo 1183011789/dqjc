@@ -2,13 +2,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
-            <span ng-show="!ctrl.setting.id" translate>Add a new setting</span>
-            <span ng-show="ctrl.setting.id" translate>Edit setting</span>
+            <span ng-show="!ctrl.advertisement.id" translate>Add a new advertisement</span>
+            <span ng-show="ctrl.advertisement.id" translate>Edit setting</span>
         </div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-4">
-                    <formly-form model="ctrl.setting" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
+                    <formly-form model="ctrl.advertisement" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
                 </div>
             </div>
         </div>

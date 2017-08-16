@@ -445,7 +445,11 @@ msgstr "在这里管理您的产品！"
 
 #: client/app/modules/settings/views/main.html:1
 msgid "Manage your settings here!"
-msgstr "在这里管理您的设置！"
+msgstr "在这里管理您的设置"
+
+#: client/app/modules/advertisement/views/main.html:1
+msgid "Manage your advertisement here!"
+msgstr "在这里管理您的广告警示牌"
 
 #: client/app/modules/users/views/main.html:2
 msgid "Manage your users here!"
