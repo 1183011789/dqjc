@@ -1,0 +1,62 @@
+{
+  "name": "Image",
+  "plural": "images",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "mimeType": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "container": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "number"
+    },
+    "height": {
+      "type": "number"
+    },
+    "width": {
+      "type": "number"
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "hiddenDangerPlaces": {
+      "type": "belongsTo",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "hiddenDangerPlaceId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
