@@ -147,5 +147,9 @@
     "RodeContain": {
         "dataSource": "bjhlb_mysql",
         "public": true
+    },
+    "Image": {
+        "dataSource": "bjhlb_mysql",
+        "public": true
     }
 }
