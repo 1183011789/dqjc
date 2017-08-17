@@ -1,14 +1,20 @@
 {
-    "bjhlb_mysql": {
-        "host": "localhost",
-        "port": 3306,
-        "url": "",
-        "database": "demo",
-        "password": "orcl",
-        "name": "bjhlb_mysql",
-        "user": "root",
-        "connector": "mysql",
-        "charset": "utf8",
-        "createDatabase": true
-    }
+  "bjhlb_mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "demo",
+    "password": "orcl",
+    "name": "bjhlb_mysql",
+    "user": "root",
+    "connector": "mysql",
+    "charset": "utf8",
+    "createDatabase": true
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "storage"
+  }
 }

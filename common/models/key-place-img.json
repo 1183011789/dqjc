@@ -1,0 +1,29 @@
+{
+  "name": "KeyPlaceImg",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "keyPlaces": {
+      "type": "belongsTo",
+      "model": "KeyPlace",
+      "foreignKey": "keyPlaceId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
