@@ -19,6 +19,9 @@
     "rodelenth": {
       "type": "number"
     },
+    "railwayadministrat ": {
+      "type": "string"
+    },
     "stationnumber": {
       "type": "string"
     },

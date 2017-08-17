@@ -5,7 +5,7 @@
 module.exports = function(Rode) {
 
   // 模糊查询  rodename    精确查询  classification
-    Rode.FuzzyPrecision = function(rodename,classification,callback) {
+    Rode.FuzzyPrecision = function(rodename,classification,callback) {    
           Rode.find({where: {or: [{rodename:{like: '%'+rodename+'%'}}, {classification:classification}]}},
                   function (err, result) {
                     if (!err) {
@@ -20,6 +20,7 @@ module.exports = function(Rode) {
                       console.log(err);
                       }
                   });
+
         }
         Rode.remoteMethod(
         'FuzzyPrecision', {
