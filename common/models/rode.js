@@ -21,7 +21,8 @@ module.exports = function(Rode) {
                       }
                   });
         // var conn = this.app.datasources['bjhlb_mysql'].connector;
-        // var sql ='select * from Rode where rodename like '%'+rodename+'%' or classification = '+classification+'';
+        // // var sql ='select * from Rode where rodename like '%'+rodename+'%' or classification = '+classification+'';
+        // var sql ='select * from Rode where classification = '+classification+'';
         // conn.executeSQL(sql, [], {}, function(err, back) {
         //   callback(err, back);
         // });
