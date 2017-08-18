@@ -57,9 +57,9 @@
       "foreignKey": "keyPlaceid",
       "through": "RodeContain"
     },
-    "keyplaceimgs": {
+    "keyPlaceImgs": {
       "type": "hasMany",
-      "model": "Keyplaceimg"
+      "model": "KeyPlaceImg"
     }
   },
   "acls": [],
