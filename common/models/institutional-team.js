@@ -30,12 +30,11 @@ module.exports = function(Institutionalteam) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Institutionalteam.PagingFind = function(one,callback){

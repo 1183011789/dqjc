@@ -37,12 +37,11 @@ module.exports = function(Keyplace) {
                arg: 'address',
                type: 'string'
            }],
-           returns: {
+           returns: [{
                arg: 'keyplaces',
-               type: [
-                   'object'
-               ]
-           }
+               type:
+                   'object'                 
+                 }]
        });
   // 分页查询
   Keyplace.PagingFind = function(one,callback){

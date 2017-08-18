@@ -43,12 +43,11 @@ Keypersion.remoteMethod(
             arg: 'idnumber',
             type: 'number'
         }],
-        returns: {
+        returns: [{
             arg: 'keypersions',
-            type: [
+            type:
                 'object'
-            ]
-        }
+              }]
     });
   // 分页查询
   Keypersion.PagingFind = function(one,callback){

@@ -30,12 +30,11 @@ module.exports = function(Apropagandapoint) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Apropagandapoint.PagingFind = function(one,callback){

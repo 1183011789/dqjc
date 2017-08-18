@@ -27,12 +27,11 @@ module.exports = function(Broadcastwarningpost) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Broadcastwarningpost.PagingFind = function(one,callback){

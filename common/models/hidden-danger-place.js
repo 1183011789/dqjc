@@ -38,12 +38,11 @@ module.exports = function(Hiddendangerplace) {
               arg: 'address',
               type: 'string'
           }],
-          returns: {
+          returns: [{
               arg: 'hiddendangerplaces',
-              type: [
+              type:
                   'object'
-              ]
-          }
+                }]
       });
   // 分页查询
   Hiddendangerplace.PagingFind = function(one,callback){

@@ -33,12 +33,11 @@ module.exports = function(Station) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Station.PagingFind = function(one,callback){

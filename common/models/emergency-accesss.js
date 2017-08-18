@@ -37,12 +37,11 @@ Emergencyaccesss.remoteMethod(
             arg: 'address',
             type: 'string'
         }],
-        returns: {
+        returns: [{
             arg: 'emergencyaccesss',
-            type: [
-                'object'
-            ]
-        }
+            type:
+                'object'            
+              }]
     });
   // 分页查询
   Emergencyaccesss.PagingFind = function(one,callback){

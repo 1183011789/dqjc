@@ -31,12 +31,11 @@ module.exports = function(Bridge) {
                 arg: 'guardian',
                 type: 'string'
             }],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Bridge.PagingFind = function(one,callback){

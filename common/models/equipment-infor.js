@@ -30,12 +30,11 @@ module.exports = function(Equipmentinfor) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Equipmentinfor.PagingFind = function(one,callback){

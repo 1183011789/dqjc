@@ -30,12 +30,11 @@ module.exports = function(Tunnel) {
                 arg: 'guardian ',
                 type: 'string'
             }],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Tunnel.PagingFind = function(one,callback){

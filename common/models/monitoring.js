@@ -43,12 +43,11 @@ module.exports = function(Monitoring) {
               arg: 'Number',
               type: 'number'
           }],
-          returns: {
+          returns: [{
               arg: 'monitorings',
-              type: [
+              type:
                   'object'
-              ]
-          }
+                }]
       });
   // 分页查询
   Monitoring.PagingFind = function(one,callback){
