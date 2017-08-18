@@ -159,5 +159,9 @@
   "KeyPlaceImg": {
     "dataSource": "bjhlb_mysql",
     "public": true
+  },
+  "APropagandaPointImg": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
   }
 }

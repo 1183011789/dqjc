@@ -1,0 +1,29 @@
+{
+  "name": "APropagandaPointImg",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "aPropagandaPoints": {
+      "type": "belongsTo",
+      "model": "APropagandaPoint",
+      "foreignKey": "aPropagandaPointId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

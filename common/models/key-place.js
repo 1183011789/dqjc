@@ -40,7 +40,7 @@ module.exports = function(Keyplace) {
            returns: [{
                arg: 'keyplaces',
                type:
-                   'object'                 
+                   'object'
                  }]
        });
   // 分页查询
