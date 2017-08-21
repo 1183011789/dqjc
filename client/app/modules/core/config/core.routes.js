@@ -13,6 +13,11 @@
           url: '/error',
           template: '<div class="text-center alert alert-danger" style="margin: 100px">An error occurred.</div>'
         })
+        .state('cover', {
+          url: '/cover',
+          templateUrl: 'modules/core/views/cover.html',
+          controller: 'CoverCtrl'
+        })
         .state('app', {
           abstract: true,
           url: '/app',
