@@ -20,12 +20,12 @@
 
           if (!AppAuth.currentUser) {
             AppAuth.currentUser = User.getCurrent(function() {
-              $location.path('/app');
+              $location.path('/cover');
             }, function() {
               $location.path('/login');
             });
           } else {
-            $location.path('/app');
+            $location.path('/cover');
           }
         })
         .catch(function (err) {
