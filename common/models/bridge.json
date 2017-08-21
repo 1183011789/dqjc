@@ -81,7 +81,14 @@
       "model": "Rode",
       "foreignKey": "bridgeId",
       "through": "RodeBridge"
+    },
+    "guardians": {
+      "type": "belongsTo",
+      "model": "Guardian",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
     }
+
   },
   "acls": [],
   "methods": {}

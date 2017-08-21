@@ -1,0 +1,24 @@
+{
+  "name": "RodeClassification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Rank": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "classification",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

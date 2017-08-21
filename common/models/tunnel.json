@@ -54,6 +54,12 @@
       "model": "Rode",
       "foreignKey": "tunnelId",
       "through": "RodeContain"
+    },
+    "guardians": {
+      "type": "belongsTo",
+      "model": "Guardian",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
     }
   },
   "acls": [],

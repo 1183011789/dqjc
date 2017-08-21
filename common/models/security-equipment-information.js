@@ -1,6 +1,28 @@
 'use strict';
 
 module.exports = function(Securityequipmentinformation) {
+  Securityequipmentinformation.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `SecurityEquipmentInformation` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Securityequipmentinformation.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  Name
     Securityequipmentinformation.FuzzyPrecision = function(Name,AdministrativeDepartment,callback) {
           Securityequipmentinformation.find({where: {or: [{Name:{like: '%'+Name+'%'}},{AdministrativeDepartment:{like: '%'+AdministrativeDepartment+'%'}}]}},

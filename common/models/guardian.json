@@ -1,0 +1,42 @@
+{
+  "name": "Guardian",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Guardian": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "levelCrossings": {
+      "type": "hasMany",
+      "model": "LevelCrossing",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "tunnels": {
+      "type": "hasMany",
+      "model": "Tunnel",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "LevelCrossingCrossproperty",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Crossproperty": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "levelCrossings": {
+      "type": "hasMany",
+      "model": "LevelCrossing",
+      "foreignKey": "crossproperty",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

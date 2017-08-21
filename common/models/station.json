@@ -53,6 +53,12 @@
       "model": "Rode",
       "foreignKey": "stationId",
       "through": "RodeContain"
+    },
+    "stationRanks": {
+      "type": "belongsTo",
+      "model": "StationRank",
+      "foreignKey": "StationRank",
+      "primaryKey": "id"
     }
   },
   "acls": [],

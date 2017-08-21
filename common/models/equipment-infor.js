@@ -1,8 +1,30 @@
 'use strict';
 
 module.exports = function(Equipmentinfor) {
+  Equipmentinfor.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `EquipmentInfor` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Equipmentinfor.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  DeviceName    精确查询  ProtectiveFacilities
-    Equipmentinfor.FuzzyPrecision = function(DeviceName,ProtectiveFacilities,StationNature,callback) {
+    Equipmentinfor.FuzzyPrecision = function(DeviceName,ProtectiveFacilities,callback) {
           Equipmentinfor.find({where: {or: [{DeviceName:{like: '%'+DeviceName+'%'}},{ProtectiveFacilities:ProtectiveFacilities}]}},
                   function (err, result) {
                     if (!err) {
