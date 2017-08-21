@@ -12,6 +12,15 @@
     </span>
     </div>
     <div class="panel-body">
-        <pre>{{ctrl.advertisement | json}}</pre>
+        <!-- <pre>{{ctrl.advertisement | json}}</pre> -->
+        <p>广告警示柱名：{{ctrl.advertisement.name}}</p>
+        <p>所在地址：{{ctrl.advertisement.address}}</p>
+        <p>经度：{{ctrl.advertisement.lng}}</p>
+        <p>纬度：{{ctrl.advertisement.lat}}</p>
+        <p ng-if="ctrl.advertisement.state===true">现在状态：正常</p>
+        <p ng-if="ctrl.advertisement.state===false">现在状态：不正常</p>
+        <p>语音播报：{{ctrl.advertisement.voicebroadcast}}</p>
+        <p>单点广播：{{ctrl.advertisement.unicast}}</p>
+        <p>摄像头ID：{{ctrl.advertisement.cameraid}}</p>
     </div>
 </div>

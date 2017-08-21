@@ -46,7 +46,13 @@
             'com.module.users',
             'com.module.sandbox',
             'com.module.advertisement',
-            'com.module.keypersion'
+            'com.module.keypersion',
+            'com.module.monitoring',
+            'com.module.emergencyaccess',
+            'com.module.fenceinfo',
+            'com.module.securityequipment',
+            'com.module.apropagandapoint',
+            'com.module.institutionaiteam'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {
 

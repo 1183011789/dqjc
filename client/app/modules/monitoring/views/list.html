@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        监控设备
+        <span class="pull-right btn-group">
+          <a href="" class="btn btn-xs btn-success" ui-sref="^.add()">
+             <i class="fa fa-plus"></i>
+          </a>
+        </span>
+    </div>
+    <!-- 广播警示柱列表 -->
+    <div class='list-group'>
+        <div ng-repeat="item in ctrl.monitoring" class="list-group-item">
+            <span class="pull-right btn-group">
+                        <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: item.id})">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: item.id})">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                </span>
+            <h4 class="list-group-item-heading">
+                <a href="" ui-sref="^.view({id: item.id})">{{item.DeviceName}}</a>
+            </h4>
+            <p class="list-group-item-text">{{item.Address}}</p>
+        </div>
+        <div ng-show="!ctrl.monitoring.length" class="list-group-item">
+            <h4 class="list-group-item-heading" translate>
+                There are no monitoring
+            </h4>
+            <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a monitoring!</p>
+        </div>
+    </div>
+</div>

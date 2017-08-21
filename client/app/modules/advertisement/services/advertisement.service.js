@@ -4,10 +4,19 @@
         .module('com.module.advertisement')
         .service('AdvertisementService', function($state, CoreService, BroadcastWarningPost, gettextCatalog) {
             console.log("广播警示柱--1--");
-            this.find = function(result) {
-                console.log("广播警示柱--2--");
-                return BroadcastWarningPost.find().$promise;
+            this.count = function() {
+                console.log("条数-----");
+                return BroadcastWarningPost.count().$promise;
             };
+            //总数
+            // this.find = function(filter) {
+            //     return BroadcastWarningPost.find(filter).$promise;
+            // };
+            this.find = function(filter) {
+                var filter = filter || {};
+                return BroadcastWarningPost.find(filter).$promise;
+            };
+
 
             this.findById = function(id) {
                 return BroadcastWarningPost.findById({
@@ -16,7 +25,6 @@
             };
 
             this.upsert = function(advertisement) {
-                console.log("添加-------");
                 return BroadcastWarningPost.upsert(advertisement).$promise
                     .then(function() {
                         CoreService.toastSuccess(

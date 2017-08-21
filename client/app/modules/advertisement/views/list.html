@@ -1,15 +1,36 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        广播警示柱
+        广播警示柱 <span style="color:brown;">[共有 {{totalItems}} 个]</span>
         <span class="pull-right btn-group">
           <a href="" class="btn btn-xs btn-success" ui-sref="^.add()">
              <i class="fa fa-plus"></i>
           </a>
         </span>
+        <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+            <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+              <a href="" ng-class="{disabled:getSelectedCount()!=1}" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
+                查看
+              </a>
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-warning" ng-click="renameImage()">
+                重命名
+              </a>
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="titleImage()">
+                编辑标题
+              </a>
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteImage()">
+                删除
+              </a>
+            </span>
+        <span class="pull-right btn-group" style="margin-right:10px;">
+               <a href="" class="btn btn-xs btn-success" ui-sref="^.upload()">
+                上传
+                </a>
+            </span>
+        </span>
     </div>
     <!-- 广播警示柱列表 -->
-    <div class='list-group'>
-        <div ng-repeat="item in ctrl.advertisement" class="list-group-item">
+    <!-- <div class='list-group'>
+        <div ng-repeat="item in mess" class="list-group-item">
             <span class="pull-right btn-group">
                         <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: item.id})">
                             <i class="fa fa-pencil"></i>
@@ -23,11 +44,81 @@
             </h4>
             <p class="list-group-item-text">{{item.address}}</p>
         </div>
-        <div ng-show="!ctrl.advertisement.length" class="list-group-item">
+        <div ng-show="!mess.length" class="list-group-item">
             <h4 class="list-group-item-heading" translate>
                 There are no advertisement
             </h4>
             <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a advertisement!</p>
         </div>
+        <ul uib-pagination total-items="totalItems" max-size="maxSize" ng-model="currentPage" ng-change="pageChanged()" boundary-links="true" rotate="false" items-per-page="itemsPerPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页" style="float: right;"></ul>
+    </div> -->
+
+    <div class="image-table-div" multi-check-group>
+        <h3 class="no-image" ng-hide="hasImage">还没有数据，请<a ng-click="cancel()" ui-sref="^.upload()" ui-sref-active="active">添加</a></h3>
+        <table ng-table="tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
+            <tr ng-repeat="row in images">
+                <td data-title="''">
+                    <label>
+                      <input ng-hide="modalInstance.imageRadioAdd" multi-check type="checkbox" class="input-lg checkbox-lg" ng-model="row.checked">
+                      <input ng-show="modalInstance.imageRadioAdd" type="radio" name="avatarRadios" ng-value="{{$index}}" class="input-lg checkbox-lg" ng-model="modalInstance.avatarRadio">
+                  </label>
+                </td>
+                <td data-title="'名称'" ng-mouseenter="imageHover = true" ng-mouseleave="imageHover = false" filter="{name: 'text'}" sortable="'name'" ng-switch="row.rename" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="name">
+
+                    <strong ng-switch-default>{{row.name}}</strong>
+
+                    <div class="controls" ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                        <input type="text" name="name" ng-model="row.name" class="editable-input form-control input-sm" ng-change="row.changed=true;" required />
+                        <a href="" class="btn btn-xs btn-default" ng-click="updateImageCancel(row)">
+                    取消
+                  </a>
+                        <a href="" class="btn btn-xs btn-success" ng-click="updateImage(row)">
+                    保存
+                  </a>
+                    </div>
+
+                    <div ng-show="imageHover" class="images-thumbnail" ng-show="images.length">
+                        <a ng-click="openLightboxImageModal($index)">
+                            <img width="100" height="100" qiniu-image="{{ row.url }}" qiniu-imageview2 qiniu-imageview2-mode="1" qiniu-imageview2-quality="100" class="img-thumbnail">
+                        </a>
+                    </div>
+                </td>
+                <td data-title="'标题'" filter="{title: 'text'}" sortable="'title'" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title">
+                    <span ng-switch-default>{{row.title}}</span>
+                    <div class="controls" ng-class="title.$invalid && title.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                        <input type="text" name="title" ng-model="row.title" class="editable-input form-control input-sm" ng-change="row.changed=true;" />
+                        <a href="" class="btn btn-xs btn-default" ng-click="updateImageCancel(row)">
+                    取消
+                  </a>
+                        <a href="" class="btn btn-xs btn-success" ng-click="updateImage(row)">
+                    保存
+                  </a>
+                    </div>
+
+
+                </td>
+                <td data-title="'更新日期'" sortable="'lastUpdated'">{{row.lastUpdated | date : 'yyyy-MM-dd'}}</td>
+                <td data-title="'创建日期'" sortable="'created '">{{row.created | date : 'yyyy-MM-dd'}}</td>
+            </tr>
+        </table>
+        <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+            <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+                rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+            </ul>
+            <div class="mh-image-add-buttons pull-right">
+                <div class="btn-group mh-images-count-set">
+                    <button type="button" ng-class="{'active':tableParams.count() == 10}" ng-click="tableParams.count(10)" class="btn btn-default">10</button>
+                    <button type="button" ng-class="{'active':tableParams.count() == 20}" ng-click="tableParams.count(20)" class="btn btn-default">20</button>
+                    <button type="button" ng-class="{'active':tableParams.count() == 50}" ng-click="tableParams.count(50)" class="btn btn-default">50</button>
+                    <button type="button" ng-class="{'active':tableParams.count() == 100}" ng-click="tableParams.count(100)" class="btn btn-default">100</button>
+                </div>
+
+            </div>
+        </div>
     </div>
+
+
+
+
+
 </div>

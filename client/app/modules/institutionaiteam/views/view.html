@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.institutionaiteam.Name}}
+        <small>{{ctrl.institutionaiteam.Address}}</small>
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.institutionaiteam.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.institutionaiteam.id})">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </span>
+    </div>
+    <div class="panel-body">
+        <!-- <pre>{{ctrl.institutionaiteam | json}}</pre> -->
+        <p>机构名称：{{ctrl.institutionaiteam.name}}</p>
+        <p>机构地址：{{ctrl.institutionaiteam.address}}</p>
+        <p>负责人：{{ctrl.institutionaiteam.personcharge}}</p>
+        <p>联系电话：{{ctrl.institutionaiteam.contactnumber}}</p>
+        <p>管理部门：{{ctrl.institutionaiteam.admimdepartment}}</p>
+        <p>所属机构：{{ctrl.institutionaiteam.affiliatedinstitution}}</p>
+        <p>备注：{{ctrl.institutionaiteam.remark}}</p>
+    </div>
+</div>
