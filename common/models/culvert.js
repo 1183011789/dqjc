@@ -49,12 +49,11 @@ module.exports = function(Culvert) {
                 arg: 'culvertnumber',
                 type: 'number'
             }],
-            returns: {
+            returns: [{
                 arg: 'culverts',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
   // 分页查询
   Culvert.PagingFind = function(one,callback){

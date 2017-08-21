@@ -15,34 +15,21 @@
                         }
                     }
                 })
-                // .state('app.apropagandapoint.list', {
-                //     url: '',
-                //     templateUrl: 'modules/apropagandapoint/views/list.html',
-                //     controllerAs: 'ctrl',
-                //     controller: function(apropagandapoint) {
-                //         this.apropagandapoint = apropagandapoint;
-                //     },
-                //     resolve: {
-                //         apropagandapoint: function(APropagandaPointService) {
-                //             return APropagandaPointService.find();
-                //         }
-                //     }
-                // })
                 .state('app.apropagandapoint.list', {
                     url: '',
                     templateUrl: 'modules/apropagandapoint/views/list.html',
-                    controller: 'ApropagandapointListCtrl',
+                    controller: 'PropagandaPointCtrl'
                 })
                 .state('app.apropagandapoint.add', {
                     url: '/add',
                     templateUrl: 'modules/apropagandapoint/views/form.html',
                     controllerAs: 'ctrl',
-                    controller: function($state, APropagandaPointService, apropagandapoint) {
+                    controller: function($state, PropagandaPointService, apropagandapoint) {
                         this.apropagandapoint = apropagandapoint;
-                        this.formFields = APropagandaPointService.getFormFields();
+                        this.formFields = PropagandaPointService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
-                            APropagandaPointService.upsert(this.apropagandapoint).then(function() {
+                            PropagandaPointService.upsert(this.apropagandapoint).then(function() {
                                 $state.go('^.list');
                             });
                         };
@@ -57,19 +44,19 @@
                     url: '/:id/edit',
                     templateUrl: 'modules/apropagandapoint/views/form.html',
                     controllerAs: 'ctrl',
-                    controller: function($state, APropagandaPointService, apropagandapoint) {
+                    controller: function($state, PropagandaPointService, apropagandapoint) {
                         this.apropagandapoint = apropagandapoint;
-                        this.formFields = APropagandaPointService.getFormFields();
+                        this.formFields = PropagandaPointService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
-                            APropagandaPointService.upsert(this.apropagandapoint).then(function() {
+                            PropagandaPointService.upsert(this.apropagandapoint).then(function() {
                                 $state.go('^.list');
                             });
                         };
                     },
                     resolve: {
-                        apropagandapoint: function($stateParams, APropagandaPointService) {
-                            return APropagandaPointService.findById($stateParams.id);
+                        apropagandapoint: function($stateParams, PropagandaPointService) {
+                            return PropagandaPointService.findById($stateParams.id);
                         }
                     }
                 })
@@ -81,8 +68,8 @@
                         this.apropagandapoint = apropagandapoint;
                     },
                     resolve: {
-                        apropagandapoint: function($stateParams, APropagandaPointService) {
-                            return APropagandaPointService.findById($stateParams.id);
+                        apropagandapoint: function($stateParams, PropagandaPointService) {
+                            return PropagandaPointService.findById($stateParams.id);
                         }
                     }
                 })
@@ -90,8 +77,8 @@
                     url: '/:id/delete',
                     template: '',
                     controllerAs: 'ctrl',
-                    controller: function($stateParams, $state, APropagandaPointService) {
-                        APropagandaPointService.delete($stateParams.id, function() {
+                    controller: function($stateParams, $state, PropagandaPointService) {
+                        PropagandaPointService.delete($stateParams.id, function() {
                             $state.go('^.list');
                         }, function() {
                             $state.go('^.list');
@@ -99,5 +86,4 @@
                     }
                 });
         });
-
 })();

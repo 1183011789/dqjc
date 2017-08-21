@@ -33,12 +33,11 @@ module.exports = function(Station) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Station.PagingFind = function(one,callback){
@@ -110,5 +109,33 @@ module.exports = function(Station) {
                 type: 'number'
               }
           ]
+          });
+
+
+          Station.RemoveStationRank = function fetchStation(callback) {
+            //console.log(this.app.datasources['bjhlb_mysql']);
+            var conn = this.app.datasources['bjhlb_mysql'].connector;
+            var sql ='SELECT DISTINCT  distinct(StationRank) from Station';
+            conn.executeSQL(sql, [], {}, function(err, back) {
+              callback(err, back);
+            });
+          };
+          Station.remoteMethod('RemoveStationRank', {
+            accepts: [ ],
+            returns: { arg: 'rodes', type: ['object'] },
+            http: {verb: 'get'},
+          });
+          Station.RemoveStationNature = function fetchStation(callback) {
+            //console.log(this.app.datasources['bjhlb_mysql']);
+            var conn = this.app.datasources['bjhlb_mysql'].connector;
+            var sql ='SELECT DISTINCT  distinct(StationNature) from Station';
+            conn.executeSQL(sql, [], {}, function(err, back) {
+              callback(err, back);
+            });
+          };
+          Station.remoteMethod('RemoveStationNature', {
+            accepts: [ ],
+            returns: { arg: 'rodes', type: ['object'] },
+            http: {verb: 'get'},
           });
 };

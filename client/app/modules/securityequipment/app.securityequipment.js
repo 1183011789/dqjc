@@ -1,4 +1,5 @@
 (function() {
     'use strict';
-    angular.module('com.module.securityequipment', []);
+    // 安监设备
+    angular.module('com.module.securityequipment', ['ngTable']);
 })();

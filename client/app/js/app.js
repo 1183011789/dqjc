@@ -27,6 +27,7 @@
             'ngRoute',
             'ngLocale',
             'ngSanitize',
+            'ngTable',
             'ngTouch',
             'ui.bootstrap',
             'ui.codemirror',

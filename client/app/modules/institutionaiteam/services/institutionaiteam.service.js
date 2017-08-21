@@ -2,8 +2,7 @@
     'use strict';
     angular
         .module('com.module.institutionaiteam')
-        .service('InstitutionaIteamService', function($state, CoreService, InstitutionalTeam, gettextCatalog) {
-            console.log("广播警示柱--1--");
+        .service('InstitutionaIteamService', function(CoreService, InstitutionalTeam, gettextCatalog) {
             this.find = function(result) {
                 console.log("广播警示柱--2--");
                 return InstitutionalTeam.find().$promise;
@@ -13,6 +12,31 @@
                 return InstitutionalTeam.findById({
                     id: id
                 }).$promise;
+            };
+
+            this.deleteAll = function(ids, successCb, cancelCb) {
+                console.log("要删除的id" + ids);
+                CoreService.confirm(
+                    gettextCatalog.getString('Are you sure?'),
+                    gettextCatalog.getString('Deleting this cannot be undone'),
+                    function() {
+                        // InstitutionalTeam.destroyAll({ where: { id: { inq: ids } } }, function(error, info) {
+                        //     CoreService.toastSuccess(
+                        //         gettextCatalog.getString('Setting deleted'),
+                        //         gettextCatalog.getString('Your setting is deleted!'));
+                        //     successCb();
+                        // });
+                        //   , function(error) {
+                        //     CoreService.toastError(
+                        //         gettextCatalog.getString('Error deleting setting'),
+                        //         gettextCatalog.getString('Your setting is not deleted! ') + err);
+                        //     cancelCb();
+                        // }
+                    },
+                    function() {
+                        cancelCb();
+                    }
+                );
             };
 
             this.upsert = function(institutionaiteam) {
@@ -54,7 +78,6 @@
                     }
                 );
             };
-
 
             this.getFormFields = function() {
                 var form = [{

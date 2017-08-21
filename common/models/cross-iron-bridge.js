@@ -38,12 +38,11 @@ module.exports = function(Crossironbridge) {
                arg: 'address',
                type: 'string'
            }],
-           returns: {
+           returns: [{
                arg: 'crossironbridges',
-               type: [
+               type:
                    'object'
-               ]
-           }
+                 }]
        });
   // 分页查询
   Crossironbridge.PagingFind = function(one,callback){

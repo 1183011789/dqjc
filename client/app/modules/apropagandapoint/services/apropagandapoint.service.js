@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.apropagandapoint')
-        .service('APropagandaPointService', function($state, CoreService, APropagandaPoint, gettextCatalog) {
+        .service('PropagandaPointService', function($state, CoreService, APropagandaPoint, gettextCatalog) {
 
             this.count = function() {
                 console.log("条数-----");

@@ -1,0 +1,20 @@
+<header class="header">
+  <a class="logo" href="/">{{ settings.appName }}</a>
+  <navbar-no-menu></navbar-no-menu>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+  <div class="container" style="margin-top: 50px">
+    <div class="row">
+      <div class="col-md-4" ng-repeat="box in boxes | orderBy:['-quantity', 'name']">
+      <div class="small-box {{ box.color }}" ui-sref="{{ box.href }}">
+        <div class="inner">
+          <h3>{{box.quantity}} &nbsp;</h3>
+          <p>{{ box.name | translate }}</p>
+        </div>
+        <div class="icon"><i class="ion {{ box.icon }}"></i></div>
+        <a  class="small-box-footer" >{{ 'More info' | translate }} <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

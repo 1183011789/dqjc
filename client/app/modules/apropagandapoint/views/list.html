@@ -1,34 +1,55 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        护路宣传点位<span style="color:brown;">[共有 {{totalItemss}} 个]</span>
-        <span class="pull-right btn-group">
-          <a href="" class="btn btn-xs btn-success" ui-sref="^.add()">
-             <i class="fa fa-plus"></i>
-          </a>
+        护路宣传点位
+        <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+            <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+              <a href="" class="btn btn-xs btn-success" ng-click="editItem()">
+                  <i class="fa fa-edit"> 编辑 </i>
+              </a>
+              <a href="" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+                  <i class="fa fa-delete"> 删除 </i>
+              </a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+            </span>
         </span>
     </div>
-    <!-- 广播警示柱列表 -->
-    <div class='list-group'>
-        <div ng-repeat="item in mess" class="list-group-item">
-            <span class="pull-right btn-group">
-                        <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: item.id})">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: item.id})">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                </span>
-            <h4 class="list-group-item-heading">
-                <a href="" ui-sref="^.view({id: item.id})">{{item.name}}</a>
-            </h4>
-            <p class="list-group-item-text">{{item.address}}</p>
-        </div>
-        <div ng-show="!mess.length" class="list-group-item">
-            <h4 class="list-group-item-heading" translate>
-                There are no apropagandapoint
-            </h4>
-            <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a apropagandapoint!</p>
-        </div>
-        <ul uib-pagination total-items="totalItems" max-size="maxSize" ng-model="currentPage" ng-change="pageChanged()" boundary-links="true" rotate="false" items-per-page="itemsPerPage" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页" style="float: right;"></ul>
+
+    <!-- 数据列表 table实现 -->
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="item in propagandaPoints">
+            <td data-title="''" class="text-center" style="vertical-align:middle">
+                <input multi-check type="checkbox" ng-value="{{item.id}}" ng-change="addEditItem(item)" class="input-lg checkbox-lg" ng-model="item.checked">
+            </td>
+            <td data-title="'名称'" ng-switch="item.rename" ng-form="name" class="text-center" style="vertical-align:middle">
+                <a href="" ui-sref="^.view({id: item.id})">
+                    <strong ng-switch-default>{{item.name}}</strong>
+                </a>
+            </td>
+            <td data-title="'地址'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.address}}</span>
+            </td>
+
+            <td data-title="'经度'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="lng" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.lng}}</span>
+            </td>
+
+            <td data-title="'纬度'" ng-switch="item.lat" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="lat" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.lat}}</span>
+            </td>
+
+            <td data-title="'编号'" ng-switch="item.number" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="number" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.number}}</span>
+            </td>
+
+            <td data-title="'备注'" ng-switch="item.remark" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="remark" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.remark}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+        <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+            rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+        </ul>
     </div>
 </div>

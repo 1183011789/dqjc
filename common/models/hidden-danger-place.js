@@ -1,5 +1,6 @@
 'use strict';
 // 隐患场所
+var CONTAINERS_URL = '/api/containers/';
 module.exports = function(Hiddendangerplace) {
   // 模糊查询    精确查询
   Hiddendangerplace.fuzzyQuery = function(name, address, callback) {
@@ -37,12 +38,11 @@ module.exports = function(Hiddendangerplace) {
               arg: 'address',
               type: 'string'
           }],
-          returns: {
+          returns: [{
               arg: 'hiddendangerplaces',
-              type: [
+              type:
                   'object'
-              ]
-          }
+                }]
       });
   // 分页查询
   Hiddendangerplace.PagingFind = function(one,callback){
@@ -115,72 +115,53 @@ console.log(one);
         }
     ]
     });
-  /**
-   * 头像上传
-   * @param {number} userId 用于定位到上传头像的用户
-   * @param {string} imgKey 上传成功返回的key
-   * @param {string} imgName 文件名
-   * @param {string} imgType 文件类型
-   * @param {Function(Error, object)} callback
-   */
-   Hiddendangerplace.uploadAvatar = function(hiddenDangerPlaceId, imgKey, imgName, imgType, cb) {
-     // console.log(userId, imgKey, imgName, imgType);
-     var ImageModel = this.app.models.Image;
-     var UserModel = this;
-     var image = {
-       key: imgKey,
-       mimeType: imgType||'image',
-       name: imgName,
-       url: 'http://obxk6rroh.bkt.clouddn.com/' + imgKey,
-       hiddenDangerPlaceId: hiddenDangerPlaceId,
-       container: 'aoc-hiddenDangerPlaces',
-     };
-     // console.log('---------------received-----------------')
-     HiddendangerplaceModel.findById(hiddenDangerPlaceId, function(err, hiddenDangerPlace) {
-       // console.log('---------------find-----------------')
-       if (err) return cb(err);
-       if (!hiddenDangerPlace) return cb(new Error('hiddenDangerPlace有误'));
-       // console.log('---------------set-----------------')
-       hiddendangerplace.updateAttribute('avatar', image, function(err, hiddenDangerPlace) {
-         cb(err, image);
-       });
-     });
-   };
 
-   Hiddendangerplace.remoteMethod('uploadAvatar', {
-     accepts: [
-       {
-         arg: 'hiddenDangerPlaceId',
-         type: 'number',
-         required: true,
-         description: '用于定位到上传头像的用户'
-       },
-       {
-         arg: 'imgKey',
-         type: 'string',
-         required: true,
-         description: '上传成功返回的key'
-       },
-       {
-         arg: 'imgName',
-         type: 'string',
-         required: false,
-         description: '文件名'
-       },
-       {
-         arg: 'imgType',
-         type: 'string',
-         required: false,
-         description: '文件类型'
-       }
-     ],
-     returns: [
-       {
-         arg: 'image',
-         type: 'object',
-         description: 'image'
-       }
-     ],
-     description: '头像上传'
-   });
+    Hiddendangerplace.uploadPictrue = function (ctx,options,cb){
+        options = options || {};
+        //if(!options) options = {};
+        ctx.req.params.container = 'common'; // "common" 为之前数据源中root 参数 /server/storage 目录下的文件夹“common” 需要自己创建好
+        Hiddendangerplace.app.models.Container.upload(ctx.req, ctx.result,
+        options, function(err, fileObj) {
+          if (err) {
+            return cb(null, {
+              status: 'failed',
+              message: err.message,
+            });
+          } else {
+            // The 'file'below should be the same as field name in the form
+            var fileInfoArr = fileObj.files.file;
+            var objs = [];
+            fileInfoArr.forEach(function(item) {
+              objs.push({
+                name: item.name,
+                type: item.type,
+                url: CONTAINER_URL + item.container +
+                      '/download/' + item.name,
+              });
+            });
+            Hiddendangerplace.create(objs, function(err, instances) {
+              if (err) {
+                return cb(null, {
+                  message: err.message,
+                });
+              } else {
+                cb(null, instances);
+              }
+            });
+          }
+        });
+    };
+    Hiddendangerplace.remoteMethod(
+      'upload', {
+        description: 'Upload a file or more files',
+        accepts: [
+          {arg: 'ctx', type: 'object', http: {source: 'context'}},
+          {arg: 'options', type: 'object', http: {source: 'query'}},
+        ],
+        returns: {
+          arg: 'fileObject', type: 'object', root: true,
+        },
+        http: {verb: 'post'},
+      }
+    );
 };

@@ -18,15 +18,7 @@
                 .state('app.securityequipment.list', {
                     url: '',
                     templateUrl: 'modules/securityequipment/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(securityequipment) {
-                        this.securityequipment = securityequipment;
-                    },
-                    resolve: {
-                        securityequipment: function(SecurityEquipmentService) {
-                            return SecurityEquipmentService.find();
-                        }
-                    }
+                    controller: 'SecurityEquipmentCtrl'
                 })
                 .state('app.securityequipment.add', {
                     url: '/add',
@@ -37,6 +29,8 @@
                         this.formFields = SecurityEquipmentService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
+                            console.log('===============');
+                            console.log(this.securityequipment)
                             SecurityEquipmentService.upsert(this.securityequipment).then(function() {
                                 $state.go('^.list');
                             });

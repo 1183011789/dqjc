@@ -20,6 +20,13 @@ module.exports = function(Rode) {
                       console.log(err);
                       }
                   });
+        // var conn = this.app.datasources['bjhlb_mysql'].connector;
+        // // var sql ='select * from Rode where rodename like '%'+rodename+'%' or classification = '+classification+'';
+        // var sql ='select * from Rode where classification = '+classification+'';
+        // conn.executeSQL(sql, [], {}, function(err, back) {
+        //   callback(err, back);
+        // });
+
         }
         Rode.remoteMethod(
         'FuzzyPrecision', {
@@ -54,7 +61,7 @@ module.exports = function(Rode) {
       //   return false;
       //   }
       //   }
-      console.log(one);
+
 
         var pageCount=0;//总页数
         Rode.count( {}, function (err, result) {
@@ -108,5 +115,25 @@ module.exports = function(Rode) {
               }
           ]
           });
+
+
+
+
+  Rode.fetchRode = function fetchRode(callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    var sql ='SELECT DISTINCT  distinct(classification) from Rode';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+      callback(err, back);
+    });
+  };
+  Rode.remoteMethod('fetchRode', {
+    accepts: [ ],
+    returns: { arg: 'rodes', type: ['object'] },
+    http: {verb: 'get'},
+  });
+
+
+
 
 };

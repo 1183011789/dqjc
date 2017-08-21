@@ -7,46 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "mimeType": {
-      "type": "string",
-      "required": true
-    },
-    "key": {
-      "type": "string",
-      "required": true
+    "type": {
+      "type": "string"
     },
     "name": {
-      "type": "string",
-      "required": true
-    },
-    "title": {
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     "url": {
-      "type": "string",
-      "required": true
-    },
-    "container": {
-      "type": "string",
-      "required": true
-    },
-    "size": {
-      "type": "number"
-    },
-    "height": {
-      "type": "number"
-    },
-    "width": {
-      "type": "number"
-    },
-    "created": {
-      "type": "date",
-      "required": true
-    },
-    "lastUpdated": {
-      "type": "date",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],

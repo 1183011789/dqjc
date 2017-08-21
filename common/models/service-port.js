@@ -37,12 +37,12 @@ module.exports = function(Serviceport) {
               arg: 'address',
               type: 'string'
           }],
-          returns: {
+          returns:[ {
               arg: 'serviceports',
-              type: [
+              type:
                   'object'
-              ]
-          }
+
+                }]
       });
   // 分页查询
   Serviceport.PagingFind = function(one,callback){

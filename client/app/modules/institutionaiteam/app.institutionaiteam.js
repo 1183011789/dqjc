@@ -1,4 +1,5 @@
 (function() {
     'use strict';
-    angular.module('com.module.institutionaiteam', []);
+    // 机构队伍
+    angular.module('com.module.institutionaiteam', ["ngTable"]);
 })();

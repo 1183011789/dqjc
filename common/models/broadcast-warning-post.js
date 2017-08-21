@@ -24,12 +24,10 @@ module.exports = function(Broadcastwarningpost) {
                 arg: 'name',
                 type: 'string'
             }],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
-                    'object'
-                ]
-            }
+                type: 'object'
+            }]
         });
     // 分页查询
     //   Broadcastwarningpost.PagingFind = function(one,callback){

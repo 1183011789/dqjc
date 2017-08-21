@@ -18,15 +18,15 @@
                 .state('app.institutionaiteam.list', {
                     url: '',
                     templateUrl: 'modules/institutionaiteam/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(institutionaiteam) {
-                        this.institutionaiteam = institutionaiteam;
-                    },
-                    resolve: {
-                        institutionaiteam: function(InstitutionaIteamService) {
-                            return InstitutionaIteamService.find();
-                        }
-                    }
+                    controller: 'InstitutionalTeamCtrl'
+                        // ,controller: function(institutionaiteam) {
+                        //         this.institutionaiteam = institutionaiteam;
+                        //     }
+                        // ,resolve: {
+                        //     institutionaiteam: function(InstitutionaIteamService) {
+                        //         return InstitutionaIteamService.find();
+                        //     }
+                        // }
                 })
                 .state('app.institutionaiteam.add', {
                     url: '/add',
@@ -80,19 +80,19 @@
                             return InstitutionaIteamService.findById($stateParams.id);
                         }
                     }
-                })
-                .state('app.institutionaiteam.delete', {
-                    url: '/:id/delete',
-                    template: '',
-                    controllerAs: 'ctrl',
-                    controller: function($stateParams, $state, InstitutionaIteamService) {
-                        InstitutionaIteamService.delete($stateParams.id, function() {
-                            $state.go('^.list');
-                        }, function() {
-                            $state.go('^.list');
-                        });
-                    }
                 });
+            // .state('app.institutionaiteam.delete', {
+            //     url: '/:id/delete',
+            //     template: '',
+            //     controllerAs: 'ctrl',
+            //     controller: function($stateParams, $state, InstitutionaIteamService) {
+            //         InstitutionaIteamService.delete($stateParams.id, function() {
+            //             $state.go('^.list');
+            //         }, function() {
+            //             $state.go('^.list');
+            //         });
+            //     }
+            // });
         });
 
 })();

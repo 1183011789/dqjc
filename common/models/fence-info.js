@@ -31,12 +31,11 @@ module.exports = function(Fenceinfo) {
                 type: 'string'
             }
           ],
-            returns: {
+            returns: [{
                 arg: 'rodes',
-                type: [
+                type:
                     'object'
-                ]
-            }
+                  }]
         });
         // 分页查询
         Fenceinfo.PagingFind = function(one,callback){

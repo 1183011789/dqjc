@@ -37,12 +37,11 @@ module.exports = function(Basestation) {
                arg: 'address',
                type: 'string'
            }],
-           returns: {
+           returns: [{
                arg: 'basestations',
-               type: [
+               type:
                    'object'
-               ]
-           }
+                 }]
        });
   // 分页查询
   Basestation.PagingFind = function(one,callback){
