@@ -1,27 +1,14 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
-  </div>
-  <div class="panel-body" style="height: 100%">
-  <openlayers 
-  custom-layers="true"
-  ol-center="center"
-  ol-defaults="defaults"
-  height="100%" 
-  >
-      <ol-layer ol-layer-properties="wms"></ol-layer>
-      <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
-      <ol-marker 
-      ng-repeat="marker in markers" 
-      ol-marker-properties="marker" 
-      style="color:red;">
-      </ol-marker>
-      <ol-path 
-      ng-repeat="path in paths" 
-      message="{{ path.message }}" 
-      coords="{{ path.coords }}"
-      ol-style="path.style"
-      ></ol-path>
-  </openlayers>
-  </div>
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+    </div>
+    <div class="panel-body" style="height: 100%">
+        <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
+            <ol-layer ol-layer-properties="wms"></ol-layer>
+            <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
+            <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
+            </ol-marker>
+            <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}" ol-style="path.style"></ol-path>
+        </openlayers>
+    </div>
 </div>
