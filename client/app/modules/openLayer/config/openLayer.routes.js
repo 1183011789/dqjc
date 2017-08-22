@@ -8,9 +8,9 @@ angular.module('com.module.openLayer')
           url: '/openlayer',
           templateUrl: 'modules/openLayer/views/main.html',
         })
-        .state('app.openlayer.view', {
+        .state('app.openlayer.map', {
           url: '',
-          templateUrl: 'modules/openLayer/views/view.html',
+          templateUrl: 'modules/openLayer/views/map.html',
           controller: 'OpenLayerCtrl'
         })
 			;
