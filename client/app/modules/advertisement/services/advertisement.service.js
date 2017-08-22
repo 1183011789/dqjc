@@ -25,6 +25,10 @@
             };
 
             this.upsert = function(advertisement) {
+                console.log("修改--------", JSON.stringify(advertisement));
+                // if (!advertisement) {
+                //     CoreService.alertWarning('提示', '内容');
+                // }
                 return BroadcastWarningPost.upsert(advertisement).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -70,7 +74,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '名字:',
-                            required: true
+                            required: false
                         }
                     },
                     {
@@ -78,7 +82,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址：',
-                            required: true
+                            required: false
                         }
                     },
                     {
@@ -86,7 +90,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度:',
-                            required: true
+                            required: false
                         }
                     },
                     {
@@ -94,35 +98,35 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度:',
-                            required: true
+                            required: false
                         }
                     }, {
                         key: 'state',
                         type: 'input',
                         templateOptions: {
                             label: '状态:',
-                            required: true
+                            required: false
                         }
                     }, {
                         key: 'voicebroadcast',
                         type: 'input',
                         templateOptions: {
                             label: '语音播报:',
-                            required: true
+                            required: false
                         }
                     }, {
                         key: 'unicast',
                         type: 'input',
                         templateOptions: {
                             label: '单点广播:',
-                            required: true
+                            required: false
                         }
                     }, {
                         key: 'cameraid',
                         type: 'input',
                         templateOptions: {
                             label: '摄像头id:',
-                            required: true
+                            required: false
                         }
                     }
                 ];
