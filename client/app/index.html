@@ -8,28 +8,55 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
-    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
-    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
-    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
-    <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
-    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-    <!-- endbower -->
-    <link rel="stylesheet" href="https://unpkg.com/ng-table@3.0.1/bundles/ng-table.css" />
-    <!-- endbuild -->
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="/css/AdminLTE.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    
-    <!-- endbuild -->
+    <<<<<<< HEAD <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
+        <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+        <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
+        <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+        <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+        <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css" />
+        <link rel="stylesheet" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css" />
+        <!-- endbower -->
+        <link rel="stylesheet" href="https://unpkg.com/ng-table@3.0.1/bundles/ng-table.css" />
+        <!-- endbuild -->
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="/css/AdminLTE.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        
+        <!-- endbuild -->
+        =======
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
+        <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+        <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
+        <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
+        <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+        <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+        <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css" />
+        <link rel="stylesheet" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="/css/AdminLTE.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+        
+        <!-- endbuild -->
+        <link rel="stylesheet" href="bower_components/openlayers/ol.css" /> >>>>>>> cefe13c3f11139dcea6e1810d1023e42efefc7ea
 </head>
 
 <body class="{{ settings.appTheme }} {{ settings.appLayout }} " ng-controller="MainCtrl">
@@ -62,11 +89,11 @@
 
     <!-- build:js scripts/oldieshim.js -->
     <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
     <!-- endbuild -->
+    <script src="bower_components/openlayers/ol.js"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -118,8 +145,9 @@
     <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
     <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
     <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.js"></script>
+    <script src="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.min.js"></script>
     <!-- endbower -->
-    <script src="https://unpkg.com/ng-table@3.0.1/bundles/ng-table.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/scripts.js -->
     <!-- JS -->
@@ -187,6 +215,10 @@
     <script src="/modules/monitoring/config/monitoring.routes.js"></script>
     <script src="/modules/monitoring/controllers/monitoring.ctrl.js"></script>
     <script src="/modules/monitoring/services/monitoring.service.js"></script>
+    <script src="/modules/openLayer/app.openLayer.js"></script>
+    <script src="/modules/openLayer/config/openLayer.config.js"></script>
+    <script src="/modules/openLayer/config/openLayer.routes.js"></script>
+    <script src="/modules/openLayer/controllers/openLayer.Ctrl.js"></script>
     <script src="/modules/sandbox/app.sandbox.js"></script>
     <script src="/modules/sandbox/config/sandbox.config.js"></script>
     <script src="/modules/sandbox/config/sandbox.routes.js"></script>
