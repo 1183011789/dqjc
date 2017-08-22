@@ -163,5 +163,25 @@
   "APropagandaPointImg": {
     "dataSource": "bjhlb_mysql",
     "public": true
+  },
+  "RodeClassification": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "StationRank": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "LevelCrossingCrossproperty": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "LevelCrossingCrossproperty": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "Guardian": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
   }
 }

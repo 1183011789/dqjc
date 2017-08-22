@@ -15,18 +15,23 @@
                         }
                     }
                 })
+                // .state('app.monitoring.list', {
+                //     url: '',
+                //     templateUrl: 'modules/monitoring/views/list.html',
+                //     controllerAs: 'ctrl',
+                //     controller: function(monitoring) {
+                //         this.monitoring = monitoring;
+                //     },
+                //     resolve: {
+                //         monitoring: function(MonitoringService) {
+                //             return MonitoringService.find();
+                //         }
+                //     }
+                // })
                 .state('app.monitoring.list', {
                     url: '',
                     templateUrl: 'modules/monitoring/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(monitoring) {
-                        this.monitoring = monitoring;
-                    },
-                    resolve: {
-                        monitoring: function(MonitoringService) {
-                            return MonitoringService.find();
-                        }
-                    }
+                    controller: 'MonitoringListCtrl',
                 })
                 .state('app.monitoring.add', {
                     url: '/add',

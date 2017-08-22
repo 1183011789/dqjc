@@ -1,6 +1,28 @@
 'use strict';
-////道口
+////道口----
 module.exports = function(LevelCrossing) {
+  LevelCrossing.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `LevelCrossing` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  LevelCrossing.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  rodename    精确查询  classification
    LevelCrossing.fuzzyQuery = function(name, address, callback) {
        LevelCrossing.find({

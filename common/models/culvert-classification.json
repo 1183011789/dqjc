@@ -1,0 +1,24 @@
+{
+  "name": "CulvertClassification",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Classification": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "classification",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

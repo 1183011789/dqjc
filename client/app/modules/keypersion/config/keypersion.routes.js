@@ -15,18 +15,23 @@
                         }
                     }
                 })
+                // .state('app.keypersion.list', {
+                //     url: '',
+                //     templateUrl: 'modules/keypersion/views/list.html',
+                //     controllerAs: 'ctrl',
+                //     controller: function(keypersion) {
+                //         this.keypersion = keypersion;
+                //     },
+                //     resolve: {
+                //         keypersion: function(KeypersionService) {
+                //             return KeypersionService.find();
+                //         }
+                //     }
+                // })
                 .state('app.keypersion.list', {
                     url: '',
                     templateUrl: 'modules/keypersion/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(keypersion) {
-                        this.keypersion = keypersion;
-                    },
-                    resolve: {
-                        keypersion: function(KeypersionService) {
-                            return KeypersionService.find();
-                        }
-                    }
+                    controller: 'KeyPersionListCtrl',
                 })
                 .state('app.keypersion.add', {
                     url: '/add',

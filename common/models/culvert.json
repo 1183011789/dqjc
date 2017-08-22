@@ -69,6 +69,18 @@
       "model": "Rode",
       "foreignKey": "culvertId",
       "through": "RodeContain"
+    },
+    "guardians": {
+      "type": "belongsTo",
+      "model": "Guardian",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "culvertClassifications": {
+      "type": "belongsTo",
+      "model": "CulvertClassification",
+      "foreignKey": "classification",
+      "primaryKey": "id"
     }
   },
   "acls": [],

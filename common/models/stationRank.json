@@ -1,0 +1,33 @@
+{
+  "name": "StationRank",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Rank": {
+      "type": "string"
+    },
+    "Nature": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "stations": {
+      "type": "hasMany",
+      "model": "Station",
+      "foreignKey": "StationRank",
+      "primaryKey": "id"
+    },
+    "stations": {
+      "type": "hasMany",
+      "model": "Station",
+      "foreignKey": "StationNature",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

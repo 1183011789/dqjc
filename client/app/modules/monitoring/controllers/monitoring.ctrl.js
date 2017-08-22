@@ -9,7 +9,7 @@
      **/
     angular
         .module('com.module.advertisement')
-        .controller('OrdersListCtrl', function($scope, CoreService, BroadcastWarningPost, AdvertisementService, $rootScope, $location, NgTableParams) {
+        .controller('MonitoringListCtrl', function($scope, CoreService, Monitoring, MonitoringService, $rootScope, $location, NgTableParams) {
             console.log("广播警示柱界面------");
             // $scope.maxSize = 6;
             // AdvertisementService.count()
@@ -40,14 +40,14 @@
                         };
                     }
 
-                    BroadcastWarningPost.count({ where: where }).$promise.then(function(result) {
+                    Monitoring.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)
                         $scope.totalItems = result.count;
                         params.total(result.count);
                     });
                     var offset = params._params.count * (params._params.page - 1);
-                    BroadcastWarningPost.find({
+                    Monitoring.find({
                         filter: {
                             limit: params._params.count,
                             offset: offset,

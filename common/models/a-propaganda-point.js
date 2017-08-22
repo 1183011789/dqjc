@@ -1,6 +1,28 @@
 'use strict';
 // 护路宣传点位
 module.exports = function(Apropagandapoint) {
+  Apropagandapoint.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `APropagandaPoint` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Apropagandapoint.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  name   address
     Apropagandapoint.FuzzyPrecision = function(name,address,callback) {
           Apropagandapoint.find({where: {or: [{name:{like: '%'+name+'%'}},{address:{like: '%'+address+'%'}}]}},
@@ -111,7 +133,7 @@ module.exports = function(Apropagandapoint) {
           Apropagandapoint.uploadPictrue = function (ctx,options,cb){
               options = options || {};
               //if(!options) options = {};
-              ctx.req.params.container = 'common1'; // "common" 为之前数据源中root 参数 /server/storage 目录下的文件夹“common” 需要自己创建好
+              ctx.req.params.container = 'common2'; // "common" 为之前数据源中root 参数 /server/storage 目录下的文件夹“common” 需要自己创建好
               Apropagandapoint.app.models.Container.upload(ctx.req, ctx.result,
               options, function(err, fileObj) {
                 if (err) {

@@ -54,6 +54,18 @@
       "model": "Rode",
       "foreignKey": "levelcrossingId",
       "through": "RodeContain"
+    },
+    "guardians": {
+      "type": "belongsTo",
+      "model": "Guardian",
+      "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "levelCrossingCrosspropertys": {
+      "type": "belongsTo",
+      "model": "LevelCrossingCrossproperty",
+      "foreignKey": "crossproperty",
+      "primaryKey": "id"
     }
   },
   "acls": [],

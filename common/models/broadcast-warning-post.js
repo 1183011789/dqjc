@@ -18,6 +18,44 @@ module.exports = function(Broadcastwarningpost) {
                 }
             });
     }
+
+    Broadcastwarningpost.deleteMultiple = function(multiple, callback) {
+        //console.log(this.app.datasources['bjhlb_mysql']);
+
+        var conn = this.app.datasources['bjhlb_mysql'].connector;
+        // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+        var sql = 'DELETE FROM `BroadcastWarningPost` where id in (' + multiple.join(',') + ')';
+        conn.executeSQL(sql, [], {}, function(err, back) {
+            callback(err, back);
+        });
+        // }
+    };
+    Broadcastwarningpost.remoteMethod('deleteMultiple', {
+        accepts: [{
+            arg: 'multiple',
+            type: '[number]'
+        }],
+        returns: { arg: 'rodes', type: ['object'] },
+        http: { verb: 'get' },
+    });
+    // 模糊查询  name
+    Broadcastwarningpost.FuzzyPrecision = function(name, callback) {
+        Broadcastwarningpost.find({ where: { or: [{ name: { like: '%' + name + '%' } }] } },
+            function(err, result) {
+                if (!err) {
+                    var tempResult = result.map(function(obj) {
+                        //  console.log('----'+JSON.stringify(obj) );
+                        //return Crossironbridge.fromDatabase('Broadcastwarningpost', obj);
+                        return obj;
+                    });
+                    callback(null, tempResult);
+                } else {
+                    callback(err);
+                    console.log(err);
+                }
+            });
+    }
     Broadcastwarningpost.remoteMethod(
         'FuzzyPrecision', {
             accepts: [{

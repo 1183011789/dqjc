@@ -15,18 +15,23 @@
                         }
                     }
                 })
+                // .state('app.emergencyaccess.list', {
+                //     url: '',
+                //     templateUrl: 'modules/emergencyaccess/views/list.html',
+                //     controllerAs: 'ctrl',
+                //     controller: function(emergencyaccess) {
+                //         this.emergencyaccess = emergencyaccess;
+                //     },
+                //     resolve: {
+                //         emergencyaccess: function(EmergencyAccessService) {
+                //             return EmergencyAccessService.find();
+                //         }
+                //     }
+                // })
                 .state('app.emergencyaccess.list', {
                     url: '',
                     templateUrl: 'modules/emergencyaccess/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(emergencyaccess) {
-                        this.emergencyaccess = emergencyaccess;
-                    },
-                    resolve: {
-                        emergencyaccess: function(EmergencyAccessService) {
-                            return EmergencyAccessService.find();
-                        }
-                    }
+                    controller: 'EmergencyaccessListCtrl',
                 })
                 .state('app.emergencyaccess.add', {
                     url: '/add',

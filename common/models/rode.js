@@ -3,6 +3,28 @@
 铁路基本信息
 */
 module.exports = function(Rode) {
+  Rode.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `Rode` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Rode.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
 
   // 模糊查询  rodename    精确查询  classification
     Rode.FuzzyPrecision = function(rodename,classification,callback) {
@@ -20,12 +42,7 @@ module.exports = function(Rode) {
                       console.log(err);
                       }
                   });
-        // var conn = this.app.datasources['bjhlb_mysql'].connector;
-        // // var sql ='select * from Rode where rodename like '%'+rodename+'%' or classification = '+classification+'';
-        // var sql ='select * from Rode where classification = '+classification+'';
-        // conn.executeSQL(sql, [], {}, function(err, back) {
-        //   callback(err, back);
-        // });
+
 
         }
         Rode.remoteMethod(
@@ -118,20 +135,20 @@ module.exports = function(Rode) {
 
 
 
-
-  Rode.fetchRode = function fetchRode(callback) {
-    //console.log(this.app.datasources['bjhlb_mysql']);
-    var conn = this.app.datasources['bjhlb_mysql'].connector;
-    var sql ='SELECT DISTINCT  distinct(classification) from Rode';
-    conn.executeSQL(sql, [], {}, function(err, back) {
-      callback(err, back);
-    });
-  };
-  Rode.remoteMethod('fetchRode', {
-    accepts: [ ],
-    returns: { arg: 'rodes', type: ['object'] },
-    http: {verb: 'get'},
-  });
+  //
+  // Rode.fetchRode = function fetchRode(callback) {
+  //   //console.log(this.app.datasources['bjhlb_mysql']);
+  //   var conn = this.app.datasources['bjhlb_mysql'].connector;
+  //   var sql ='SELECT DISTINCT  distinct(classification) from Rode';
+  //   conn.executeSQL(sql, [], {}, function(err, back) {
+  //     callback(err, back);
+  //   });
+  // };
+  // Rode.remoteMethod('fetchRode', {
+  //   accepts: [ ],
+  //   returns: { arg: 'rodes', type: ['object'] },
+  //   http: {verb: 'get'},
+  // });
 
 
 

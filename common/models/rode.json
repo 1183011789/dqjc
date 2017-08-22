@@ -40,10 +40,7 @@
     "Kwamerailwaynumber": {
       "type": "number"
     },
-    "remark1": {
-      "type": "string"
-    },
-    "remark2": {
+    "remark": {
       "type": "string"
     }
   },
@@ -126,6 +123,12 @@
       "model": "Tunnel",
       "foreignKey": "rodeiId",
       "through": "RodeContain"
+    },
+    "rodeClassifications": {
+      "type": "belongsTo",
+      "model": "RodeClassification",
+      "foreignKey": "classification",
+      "primaryKey": "id"
     }
   },
   "acls": [],

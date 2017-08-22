@@ -1,6 +1,28 @@
 'use strict';
 
 module.exports = function(Station) {
+  Station.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `Station` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Station.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  StationName    精确查询  StationRank StationNature
     Station.FuzzyPrecision = function(StationName,StationRank,StationNature,callback) {
           Station.find({where: {or: [{StationName:{like: '%'+StationName+'%'}}, {StationRank:StationRank},{StationNature:StationNature}]}},
@@ -111,31 +133,31 @@ module.exports = function(Station) {
           ]
           });
 
-
-          Station.RemoveStationRank = function fetchStation(callback) {
-            //console.log(this.app.datasources['bjhlb_mysql']);
-            var conn = this.app.datasources['bjhlb_mysql'].connector;
-            var sql ='SELECT DISTINCT  distinct(StationRank) from Station';
-            conn.executeSQL(sql, [], {}, function(err, back) {
-              callback(err, back);
-            });
-          };
-          Station.remoteMethod('RemoveStationRank', {
-            accepts: [ ],
-            returns: { arg: 'rodes', type: ['object'] },
-            http: {verb: 'get'},
-          });
-          Station.RemoveStationNature = function fetchStation(callback) {
-            //console.log(this.app.datasources['bjhlb_mysql']);
-            var conn = this.app.datasources['bjhlb_mysql'].connector;
-            var sql ='SELECT DISTINCT  distinct(StationNature) from Station';
-            conn.executeSQL(sql, [], {}, function(err, back) {
-              callback(err, back);
-            });
-          };
-          Station.remoteMethod('RemoveStationNature', {
-            accepts: [ ],
-            returns: { arg: 'rodes', type: ['object'] },
-            http: {verb: 'get'},
-          });
+          //
+          // Station.RemoveStationRank = function fetchStation(callback) {
+          //   //console.log(this.app.datasources['bjhlb_mysql']);
+          //   var conn = this.app.datasources['bjhlb_mysql'].connector;
+          //   var sql ='SELECT DISTINCT  distinct(StationRank) from Station';
+          //   conn.executeSQL(sql, [], {}, function(err, back) {
+          //     callback(err, back);
+          //   });
+          // };
+          // Station.remoteMethod('RemoveStationRank', {
+          //   accepts: [ ],
+          //   returns: { arg: 'rodes', type: ['object'] },
+          //   http: {verb: 'get'},
+          // });
+          // Station.RemoveStationNature = function fetchStation(callback) {
+          //   //console.log(this.app.datasources['bjhlb_mysql']);
+          //   var conn = this.app.datasources['bjhlb_mysql'].connector;
+          //   var sql ='SELECT DISTINCT  distinct(StationNature) from Station';
+          //   conn.executeSQL(sql, [], {}, function(err, back) {
+          //     callback(err, back);
+          //   });
+          // };
+          // Station.remoteMethod('RemoveStationNature', {
+          //   accepts: [ ],
+          //   returns: { arg: 'rodes', type: ['object'] },
+          //   http: {verb: 'get'},
+          // });
 };

@@ -2,6 +2,28 @@
 // 隐患场所
 var CONTAINERS_URL = '/api/containers/';
 module.exports = function(Hiddendangerplace) {
+  Hiddendangerplace.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `HiddenDangerPlace` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Hiddendangerplace.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询    精确查询
   Hiddendangerplace.fuzzyQuery = function(name, address, callback) {
       Hiddendangerplace.find({

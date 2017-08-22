@@ -2,6 +2,28 @@
 
 // 桥梁基本信息
 module.exports = function(Bridge) {
+  Bridge.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `Bridge` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Bridge.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  bridgename      精确查询  classification
     Bridge.FuzzyPrecision = function(bridgename,railwayhighwaypublic,guardian,callback) {
           Bridge.find({where: {or: [{bridgename:{like:'%'+bridgename+'%'}}, {railwayhighwaypublic:railwayhighwaypublic }, {guardian:guardian}]}},

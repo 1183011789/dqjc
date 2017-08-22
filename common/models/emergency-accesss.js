@@ -1,6 +1,28 @@
 'use strict';
 //应急疏散通道
 module.exports = function(Emergencyaccesss) {
+  Emergencyaccesss.deleteMultiple = function(multiple,callback) {
+    //console.log(this.app.datasources['bjhlb_mysql']);
+
+    var conn = this.app.datasources['bjhlb_mysql'].connector;
+    // for(var i=0;i<multiple.length;i++){
+        //console.log(multiple[i]+"----");
+    var sql ='DELETE FROM `EmergencyAccesss` where id in (' + multiple.join(',') +')';
+    conn.executeSQL(sql, [], {}, function(err, back) {
+         callback(err, back);
+      });
+    // }
+  };
+  Emergencyaccesss.remoteMethod('deleteMultiple', {
+    accepts: [
+      {
+          arg: 'multiple',
+          type: '[number]'
+      }
+    ],
+    returns: { arg: 'rodes', type: ['object']},
+    http: {verb: 'get'},
+  });
   // 模糊查询  name    精确查询  address
 Emergencyaccesss.fuzzyQuery = function(name, address, callback) {
     Emergencyaccesss.find({
@@ -40,7 +62,7 @@ Emergencyaccesss.remoteMethod(
         returns: [{
             arg: 'emergencyaccesss',
             type:
-                'object'            
+                'object'
               }]
     });
   // 分页查询
