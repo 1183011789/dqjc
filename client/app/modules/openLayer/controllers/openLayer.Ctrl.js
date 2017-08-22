@@ -16,11 +16,6 @@
           code: 'EPSG:4326',
           units: 'degrees'
       });
-      $scope.center = {
-        lat: (bounds[1]+bounds[3])/2,
-        lon: (bounds[0]+bounds[2])/2,
-        zoom: 10
-      };
       $scope.view = {
           projection: projection,
           maxZoom : 18,
@@ -67,6 +62,13 @@
 
 
       /////////////////////////////////////////////////////////////
+
+
+      $scope.center = {
+        lat: (bounds[1]+bounds[3])/2,
+        lon: (bounds[0]+bounds[2])/2,
+        zoom: 10
+      };
 
       $scope.markers = [
         {

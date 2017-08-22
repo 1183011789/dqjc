@@ -4,7 +4,7 @@
     .module('com.module.openLayer')
     .run(function ($rootScope) {
       $rootScope.addMenu('OpenLayerTest',
-        'app.openlayer.view', 'fa-cog');
+        'app.openlayer.map', 'fa-cog');
 
     });
 
