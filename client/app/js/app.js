@@ -49,16 +49,13 @@
             'com.module.sandbox',
             'com.module.advertisement',
             'com.module.keypersion',
-<<<<<<< HEAD
             'com.module.monitoring',
             'com.module.emergencyaccess',
             'com.module.fenceinfo',
             'com.module.securityequipment',
             'com.module.apropagandapoint',
-            'com.module.institutionaiteam'
-=======
+            'com.module.institutionaiteam',
             'com.module.openLayer'
->>>>>>> cefe13c3f11139dcea6e1810d1023e42efefc7ea
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {
 
