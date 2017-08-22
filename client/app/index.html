@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
   <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+  <link rel="stylesheet" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css styles/main.css -->
@@ -28,6 +29,7 @@
   <link rel="stylesheet" href="/css/main.css" />
   
   <!-- endbuild -->
+  <link rel="stylesheet" href="bower_components/openlayers/ol.css" />
 </head>
 <body class="{{ settings.appTheme }} {{ settings.appLayout }} " ng-controller="MainCtrl">
 <!--[if lt IE 7]>
@@ -63,6 +65,7 @@
 <script src="bower_components/json3/lib/json3.js"></script>
 <![endif]-->
 <!-- endbuild -->
+<script src="bower_components/openlayers/ol.js"></script>
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -114,6 +117,7 @@
 <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
 <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
 <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+<script src="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:js scripts/scripts.js -->
@@ -156,6 +160,10 @@
 <script src="/modules/keypersion/config/keypersion.config.js"></script>
 <script src="/modules/keypersion/config/keypersion.routes.js"></script>
 <script src="/modules/keypersion/services/keypersion.service.js"></script>
+<script src="/modules/openLayer/app.openLayer.js"></script>
+<script src="/modules/openLayer/config/openLayer.config.js"></script>
+<script src="/modules/openLayer/config/openLayer.routes.js"></script>
+<script src="/modules/openLayer/controllers/openLayer.Ctrl.js"></script>
 <script src="/modules/sandbox/app.sandbox.js"></script>
 <script src="/modules/sandbox/config/sandbox.config.js"></script>
 <script src="/modules/sandbox/config/sandbox.routes.js"></script>
