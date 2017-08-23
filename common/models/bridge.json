@@ -70,7 +70,19 @@
     "affiliatedinstitution": {
       "type": "string"
     },
-    "brdgeremark": {
+    "lng": {
+      "type": "string"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "explain": {
+      "type": "string"
+    },
+    "remark": {
       "type": "string"
     }
   },
@@ -88,7 +100,6 @@
       "foreignKey": "guardian",
       "primaryKey": "id"
     }
-
   },
   "acls": [],
   "methods": {}

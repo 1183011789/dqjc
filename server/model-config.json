@@ -148,7 +148,7 @@
     "dataSource": "bjhlb_mysql",
     "public": true
   },
-  "Image": {
+  "HiddenDangerPlaceImage": {
     "dataSource": "bjhlb_mysql",
     "public": true
   },
@@ -176,11 +176,19 @@
     "dataSource": "bjhlb_mysql",
     "public": true
   },
-  "LevelCrossingCrossproperty": {
+  "Guardian": {
     "dataSource": "bjhlb_mysql",
     "public": true
   },
-  "Guardian": {
+  "TeamMembers": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "TheRoadStation": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "KeyPlaceCategory": {
     "dataSource": "bjhlb_mysql",
     "public": true
   }

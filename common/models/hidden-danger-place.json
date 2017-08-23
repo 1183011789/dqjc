@@ -7,7 +7,40 @@
     "validateUpsert": true
   },
   "properties": {
+    "category": {
+      "type": "string"
+    },
     "name": {
+      "type": "string"
+    },
+    "LocalPoliceStation": {
+      "type": "string"
+    },
+    "personCharge": {
+      "type": "string"
+    },
+    "contactNumber": {
+      "type": "string"
+    },
+    "hazardlevel": {
+      "type": "string"
+    },
+    "personPost": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "securityProtocol": {
+      "type": "string"
+    },
+    "dangerousRailwayNum": {
+      "type": "string"
+    },
+    "stuDangerousRail": {
+      "type": "string"
+    },
+    "region": {
       "type": "string"
     },
     "address": {
@@ -16,14 +49,18 @@
     "detail": {
       "type": "string"
     },
-    "images": {
-      "type": [
-        "string"
-      ]
-    },
     "state": {
       "type": "boolean",
       "default": false
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "explain": {
+      "type": "string"
     },
     "remark": {
       "type": "string"
@@ -37,9 +74,9 @@
       "foreignKey": "hiddenDangerPlaceId",
       "through": "RodeContain"
     },
-    "images": {
+    "hiddenDangerPlaceImages": {
       "type": "hasMany",
-      "model": "Image"
+      "model": "HiddenDangerPlaceImage"
     }
   },
   "acls": [],

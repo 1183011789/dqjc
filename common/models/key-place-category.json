@@ -1,19 +1,17 @@
 {
-  "name": "StationRank",
+  "name": "KeyPlaceCategory",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "category": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

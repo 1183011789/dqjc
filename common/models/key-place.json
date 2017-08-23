@@ -13,9 +13,6 @@
     "address": {
       "type": "string"
     },
-    "area": {
-      "type": "string"
-    },
     "peoplenumber": {
       "type": "number"
     },
@@ -25,15 +22,28 @@
     "contactnumber": {
       "type": "string"
     },
-    "classification": {
+    "personPost": {
       "type": "string"
     },
-    "images": {
-      "type": [
-        "string"
-      ]
-    },
     "hazardlevel": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
+    "securityProtocol": {
+      "type": "string"
+    },
+    "dangerousRailwayNum": {
+      "type": "string"
+    },
+    "stuDangerousRail": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "category": {
       "type": "string"
     },
     "lng": {
@@ -42,8 +52,8 @@
     "lat": {
       "type": "number"
     },
-    "culverradius": {
-      "type": "number"
+    "explain": {
+      "type": "string"
     },
     "remark": {
       "type": "string"
@@ -59,7 +69,14 @@
     },
     "keyPlaceImgs": {
       "type": "hasMany",
-      "model": "KeyPlaceImg"
+      "model": "KeyPlaceImg",
+      "foreignKey": "keyPlaceId"
+    },
+    "keyPlaceCategorys": {
+      "type": "belongsTo",
+      "model": "KeyPlaceCategory",
+      "foreignKey": "category",
+      "primaryKey": "id"
     }
   },
   "acls": [],

@@ -14,16 +14,18 @@
     },
     "url": {
       "type": "string"
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "keyPlaces": {
-      "type": "belongsTo",
-      "model": "KeyPlace",
-      "foreignKey": "keyPlaceId"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

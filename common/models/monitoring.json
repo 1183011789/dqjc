@@ -56,6 +56,15 @@
     },
     "AffiliatedInstitution": {
       "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "remark": {
+      "type": "string"
     }
   },
   "validations": [],
