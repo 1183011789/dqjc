@@ -33,7 +33,13 @@
                     templateUrl: 'modules/monitoring/views/list.html',
                     controller: 'MonitoringListCtrl',
                 })
-                .state('app.monitoring.add', {
+                .state('app.monitoring.map', {
+                    url: '/map',
+                    templateUrl: 'modules/monitoring/views/map.html',
+                    controller: 'MapCtrl',
+                })
+
+            .state('app.monitoring.add', {
                     url: '/add',
                     templateUrl: 'modules/monitoring/views/form.html',
                     controllerAs: 'ctrl',

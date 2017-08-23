@@ -55,6 +55,29 @@
                 );
             };
 
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
+                CoreService.confirm(
+                    gettextCatalog.getString('Are you sure?'),
+                    gettextCatalog.getString('Deleting this cannot be undone'),
+                    function() {
+                        SecurityEquipmentInformation.deleteMultiple({ multiple: ids }, function() {
+                            CoreService.toastSuccess(
+                                gettextCatalog.getString('Setting deleted'),
+                                gettextCatalog.getString('Your setting is deleted!'));
+                            successCb();
+                        }, function(err) {
+                            CoreService.toastError(
+                                gettextCatalog.getString('Error deleting setting'),
+                                gettextCatalog.getString('Your setting is not deleted! ') + err);
+                            cancelCb();
+                        });
+                    },
+                    function() {
+                        cancelCb();
+                    }
+                );
+            };
 
             this.getFormFields = function() {
                 var form = [{

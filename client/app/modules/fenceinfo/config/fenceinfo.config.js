@@ -7,5 +7,4 @@
                 'app.fenceinfo.list', 'fa-adn', true);
 
         });
-
 })();

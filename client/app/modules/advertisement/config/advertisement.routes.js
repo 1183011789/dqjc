@@ -20,7 +20,14 @@
                     templateUrl: 'modules/advertisement/views/list.html',
                     controller: 'OrdersListCtrl',
                 })
-                .state('app.advertisement.add', {
+
+            .state('app.advertisement.map', {
+                url: '/map',
+                templateUrl: 'modules/advertisement/views/map.html',
+                controller: 'MapCtrl',
+            })
+
+            .state('app.advertisement.add', {
                     url: '/add',
                     templateUrl: 'modules/advertisement/views/form.html',
                     controllerAs: 'ctrl',

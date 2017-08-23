@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+    {{ctrl.road.rodename}}
+    <small>{{ctrl.road.classification}}</small>
+    
+    <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.road.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.road.id})">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </span>
+  </div>
+  <div class="panel-body">
+    <pre>铁路名:{{ctrl.road.rodename}}</pre>
+    <pre>分类:{{ctrl.road.classification}}</pre>
+    <pre>起始里程:{{ctrl.road.startendmileage}}</pre>
+    <pre>长度:{{ctrl.road.rodelenth}}</pre>
+    <pre>隶属铁路局:{{ctrl.road.railwayadministrat}}</pre>
+    <pre>车站:{{ctrl.road.stationnumber}}</pre>
+    <pre>桥梁:{{ctrl.road.bridgenumber}}</pre>
+    <pre>隧道:{{ctrl.road.tunnelnumber}}</pre>
+    <pre>道口:{{ctrl.road.levelcrossingnumber}}</pre>
+    <pre>涵洞:{{ctrl.road.culvertnumber}}</pre>
+    <pre>跨铁路数:{{ctrl.road.Kwamerailwaynumber}}</pre>
+    <pre>备注:{{ctrl.road.remark1}}</pre>
+   
+  </div>
+</div>

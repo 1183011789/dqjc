@@ -16,7 +16,11 @@
             };
 
             this.upsert = function(keypersion) {
-                console.log("添加-------");
+                console.log("添加-------", JSON.stringify(keypersion));
+                // if (keypersion.idnumber.length !== "18") {
+                //     CoreService.alertWarning('提示', '身份证格式不正确');
+                //     return;
+                // }
                 return KeyPersion.upsert(keypersion).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -32,12 +36,13 @@
                     });
             };
 
-            this.delete = function(id, successCb, cancelCb) {
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
                     function() {
-                        KeyPersion.deleteById({ id: id }, function() {
+                        KeyPersion.deleteMultiple({ multiple: ids }, function() {
                             CoreService.toastSuccess(
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
@@ -56,21 +61,28 @@
             };
 
 
+
             this.getFormFields = function() {
                 var form = [{
                         key: 'name',
                         type: 'input',
                         templateOptions: {
                             label: '名字:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入名字',
                         }
                     },
                     {
                         key: 'gender',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
                             label: '性别:',
-                            required: true
+                            required: true,
+                            placeholder: '请选择性别',
+                            options: [
+                                { name: '男', value: '1' },
+                                { name: '女', value: '0' },
+                            ],
                         }
                     },
                     {
@@ -78,7 +90,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '年龄:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入年龄',
                         }
                     },
                     {
@@ -86,84 +99,96 @@
                         type: 'input',
                         templateOptions: {
                             label: '身高:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入身高',
                         }
                     }, {
                         key: 'weight',
                         type: 'input',
                         templateOptions: {
                             label: '体重:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入体重',
                         }
                     }, {
                         key: 'occupation',
                         type: 'input',
                         templateOptions: {
                             label: '职业:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入职业',
                         }
                     }, {
                         key: 'idnumber',
                         type: 'input',
                         templateOptions: {
                             label: '身份证号:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入身份证号',
                         }
                     }, {
                         key: 'contactnumber',
                         type: 'input',
                         templateOptions: {
                             label: '联系电话:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入联系电话',
                         }
                     }, {
                         key: 'residencenow',
                         type: 'input',
                         templateOptions: {
                             label: '现居住地址:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入现居住地址',
                         }
                     }, {
                         key: 'familysize',
                         type: 'input',
                         templateOptions: {
                             label: '家庭人数:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入家庭人数',
                         }
                     }, {
                         key: 'familymemberone',
                         type: 'input',
                         templateOptions: {
                             label: '家庭成员1:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入家庭成员1',
                         }
                     }, {
                         key: 'familymembertwo',
                         type: 'input',
                         templateOptions: {
                             label: '家庭成员2:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入家庭成员2',
                         }
                     }, {
                         key: 'familyaddress',
                         type: 'input',
                         templateOptions: {
                             label: '家庭住址:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入家庭住址',
                         }
                     }, {
                         key: 'familycontactnumber',
                         type: 'input',
                         templateOptions: {
                             label: '家庭联系电话:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入家庭联系电话',
                         }
                     }, {
                         key: 'remark',
                         type: 'input',
                         templateOptions: {
                             label: '备注:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入备注',
                         }
                     }
                 ];

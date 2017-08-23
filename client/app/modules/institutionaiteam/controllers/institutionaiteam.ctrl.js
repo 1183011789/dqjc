@@ -2,32 +2,59 @@
     'use strict';
     angular
         .module('com.module.institutionaiteam')
-        .controller('InstitutionalTeamCtrl', function($scope, CoreService, InstitutionalTeam, InstitutionaIteamService, NgTableParams, $state) {
+        .controller('InstitutionalTeamCtrl', function($scope, CoreService, InstitutionalTeam, InstitutionalTeamService, NgTableParams, $state) {
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
                 count: 10
             }, {
                 getData: function(params) {
-                    InstitutionalTeam.count().$promise.then(function(result) {
+                    var where = {};
+                    if (params._params.filter.name) {
+                        where.name = {
+                            like: `%${params._params.filter.name}%`
+                        };
+                    }
+                    InstitutionalTeam.count({ where: where }).$promise.then(function(result) {
                         params.total(result.count);
                     });
                     var offset = params._params.count * (params._params.page - 1);
-                    InstitutionalTeam.find({ filter: { limit: params._params.count, offset: offset } }).$promise.then(function(value) {
+                    InstitutionalTeam.find({
+                        filter: {
+                            limit: params._params.count,
+                            offset: offset,
+                            where: where
+                        }
+                    }).$promise.then(function(value) {
                         $scope.institutionalTeams = value;
                     });
                 }
             });
 
+            // 查询条件
+            $scope.searchConditions = {
+                name: ""
+            };
+
+            $scope.startSearch = function() {
+                $scope.tableParams.filter({
+                    name: $scope.searchConditions.name
+                });
+            };
+
             $scope.deleteItems = function(item) {
-                console.log('=======')
-                console.log($scope.selectedItems)
-                var array = [];
-                for (var value of $scope.selectedItems) {
-                    array.push(value)
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
                 }
 
-                InstitutionaIteamService.deleteAll(array, function() {
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                InstitutionalTeamService.deleteMultiple(array, function() {
                     $state.go('^.list');
+                    $scope.tableParams.reload();
                 }, function() {
                     $state.go('^.list');
                 });

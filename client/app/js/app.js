@@ -47,6 +47,8 @@
             'com.module.settings',
             'com.module.users',
             'com.module.sandbox',
+            'com.module.road',
+            'com.module.keysite',
             'com.module.advertisement',
             'com.module.keypersion',
             'com.module.monitoring',
@@ -55,6 +57,7 @@
             'com.module.securityequipment',
             'com.module.apropagandapoint',
             'com.module.institutionaiteam',
+            'com.module.theroadstation',
             'com.module.openLayer'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {

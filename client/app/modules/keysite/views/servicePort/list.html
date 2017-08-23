@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        信息列表
+        <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+          <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()">
+              <i class="fa fa-add">新增</i>
+            </a>
+          <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
+            查看
+          </a>
+          <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
+            编辑
+          </a>
+          <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+            删除
+          </a>
+        </span>
+    </div>
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in servicePorts">
+            <td data-title="''">
+                <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class="input-lg checkbox-lg" ng-model="row.checked">
+            </td>
+            <td data-title="'名称'" ng-switch="row.rename" ng-form="name">
+                <strong ng-switch-default>{{row.name}}</strong>
+            </td>
+            <td data-title="'地址'" ng-switch="row.titleEdit" ng-form="address">
+                <span ng-switch-default>{{row.address}}</span>
+            </td>
+            <td data-title="'负责人'" ng-switch="row.rename" ng-form="personincharge">
+                <strong ng-switch-default>{{row.personincharge}}</strong>
+            </td>
+            <td data-title="'联系电话'" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="contactnumber">
+                <span ng-switch-default>{{row.contactnumber}}</span>
+            </td>
+            <td data-title="'所属机构'" ng-switch="row.rename" ng-form="affiliatedinstitution">
+                <strong ng-switch-default>{{row.affiliatedinstitution}}</strong>
+            </td>
+            <td data-title="'经度'" ng-switch="row.titleEdit" ng-form="long">
+                <span ng-switch-default>{{row.long}}</span>
+            </td>
+            <td data-title="'纬度'" ng-switch="row.titleEdit" ng-form="lat">
+                <span ng-switch-default>{{row.lat}}</span>
+            </td>
+            <td data-title="'备注'" ng-switch="row.titleEdit" ng-form="remark">
+                <span ng-switch-default>{{row.remark}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+    <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+        rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div>

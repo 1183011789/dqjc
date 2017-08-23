@@ -33,7 +33,13 @@
                     templateUrl: 'modules/keypersion/views/list.html',
                     controller: 'KeyPersionListCtrl',
                 })
-                .state('app.keypersion.add', {
+                .state('app.keypersion.map', {
+                    url: '/map',
+                    templateUrl: 'modules/keypersion/views/map.html',
+                    controller: 'MapCtrl',
+                })
+
+            .state('app.keypersion.add', {
                     url: '/add',
                     templateUrl: 'modules/keypersion/views/form.html',
                     controllerAs: 'ctrl',
