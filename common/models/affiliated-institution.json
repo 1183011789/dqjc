@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "AffiliatedInstitution",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "affiliatedInstitution": {
       "type": "string"
     }
   },

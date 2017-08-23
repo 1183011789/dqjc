@@ -59,7 +59,26 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "AffiliatedInstitution",
+      "primaryKey": "id"
+    },
+    "categorys": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "Category",
+      "primaryKey": "id"
+    },
+    "alignments": {
+      "type": "belongsTo",
+      "model": "Alignment",
+      "foreignKey": "DoOther",
+      "primaryKey": "id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

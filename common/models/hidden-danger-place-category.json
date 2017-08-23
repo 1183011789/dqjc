@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "HiddenDangerPlaceCategory",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "category": {
       "type": "string"
     }
   },

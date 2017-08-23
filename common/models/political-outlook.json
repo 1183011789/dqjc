@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "PoliticalOutlook",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "politicalOutlook": {
       "type": "string"
     }
   },

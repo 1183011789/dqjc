@@ -1,15 +1,11 @@
 {
-  "name": "StationRank",
+  "name": "ResponsibilitySection",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "Rank": {
-      "type": "string"
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {},
   "acls": [],

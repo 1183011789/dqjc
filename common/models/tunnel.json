@@ -69,6 +69,18 @@
       "model": "Guardian",
       "foreignKey": "guardian",
       "primaryKey": "id"
+    },
+    "alignments": {
+      "type": "belongsTo",
+      "model": "Alignment",
+      "foreignKey": "tunnelalignment",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
     }
   },
   "acls": [],

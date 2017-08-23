@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "ClassIfication",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "classIfication": {
       "type": "string"
     }
   },

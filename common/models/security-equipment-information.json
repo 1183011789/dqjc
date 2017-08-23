@@ -53,7 +53,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "AffiliatedInstitution",
+      "primaryKey": "id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -32,7 +32,7 @@
       "type": "string"
     },
     "securityProtocol": {
-      "type": "string"
+      "type": "boolean"
     },
     "dangerousRailwayNum": {
       "type": "string"
@@ -76,6 +76,18 @@
       "type": "belongsTo",
       "model": "KeyPlaceCategory",
       "foreignKey": "category",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    },
+    "hazardlevels": {
+      "type": "belongsTo",
+      "model": "Hazardlevel",
+      "foreignKey": "hazardlevel",
       "primaryKey": "id"
     }
   },

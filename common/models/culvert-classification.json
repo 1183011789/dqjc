@@ -11,14 +11,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "culverts": {
-      "type": "hasMany",
-      "model": "Culvert",
-      "foreignKey": "classification",
-      "primaryKey": "id"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

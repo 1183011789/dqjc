@@ -50,6 +50,12 @@
       "model": "Rode",
       "foreignKey": "servicePortId",
       "through": "RodeContain"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
     }
   },
   "acls": [],

@@ -54,7 +54,7 @@
     "contactNumber": {
       "type": "Number"
     },
-    "affiliatedInstitution": {
+    "affiliatedinstitution": {
       "type": "string"
     },
     "lng": {
@@ -77,6 +77,18 @@
       "model": "Rode",
       "foreignKey": "fenceInfoId",
       "through": "RodeContain"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    },
+    "alignments": {
+      "type": "belongsTo",
+      "model": "Alignment",
+      "foreignKey": "doOther",
+      "primaryKey": "id"
     }
   },
   "acls": [],

@@ -191,5 +191,73 @@
   "KeyPlaceCategory": {
     "dataSource": "bjhlb_mysql",
     "public": true
+  },
+  "Administration": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "StationNature": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "BridgeClass": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "AffiliatedInstitution": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "CrossProperty": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "Alignment": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "ClassIfication": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "Category": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "Hazardlevel": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "HiddenDangerPlaceCategory": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "State": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "ServiceMode": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "PoliticalOutlook": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "DegreeOfEducation": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "SubordinateRanks": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "TeamPosition": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "ResponsibilitySection": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
   }
 }

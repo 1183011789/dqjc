@@ -28,12 +28,10 @@
       "type": "number"
     },
     "transfer": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "pedestrianpassage": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "handovertime": {
       "type": "date"
@@ -76,6 +74,12 @@
       "model": "Rode",
       "foreignKey": "crossIronBridgeId",
       "through": "RodeCrossIronBridge"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
     }
   },
   "acls": [],

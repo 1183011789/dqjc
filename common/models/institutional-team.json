@@ -30,7 +30,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

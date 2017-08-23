@@ -44,7 +44,44 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedInstitution",
+      "primaryKey": "id"
+    },
+    "politicalOutlooks": {
+      "type": "belongsTo",
+      "model": "PoliticalOutlook",
+      "foreignKey": "politicalOutlook",
+      "primaryKey": "id"
+    },
+    "degreeOfEducations": {
+      "type": "belongsTo",
+      "model": "DegreeOfEducation",
+      "foreignKey": "degreeOfEducation",
+      "primaryKey": "id"
+    },
+    "subordinateRankss": {
+      "type": "belongsTo",
+      "model": "SubordinateRanks",
+      "foreignKey": "subordinateRanks",
+      "primaryKey": "id"
+    },
+    "teamPositions": {
+      "type": "belongsTo",
+      "model": "TeamPosition",
+      "foreignKey": "teamPosition",
+      "primaryKey": "id"
+    },
+    "responsibilitySections": {
+      "type": "belongsTo",
+      "model": "ResponsibilitySection",
+      "foreignKey": "responsibilitySection",
+      "primaryKey": "id"
+    }
+  },
   "acls": [],
   "methods": {}
 }
