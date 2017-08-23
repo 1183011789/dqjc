@@ -4,6 +4,16 @@
         .module('com.module.keysite')
         .service('ServicePortService', function($state, CoreService, ServicePort, gettextCatalog) {
 
+            this.find = function() {
+                return ServicePort.find().$promise;
+            };
+
+            this.findById = function(id) {
+                return ServicePort.findById({
+                    id: id
+                }).$promise;
+            };
+
             this.upsert = function(servicePort) {
                 return ServicePort.upsert(servicePort).$promise
                     .then(function() {
@@ -43,12 +53,35 @@
                 );
             };
 
+            this.delete = function(id, successCb, cancelCb) {
+                CoreService.confirm(
+                    gettextCatalog.getString('Are you sure?'),
+                    gettextCatalog.getString('Deleting this cannot be undone'),
+                    function() {
+                        ServicePort.deleteById({ id: id }, function() {
+                            CoreService.toastSuccess(
+                                gettextCatalog.getString('deleted'),
+                                gettextCatalog.getString('Your setting is deleted!'));
+                            successCb();
+                        }, function(err) {
+                            CoreService.toastError(
+                                gettextCatalog.getString('Error deleting setting'),
+                                gettextCatalog.getString('Your setting is not deleted! ') + err);
+                            cancelCb();
+                        });
+                    },
+                    function() {
+                        cancelCb();
+                    }
+                );
+            };
+
             this.getFormFields = function() {
                 var form = [{
                         key: 'name',
                         type: 'input',
                         templateOptions: {
-                            label: '名称',
+                            label: '检修口名称',
                             required: true
                         }
                     },
@@ -80,7 +113,28 @@
                         key: 'affiliatedinstitution',
                         type: 'input',
                         templateOptions: {
-                            label: '机构',
+                            label: '所属机构',
+                            required: true
+                        }
+                    },{
+                        key: 'localpolicestation',
+                        type: 'input',
+                        templateOptions: {
+                            label: '所属地方派出所',
+                            required: true
+                        }
+                    },{
+                        key: 'admimdepartment',
+                        type: 'input',
+                        templateOptions: {
+                            label: '管理部门',
+                            required: true
+                        }
+                    },{
+                        key: 'centermileage',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程',
                             required: true
                         }
                     },
@@ -88,7 +142,7 @@
                         key: 'long',
                         type: 'input',
                         templateOptions: {
-                            label: 'long',
+                            label: '经度',
                             required: true
                         }
                     },
@@ -96,15 +150,15 @@
                         key: 'lat',
                         type: 'input',
                         templateOptions: {
-                            label: 'lat',
+                            label: '纬度',
                             required: true
                         }
                     },
                     {
-                        key: 'remark',
+                        key: 'explain',
                         type: 'input',
                         templateOptions: {
-                            label: 'remark',
+                            label: '说明',
                             required: true
                         }
                     }
@@ -115,3 +169,19 @@
         });
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -178,7 +178,11 @@
                 templateUrl: 'modules/keysite/views/crossIronBridge/list.html',
                 controller: 'CrossIronBridgeCtrl',
             })
-
+            .state('app.keysite.crossIronBridge.map', {
+                url: '/map',
+                templateUrl: 'modules/keysite/views/crossIronBridge/map.html',
+                controller: 'CrossIronBridgeMapCtrl',
+            })
             .state('app.keysite.crossIronBridge.list', {
                 url: '',
                 templateUrl: 'modules/keysite/views/crossIronBridge/list.html',
@@ -226,6 +230,19 @@
                     }
                 }
             })
+            .state('app.keysite.crossIronBridge.view', {
+                    url: '/:id',
+                    templateUrl: 'modules/keysite/views/crossIronBridge/view.html',
+                    controllerAs: 'ctrl',
+                    controller: function(crossIronBridge) {
+                        this.crossIronBridge = crossIronBridge;
+                    },
+                    resolve: {
+                        crossIronBridge: function($stateParams, CrossIronBridgeService) {
+                            return CrossIronBridgeService.findById($stateParams.id);
+                        }
+                    }
+                })
 
             //////////
             //涵洞
@@ -242,7 +259,11 @@
                 templateUrl: 'modules/keysite/views/culvert/list.html',
                 controller: 'CulvertCtrl',
             })
-
+            .state('app.keysite.culvert.map', {
+                url: '/map',
+                templateUrl: 'modules/keysite/views/culvert/map.html',
+                controller: 'CulvertMapCtrl',
+            })
             .state('app.keysite.culvert.list', {
                 url: '',
                 templateUrl: 'modules/keysite/views/culvert/list.html',
@@ -290,6 +311,19 @@
                     }
                 }
             })
+            .state('app.keysite.culvert.view', {
+                    url: '/:id',
+                    templateUrl: 'modules/keysite/views/culvert/view.html',
+                    controllerAs: 'ctrl',
+                    controller: function(culvert) {
+                        this.culvert = culvert;
+                    },
+                    resolve: {
+                        culvert: function($stateParams, CulvertService) {
+                            return CulvertService.findById($stateParams.id);
+                        }
+                    }
+                })
 
 
             /////////
@@ -371,7 +405,11 @@
                 templateUrl: 'modules/keysite/views/servicePort/list.html',
                 controller: 'ServicePortCtrl',
             })
-
+             .state('app.keysite.servicePort.map', {
+                    url: '/map',
+                    templateUrl: 'modules/keysite/views/servicePort/map.html',
+                    controller: 'ServiceportMapCtrl',
+                })
             .state('app.keysite.servicePort.list', {
                 url: '',
                 templateUrl: 'modules/keysite/views/servicePort/list.html',
@@ -412,6 +450,19 @@
                             $state.go('^.index');
                         });
                     };
+                },
+                resolve: {
+                    servicePort: function($stateParams, ServicePortService) {
+                        return ServicePortService.findById($stateParams.id);
+                    }
+                }
+            })
+            .state('app.keysite.servicePort.view', {
+                url: '/:id',
+                templateUrl: 'modules/keysite/views/servicePort/view.html',
+                controllerAs: 'ctrl',
+                controller: function(servicePort) {
+                    this.servicePort = servicePort;
                 },
                 resolve: {
                     servicePort: function($stateParams, ServicePortService) {

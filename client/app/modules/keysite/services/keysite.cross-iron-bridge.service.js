@@ -53,12 +53,35 @@
                 );
             };
 
+            this.delete = function(id, successCb, cancelCb) {
+                CoreService.confirm(
+                    gettextCatalog.getString('Are you sure?'),
+                    gettextCatalog.getString('Deleting this cannot be undone'),
+                    function() {
+                        CrossIronBridge.deleteById({ id: id }, function() {
+                            CoreService.toastSuccess(
+                                gettextCatalog.getString('deleted'),
+                                gettextCatalog.getString('Your setting is deleted!'));
+                            successCb();
+                        }, function(err) {
+                            CoreService.toastError(
+                                gettextCatalog.getString('Error deleting setting'),
+                                gettextCatalog.getString('Your setting is not deleted! ') + err);
+                            cancelCb();
+                        });
+                    },
+                    function() {
+                        cancelCb();
+                    }
+                );
+            };
+
             this.getFormFields = function() {
                 var form = [{
                         key: 'ironbridgename',
                         type: 'input',
                         templateOptions: {
-                            label: '名称',
+                            label: '检修口名称',
                             required: true
                         }
                     },
@@ -114,7 +137,7 @@
                         key: 'transfer',
                         type: 'input',
                         templateOptions: {
-                            label: '移交',
+                            label: '是否移交',
                             required: true
                         }
                     },
@@ -183,10 +206,26 @@
                         }
                     },
                     {
-                        key: 'remark',
+                        key: 'lng',
                         type: 'input',
                         templateOptions: {
-                            label: '备注',
+                            label: '经度',
+                            required: true
+                        }
+                    },
+                    {
+                        key: 'lat',
+                        type: 'input',
+                        templateOptions: {
+                            label: '纬度',
+                            required: true
+                        }
+                    },
+                    {
+                        key: 'explain',
+                        type: 'input',
+                        templateOptions: {
+                            label: '说明',
                             required: true
                         }
                     }

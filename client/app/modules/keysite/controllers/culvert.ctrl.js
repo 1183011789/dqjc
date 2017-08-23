@@ -4,38 +4,55 @@
         .module('com.module.keysite')
         .controller('CulvertCtrl', function($scope, CoreService, Culvert, CulvertService, $state, NgTableParams) {
 
-
-
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
             }, {
                 getData: function(params) {
-                    var offset = params._params.count * (params._params.page - 1);
 
+                    var where = {};
+                    if (params._params.filter.culvertnumber) {
+                        where.culvertnumber = {
+                            like: `%${params._params.filter.culvertnumber}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
+                    var offset = params._params.count * (params._params.page - 1);
                     Culvert.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     Culvert.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
                         $scope.culverts = value;
                     });
+
+
+
+
                 }
             });
 
-
             // 查询条件
             $scope.searchConditions = {
-                name: ""
+                culvertnumber: ""
             };
 
             $scope.startSearch = function() {
                 $scope.tableParams.filter({
-                    name: $scope.searchConditions.name
+                    culvertnumber: $scope.searchConditions.culvertnumber
                 });
             };
 
@@ -51,10 +68,10 @@
                 }
                 console.log(array)
                 CulvertService.deleteMultiple(array, function() {
-                    $state.go('^.list');
+                    $state.go('^.index');
                     $scope.tableParams.reload();
                 }, function() {
-                    $state.go('^.list');
+                    $state.go('^.index');
                 });
             };
 
@@ -65,7 +82,6 @@
                 } else if ($scope.selectedItems.size > 1) {
                     CoreService.alertWarning('提示', '一次只能编辑一个');
                 } else {
-                    // ui-sref="^.edit({id: item.id})"
                     for (var value of $scope.selectedItems) {
                         var editItm = value;
                         break;
@@ -84,12 +100,5 @@
                     $scope.selectedItems.delete(item.id)
                 }
             };
-
-
-
-
-
-
-        })
-
+        });
 })();

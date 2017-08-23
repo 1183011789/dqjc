@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.index" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.servicePort.name}}
+        <small>{{ctrl.servicePort.address}}</small>
+
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.servicePort.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <!-- <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.baseStation.id})">
+        <i class="fa fa-trash-o"></i>
+      </a> -->
+    </span>
+    </div>
+    <div class="panel-body">
+        <pre>检修口名称:{{ctrl.servicePort.name}}</pre>
+        <pre>地址:{{ctrl.servicePort.address}}</pre>
+        <pre>负责人:{{ctrl.servicePort.personincharge}}</pre>
+        <pre>联系电话:{{ctrl.servicePort.contactnumber}}</pre>
+        <pre>所属机构:{{ctrl.servicePort.affiliatedinstitution}}</pre>
+        <pre>所属地方派出所:{{ctrl.servicePort.localpolicestation}}</pre>
+        <pre>管理部门:{{ctrl.servicePort.admimdepartment}}</pre>
+        <pre>中心里程:{{ctrl.servicePort.centermileage}}</pre>
+        
+
+        <pre>经度:{{ctrl.servicePort.long}}</pre>
+        <pre>纬度:{{ctrl.servicePort.lat}}</pre>
+        <pre>说明:{{ctrl.servicePort.explain}}</pre>
+    </div>
+</div>
