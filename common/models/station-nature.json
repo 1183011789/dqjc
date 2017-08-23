@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "StationNature",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "naturen": {
       "type": "string"
     }
   },

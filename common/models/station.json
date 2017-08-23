@@ -45,6 +45,9 @@
     "length": {
       "type": "string"
     },
+    "affiliatedinstitution": {
+      "type": "string"
+    },
     "Remarks": {
       "type": "string"
     }
@@ -61,6 +64,24 @@
       "type": "belongsTo",
       "model": "StationRank",
       "foreignKey": "StationRank",
+      "primaryKey": "id"
+    },
+    "stationNatures": {
+      "type": "belongsTo",
+      "model": "StationNature",
+      "foreignKey": "StationNature",
+      "primaryKey": "id"
+    },
+    "administrations": {
+      "type": "belongsTo",
+      "model": "Administration",
+      "foreignKey": "Railway_Administration",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     }
   },

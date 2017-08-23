@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "BridgeClass",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "bridgeClass": {
       "type": "string"
     }
   },

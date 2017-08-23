@@ -54,6 +54,18 @@
       "model": "Rode",
       "foreignKey": "broadcastWarningPostId",
       "through": "RodeBroadcastWarningPost"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    },
+    "states": {
+      "type": "belongsTo",
+      "model": "State",
+      "foreignKey": "state",
+      "primaryKey": "id"
     }
   },
   "acls": [],

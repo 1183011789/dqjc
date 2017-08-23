@@ -41,7 +41,20 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    },
+    "serviceModes": {
+      "type": "belongsTo",
+      "model": "ServiceMode",
+      "foreignKey": "serviceMode",
+      "primaryKey": "id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

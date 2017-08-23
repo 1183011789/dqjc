@@ -34,8 +34,7 @@
       "type": "string"
     },
     "istherewater": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "crossalignment": {
       "type": "string"
@@ -85,10 +84,22 @@
       "foreignKey": "guardian",
       "primaryKey": "id"
     },
-    "culvertClassifications": {
+    "classIfications": {
       "type": "belongsTo",
-      "model": "CulvertClassification",
+      "model": "ClassIfication",
       "foreignKey": "classification",
+      "primaryKey": "id"
+    },
+    "crossAlignments": {
+      "type": "belongsTo",
+      "model": "CrossAlignment",
+      "foreignKey": "crossalignment",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     }
   },

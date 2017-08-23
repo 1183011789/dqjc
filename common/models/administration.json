@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "Administration",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "administration": {
       "type": "string"
     }
   },

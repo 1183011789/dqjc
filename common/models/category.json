@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "Category",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "category": {
       "type": "string"
     }
   },

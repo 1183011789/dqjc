@@ -74,6 +74,25 @@
       "model": "LevelCrossingCrossproperty",
       "foreignKey": "crossproperty",
       "primaryKey": "id"
+    },
+    "crossAlignments": {
+      "type": "belongsTo",
+      "model": "CrossAlignment",
+      "foreignKey": "crossalignment",
+      "primaryKey": "id"
+    },
+    "crossPropertys": {
+      "type": "belongsTo",
+      "model": "CrossProperty",
+      "foreignKey": "crossproperty",
+      "primaryKey": "id"
+    },
+
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
     }
   },
   "acls": [],

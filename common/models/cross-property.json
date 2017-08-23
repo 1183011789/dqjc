@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "CrossProperty",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "crossProperty": {
       "type": "string"
     }
   },

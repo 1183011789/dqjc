@@ -37,8 +37,7 @@
       "type": "number"
     },
     "railwayhighwaypublic": {
-      "type": "boolean",
-      "default": true
+      "type": "boolean"
     },
     "crosshighway": {
       "type": "string"
@@ -98,6 +97,24 @@
       "type": "belongsTo",
       "model": "Guardian",
       "foreignKey": "guardian",
+      "primaryKey": "id"
+    },
+    "bridgeClasss": {
+      "type": "belongsTo",
+      "model": "BridgeClass",
+      "foreignKey": "bridgeclass",
+      "primaryKey": "id"
+    },
+    "alignments": {
+      "type": "belongsTo",
+      "model": "Alignment",
+      "foreignKey": "bridgealignment",
+      "primaryKey": "id"
+    },
+    "affiliatedinstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     }
   },

@@ -1,12 +1,12 @@
 {
-  "name": "StationRank",
+  "name": "ServiceMode",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "Rank": {
+    "serviceMode": {
       "type": "string"
     }
   },

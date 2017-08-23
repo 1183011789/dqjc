@@ -32,7 +32,7 @@
       "type": "string"
     },
     "securityProtocol": {
-      "type": "string"
+      "type": "boolean"
     },
     "dangerousRailwayNum": {
       "type": "string"
@@ -77,6 +77,30 @@
     "hiddenDangerPlaceImages": {
       "type": "hasMany",
       "model": "HiddenDangerPlaceImage"
+    },
+    "hiddenDangerPlaceCategorys": {
+      "type": "belongsTo",
+      "model": "HiddenDangerPlaceCategory",
+      "foreignKey": "category",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
+    },
+    "hazardlevels": {
+      "type": "belongsTo",
+      "model": "Hazardlevel",
+      "foreignKey": "hazardlevel",
+      "primaryKey": "id"
+    },
+    "states": {
+      "type": "belongsTo",
+      "model": "State",
+      "foreignKey": "state",
+      "primaryKey": "id"
     }
   },
   "acls": [],

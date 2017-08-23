@@ -129,6 +129,12 @@
       "model": "RodeClassification",
       "foreignKey": "classification",
       "primaryKey": "id"
+    },
+    "administrations": {
+      "type": "belongsTo",
+      "model": "Administration",
+      "foreignKey": "railwayadministrat",
+      "primaryKey": "id"
     }
   },
   "acls": [],

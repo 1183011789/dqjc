@@ -11,14 +11,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "rodes": {
-      "type": "hasMany",
-      "model": "Rode",
-      "foreignKey": "classification",
-      "primaryKey": "id"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
