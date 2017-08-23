@@ -1,0 +1,72 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        机构队伍
+        <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+            <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+              <!-- <a href="" ng-class="{disabled:getSelectedCount()!=1}" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
+                查看
+              </a> -->
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
+                编辑
+              </a>
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+                删除
+              </a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+            </span>
+        </span>
+        <!-- <span ng-if="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd" class="pull-right btn-group" style="margin-right:10px;">
+          <a href="" class="btn btn-xs btn-default" ng-click="cancel()">取消</a>
+          <a href="" class="btn btn-xs btn-success" ng-click="ok()">确定</a>
+       </span> -->
+    </div>
+
+    <!-- 数据列表 table实现 -->
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="item in institutionalTeams">
+            <td data-title="''" class="text-center" style="vertical-align:middle">
+                <input multi-check type="checkbox" ng-value="{{item.id}}" ng-change="addEditItem(item)" class="input-lg checkbox-lg" ng-model="item.checked">
+                <!-- <input ng-show="modalInstance.imageRadioAdd" type="radio" name="avatarRadios" ng-value="{{$index}}" class="input-lg checkbox-lg" ng-model="modalInstance.avatarRadio"> -->
+            </td>
+            <td data-title="'机构名'" ng-switch="item.rename" ng-form="name" class="text-center" style="vertical-align:middle">
+
+                <a href="" ui-sref="^.view({id: item.id})">
+                    <strong ng-switch-default>{{item.name}}</strong>
+                </a>
+                <!-- <div class="controls" ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+                    <input type="text" name="name" ng-model="item.name" class="editable-input form-control input-sm" ng-change="item.changed=true;" required />
+                    <a href="" class="btn btn-xs btn-default">取消</a>
+                    <a href="" class="btn btn-xs btn-success">保存</a>
+                </div> -->
+            </td>
+            <td data-title="'地址'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.address}}</span>
+            </td>
+
+            <td data-title="'负责人'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.personcharge}}</span>
+            </td>
+
+            <td data-title="'联系电话'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.contactnumber}}</span>
+            </td>
+
+            <td data-title="'管理部门'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.admimdepartment}}</span>
+            </td>
+            <td data-title="'所属机构'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.affiliatedinstitution}}</span>
+            </td>
+
+            <td data-title="'备注'" ng-switch="item.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="title" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.remark}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+        <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+            rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+        </ul>
+    </div>
+</div>

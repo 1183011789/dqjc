@@ -27,6 +27,7 @@
             'ngRoute',
             'ngLocale',
             'ngSanitize',
+            'ngTable',
             'ngTouch',
             'ui.bootstrap',
             'ui.codemirror',
@@ -40,13 +41,21 @@
             'ui.select',
             'permission',
             'permission.ui',
+            'openlayers-directive',
             'com.module.core',
             'com.module.about',
             'com.module.settings',
             'com.module.users',
             'com.module.sandbox',
             'com.module.advertisement',
-            'com.module.keypersion'
+            'com.module.keypersion',
+            'com.module.monitoring',
+            'com.module.emergencyaccess',
+            'com.module.fenceinfo',
+            'com.module.securityequipment',
+            'com.module.apropagandapoint',
+            'com.module.institutionaiteam',
+            'com.module.openLayer'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {
 

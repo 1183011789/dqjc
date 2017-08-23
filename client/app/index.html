@@ -1,191 +1,234 @@
 <!doctype html>
 <html ng-app="loopbackApp" ng-controller="LayoutCtrl">
-<head>
-  <meta charset="utf-8">
-  <title>Admin: {{ settings.appName }}</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <!-- build:css styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
-  <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
-  <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
-  <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
-  <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
-  <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
-  <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="/css/AdminLTE.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-  
-  <!-- endbuild -->
+<head>
+    <meta charset="utf-8">
+    <title>Admin: {{ settings.appName }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
+    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css" />
+    <link rel="stylesheet" href="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="/css/AdminLTE.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    
+    <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/openlayers/ol.css">
 </head>
+
 <body class="{{ settings.appTheme }} {{ settings.appLayout }} " ng-controller="MainCtrl">
-<!--[if lt IE 7]>
+    <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<div ui-view ng-class="{'full-height': currentUser.id === undefined}"></div>
+    <div ui-view ng-class="{'full-height': currentUser.id === undefined}"></div>
 
-<div ng-controller="toasty-controller">
-  <toasty-container toasty-defaults='{"timeout": 3000, "close-button":true, "sound": false}'></toasty-container>
-</div>
+    <div ng-controller="toasty-controller">
+        <toasty-container toasty-defaults='{"timeout": 3000, "close-button":true, "sound": false}'></toasty-container>
+    </div>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push (arguments)
-    }, i[r].l = 1 * new Date ();
-    a = s.createElement (o),
-      m = s.getElementsByTagName (o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore (a, m)
-  }) (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga ('create', 'UA-XXXXX-X');
-  ga ('send', 'pageview');
-</script>
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
 
-<!-- build:js scripts/oldieshim.js -->
-<!--[if lt IE 9]>
+    <!-- build:js scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.js"></script>
 <![endif]-->
-<!-- endbuild -->
-<!-- build:js scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/api-check/dist/api-check.js"></script>
-<script src="bower_components/angular-formly/dist/formly.js"></script>
-<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
-<script src="bower_components/angular-toasty/js/ng-toasty.js"></script>
-<script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
-<script src="bower_components/angular-filter/dist/angular-filter.js"></script>
-<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
-<script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
-<script src="bower_components/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
-<script src="bower_components/codemirror/lib/codemirror.js"></script>
-<script src="bower_components/codemirror/addon/mode/overlay.js"></script>
-<script src="bower_components/codemirror/mode/gfm/gfm.js"></script>
-<script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
-<script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-<script src="bower_components/showdown/compressed/showdown.js"></script>
-<script src="bower_components/angular-markdown-directive/markdown.js"></script>
-<script src="bower_components/angular-elastic/elastic.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/angular-autoFields-bootstrap/autofields.min.js"></script>
-<script src="bower_components/angular-autoFields-bootstrap/autofields-bootstrap.min.js"></script>
-<script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
-<script src="bower_components/angular-translate/angular-translate.js"></script>
-<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
-<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
-<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-<script src="bower_components/faker/build/build/faker.js"></script>
-<script src="bower_components/tv4/tv4.js"></script>
-<script src="bower_components/objectpath/lib/ObjectPath.js"></script>
-<script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
-<script src="bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
-<script src="bower_components/angular-ui-select/dist/select.js"></script>
-<script src="bower_components/underscore/underscore.js"></script>
-<script src="bower_components/angular-schema-form-ui-select/ui-sortable.js"></script>
-<script src="bower_components/angular-schema-form-ui-select/angular-underscore.js"></script>
-<script src="bower_components/angular-schema-form-ui-select/bootstrap-ui-select.min.js"></script>
-<script src="bower_components/angular-permission/dist/angular-permission.js"></script>
-<script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
-<script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
-<!-- build:js scripts/scripts.js -->
-<!-- JS -->
-<script src="/js/angular-locale_zh-cn.js"></script>
-<script src="/js/app.js"></script>
-<script src="/js/config.js"></script>
-<script src="/js/lb-services.js"></script>
-<script src="/js/translations.js"></script>
-<!-- MODULES -->
-<script src="/modules/about/app.about.js"></script>
-<script src="/modules/about/controllers/about.config.js"></script>
-<script src="/modules/about/controllers/about.controller.js"></script>
-<script src="/modules/about/controllers/about.routes.js"></script>
-<script src="/modules/advertisement/app.advertisement.js"></script>
-<script src="/modules/advertisement/config/advertisement.config.js"></script>
-<script src="/modules/advertisement/config/advertisement.routes.js"></script>
-<script src="/modules/advertisement/services/advertisement.service.js"></script>
-<script src="/modules/core/app.core.js"></script>
-<script src="/modules/core/config/core.config.js"></script>
-<script src="/modules/core/config/core.routes.js"></script>
-<script src="/modules/core/controllers/cover.ctrl.js"></script>
-<script src="/modules/core/controllers/home.ctrl.js"></script>
-<script src="/modules/core/controllers/layout.ctrl.js"></script>
-<script src="/modules/core/controllers/main.ctrl.js"></script>
-<script src="/modules/core/controllers/router.ctrl.js"></script>
-<script src="/modules/core/directives/admin-box.js"></script>
-<script src="/modules/core/directives/admin-form.js"></script>
-<script src="/modules/core/directives/admin-header.js"></script>
-<script src="/modules/core/directives/date.js"></script>
-<script src="/modules/core/directives/home.js"></script>
-<script src="/modules/core/directives/navbar-no-menu.js"></script>
-<script src="/modules/core/directives/navbar.js"></script>
-<script src="/modules/core/directives/small-box.directive.js"></script>
-<script src="/modules/core/helpers/FormHelper.js"></script>
-<script src="/modules/core/services/api.service.js"></script>
-<script src="/modules/core/services/core.service.js"></script>
-<script src="/modules/core/services/meta.service.js"></script>
-<script src="/modules/keypersion/app.keypersion.js"></script>
-<script src="/modules/keypersion/config/keypersion.config.js"></script>
-<script src="/modules/keypersion/config/keypersion.routes.js"></script>
-<script src="/modules/keypersion/services/keypersion.service.js"></script>
-<script src="/modules/sandbox/app.sandbox.js"></script>
-<script src="/modules/sandbox/config/sandbox.config.js"></script>
-<script src="/modules/sandbox/config/sandbox.routes.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.autofields.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.bootstrap.alert.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.bootstrap.tabs.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.coreservice.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.dashboard.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.datepickerdemo.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.faker.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.forms.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.grid.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.icons.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.schemaform.ctrl.js"></script>
-<script src="/modules/sandbox/controllers/sandbox.trees.ctrl.js"></script>
-<script src="/modules/settings/app.settings.js"></script>
-<script src="/modules/settings/config/settings.config.js"></script>
-<script src="/modules/settings/config/settings.routes.js"></script>
-<script src="/modules/settings/services/setting.service.js"></script>
-<script src="/modules/users/app.users.js"></script>
-<script src="/modules/users/config/users.auth.js"></script>
-<script src="/modules/users/config/users.config.js"></script>
-<script src="/modules/users/config/users.routes.js"></script>
-<script src="/modules/users/controllers/login.ctrl.js"></script>
-<script src="/modules/users/controllers/register.ctrl.js"></script>
-<script src="/modules/users/directives/login.js"></script>
-<script src="/modules/users/directives/register.js"></script>
-<script src="/modules/users/services/appauth.service.js"></script>
-<script src="/modules/users/services/user.service.js"></script>
-<!-- endbuild -->
+    <!-- endbuild -->
+    <script src="bower_components/openlayers/ol.js"></script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/api-check/dist/api-check.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+    <script src="bower_components/angular-toasty/js/ng-toasty.js"></script>
+    <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="bower_components/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="bower_components/codemirror/addon/mode/overlay.js"></script>
+    <script src="bower_components/codemirror/mode/gfm/gfm.js"></script>
+    <script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
+    <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script src="bower_components/showdown/compressed/showdown.js"></script>
+    <script src="bower_components/angular-markdown-directive/markdown.js"></script>
+    <script src="bower_components/angular-elastic/elastic.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-autoFields-bootstrap/autofields.min.js"></script>
+    <script src="bower_components/angular-autoFields-bootstrap/autofields-bootstrap.min.js"></script>
+    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/faker/build/build/faker.js"></script>
+    <script src="bower_components/tv4/tv4.js"></script>
+    <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
+    <script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
+    <script src="bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular-schema-form-ui-select/ui-sortable.js"></script>
+    <script src="bower_components/angular-schema-form-ui-select/angular-underscore.js"></script>
+    <script src="bower_components/angular-schema-form-ui-select/bootstrap-ui-select.min.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ui.js"></script>
+    <script src="bower_components/angular-permission/dist/angular-permission-ng.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.js"></script>
+    <script src="bower_components/angular-openlayers-directive/dist/angular-openlayers-directive.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js scripts/scripts.js -->
+    <!-- JS -->
+    <script src="/js/angular-locale_zh-cn.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/lb-services.js"></script>
+    <script src="/js/translations.js"></script>
+    <!-- MODULES -->
+    <script src="/modules/about/app.about.js"></script>
+    <script src="/modules/about/controllers/about.config.js"></script>
+    <script src="/modules/about/controllers/about.controller.js"></script>
+    <script src="/modules/about/controllers/about.routes.js"></script>
+    <script src="/modules/advertisement/app.advertisement.js"></script>
+    <script src="/modules/advertisement/config/advertisement.config.js"></script>
+    <script src="/modules/advertisement/config/advertisement.routes.js"></script>
+    <script src="/modules/advertisement/controllers/advertisement.ctrl.js"></script>
+    <script src="/modules/advertisement/services/advertisement.service.js"></script>
+    <script src="/modules/apropagandapoint/app.apropagandapoint.js"></script>
+    <script src="/modules/apropagandapoint/config/apropagandapoint.config.js"></script>
+    <script src="/modules/apropagandapoint/config/apropagandapoint.routes.js"></script>
+    <script src="/modules/apropagandapoint/controllers/apropagandapoint.ctrl.js"></script>
+    <script src="/modules/apropagandapoint/services/apropagandapoint.service.js"></script>
+    <script src="/modules/core/app.core.js"></script>
+    <script src="/modules/core/config/core.config.js"></script>
+    <script src="/modules/core/config/core.routes.js"></script>
+    <script src="/modules/core/controllers/cover.ctrl.js"></script>
+    <script src="/modules/core/controllers/home.ctrl.js"></script>
+    <script src="/modules/core/controllers/layout.ctrl.js"></script>
+    <script src="/modules/core/controllers/main.ctrl.js"></script>
+    <script src="/modules/core/controllers/router.ctrl.js"></script>
+    <script src="/modules/core/directives/admin-box.js"></script>
+    <script src="/modules/core/directives/admin-form.js"></script>
+    <script src="/modules/core/directives/admin-header.js"></script>
+    <script src="/modules/core/directives/date.js"></script>
+    <script src="/modules/core/directives/home.js"></script>
+    <script src="/modules/core/directives/navbar-no-menu.js"></script>
+    <script src="/modules/core/directives/navbar.js"></script>
+    <script src="/modules/core/directives/small-box.directive.js"></script>
+    <script src="/modules/core/helpers/FormHelper.js"></script>
+    <script src="/modules/core/services/api.service.js"></script>
+    <script src="/modules/core/services/core.service.js"></script>
+    <script src="/modules/core/services/meta.service.js"></script>
+    <script src="/modules/emergencyaccess/app.emergencyaccess.js"></script>
+    <script src="/modules/emergencyaccess/config/emergencyaccess.config.js"></script>
+    <script src="/modules/emergencyaccess/config/emergencyaccess.routes.js"></script>
+    <script src="/modules/emergencyaccess/controllers/emergencyaccess.ctrl.js"></script>
+    <script src="/modules/emergencyaccess/services/emergencyaccess.service.js"></script>
+    <script src="/modules/fenceinfo/app.fenceinfo.js"></script>
+    <script src="/modules/fenceinfo/config/fenceinfo.config.js"></script>
+    <script src="/modules/fenceinfo/config/fenceinfo.routes.js"></script>
+    <script src="/modules/fenceinfo/services/fenceinfo.service.js"></script>
+    <script src="/modules/institutionaiteam/app.institutionaiteam.js"></script>
+    <script src="/modules/institutionaiteam/config/institutionaiteam.config.js"></script>
+    <script src="/modules/institutionaiteam/config/institutionaiteam.routes.js"></script>
+    <script src="/modules/institutionaiteam/controllers/institutionaiteam.ctrl.js"></script>
+    <script src="/modules/institutionaiteam/services/institutionaiteam.service.js"></script>
+    <script src="/modules/keypersion/app.keypersion.js"></script>
+    <script src="/modules/keypersion/config/keypersion.config.js"></script>
+    <script src="/modules/keypersion/config/keypersion.routes.js"></script>
+    <script src="/modules/keypersion/controllers/keypersion.ctrl.js"></script>
+    <script src="/modules/keypersion/services/keypersion.service.js"></script>
+    <script src="/modules/monitoring/app.monitoring.js"></script>
+    <script src="/modules/monitoring/config/monitoring.config.js"></script>
+    <script src="/modules/monitoring/config/monitoring.routes.js"></script>
+    <script src="/modules/monitoring/controllers/monitoring.ctrl.js"></script>
+    <script src="/modules/monitoring/services/monitoring.service.js"></script>
+    <script src="/modules/openLayer/app.openLayer.js"></script>
+    <script src="/modules/openLayer/config/openLayer.config.js"></script>
+    <script src="/modules/openLayer/config/openLayer.routes.js"></script>
+    <script src="/modules/openLayer/controllers/openLayer.Ctrl.js"></script>
+    <script src="/modules/sandbox/app.sandbox.js"></script>
+    <script src="/modules/sandbox/config/sandbox.config.js"></script>
+    <script src="/modules/sandbox/config/sandbox.routes.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.autofields.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.bootstrap.alert.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.bootstrap.tabs.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.coreservice.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.dashboard.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.datepickerdemo.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.faker.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.forms.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.grid.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.icons.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.schemaform.ctrl.js"></script>
+    <script src="/modules/sandbox/controllers/sandbox.trees.ctrl.js"></script>
+    <script src="/modules/securityequipment/app.securityequipment.js"></script>
+    <script src="/modules/securityequipment/config/securityequipment.config.js"></script>
+    <script src="/modules/securityequipment/config/securityequipment.routes.js"></script>
+    <script src="/modules/securityequipment/controllers/securityequipment.ctrl.js"></script>
+    <script src="/modules/securityequipment/services/securityequipment.service.js"></script>
+    <script src="/modules/settings/app.settings.js"></script>
+    <script src="/modules/settings/config/settings.config.js"></script>
+    <script src="/modules/settings/config/settings.routes.js"></script>
+    <script src="/modules/settings/services/setting.service.js"></script>
+    <script src="/modules/users/app.users.js"></script>
+    <script src="/modules/users/config/users.auth.js"></script>
+    <script src="/modules/users/config/users.config.js"></script>
+    <script src="/modules/users/config/users.routes.js"></script>
+    <script src="/modules/users/controllers/login.ctrl.js"></script>
+    <script src="/modules/users/controllers/register.ctrl.js"></script>
+    <script src="/modules/users/directives/login.js"></script>
+    <script src="/modules/users/directives/register.js"></script>
+    <script src="/modules/users/services/appauth.service.js"></script>
+    <script src="/modules/users/services/user.service.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>

@@ -18,15 +18,7 @@
                 .state('app.advertisement.list', {
                     url: '',
                     templateUrl: 'modules/advertisement/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(advertisement) {
-                        this.advertisement = advertisement;
-                    },
-                    resolve: {
-                        advertisement: function(AdvertisementService) {
-                            return AdvertisementService.find();
-                        }
-                    }
+                    controller: 'OrdersListCtrl',
                 })
                 .state('app.advertisement.add', {
                     url: '/add',
@@ -81,18 +73,19 @@
                         }
                     }
                 })
-                .state('app.advertisement.delete', {
-                    url: '/:id/delete',
-                    template: '',
-                    controllerAs: 'ctrl',
-                    controller: function($stateParams, $state, AdvertisementService) {
-                        AdvertisementService.delete($stateParams.id, function() {
-                            $state.go('^.list');
-                        }, function() {
-                            $state.go('^.list');
-                        });
-                    }
-                });
+
+            .state('app.advertisement.delete', {
+                url: '/:id/delete',
+                template: '',
+                controllerAs: 'ctrl',
+                controller: function($stateParams, $state, AdvertisementService) {
+                    AdvertisementService.delete($stateParams.id, function() {
+                        $state.go('^.list');
+                    }, function() {
+                        $state.go('^.list');
+                    });
+                }
+            });
         });
 
 })();
