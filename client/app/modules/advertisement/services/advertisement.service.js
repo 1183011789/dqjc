@@ -82,6 +82,16 @@
                         }
                     },
                     {
+                        key: 'number',
+                        type: 'input',
+                        templateOptions: {
+                            type: 'text',
+                            label: '编号:',
+                            required: false,
+                            placeholder: '请输入编号'
+                        }
+                    },
+                    {
                         key: 'address',
                         type: 'input',
                         templateOptions: {
@@ -144,6 +154,38 @@
                             label: '摄像头id:',
                             required: false,
                             placeholder: '摄像头id'
+                        }
+                    }, {
+                        key: 'personCharge',
+                        type: 'input',
+                        templateOptions: {
+                            label: '负责人:',
+                            required: false,
+                            placeholder: '负责人'
+                        }
+                    }, {
+                        key: 'contactNumber',
+                        type: 'input',
+                        templateOptions: {
+                            label: '电话:',
+                            required: false,
+                            placeholder: '电话'
+                        }
+                    }, {
+                        key: 'affiliatedinstitution',
+                        type: 'input',
+                        templateOptions: {
+                            label: '所属机构:',
+                            required: false,
+                            placeholder: '所属机构'
+                        }
+                    }, {
+                        key: 'remark',
+                        type: 'input',
+                        templateOptions: {
+                            label: '备注:',
+                            required: false,
+                            placeholder: '备注'
                         }
                     }
                 ];

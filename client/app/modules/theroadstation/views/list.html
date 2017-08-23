@@ -9,6 +9,7 @@
               删除
             </a>
             <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+            <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
           </span>
     </div>
     <div class="panel-body">
@@ -56,7 +57,7 @@
                 <td data-title="'勤务模式'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="Other">
                     <span ng-switch-default>{{ item.serviceMode }}</span>
                 </td>
-<!-- 
+                <!-- 
                 <td data-title="'状态'" class="text-center" ng-switch="item.state" style="vertical-align:middle" ng-form="">
                     <span ng-switch-default ng-if="item.state===true">可用 </span>
                     <span ng-switch-default ng-if="item.state===false">不可用 </span>
@@ -73,19 +74,19 @@
                     <span ng-switch-default>{{item.fireBrigade}}</span>
                 </td>
 
-                 <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.affiliatedinstitution}}</span>
                 </td>
 
-                 <td data-title="'经度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'经度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.lng}}</span>
                 </td>
 
-                 <td data-title="'纬度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'纬度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.lat}}</span>
                 </td>
 
-                  <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.remark}}</span>
                 </td>
             </tr>

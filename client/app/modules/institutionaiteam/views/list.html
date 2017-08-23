@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        机构队伍
+        机构队伍<span style="color:brown;">[共有 {{totalItems}} 个]</span>
         <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
             <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
               <!-- <a href="" ng-class="{disabled:getSelectedCount()!=1}" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
@@ -13,6 +13,7 @@
                 删除
               </a>
               <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
             </span>
         </span>
     </div>

@@ -16158,65 +16158,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/RodeContains/:id/bridge",
               method: "GET",
             },
-
-            // INTERNAL. Use Guardian.bridges.findById() instead.
-            "::findById::Guardian::bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.bridges.destroyById() instead.
-            "::destroyById::Guardian::bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.bridges.updateById() instead.
-            "::updateById::Guardian::bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.bridges() instead.
-            "::get::Guardian::bridges": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.bridges.create() instead.
-            "::create::Guardian::bridges": {
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.bridges.createMany() instead.
-            "::createMany::Guardian::bridges": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.bridges.destroyAll() instead.
-            "::delete::Guardian::bridges": {
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.bridges.count() instead.
-            "::count::Guardian::bridges": {
-              url: urlBase + "/Guardians/:id/bridges/count",
-              method: "GET",
-            },
           }
         );
 
@@ -17139,65 +17080,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use RodeContain.tunnel() instead.
             "::get::RodeContain::tunnel": {
               url: urlBase + "/RodeContains/:id/tunnel",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.findById() instead.
-            "::findById::Guardian::tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.destroyById() instead.
-            "::destroyById::Guardian::tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.updateById() instead.
-            "::updateById::Guardian::tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.tunnels() instead.
-            "::get::Guardian::tunnels": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.create() instead.
-            "::create::Guardian::tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.createMany() instead.
-            "::createMany::Guardian::tunnels": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.destroyAll() instead.
-            "::delete::Guardian::tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.count() instead.
-            "::count::Guardian::tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels/count",
               method: "GET",
             },
           }
@@ -18599,65 +18481,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/LevelCrossingCrossproperties/:id/levelCrossings/count",
               method: "GET",
             },
-
-            // INTERNAL. Use Guardian.levelCrossings.findById() instead.
-            "::findById::Guardian::levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.destroyById() instead.
-            "::destroyById::Guardian::levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.updateById() instead.
-            "::updateById::Guardian::levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings() instead.
-            "::get::Guardian::levelCrossings": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.create() instead.
-            "::create::Guardian::levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.createMany() instead.
-            "::createMany::Guardian::levelCrossings": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.destroyAll() instead.
-            "::delete::Guardian::levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.count() instead.
-            "::count::Guardian::levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings/count",
-              method: "GET",
-            },
           }
         );
 
@@ -20028,65 +19851,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use RodeContain.culvert() instead.
             "::get::RodeContain::culvert": {
               url: urlBase + "/RodeContains/:id/culvert",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.culverts.findById() instead.
-            "::findById::Guardian::culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.culverts.destroyById() instead.
-            "::destroyById::Guardian::culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.culverts.updateById() instead.
-            "::updateById::Guardian::culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.culverts() instead.
-            "::get::Guardian::culverts": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.culverts.create() instead.
-            "::create::Guardian::culverts": {
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.culverts.createMany() instead.
-            "::createMany::Guardian::culverts": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.culverts.destroyAll() instead.
-            "::delete::Guardian::culverts": {
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.culverts.count() instead.
-            "::count::Guardian::culverts": {
-              url: urlBase + "/Guardians/:id/culverts/count",
               method: "GET",
             },
           }
@@ -24177,6 +23941,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use KeyPlace.keyPlaceCategorys() instead.
+            "prototype$__get__keyPlaceCategorys": {
+              url: urlBase + "/KeyPlaces/:id/keyPlaceCategorys",
+              method: "GET",
+            },
+
             // INTERNAL. Use KeyPlace.rodes() instead.
             "prototype$__get__rodes": {
               isArray: true,
@@ -24765,43 +24535,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            /**
-             * @ngdoc method
-             * @name lbServices.KeyPlace#upload
-             * @methodOf lbServices.KeyPlace
-             *
-             * @description
-             *
-             * Upload a file or more files
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `ctx` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `KeyPlace` object.)
-             * </em>
-             */
-            "upload": {
-              url: urlBase + "/KeyPlaces/upload",
-              method: "POST",
-            },
-
             // INTERNAL. Use Rode.keyPlaces.findById() instead.
             "::findById::Rode::keyPlaces": {
               params: {
@@ -24891,12 +24624,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use RodeContain.keyPlace() instead.
             "::get::RodeContain::keyPlace": {
               url: urlBase + "/RodeContains/:id/keyPlace",
-              method: "GET",
-            },
-
-            // INTERNAL. Use KeyPlaceImg.keyPlaces() instead.
-            "::get::KeyPlaceImg::keyPlaces": {
-              url: urlBase + "/KeyPlaceImgs/:id/keyPlaces",
               method: "GET",
             },
           }
@@ -25753,6 +25480,42 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           return action.apply(R, arguments);
         };
 
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlace#keyPlaceCategorys
+             * @methodOf lbServices.KeyPlace
+             *
+             * @description
+             *
+             * Fetches belongsTo relation keyPlaceCategorys.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+        R.keyPlaceCategorys = function() {
+          var TargetResource = $injector.get("KeyPlaceCategory");
+          var action = TargetResource["::get::KeyPlace::keyPlaceCategorys"];
+          return action.apply(R, arguments);
+        };
+
 
         return R;
       }]);
@@ -25838,30 +25601,30 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "HEAD",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.findById() instead.
-            "prototype$__findById__images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.findById() instead.
+            "prototype$__findById__hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.destroyById() instead.
-            "prototype$__destroyById__images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.destroyById() instead.
+            "prototype$__destroyById__hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.updateById() instead.
-            "prototype$__updateById__images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.updateById() instead.
+            "prototype$__updateById__hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "PUT",
             },
 
@@ -25890,28 +25653,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images() instead.
-            "prototype$__get__images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages() instead.
+            "prototype$__get__hiddenDangerPlaceImages": {
               isArray: true,
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.create() instead.
-            "prototype$__create__images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.create() instead.
+            "prototype$__create__hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "POST",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.destroyAll() instead.
-            "prototype$__delete__images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.destroyAll() instead.
+            "prototype$__delete__hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "DELETE",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.count() instead.
-            "prototype$__count__images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images/count",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.count() instead.
+            "prototype$__count__hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/count",
               method: "GET",
             },
 
@@ -26453,43 +26216,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            /**
-             * @ngdoc method
-             * @name lbServices.HiddenDangerPlace#upload
-             * @methodOf lbServices.HiddenDangerPlace
-             *
-             * @description
-             *
-             * Upload a file or more files
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `ctx` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `HiddenDangerPlace` object.)
-             * </em>
-             */
-            "upload": {
-              url: urlBase + "/HiddenDangerPlaces/upload",
-              method: "POST",
-            },
-
             // INTERNAL. Use Rode.hiddenDangerPlaces.findById() instead.
             "::findById::Rode::hiddenDangerPlaces": {
               params: {
@@ -26582,9 +26308,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Image.hiddenDangerPlaces() instead.
-            "::get::Image::hiddenDangerPlaces": {
-              url: urlBase + "/images/:id/hiddenDangerPlaces",
+            // INTERNAL. Use HiddenDangerPlaceImage.hiddenDangerPlaces() instead.
+            "::get::HiddenDangerPlaceImage::hiddenDangerPlaces": {
+              url: urlBase + "/HiddenDangerPlaceImages/:id/hiddenDangerPlaces",
               method: "GET",
             },
           }
@@ -27141,27 +26867,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         };
     /**
      * @ngdoc object
-     * @name lbServices.HiddenDangerPlace.images
-     * @header lbServices.HiddenDangerPlace.images
+     * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
+     * @header lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
      * @object
      * @description
      *
-     * The object `HiddenDangerPlace.images` groups methods
-     * manipulating `Image` instances related to `HiddenDangerPlace`.
+     * The object `HiddenDangerPlace.hiddenDangerPlaceImages` groups methods
+     * manipulating `HiddenDangerPlaceImage` instances related to `HiddenDangerPlace`.
      *
-     * Call {@link lbServices.HiddenDangerPlace#images HiddenDangerPlace.images()}
+     * Call {@link lbServices.HiddenDangerPlace#hiddenDangerPlaceImages HiddenDangerPlace.hiddenDangerPlaceImages()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace#images
+             * @name lbServices.HiddenDangerPlace#hiddenDangerPlaceImages
              * @methodOf lbServices.HiddenDangerPlace
              *
              * @description
              *
-             * Queries images of HiddenDangerPlace.
+             * Queries hiddenDangerPlaceImages of HiddenDangerPlace.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27181,23 +26907,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
-        R.images = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::get::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::get::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#count
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#count
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Counts images of HiddenDangerPlace.
+             * Counts hiddenDangerPlaceImages of HiddenDangerPlace.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27219,20 +26945,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.images.count = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::count::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.count = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::count::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#create
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#create
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Creates a new instance in images of this model.
+             * Creates a new instance in hiddenDangerPlaceImages of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27254,23 +26980,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
-        R.images.create = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::create::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.create = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::create::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#createMany
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#createMany
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Creates a new instance in images of this model.
+             * Creates a new instance in hiddenDangerPlaceImages of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27292,23 +27018,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
-        R.images.createMany = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::createMany::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.createMany = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::createMany::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#destroyAll
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#destroyAll
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Deletes all images of this model.
+             * Deletes all hiddenDangerPlaceImages of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27326,26 +27052,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.images.destroyAll = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::delete::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.destroyAll = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::delete::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#destroyById
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#destroyById
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Delete a related item by id for images.
+             * Delete a related item by id for hiddenDangerPlaceImages.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for images
+             *  - `fk` – `{*}` - Foreign key for hiddenDangerPlaceImages
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27359,26 +27085,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.images.destroyById = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::destroyById::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.destroyById = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::destroyById::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#findById
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#findById
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Find a related item by id for images.
+             * Find a related item by id for hiddenDangerPlaceImages.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for images
+             *  - `fk` – `{*}` - Foreign key for hiddenDangerPlaceImages
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27392,29 +27118,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
-        R.images.findById = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::findById::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.findById = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::findById::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.HiddenDangerPlace.images#updateById
-             * @methodOf lbServices.HiddenDangerPlace.images
+             * @name lbServices.HiddenDangerPlace.hiddenDangerPlaceImages#updateById
+             * @methodOf lbServices.HiddenDangerPlace.hiddenDangerPlaceImages
              *
              * @description
              *
-             * Update a related item by id for images.
+             * Update a related item by id for hiddenDangerPlaceImages.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for images
+             *  - `fk` – `{*}` - Foreign key for hiddenDangerPlaceImages
              *
              * @param {Object} postData Request data.
              *
@@ -27432,12 +27158,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
-        R.images.updateById = function() {
-          var TargetResource = $injector.get("Image");
-          var action = TargetResource["::updateById::HiddenDangerPlace::images"];
+        R.hiddenDangerPlaceImages.updateById = function() {
+          var TargetResource = $injector.get("HiddenDangerPlaceImage");
+          var action = TargetResource["::updateById::HiddenDangerPlace::hiddenDangerPlaceImages"];
           return action.apply(R, arguments);
         };
 
@@ -29611,43 +29337,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "PagingFind": {
               url: urlBase + "/APropagandaPoints/PagingFind",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.APropagandaPoint#upload
-             * @methodOf lbServices.APropagandaPoint
-             *
-             * @description
-             *
-             * Upload a file or more files
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `ctx` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `APropagandaPoint` object.)
-             * </em>
-             */
-            "upload": {
-              url: urlBase + "/APropagandaPoints/upload",
               method: "POST",
             },
 
@@ -32092,65 +31781,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use RodeContain.station() instead.
             "::get::RodeContain::station": {
               url: urlBase + "/RodeContains/:id/station",
-              method: "GET",
-            },
-
-            // INTERNAL. Use StationRank.stations.findById() instead.
-            "::findById::StationRank::stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use StationRank.stations.destroyById() instead.
-            "::destroyById::StationRank::stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use StationRank.stations.updateById() instead.
-            "::updateById::StationRank::stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use StationRank.stations() instead.
-            "::get::StationRank::stations": {
-              isArray: true,
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "GET",
-            },
-
-            // INTERNAL. Use StationRank.stations.create() instead.
-            "::create::StationRank::stations": {
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "POST",
-            },
-
-            // INTERNAL. Use StationRank.stations.createMany() instead.
-            "::createMany::StationRank::stations": {
-              isArray: true,
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "POST",
-            },
-
-            // INTERNAL. Use StationRank.stations.destroyAll() instead.
-            "::delete::StationRank::stations": {
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use StationRank.stations.count() instead.
-            "::count::StationRank::stations": {
-              url: urlBase + "/StationRanks/:id/stations/count",
               method: "GET",
             },
           }
@@ -37983,13 +37613,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.Image
- * @header lbServices.Image
+ * @name lbServices.HiddenDangerPlaceImage
+ * @header lbServices.HiddenDangerPlaceImage
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Image` model.
+ * A $resource object for interacting with the `HiddenDangerPlaceImage` model.
  *
  * ## Example
  *
@@ -37999,25 +37629,25 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "Image",
+    "HiddenDangerPlaceImage",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector',
       function(Resource, LoopBackAuth, $injector) {
         var R = Resource(
-        urlBase + "/images/:id",
+        urlBase + "/HiddenDangerPlaceImages/:id",
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Image.hiddenDangerPlaces() instead.
+            // INTERNAL. Use HiddenDangerPlaceImage.hiddenDangerPlaces() instead.
             "prototype$__get__hiddenDangerPlaces": {
-              url: urlBase + "/images/:id/hiddenDangerPlaces",
+              url: urlBase + "/HiddenDangerPlaceImages/:id/hiddenDangerPlaces",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#create
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#create
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38044,18 +37674,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/images",
+              url: urlBase + "/HiddenDangerPlaceImages",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#createMany
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#createMany
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38082,19 +37712,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/images",
+              url: urlBase + "/HiddenDangerPlaceImages",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#upsert
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#upsert
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38121,18 +37751,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "upsert": {
-              url: urlBase + "/images",
+              url: urlBase + "/HiddenDangerPlaceImages",
               method: "PUT",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#exists
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#exists
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38157,14 +37787,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/images/:id/exists",
+              url: urlBase + "/HiddenDangerPlaceImages/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#findById
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#findById
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38188,18 +37818,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/images/:id",
+              url: urlBase + "/HiddenDangerPlaceImages/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#find
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#find
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38221,19 +37851,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/images",
+              url: urlBase + "/HiddenDangerPlaceImages",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#findOne
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#findOne
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38255,18 +37885,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/images/findOne",
+              url: urlBase + "/HiddenDangerPlaceImages/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#updateAll
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#updateAll
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38293,14 +37923,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * The number of instances updated
              */
             "updateAll": {
-              url: urlBase + "/images/update",
+              url: urlBase + "/HiddenDangerPlaceImages/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#deleteById
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#deleteById
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38322,18 +37952,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/images/:id",
+              url: urlBase + "/HiddenDangerPlaceImages/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#count
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#count
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38358,14 +37988,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/images/count",
+              url: urlBase + "/HiddenDangerPlaceImages/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#prototype$updateAttributes
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#prototype$updateAttributes
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38391,18 +38021,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
             "prototype$updateAttributes": {
-              url: urlBase + "/images/:id",
+              url: urlBase + "/HiddenDangerPlaceImages/:id",
               method: "PUT",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#createChangeStream
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#createChangeStream
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38432,14 +38062,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/images/change-stream",
+              url: urlBase + "/HiddenDangerPlaceImages/change-stream",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#deleteMultiple
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#deleteMultiple
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38466,66 +38096,103 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `rodes` – `{object=}` -
              */
             "deleteMultiple": {
-              url: urlBase + "/images/deleteMultiple",
+              url: urlBase + "/HiddenDangerPlaceImages/deleteMultiple",
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.findById() instead.
-            "::findById::HiddenDangerPlace::images": {
+            /**
+             * @ngdoc method
+             * @name lbServices.HiddenDangerPlaceImage#upload
+             * @methodOf lbServices.HiddenDangerPlaceImage
+             *
+             * @description
+             *
+             * Upload a file or more files
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `ctx` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
+             * </em>
+             */
+            "upload": {
+              url: urlBase + "/HiddenDangerPlaceImages/upload",
+              method: "POST",
+            },
+
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.findById() instead.
+            "::findById::HiddenDangerPlace::hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.destroyById() instead.
-            "::destroyById::HiddenDangerPlace::images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.destroyById() instead.
+            "::destroyById::HiddenDangerPlace::hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.updateById() instead.
-            "::updateById::HiddenDangerPlace::images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.updateById() instead.
+            "::updateById::HiddenDangerPlace::hiddenDangerPlaceImages": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/HiddenDangerPlaces/:id/images/:fk",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images() instead.
-            "::get::HiddenDangerPlace::images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages() instead.
+            "::get::HiddenDangerPlace::hiddenDangerPlaceImages": {
               isArray: true,
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "GET",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.create() instead.
-            "::create::HiddenDangerPlace::images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.create() instead.
+            "::create::HiddenDangerPlace::hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "POST",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.createMany() instead.
-            "::createMany::HiddenDangerPlace::images": {
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.createMany() instead.
+            "::createMany::HiddenDangerPlace::hiddenDangerPlaceImages": {
               isArray: true,
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "POST",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.destroyAll() instead.
-            "::delete::HiddenDangerPlace::images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.destroyAll() instead.
+            "::delete::HiddenDangerPlace::hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages",
               method: "DELETE",
             },
 
-            // INTERNAL. Use HiddenDangerPlace.images.count() instead.
-            "::count::HiddenDangerPlace::images": {
-              url: urlBase + "/HiddenDangerPlaces/:id/images/count",
+            // INTERNAL. Use HiddenDangerPlace.hiddenDangerPlaceImages.count() instead.
+            "::count::HiddenDangerPlace::hiddenDangerPlaceImages": {
+              url: urlBase + "/HiddenDangerPlaces/:id/hiddenDangerPlaceImages/count",
               method: "GET",
             },
           }
@@ -38535,8 +38202,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#updateOrCreate
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#updateOrCreate
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38563,15 +38230,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#update
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#update
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38601,8 +38268,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#destroyById
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#destroyById
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38624,15 +38291,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#removeById
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#removeById
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38654,7 +38321,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Image` object.)
+             * This usually means the response is a `HiddenDangerPlaceImage` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
@@ -38662,19 +38329,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
         /**
         * @ngdoc property
-        * @name lbServices.Image#modelName
-        * @propertyOf lbServices.Image
+        * @name lbServices.HiddenDangerPlaceImage#modelName
+        * @propertyOf lbServices.HiddenDangerPlaceImage
         * @description
         * The name of the model represented by this $resource,
-        * i.e. `Image`.
+        * i.e. `HiddenDangerPlaceImage`.
         */
-        R.modelName = "Image";
+        R.modelName = "HiddenDangerPlaceImage";
 
 
             /**
              * @ngdoc method
-             * @name lbServices.Image#hiddenDangerPlaces
-             * @methodOf lbServices.Image
+             * @name lbServices.HiddenDangerPlaceImage#hiddenDangerPlaces
+             * @methodOf lbServices.HiddenDangerPlaceImage
              *
              * @description
              *
@@ -38703,7 +38370,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R.hiddenDangerPlaces = function() {
           var TargetResource = $injector.get("HiddenDangerPlace");
-          var action = TargetResource["::get::Image::hiddenDangerPlaces"];
+          var action = TargetResource["::get::HiddenDangerPlaceImage::hiddenDangerPlaces"];
           return action.apply(R, arguments);
         };
 
@@ -39118,12 +38785,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         urlBase + "/KeyPlaceImgs/:id",
           { 'id': '@id' },
           {
-
-            // INTERNAL. Use KeyPlaceImg.keyPlaces() instead.
-            "prototype$__get__keyPlaces": {
-              url: urlBase + "/KeyPlaceImgs/:id/keyPlaces",
-              method: "GET",
-            },
 
             /**
              * @ngdoc method
@@ -39581,6 +39242,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceImg#upload
+             * @methodOf lbServices.KeyPlaceImg
+             *
+             * @description
+             *
+             * Upload a file or more files
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `ctx` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceImg` object.)
+             * </em>
+             */
+            "upload": {
+              url: urlBase + "/KeyPlaceImgs/upload",
+              method: "POST",
+            },
+
             // INTERNAL. Use KeyPlace.keyPlaceImgs.findById() instead.
             "::findById::KeyPlace::keyPlaceImgs": {
               params: {
@@ -39781,42 +39479,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "KeyPlaceImg";
 
-
-            /**
-             * @ngdoc method
-             * @name lbServices.KeyPlaceImg#keyPlaces
-             * @methodOf lbServices.KeyPlaceImg
-             *
-             * @description
-             *
-             * Fetches belongsTo relation keyPlaces.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `KeyPlace` object.)
-             * </em>
-             */
-        R.keyPlaces = function() {
-          var TargetResource = $injector.get("KeyPlace");
-          var action = TargetResource["::get::KeyPlaceImg::keyPlaces"];
-          return action.apply(R, arguments);
-        };
 
 
         return R;
@@ -40309,6 +39971,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "deleteMultiple": {
               url: urlBase + "/APropagandaPointImgs/deleteMultiple",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.APropagandaPointImg#upload
+             * @methodOf lbServices.APropagandaPointImg
+             *
+             * @description
+             *
+             * Upload a file or more files
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `ctx` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `APropagandaPointImg` object.)
+             * </em>
+             */
+            "upload": {
+              url: urlBase + "/APropagandaPointImgs/upload",
+              method: "POST",
             },
 
             // INTERNAL. Use APropagandaPoint.aPropagandaPointImgs.findById() instead.
@@ -41567,58 +41266,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use StationRank.stations.findById() instead.
-            "prototype$__findById__stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use StationRank.stations.destroyById() instead.
-            "prototype$__destroyById__stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use StationRank.stations.updateById() instead.
-            "prototype$__updateById__stations": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/StationRanks/:id/stations/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use StationRank.stations() instead.
-            "prototype$__get__stations": {
-              isArray: true,
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "GET",
-            },
-
-            // INTERNAL. Use StationRank.stations.create() instead.
-            "prototype$__create__stations": {
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "POST",
-            },
-
-            // INTERNAL. Use StationRank.stations.destroyAll() instead.
-            "prototype$__delete__stations": {
-              url: urlBase + "/StationRanks/:id/stations",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use StationRank.stations.count() instead.
-            "prototype$__count__stations": {
-              url: urlBase + "/StationRanks/:id/stations/count",
-              method: "GET",
-            },
-
             /**
              * @ngdoc method
              * @name lbServices.StationRank#create
@@ -42222,307 +41869,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "StationRank";
 
-    /**
-     * @ngdoc object
-     * @name lbServices.StationRank.stations
-     * @header lbServices.StationRank.stations
-     * @object
-     * @description
-     *
-     * The object `StationRank.stations` groups methods
-     * manipulating `Station` instances related to `StationRank`.
-     *
-     * Call {@link lbServices.StationRank#stations StationRank.stations()}
-     * to query all related instances.
-     */
-
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank#stations
-             * @methodOf lbServices.StationRank
-             *
-             * @description
-             *
-             * Queries stations of StationRank.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Station` object.)
-             * </em>
-             */
-        R.stations = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::get::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#count
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Counts stations of StationRank.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-        R.stations.count = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::count::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#create
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Creates a new instance in stations of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Station` object.)
-             * </em>
-             */
-        R.stations.create = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::create::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#createMany
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Creates a new instance in stations of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Station` object.)
-             * </em>
-             */
-        R.stations.createMany = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::createMany::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#destroyAll
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Deletes all stations of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.stations.destroyAll = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::delete::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#destroyById
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Delete a related item by id for stations.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for stations
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.stations.destroyById = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::destroyById::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#findById
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Find a related item by id for stations.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for stations
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Station` object.)
-             * </em>
-             */
-        R.stations.findById = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::findById::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.StationRank.stations#updateById
-             * @methodOf lbServices.StationRank.stations
-             *
-             * @description
-             *
-             * Update a related item by id for stations.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for stations
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Station` object.)
-             * </em>
-             */
-        R.stations.updateById = function() {
-          var TargetResource = $injector.get("Station");
-          var action = TargetResource["::updateById::StationRank::stations"];
-          return action.apply(R, arguments);
-        };
 
 
         return R;
@@ -43543,214 +42889,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Guardian.culverts.findById() instead.
-            "prototype$__findById__culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.culverts.destroyById() instead.
-            "prototype$__destroyById__culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.culverts.updateById() instead.
-            "prototype$__updateById__culverts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/culverts/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.bridges.findById() instead.
-            "prototype$__findById__bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.bridges.destroyById() instead.
-            "prototype$__destroyById__bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.bridges.updateById() instead.
-            "prototype$__updateById__bridges": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/bridges/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.findById() instead.
-            "prototype$__findById__levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.destroyById() instead.
-            "prototype$__destroyById__levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.updateById() instead.
-            "prototype$__updateById__levelCrossings": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/levelCrossings/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.findById() instead.
-            "prototype$__findById__tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.destroyById() instead.
-            "prototype$__destroyById__tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.updateById() instead.
-            "prototype$__updateById__tunnels": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Guardians/:id/tunnels/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Guardian.culverts() instead.
-            "prototype$__get__culverts": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.culverts.create() instead.
-            "prototype$__create__culverts": {
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.culverts.destroyAll() instead.
-            "prototype$__delete__culverts": {
-              url: urlBase + "/Guardians/:id/culverts",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.culverts.count() instead.
-            "prototype$__count__culverts": {
-              url: urlBase + "/Guardians/:id/culverts/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.bridges() instead.
-            "prototype$__get__bridges": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.bridges.create() instead.
-            "prototype$__create__bridges": {
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.bridges.destroyAll() instead.
-            "prototype$__delete__bridges": {
-              url: urlBase + "/Guardians/:id/bridges",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.bridges.count() instead.
-            "prototype$__count__bridges": {
-              url: urlBase + "/Guardians/:id/bridges/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings() instead.
-            "prototype$__get__levelCrossings": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.create() instead.
-            "prototype$__create__levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.destroyAll() instead.
-            "prototype$__delete__levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.levelCrossings.count() instead.
-            "prototype$__count__levelCrossings": {
-              url: urlBase + "/Guardians/:id/levelCrossings/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels() instead.
-            "prototype$__get__tunnels": {
-              isArray: true,
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.create() instead.
-            "prototype$__create__tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.destroyAll() instead.
-            "prototype$__delete__tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Guardian.tunnels.count() instead.
-            "prototype$__count__tunnels": {
-              url: urlBase + "/Guardians/:id/tunnels/count",
-              method: "GET",
-            },
-
             /**
              * @ngdoc method
              * @name lbServices.Guardian#create
@@ -44372,35 +43510,93 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Guardian";
 
-    /**
-     * @ngdoc object
-     * @name lbServices.Guardian.culverts
-     * @header lbServices.Guardian.culverts
-     * @object
-     * @description
-     *
-     * The object `Guardian.culverts` groups methods
-     * manipulating `Culvert` instances related to `Guardian`.
-     *
-     * Call {@link lbServices.Guardian#culverts Guardian.culverts()}
-     * to query all related instances.
-     */
 
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.TeamMembers
+ * @header lbServices.TeamMembers
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `TeamMembers` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "TeamMembers",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/TeamMembers/:id",
+          { 'id': '@id' },
+          {
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian#culverts
-             * @methodOf lbServices.Guardian
+             * @name lbServices.TeamMembers#create
+             * @methodOf lbServices.TeamMembers
              *
              * @description
              *
-             * Queries culverts of Guardian.
+             * Create a new instance of the model and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
-             *  - `filter` – `{object=}` -
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/TeamMembers",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#createMany
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
              *
              * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -44414,27 +43610,264 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Culvert` object.)
+             * This usually means the response is a `TeamMembers` object.)
              * </em>
              */
-        R.culverts = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::get::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/TeamMembers",
+              method: "POST",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.culverts#count
-             * @methodOf lbServices.Guardian.culverts
+             * @name lbServices.TeamMembers#upsert
+             * @methodOf lbServices.TeamMembers
              *
              * @description
              *
-             * Counts culverts of Guardian.
+             * Update an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/TeamMembers",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#exists
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/TeamMembers/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#findById
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Find a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/TeamMembers/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#find
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/TeamMembers",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#findOne
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/TeamMembers/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#updateAll
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/TeamMembers/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#deleteById
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/TeamMembers/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#count
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
              *
              *  - `where` – `{object=}` - Criteria to match model instances
              *
@@ -44452,20 +43885,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.culverts.count = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::count::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
+            "count": {
+              url: urlBase + "/TeamMembers/count",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.culverts#create
-             * @methodOf lbServices.Guardian.culverts
+             * @name lbServices.TeamMembers#prototype$updateAttributes
+             * @methodOf lbServices.TeamMembers
              *
              * @description
              *
-             * Creates a new instance in culverts of this model.
+             * Update attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -44487,27 +43919,275 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Culvert` object.)
+             * This usually means the response is a `TeamMembers` object.)
              * </em>
              */
-        R.culverts.create = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::create::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
+            "prototype$updateAttributes": {
+              url: urlBase + "/TeamMembers/:id",
+              method: "PUT",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.culverts#createMany
-             * @methodOf lbServices.Guardian.culverts
+             * @name lbServices.TeamMembers#createChangeStream
+             * @methodOf lbServices.TeamMembers
              *
              * @description
              *
-             * Creates a new instance in culverts of this model.
+             * Create a change stream.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/TeamMembers/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#updateOrCreate
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#update
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#destroyById
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TeamMembers#removeById
+             * @methodOf lbServices.TeamMembers
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TeamMembers` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.TeamMembers#modelName
+        * @propertyOf lbServices.TeamMembers
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `TeamMembers`.
+        */
+        R.modelName = "TeamMembers";
+
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.TheRoadStation
+ * @header lbServices.TheRoadStation
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `TheRoadStation` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "TheRoadStation",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/TheRoadStations/:id",
+          { 'id': '@id' },
+          {
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#create
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/TheRoadStations",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#createMany
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
@@ -44525,129 +44205,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Culvert` object.)
+             * This usually means the response is a `TheRoadStation` object.)
              * </em>
              */
-        R.culverts.createMany = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::createMany::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/TheRoadStations",
+              method: "POST",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.culverts#destroyAll
-             * @methodOf lbServices.Guardian.culverts
+             * @name lbServices.TheRoadStation#upsert
+             * @methodOf lbServices.TheRoadStation
              *
              * @description
              *
-             * Deletes all culverts of this model.
+             * Update an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.culverts.destroyAll = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::delete::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.culverts#destroyById
-             * @methodOf lbServices.Guardian.culverts
-             *
-             * @description
-             *
-             * Delete a related item by id for culverts.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for culverts
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.culverts.destroyById = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::destroyById::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.culverts#findById
-             * @methodOf lbServices.Guardian.culverts
-             *
-             * @description
-             *
-             * Find a related item by id for culverts.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for culverts
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Culvert` object.)
-             * </em>
-             */
-        R.culverts.findById = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::findById::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.culverts#updateById
-             * @methodOf lbServices.Guardian.culverts
-             *
-             * @description
-             *
-             * Update a related item by id for culverts.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for culverts
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
@@ -44665,43 +44244,93 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Culvert` object.)
+             * This usually means the response is a `TheRoadStation` object.)
              * </em>
              */
-        R.culverts.updateById = function() {
-          var TargetResource = $injector.get("Culvert");
-          var action = TargetResource["::updateById::Guardian::culverts"];
-          return action.apply(R, arguments);
-        };
-    /**
-     * @ngdoc object
-     * @name lbServices.Guardian.bridges
-     * @header lbServices.Guardian.bridges
-     * @object
-     * @description
-     *
-     * The object `Guardian.bridges` groups methods
-     * manipulating `Bridge` instances related to `Guardian`.
-     *
-     * Call {@link lbServices.Guardian#bridges Guardian.bridges()}
-     * to query all related instances.
-     */
-
+            "upsert": {
+              url: urlBase + "/TheRoadStations",
+              method: "PUT",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian#bridges
-             * @methodOf lbServices.Guardian
+             * @name lbServices.TheRoadStation#exists
+             * @methodOf lbServices.TheRoadStation
              *
              * @description
              *
-             * Queries bridges of Guardian.
+             * Check whether a model instance exists in the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *  - `id` – `{*}` - Model id
              *
-             *  - `filter` – `{object=}` -
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/TheRoadStations/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#findById
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Find a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/TheRoadStations/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#find
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
              *
              * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -44715,27 +44344,125 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Bridge` object.)
+             * This usually means the response is a `TheRoadStation` object.)
              * </em>
              */
-        R.bridges = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::get::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
+            "find": {
+              isArray: true,
+              url: urlBase + "/TheRoadStations",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.bridges#count
-             * @methodOf lbServices.Guardian.bridges
+             * @name lbServices.TheRoadStation#findOne
+             * @methodOf lbServices.TheRoadStation
              *
              * @description
              *
-             * Counts bridges of Guardian.
+             * Find first instance of the model matched by filter from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/TheRoadStations/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#updateAll
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/TheRoadStations/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#deleteById
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/TheRoadStations/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#count
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
              *
              *  - `where` – `{object=}` - Criteria to match model instances
              *
@@ -44753,20 +44480,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.bridges.count = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::count::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
+            "count": {
+              url: urlBase + "/TheRoadStations/count",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.bridges#create
-             * @methodOf lbServices.Guardian.bridges
+             * @name lbServices.TheRoadStation#prototype$updateAttributes
+             * @methodOf lbServices.TheRoadStation
              *
              * @description
              *
-             * Creates a new instance in bridges of this model.
+             * Update attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -44788,27 +44514,275 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Bridge` object.)
+             * This usually means the response is a `TheRoadStation` object.)
              * </em>
              */
-        R.bridges.create = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::create::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
+            "prototype$updateAttributes": {
+              url: urlBase + "/TheRoadStations/:id",
+              method: "PUT",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.bridges#createMany
-             * @methodOf lbServices.Guardian.bridges
+             * @name lbServices.TheRoadStation#createChangeStream
+             * @methodOf lbServices.TheRoadStation
              *
              * @description
              *
-             * Creates a new instance in bridges of this model.
+             * Create a change stream.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/TheRoadStations/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#updateOrCreate
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#update
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#destroyById
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.TheRoadStation#removeById
+             * @methodOf lbServices.TheRoadStation
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `TheRoadStation` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.TheRoadStation#modelName
+        * @propertyOf lbServices.TheRoadStation
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `TheRoadStation`.
+        */
+        R.modelName = "TheRoadStation";
+
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.KeyPlaceCategory
+ * @header lbServices.KeyPlaceCategory
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `KeyPlaceCategory` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "KeyPlaceCategory",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/KeyPlaceCategories/:id",
+          { 'id': '@id' },
+          {
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#create
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/KeyPlaceCategories",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#createMany
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
@@ -44826,129 +44800,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Bridge` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.bridges.createMany = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::createMany::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/KeyPlaceCategories",
+              method: "POST",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.bridges#destroyAll
-             * @methodOf lbServices.Guardian.bridges
+             * @name lbServices.KeyPlaceCategory#upsert
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Deletes all bridges of this model.
+             * Update an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.bridges.destroyAll = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::delete::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.bridges#destroyById
-             * @methodOf lbServices.Guardian.bridges
-             *
-             * @description
-             *
-             * Delete a related item by id for bridges.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for bridges
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.bridges.destroyById = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::destroyById::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.bridges#findById
-             * @methodOf lbServices.Guardian.bridges
-             *
-             * @description
-             *
-             * Find a related item by id for bridges.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for bridges
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Bridge` object.)
-             * </em>
-             */
-        R.bridges.findById = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::findById::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.bridges#updateById
-             * @methodOf lbServices.Guardian.bridges
-             *
-             * @description
-             *
-             * Update a related item by id for bridges.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for bridges
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
@@ -44966,43 +44839,93 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Bridge` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.bridges.updateById = function() {
-          var TargetResource = $injector.get("Bridge");
-          var action = TargetResource["::updateById::Guardian::bridges"];
-          return action.apply(R, arguments);
-        };
-    /**
-     * @ngdoc object
-     * @name lbServices.Guardian.levelCrossings
-     * @header lbServices.Guardian.levelCrossings
-     * @object
-     * @description
-     *
-     * The object `Guardian.levelCrossings` groups methods
-     * manipulating `LevelCrossing` instances related to `Guardian`.
-     *
-     * Call {@link lbServices.Guardian#levelCrossings Guardian.levelCrossings()}
-     * to query all related instances.
-     */
-
+            "upsert": {
+              url: urlBase + "/KeyPlaceCategories",
+              method: "PUT",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian#levelCrossings
-             * @methodOf lbServices.Guardian
+             * @name lbServices.KeyPlaceCategory#exists
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Queries levelCrossings of Guardian.
+             * Check whether a model instance exists in the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *  - `id` – `{*}` - Model id
              *
-             *  - `filter` – `{object=}` -
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/KeyPlaceCategories/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#findById
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Find a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/KeyPlaceCategories/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#find
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
              *
              * @param {function(Array.<Object>,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -45016,27 +44939,125 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `LevelCrossing` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.levelCrossings = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::get::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
+            "find": {
+              isArray: true,
+              url: urlBase + "/KeyPlaceCategories",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#count
-             * @methodOf lbServices.Guardian.levelCrossings
+             * @name lbServices.KeyPlaceCategory#findOne
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Counts levelCrossings of Guardian.
+             * Find first instance of the model matched by filter from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/KeyPlaceCategories/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#updateAll
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/KeyPlaceCategories/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#deleteById
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/KeyPlaceCategories/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#count
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
              *
              *  - `where` – `{object=}` - Criteria to match model instances
              *
@@ -45054,20 +45075,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.levelCrossings.count = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::count::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
+            "count": {
+              url: urlBase + "/KeyPlaceCategories/count",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#create
-             * @methodOf lbServices.Guardian.levelCrossings
+             * @name lbServices.KeyPlaceCategory#prototype$updateAttributes
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Creates a new instance in levelCrossings of this model.
+             * Update attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -45089,257 +45109,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `LevelCrossing` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.levelCrossings.create = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::create::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
+            "prototype$updateAttributes": {
+              url: urlBase + "/KeyPlaceCategories/:id",
+              method: "PUT",
+            },
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#createMany
-             * @methodOf lbServices.Guardian.levelCrossings
+             * @name lbServices.KeyPlaceCategory#createChangeStream
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Creates a new instance in levelCrossings of this model.
+             * Create a change stream.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `LevelCrossing` object.)
-             * </em>
-             */
-        R.levelCrossings.createMany = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::createMany::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#destroyAll
-             * @methodOf lbServices.Guardian.levelCrossings
-             *
-             * @description
-             *
-             * Deletes all levelCrossings of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.levelCrossings.destroyAll = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::delete::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#destroyById
-             * @methodOf lbServices.Guardian.levelCrossings
-             *
-             * @description
-             *
-             * Delete a related item by id for levelCrossings.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelCrossings
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.levelCrossings.destroyById = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::destroyById::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#findById
-             * @methodOf lbServices.Guardian.levelCrossings
-             *
-             * @description
-             *
-             * Find a related item by id for levelCrossings.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelCrossings
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `LevelCrossing` object.)
-             * </em>
-             */
-        R.levelCrossings.findById = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::findById::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.levelCrossings#updateById
-             * @methodOf lbServices.Guardian.levelCrossings
-             *
-             * @description
-             *
-             * Update a related item by id for levelCrossings.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelCrossings
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `LevelCrossing` object.)
-             * </em>
-             */
-        R.levelCrossings.updateById = function() {
-          var TargetResource = $injector.get("LevelCrossing");
-          var action = TargetResource["::updateById::Guardian::levelCrossings"];
-          return action.apply(R, arguments);
-        };
-    /**
-     * @ngdoc object
-     * @name lbServices.Guardian.tunnels
-     * @header lbServices.Guardian.tunnels
-     * @object
-     * @description
-     *
-     * The object `Guardian.tunnels` groups methods
-     * manipulating `Tunnel` instances related to `Guardian`.
-     *
-     * Call {@link lbServices.Guardian#tunnels Guardian.tunnels()}
-     * to query all related instances.
-     */
-
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian#tunnels
-             * @methodOf lbServices.Guardian
-             *
-             * @description
-             *
-             * Queries tunnels of Guardian.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Tunnel` object.)
-             * </em>
-             */
-        R.tunnels = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::get::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.tunnels#count
-             * @methodOf lbServices.Guardian.tunnels
-             *
-             * @description
-             *
-             * Counts tunnels of Guardian.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
+             *  - `options` – `{object=}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -45353,26 +45147,36 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * Data properties:
              *
-             *  - `count` – `{number=}` -
+             *  - `changes` – `{ReadableStream=}` -
              */
-        R.tunnels.count = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::count::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
+            "createChangeStream": {
+              url: urlBase + "/KeyPlaceCategories/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use KeyPlace.keyPlaceCategorys() instead.
+            "::get::KeyPlace::keyPlaceCategorys": {
+              url: urlBase + "/KeyPlaces/:id/keyPlaceCategorys",
+              method: "GET",
+            },
+          }
+        );
+
+
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.tunnels#create
-             * @methodOf lbServices.Guardian.tunnels
+             * @name lbServices.KeyPlaceCategory#updateOrCreate
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Creates a new instance in tunnels of this model.
+             * Update an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
              *
              * @param {Object} postData Request data.
              *
@@ -45390,167 +45194,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Tunnel` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.tunnels.create = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::create::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
+        R["updateOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
-             * @name lbServices.Guardian.tunnels#createMany
-             * @methodOf lbServices.Guardian.tunnels
+             * @name lbServices.KeyPlaceCategory#update
+             * @methodOf lbServices.KeyPlaceCategory
              *
              * @description
              *
-             * Creates a new instance in tunnels of this model.
+             * Update instances of the model matched by where from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Tunnel` object.)
-             * </em>
-             */
-        R.tunnels.createMany = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::createMany::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.tunnels#destroyAll
-             * @methodOf lbServices.Guardian.tunnels
-             *
-             * @description
-             *
-             * Deletes all tunnels of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.tunnels.destroyAll = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::delete::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.tunnels#destroyById
-             * @methodOf lbServices.Guardian.tunnels
-             *
-             * @description
-             *
-             * Delete a related item by id for tunnels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for tunnels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.tunnels.destroyById = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::destroyById::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.tunnels#findById
-             * @methodOf lbServices.Guardian.tunnels
-             *
-             * @description
-             *
-             * Find a related item by id for tunnels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for tunnels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Tunnel` object.)
-             * </em>
-             */
-        R.tunnels.findById = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::findById::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Guardian.tunnels#updateById
-             * @methodOf lbServices.Guardian.tunnels
-             *
-             * @description
-             *
-             * Update a related item by id for tunnels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for tunnels
+             *  - `where` – `{object=}` - Criteria to match model instances
              *
              * @param {Object} postData Request data.
              *
@@ -45566,16 +45226,81 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#destroyById
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Tunnel` object.)
+             * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.tunnels.updateById = function() {
-          var TargetResource = $injector.get("Tunnel");
-          var action = TargetResource["::updateById::Guardian::tunnels"];
-          return action.apply(R, arguments);
-        };
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#removeById
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlaceCategory` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.KeyPlaceCategory#modelName
+        * @propertyOf lbServices.KeyPlaceCategory
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `KeyPlaceCategory`.
+        */
+        R.modelName = "KeyPlaceCategory";
+
 
 
         return R;

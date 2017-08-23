@@ -9,7 +9,7 @@
      **/
     angular
         .module('com.module.road')
-        .controller('RoadCtrl', function($scope,$route,$state, CoreService, Rode, RoadService, $rootScope, $location, NgTableParams) {
+        .controller('RoadCtrl', function($scope, $route, $state, CoreService, Rode, RoadService, $rootScope, $location, NgTableParams) {
             console.log("线路情况列表------");
             // $scope.maxSize = 6;
             // AdvertisementService.count()
@@ -28,9 +28,9 @@
                 getData: function(params) {
                     console.log('=====table get date======');
                     var where = {};
-                    if (params._params.filter.Name) {
-                        where.Name = {
-                            like: `%${params._params.filter.Name}%`
+                    if (params._params.filter.rodename) {
+                        where.rodename = {
+                            like: `%${params._params.filter.rodename}%`
                         };
                     }
 
@@ -61,7 +61,7 @@
 
             // 查询条件
             $scope.searchConditions = {
-                Name: "",
+                rodename: "",
                 AdministrativeDepartment: ""
             };
 
@@ -70,7 +70,7 @@
                 console.log('===========');
                 // console.log(  $scope.tableParams.filter($scope.searchConditions) );
                 $scope.tableParams.filter({
-                    Name: $scope.searchConditions.Name,
+                    rodename: $scope.searchConditions.rodename,
                     AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
                 });
             };
@@ -83,7 +83,7 @@
                     array.push(value)
                 }
 
-              
+
             };
 
             // 编辑
@@ -114,10 +114,10 @@
             };
 
 
-            $scope.mapItem=function(map){
+            $scope.mapItem = function(map) {
                 $state.go(".form");
             }
-            
+
 
 
 

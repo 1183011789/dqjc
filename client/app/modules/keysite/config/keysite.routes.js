@@ -17,6 +17,12 @@
                 templateUrl: 'modules/keysite/views/baseStation/main.html'
             })
 
+            .state('app.keysite.baseStation.map', {
+                url: '/map',
+                templateUrl: 'modules/keysite/views/baseStation/map.html',
+                controller: 'MapCtrl',
+            })
+
             .state('app.keysite.baseStation.index', {
                 url: '',
                 templateUrl: 'modules/keysite/views/baseStation/list.html',
@@ -45,46 +51,62 @@
             })
 
             .state('app.keysite.baseStation.edit', {
-                url: '/:id/edit',
-                templateUrl: 'modules/keysite/views/baseStation/form.html',
-                controllerAs: 'ctrl',
-                controller: function($state, BaseStationService, baseStation) {
-                    this.baseStation = baseStation;
-                    this.formFields = BaseStationService.getFormFields();
-                    this.formOptions = {};
-                    this.submit = function() {
-                        BaseStationService.upsert(this.baseStation).then(function() {
-                            $state.go('^.index');
-                        });
-                    };
-                },
-                resolve: {
-                    baseStation: function($stateParams, BaseStationService) {
-                        return BaseStationService.findById($stateParams.id);
+                    url: '/:id/edit',
+                    templateUrl: 'modules/keysite/views/baseStation/form.html',
+                    controllerAs: 'ctrl',
+                    controller: function($state, BaseStationService, baseStation) {
+                        this.baseStation = baseStation;
+                        this.formFields = BaseStationService.getFormFields();
+                        this.formOptions = {};
+                        this.submit = function() {
+                            BaseStationService.upsert(this.baseStation).then(function() {
+                                $state.go('^.index');
+                            });
+                        };
+                    },
+                    resolve: {
+                        baseStation: function($stateParams, BaseStationService) {
+                            return BaseStationService.findById($stateParams.id);
+                        }
                     }
-                }
-            })
-
-            //////////
-            //桥梁
-            .state('app.keysite.bridge', {
-                abstract: true,
-                url: '/bridge',
-                templateUrl: 'modules/keysite/views/bridge/main.html',
-                controller: 'BridgeCtrl',
-            })
+                })
+                .state('app.keysite.baseStation.view', {
+                    url: '/:id',
+                    templateUrl: 'modules/keysite/views/baseStation/view.html',
+                    controllerAs: 'ctrl',
+                    controller: function(baseStation) {
+                        this.baseStation = baseStation;
+                    },
+                    resolve: {
+                        baseStation: function($stateParams, BaseStationService) {
+                            return BaseStationService.findById($stateParams.id);
+                        }
+                    }
+                })
+                //////////
+                //桥梁
+                .state('app.keysite.bridge', {
+                    abstract: true,
+                    url: '/bridge',
+                    templateUrl: 'modules/keysite/views/bridge/main.html',
+                    controller: 'BridgeCtrl',
+                })
 
             .state('app.keysite.bridge.index', {
-                url: '',
-                templateUrl: 'modules/keysite/views/bridge/list.html',
-                controller: 'BridgeCtrl',
-            })
-
-            .state('app.keysite.bridge.list', {
-                url: '',
-                templateUrl: 'modules/keysite/views/bridge/list.html',
-                controller: 'BridgeCtrl',
-            })
+                    url: '',
+                    templateUrl: 'modules/keysite/views/bridge/list.html',
+                    controller: 'BridgeCtrl',
+                })
+                .state('app.keysite.bridge.map', {
+                    url: '/map',
+                    templateUrl: 'modules/keysite/views/bridge/map.html',
+                    controller: 'MapCtrl',
+                })
+                .state('app.keysite.bridge.list', {
+                    url: '',
+                    templateUrl: 'modules/keysite/views/bridge/list.html',
+                    controller: 'BridgeCtrl',
+                })
 
             .state('app.keysite.bridge.add', {
                 url: '/add',
@@ -108,25 +130,38 @@
             })
 
             .state('app.keysite.bridge.edit', {
-                url: '/:id/edit',
-                templateUrl: 'modules/keysite/views/bridge/form.html',
-                controllerAs: 'ctrl',
-                controller: function($state, BridgeService, bridge) {
-                    this.bridge = bridge;
-                    this.formFields = BridgeService.getFormFields();
-                    this.formOptions = {};
-                    this.submit = function() {
-                        BridgeService.upsert(this.bridge).then(function() {
-                            $state.go('^.index');
-                        });
-                    };
-                },
-                resolve: {
-                    bridge: function($stateParams, BridgeService) {
-                        return BridgeService.findById($stateParams.id);
+                    url: '/:id/edit',
+                    templateUrl: 'modules/keysite/views/bridge/form.html',
+                    controllerAs: 'ctrl',
+                    controller: function($state, BridgeService, bridge) {
+                        this.bridge = bridge;
+                        this.formFields = BridgeService.getFormFields();
+                        this.formOptions = {};
+                        this.submit = function() {
+                            BridgeService.upsert(this.bridge).then(function() {
+                                $state.go('^.index');
+                            });
+                        };
+                    },
+                    resolve: {
+                        bridge: function($stateParams, BridgeService) {
+                            return BridgeService.findById($stateParams.id);
+                        }
                     }
-                }
-            })
+                })
+                .state('app.keysite.bridge.view', {
+                    url: '/:id',
+                    templateUrl: 'modules/keysite/views/bridge/view.html',
+                    controllerAs: 'ctrl',
+                    controller: function(bridge) {
+                        this.bridge = bridge;
+                    },
+                    resolve: {
+                        bridge: function($stateParams, BridgeService) {
+                            return BridgeService.findById($stateParams.id);
+                        }
+                    }
+                })
 
 
             /////////

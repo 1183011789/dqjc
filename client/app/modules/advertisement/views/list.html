@@ -46,6 +46,9 @@
                         <strong ng-switch-default>{{item.name}}</strong>
                     </a>
                 </td>
+                <td data-title="'编号'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
+                    <span ng-switch-default>{{item.number}}</span>
+                </td>
                 <td data-title="'地址'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
                     <span ng-switch-default>{{item.address}}</span>
                 </td>
@@ -72,6 +75,18 @@
 
                 <td data-title="'摄像头ID'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.cameraid}}</span>
+                </td>
+                <td data-title="'负责人'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.personCharge}}</span>
+                </td>
+                <td data-title="'电话'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.contactNumber}}</span>
+                </td>
+                <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.affiliatedinstitution}}</span>
+                </td>
+                <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.remark}}</span>
                 </td>
             </tr>
         </table>

@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.index" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.bridge.bridgename}}
+        <small>{{ctrl.bridge.address}}</small>
+
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.bridge.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <!-- <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.bridge.id})">
+        <i class="fa fa-trash-o"></i>
+      </a> -->
+    </span>
+    </div>
+    <div class="panel-body">
+        <pre>编号:{{ctrl.bridge.brdgenumber}}</pre>
+        <pre>名称:{{ctrl.bridge.bridgename}}</pre>
+        <pre>桥类:{{ctrl.bridge.bridgeclass}}</pre>
+        <pre>名称:{{ctrl.bridge.bridgename}}</pre>
+        <pre>结构:{{ctrl.bridge.bridgestructure}}</pre>
+        <pre>材质:{{ctrl.bridge.bridgematerial}}</pre>
+        <pre>长度:{{ctrl.bridge.brgdgelength}}</pre>
+
+    </div>
+</div>

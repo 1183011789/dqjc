@@ -8,15 +8,32 @@
                 count: 10
             }, {
                 getData: function(params) {
+
+                    var where = {};
+                    if (params._params.filter.bridgename) {
+                        where.bridgename = {
+                            like: `%${params._params.filter.bridgename}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
                     var offset = params._params.count * (params._params.page - 1);
 
                     Bridge.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     Bridge.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
                         $scope.bridges = value;
@@ -26,12 +43,12 @@
 
             // 查询条件
             $scope.searchConditions = {
-                name: ""
+                bridgename: ""
             };
 
             $scope.startSearch = function() {
                 $scope.tableParams.filter({
-                    name: $scope.searchConditions.name
+                    bridgename: $scope.searchConditions.bridgename
                 });
             };
 

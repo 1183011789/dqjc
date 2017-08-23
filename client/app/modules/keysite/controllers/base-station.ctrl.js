@@ -9,19 +9,39 @@
                 count: 10
             }, {
                 getData: function(params) {
-                    var offset = params._params.count * (params._params.page - 1);
 
+                    var where = {};
+                    if (params._params.filter.name) {
+                        where.name = {
+                            like: `%${params._params.filter.name}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
+                    var offset = params._params.count * (params._params.page - 1);
                     BaseStation.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     BaseStation.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
                         $scope.baseStations = value;
                     });
+
+
+
+
                 }
             });
 

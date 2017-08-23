@@ -46,6 +46,7 @@
                         $scope.totalItems = result.count;
                         params.total(result.count);
                     });
+
                     var offset = params._params.count * (params._params.page - 1);
                     KeyPersion.find({
                         filter: {

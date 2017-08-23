@@ -1,0 +1,36 @@
+<form name="form">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+      <span ng-show="!ctrl.keyPlace.id" translate>添加一个重点场所</span>
+      <span ng-show="ctrl.keyPlace.id" translate>编辑重点场所信息</span>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <formly-form model="ctrl.keyPlace" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary btn-success" ng-click="ctrl.submit()" ng-disabled="form.$invalid">
+        保存
+      </button>
+    </div>
+  </div>
+</form>
+
+<script type="text/ng-template" id="formly-error-summary.html">
+  <div class="formly-error-summary">
+    <div ng-repeat="field in ctrl.fields" ng-class="{'color-success': field.formControl.$valid, 'color-error': field.formControl.$invalid}">
+      <i class="glyphicon glyphicon-{{field.formControl.$invalid ? 'remove' : 'ok'}}"></i>
+      {{field.templateOptions.label}} is
+      <span ng-if="field.formControl.$invalid">
+            invalid! {{vm.getErrorAsList(field)}}
+          </span>
+      <span ng-if="field.formControl.$valid">
+            valid!
+          </span>
+    </div>
+  </div>
+</script>

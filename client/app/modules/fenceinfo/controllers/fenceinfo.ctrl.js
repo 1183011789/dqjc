@@ -23,6 +23,7 @@
                     }
                     FenceInfo.count({ where: where }).$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     var offset = params._params.count * (params._params.page - 1);
                     FenceInfo.find({

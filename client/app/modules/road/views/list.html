@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        线路情况 
+        线路情况
         <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
             <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
               编辑
@@ -9,14 +9,15 @@
               删除
             </a>
             <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
-            <a href="" class="btn btn-xs btn-success" ng-click="mapItem(map)">查看地图</a>
+           
+            <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
           </span>
     </div>
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">信息查询：</label>
-                <input type="text" ng-model="searchConditions.Name" class="form-control" id="exampleInputName2" placeholder="关键字">
+                <label for="exampleInputName2">铁路名：</label>
+                <input type="text" ng-model="searchConditions.rodename" class="form-control" id="exampleInputName2" placeholder="关键字">
             </div>
 
             <!-- <div class="form-group">
@@ -58,7 +59,7 @@
                     <span ng-switch-default>{{ item.rodelenth }}</span>
                 </td>
 
-              
+
                 <td data-title="'隶属铁路局'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="SiteOfUse">
                     <span ng-switch-default>{{item.railwayadministrat}}</span>
                 </td>

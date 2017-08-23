@@ -20,7 +20,11 @@
                     templateUrl: 'modules/theroadstation/views/list.html',
                     controller: 'TheRoadStationListCtrl',
                 })
-
+                .state('app.theroadstation.map', {
+                    url: '/map',
+                    templateUrl: 'modules/theroadstation/views/map.html',
+                    controller: 'MapCtrl',
+                })
                 .state('app.theroadstation.add', {
                     url: '/add',
                     templateUrl: 'modules/theroadstation/views/form.html',

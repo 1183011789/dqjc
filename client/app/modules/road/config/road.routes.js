@@ -20,7 +20,13 @@
                     templateUrl: 'modules/road/views/list.html',
                     controller: 'RoadCtrl',
                 })
-                .state('app.road.add', {
+                .state('app.road.map', {
+                    url: '/map',
+                    templateUrl: 'modules/road/views/map.html',
+                    controller: 'MapCtrl',
+                })
+
+            .state('app.road.add', {
                     url: '/add',
                     templateUrl: 'modules/road/views/form.html',
                     controllerAs: 'ctrl',
@@ -88,7 +94,7 @@
             });
         });
 
-        
+
 
 
 

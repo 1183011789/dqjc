@@ -27,6 +27,7 @@
                         console.log('===SEI=====')
                         console.log(result.count)
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     var offset = params._params.count * (params._params.page - 1);
                     SecurityEquipmentInformation.find({
