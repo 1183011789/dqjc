@@ -7,7 +7,19 @@
     "validateUpsert": true
   },
   "properties": {
+    "number": {
+      "type": "string"
+    },
     "name": {
+      "type": "string"
+    },
+    "personincharge": {
+      "type": "string"
+    },
+    "contactnumber": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
       "type": "string"
     },
     "address": {
@@ -18,14 +30,6 @@
     },
     "lat": {
       "type": "number"
-    },
-    "number": {
-      "type": "string"
-    },
-    "images": {
-      "type": [
-        "string"
-      ]
     },
     "remark": {
       "type": "string"

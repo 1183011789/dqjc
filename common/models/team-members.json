@@ -1,42 +1,42 @@
 {
-  "name": "BaseStation",
+  "name": "TeamMembers",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "idnumber": {
+      "type": "string"
+    },
     "name": {
       "type": "string"
     },
-    "centermileage": {
+    "nation": {
+      "type": "string"
+    },
+    "politicalOutlook": {
+      "type": "string"
+    },
+    "degreeOfEducation": {
       "type": "string"
     },
     "address": {
       "type": "string"
     },
-    "personincharge": {
+    "contactNumber": {
       "type": "string"
     },
-    "contactnumber": {
+    "subordinateRanks": {
       "type": "string"
     },
-    "affiliatedinstitution": {
+    "teamPosition": {
       "type": "string"
     },
-    "localpolicestation": {
+    "affiliatedInstitution": {
       "type": "string"
     },
-    "admimdepartment": {
-      "type": "string"
-    },
-    "lng": {
-      "type": "number"
-    },
-    "lat": {
-      "type": "number"
-    },
-    "explain": {
+    "responsibilitySection": {
       "type": "string"
     },
     "remark": {
@@ -44,14 +44,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "rodes": {
-      "type": "hasMany",
-      "model": "Rode",
-      "foreignKey": "baseStationId",
-      "through": "RodeContain"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

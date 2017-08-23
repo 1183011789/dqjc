@@ -13,7 +13,7 @@
       "type": "number"
     },
     "centermileage": {
-      "type": "number"
+      "type": "string"
     },
     "protect": {
       "type": "boolean"
@@ -54,6 +54,15 @@
       "type": "string"
     },
     "affiliatedinstitution": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "string"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "explain": {
       "type": "string"
     },
     "remark": {

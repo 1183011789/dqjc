@@ -1,5 +1,5 @@
 {
-  "name": "BaseStation",
+  "name": "TheRoadStation",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,25 +9,25 @@
     "name": {
       "type": "string"
     },
-    "centermileage": {
-      "type": "string"
-    },
     "address": {
       "type": "string"
     },
-    "personincharge": {
+    "peoplenumber": {
+      "type": "number"
+    },
+    "serviceMode": {
       "type": "string"
     },
-    "contactnumber": {
+    "rangeOfPatrol": {
+      "type": "string"
+    },
+    "guardianTarget": {
+      "type": "string"
+    },
+    "fireBrigade": {
       "type": "string"
     },
     "affiliatedinstitution": {
-      "type": "string"
-    },
-    "localpolicestation": {
-      "type": "string"
-    },
-    "admimdepartment": {
       "type": "string"
     },
     "lng": {
@@ -36,22 +36,12 @@
     "lat": {
       "type": "number"
     },
-    "explain": {
-      "type": "string"
-    },
     "remark": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "rodes": {
-      "type": "hasMany",
-      "model": "Rode",
-      "foreignKey": "baseStationId",
-      "through": "RodeContain"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Image",
-  "plural": "images",
+  "name": "HiddenDangerPlaceImage",
+  "plural": "HiddenDangerPlaceImages",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -15,6 +15,14 @@
     },
     "url": {
       "type": "string"
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true
     }
   },
   "validations": [],

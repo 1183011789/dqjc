@@ -38,6 +38,18 @@
     },
     "AffiliatedInstitution": {
       "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "explain": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
     }
   },
   "validations": [],

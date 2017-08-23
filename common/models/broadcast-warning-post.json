@@ -7,7 +7,19 @@
     "validateUpsert": true
   },
   "properties": {
+    "number": {
+      "type": "string"
+    },
     "name": {
+      "type": "string"
+    },
+    "personCharge": {
+      "type": "string"
+    },
+    "contactNumber": {
+      "type": "string"
+    },
+    "affiliatedinstitution": {
       "type": "string"
     },
     "address": {
@@ -29,6 +41,9 @@
       "type": "string"
     },
     "cameraid": {
+      "type": "string"
+    },
+    "remark": {
       "type": "string"
     }
   },

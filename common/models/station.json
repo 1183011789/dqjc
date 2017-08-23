@@ -42,6 +42,9 @@
     "Latitude": {
       "type": "number"
     },
+    "length": {
+      "type": "string"
+    },
     "Remarks": {
       "type": "string"
     }

@@ -9,6 +9,9 @@
     "name": {
       "type": "string"
     },
+    "centermileage": {
+      "type": "string"
+    },
     "address": {
       "type": "string"
     },
@@ -21,11 +24,20 @@
     "affiliatedinstitution": {
       "type": "string"
     },
+    "localpolicestation": {
+      "type": "string"
+    },
+    "admimdepartment": {
+      "type": "string"
+    },
     "long": {
       "type": "number"
     },
     "lat": {
       "type": "number"
+    },
+    "explain": {
+      "type": "string"
     },
     "remark": {
       "type": "string"

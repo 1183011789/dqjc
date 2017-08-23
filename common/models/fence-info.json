@@ -6,52 +6,67 @@
     "validateUpsert": true
   },
   "properties": {
-    "Name": {
+    "name": {
+      "type": "string"
+    },
+    "centermileage": {
       "type": "string"
     },
     "length": {
       "type": "Number"
     },
-    "LengthOfRollingCage": {
+    "lengthOfRollingCage": {
       "type": "Number"
     },
-    "TextureOfMaterial": {
+    "textureOfMaterial": {
       "type": "string"
     },
-    "Height": {
+    "height": {
       "type": "Number"
     },
-    "SubgradeSection": {
+    "subgradeSection": {
       "type": "boolean"
     },
-    "LineSpeedPerHour": {
+    "lineSpeedPerHour": {
       "type": "Number"
     },
-    "KilometerMark": {
+    "kilometerMark": {
       "type": "string"
     },
-    "WorkGateUseUnit": {
+    "workGateUseUnit": {
       "type": "string"
     },
-    "DoOther": {
+    "doOther": {
       "type": "string"
     },
-    "Address": {
+    "address": {
       "type": "string"
     },
-    "LocalPoliceStation": {
+    "localPoliceStation": {
       "type": "string"
     },
-    "AdministrativeDepartment": {
+    "administrativeDepartment": {
       "type": "string"
     },
-    "PersonCharge": {
+    "personCharge": {
       "type": "string"
     },
-    "ContactNumber": {
+    "contactNumber": {
       "type": "Number"
     },
-    "AffiliatedInstitution": {
+    "affiliatedInstitution": {
+      "type": "string"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "explain": {
+      "type": "string"
+    },
+    "remark": {
       "type": "string"
     }
   },
