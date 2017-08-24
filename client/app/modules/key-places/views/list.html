@@ -16,6 +16,27 @@
             </a>
           </span>
     </div>
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">重点场所类别：</label>
+                <input type="text" ng-model="searchConditions.category" class="form-control" id="exampleInputName2" placeholder="重点场所类别">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="exampleInputEmail2">管理部门：</label> -->
+            <!-- <input type="text" ng-model="searchConditions.AdministrativeDepartment" class="form-control" id="exampleInputEmail2" placeholder="管理部门"> -->
+            <!-- <select class="form-control" ng-model="searchConditions.AdministrativeDepartment" id="exampleInputEmail2" placeholder="管理部门">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+            </div> -->
+            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
+        </form>
+    </div>
     <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in keyPlaces">
             <td data-title="''" class="text-center">

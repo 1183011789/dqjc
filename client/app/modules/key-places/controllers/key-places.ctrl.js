@@ -21,15 +21,24 @@
                 getData: function(params) {
                     console.log("item--1----", JSON.stringify(params));
                     var where = {};
-
-                    if (params._params.filter.category > 0) {
-                        where.category = params._params.filter.category;
+                    if (params._params.filter.category) {
+                        where.category = {
+                            like: `%${params._params.filter.category}%`
+                        };
                     }
+                    if (params._params.filter.address) {
+                        where.address = {
+                            like: `%${params._params.filter.address}%`
+                        };
+                    }
+                    // if (params._params.filter.category > 0) {
+                    //     where.category = params._params.filter.category;
+                    // }
                     // where.name = {
                     //     like: `%${params._params.filter.name}%`
                     // };
-
                     var offset = params._params.count * (params._params.page - 1);
+
                     KeyPlace.count({ where: where }).$promise.then(function(result) {
                         console.log("多少条---", result.count);
                         params.total(result.count);
@@ -42,25 +51,36 @@
                         }
                     }).$promise.then(function(value) {
                         $scope.keyPlaces = value;
+                        // $scope.$apply();
+                        // $state.go(0);
+                        // $scope.reload();
+                        // location.reload()
+                        // parent.location.reload();
+                        // history.go(0);
+                        // window.location.reload();
                         // $scope.tableParams.reload();
                         console.log("查出数据---", JSON.stringify($scope.keyPlaces));
                     });
-                    // KeyPlace.find({
-                    //     filter: {
-                    //         limit: params._params.count,
-                    //         offset: offset,
-                    //         where: where
-                    //     }
-                    // }, function(value) {
-                    //     console.log('====value=====');
-                    //     console.log(value);
-                    //     $scope.keyPlaces = value;
-                    // }, function(error) {
-                    //     console.log('=====errror====');
-                    //     console.log(error);
-                    // });
+
                 }
             });
+
+            // 查询条件
+            $scope.searchConditions = {
+                category: "",
+                address: ""
+            };
+
+            $scope.startSearch = function() {
+                console.log("category---", $scope.searchConditions.category);
+                // isSearchMode = true;
+                console.log('===========');
+                // console.log(  $scope.tableParams.filter($scope.searchConditions) );
+                $scope.tableParams.filter({
+                    category: $scope.searchConditions.category,
+                    address: $scope.searchConditions.address
+                });
+            };
 
             $scope.chooseItem = function(item) {
                 selectedItem.checked = false;
@@ -70,7 +90,6 @@
                 $scope.tableParams.filter({
                     category: item.id
                 });
-
                 $scope.tableParams.reload();
             };
 
