@@ -1,33 +1,99 @@
-<div class="panel panel-default">
+<div class="panel panel-default" style="overflow:scroll;">
     <div class="panel-heading">
-        防护栏
-        <span class="pull-right btn-group">
-          <a href="" class="btn btn-xs btn-success" ui-sref="^.add()">
-             <i class="fa fa-plus"></i>
-          </a>
-        </span>
+        防护栏<span style="color:brown;">[共有 {{totalItems}} 个]</span>
+        <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
+                编辑
+              </a>
+              <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+                删除
+              </a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
+            </span>
     </div>
-    <!-- 广播警示柱列表 -->
-    <div class='list-group'>
-        <div ng-repeat="item in ctrl.fenceinfo" class="list-group-item">
-            <span class="pull-right btn-group">
-                        <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: item.id})">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: item.id})">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                </span>
-            <h4 class="list-group-item-heading">
-                <a href="" ui-sref="^.view({id: item.id})">{{item.Name}}</a>
-            </h4>
-            <p class="list-group-item-text">{{item.Address}}</p>
-        </div>
-        <div ng-show="!ctrl.fenceinfo.length" class="list-group-item">
-            <h4 class="list-group-item-heading" translate>
-                There are no fenceinfo
-            </h4>
-            <p class="list-group-item-text" translate>Click <a href="" ui-sref="^.add">here</a> to add a fenceinfo!</p>
-        </div>
+
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">安检设备名称：</label>
+                <input type="text" ng-model="searchConditions.Name" class="form-control" id="exampleInputName2" placeholder="设备名称">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
+        </form>
     </div>
+    <!-- 数据列表 table实现 -->
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="item in fenceInfos">
+            <td data-title="''" style="vertical-align:middle" class="text-center">
+                <input multi-check type="checkbox" ng-value="{{item.id}}" ng-change="addEditItem(item)" class=" checkbox-lg" ng-model="item.checked">
+            </td>
+            <td data-title="'名称'" class="text-center" ng-switch="item.rename" style="vertical-align:middle">
+                <a href="" ui-sref="^.view({id: item.id})">
+                    <strong ng-switch-default>{{item.name}}</strong>
+                </a>
+            </td>
+            <td data-title="'长度'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="length">
+                <span ng-switch-default>{{item.length}}</span>
+            </td>
+
+            <td data-title="'刺死滚笼长度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="lengthOfRollingCage">
+                <span ng-switch-default>{{item.lengthOfRollingCage}}</span>
+            </td>
+
+            <td data-title="'材质'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="textureOfMaterial">
+                <span ng-switch-default>{{ item.textureOfMaterial }}</span>
+            </td>
+
+            <td data-title="'高度'" class="text-center" ng-switch="item.number" style="vertical-align:middle" ng-form="height">
+                <span ng-switch-default>{{item.height}}</span>
+            </td>
+            <td data-title="'是否有路基段'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="subgradeSection">
+                <span ng-switch-default ng-if="item.subgradeSection===true">是</span>
+                <span ng-switch-default ng-if="item.subgradeSection===false">否</span>
+            </td>
+
+            <td data-title="'线路段设计时速'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="lineSpeedPerHour">
+                <span ng-switch-default>{{item.lineSpeedPerHour}}</span>
+            </td>
+
+            <td data-title="'公里标'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="kilometerMark">
+                <span ng-switch-default>{{item.kilometerMark}}</span>
+            </td>
+
+            <td data-title="'工作门使用单位'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="workGateUseUnit">
+                <span ng-switch-default>{{item.workGateUseUnit}}</span>
+            </td>
+
+            <td data-title="'行别'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="doOther">
+                <span ng-switch-default>{{item.doOther}}</span>
+            </td>
+            <td data-title="'地址'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="address">
+                <span ng-switch-default>{{item.address}}</span>
+            </td>
+
+            <td data-title="'所属地方派出所'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="localPoliceStation">
+                <span ng-switch-default>{{item.localPoliceStation}}</span>
+            </td>
+            <td data-title="'管理部门'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="administrativeDepartment">
+                <span ng-switch-default>{{item.administrativeDepartment}}</span>
+            </td>
+            <td data-title="'负责人'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="personCharge">
+                <span ng-switch-default>{{item.personCharge}}</span>
+            </td>
+            <td data-title="'联系电话'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="contactNumber">
+                <span ng-switch-default>{{item.contactNumber}}</span>
+            </td>
+            <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="affiliatedInstitution">
+                <span ng-switch-default>{{item.affiliatedInstitution}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+  <ul style=" margin-top:0px; " uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
+    previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
 </div>

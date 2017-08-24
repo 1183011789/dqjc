@@ -8,7 +8,6 @@
             <ol-layer ol-layer-properties="wms"></ol-layer>
             <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
             <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}" ol-style="path.style"></ol-path>
-            
             <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
             </ol-marker>
         </openlayers>

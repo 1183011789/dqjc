@@ -19,25 +19,22 @@
                     url: '',
                     templateUrl: 'modules/institutionaiteam/views/list.html',
                     controller: 'InstitutionalTeamCtrl'
-                        // ,controller: function(institutionaiteam) {
-                        //         this.institutionaiteam = institutionaiteam;
-                        //     }
-                        // ,resolve: {
-                        //     institutionaiteam: function(InstitutionaIteamService) {
-                        //         return InstitutionaIteamService.find();
-                        //     }
-                        // }
+                })
+                .state('app.institutionaiteam.map', {
+                    url: '/map',
+                    templateUrl: 'modules/institutionaiteam/views/map.html',
+                    controller: 'MapCtrl',
                 })
                 .state('app.institutionaiteam.add', {
                     url: '/add',
                     templateUrl: 'modules/institutionaiteam/views/form.html',
                     controllerAs: 'ctrl',
-                    controller: function($state, InstitutionaIteamService, institutionaiteam) {
+                    controller: function($state, InstitutionalTeamService, institutionaiteam) {
                         this.institutionaiteam = institutionaiteam;
-                        this.formFields = InstitutionaIteamService.getFormFields();
+                        this.formFields = InstitutionalTeamService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
-                            InstitutionaIteamService.upsert(this.institutionaiteam).then(function() {
+                            InstitutionalTeamService.upsert(this.institutionaiteam).then(function() {
                                 $state.go('^.list');
                             });
                         };
@@ -52,19 +49,19 @@
                     url: '/:id/edit',
                     templateUrl: 'modules/institutionaiteam/views/form.html',
                     controllerAs: 'ctrl',
-                    controller: function($state, InstitutionaIteamService, institutionaiteam) {
+                    controller: function($state, InstitutionalTeamService, institutionaiteam) {
                         this.institutionaiteam = institutionaiteam;
-                        this.formFields = InstitutionaIteamService.getFormFields();
+                        this.formFields = InstitutionalTeamService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
-                            InstitutionaIteamService.upsert(this.institutionaiteam).then(function() {
+                            InstitutionalTeamService.upsert(this.institutionaiteam).then(function() {
                                 $state.go('^.list');
                             });
                         };
                     },
                     resolve: {
-                        institutionaiteam: function($stateParams, InstitutionaIteamService) {
-                            return InstitutionaIteamService.findById($stateParams.id);
+                        institutionaiteam: function($stateParams, InstitutionalTeamService) {
+                            return InstitutionalTeamService.findById($stateParams.id);
                         }
                     }
                 })
@@ -76,8 +73,8 @@
                         this.institutionaiteam = institutionaiteam;
                     },
                     resolve: {
-                        institutionaiteam: function($stateParams, InstitutionaIteamService) {
-                            return InstitutionaIteamService.findById($stateParams.id);
+                        institutionaiteam: function($stateParams, InstitutionalTeamService) {
+                            return InstitutionalTeamService.findById($stateParams.id);
                         }
                     }
                 });

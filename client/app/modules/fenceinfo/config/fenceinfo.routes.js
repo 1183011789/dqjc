@@ -18,32 +18,29 @@
                 .state('app.fenceinfo.list', {
                     url: '',
                     templateUrl: 'modules/fenceinfo/views/list.html',
-                    controllerAs: 'ctrl',
-                    controller: function(fenceinfo) {
-                        this.fenceinfo = fenceinfo;
-                    },
-                    resolve: {
-                        fenceinfo: function(FenceInfoService) {
-                            return FenceInfoService.find();
-                        }
-                    }
+                    controller: 'FenceInfoCtrl'
+                })
+                .state('app.fenceinfo.map', {
+                    url: '/map',
+                    templateUrl: 'modules/fenceinfo/views/map.html',
+                    controller: 'MapCtrl',
                 })
                 .state('app.fenceinfo.add', {
                     url: '/add',
                     templateUrl: 'modules/fenceinfo/views/form.html',
                     controllerAs: 'ctrl',
-                    controller: function($state, FenceInfoService, fenceinfo) {
-                        this.fenceinfo = fenceinfo;
+                    controller: function($state, FenceInfoService, fenceInfo) {
+                        this.fenceInfo = fenceInfo;
                         this.formFields = FenceInfoService.getFormFields();
                         this.formOptions = {};
                         this.submit = function() {
-                            FenceInfoService.upsert(this.fenceinfo).then(function() {
+                            FenceInfoService.upsert(this.fenceInfo).then(function() {
                                 $state.go('^.list');
                             });
                         };
                     },
                     resolve: {
-                        fenceinfo: function() {
+                        fenceInfo: function() {
                             return {};
                         }
                     }

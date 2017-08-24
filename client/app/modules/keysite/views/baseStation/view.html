@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.index" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.baseStation.name}}
+        <small>{{ctrl.baseStation.address}}</small>
+
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.baseStation.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <!-- <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.baseStation.id})">
+        <i class="fa fa-trash-o"></i>
+      </a> -->
+    </span>
+    </div>
+    <div class="panel-body">
+        <pre>铁路名:{{ctrl.baseStation.name}}</pre>
+        <pre>分类:{{ctrl.baseStation.address}}</pre>
+        <pre>负责人:{{ctrl.baseStation.personincharge}}</pre>
+        <pre>联系电话:{{ctrl.baseStation.contactnumber}}</pre>
+        <pre>所属机构:{{ctrl.baseStation.affiliatedinstitution}}</pre>
+        <pre>经度:{{ctrl.baseStation.lng}}</pre>
+        <pre>纬度:{{ctrl.baseStation.lat}}</pre>
+        <pre>备注:{{ctrl.baseStation.remark}}</pre>
+    </div>
+</div>

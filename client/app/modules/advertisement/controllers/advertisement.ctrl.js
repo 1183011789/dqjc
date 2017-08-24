@@ -9,7 +9,7 @@
      **/
     angular
         .module('com.module.advertisement')
-        .controller('OrdersListCtrl', function($scope, CoreService, BroadcastWarningPost, AdvertisementService, $rootScope, $location, NgTableParams) {
+        .controller('OrdersListCtrl', function($scope, $state, CoreService, BroadcastWarningPost, AdvertisementService, $rootScope, $location, NgTableParams) {
             console.log("广播警示柱界面------");
             // $scope.maxSize = 6;
             // AdvertisementService.count()
@@ -28,15 +28,15 @@
                 getData: function(params) {
                     console.log('=====table get date======');
                     var where = {};
-                    if (params._params.filter.Name) {
-                        where.Name = {
-                            like: `%${params._params.filter.Name}%`
+                    if (params._params.filter.name) {
+                        where.name = {
+                            like: `%${params._params.filter.name}%`
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                    if (params._params.filter.address) {
+                        where.address = {
+                            like: `%${params._params.filter.address}%`
                         };
                     }
 
@@ -61,8 +61,8 @@
 
             // 查询条件
             $scope.searchConditions = {
-                Name: "",
-                AdministrativeDepartment: ""
+                name: "",
+                address: ""
             };
 
             $scope.startSearch = function() {
@@ -70,24 +70,30 @@
                 console.log('===========');
                 // console.log(  $scope.tableParams.filter($scope.searchConditions) );
                 $scope.tableParams.filter({
-                    Name: $scope.searchConditions.Name,
-                    AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
+                    name: $scope.searchConditions.name,
+                    address: $scope.searchConditions.address
                 });
             };
 
             $scope.deleteItems = function(item) {
-                console.log('=======')
-                console.log($scope.selectedItems)
-                var array = [];
-                for (var value of $scope.selectedItems) {
-                    array.push(value)
+
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
                 }
 
-                // SecurityEquipmentService.deleteAll(array, function() {
-                //     $state.go('^.list');
-                // }, function() {
-                //     $state.go('^.list');
-                // });
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                AdvertisementService.deleteMultiple(array, function() {
+                    $state.go('^.list');
+                    $scope.tableParams.reload();
+                }, function() {
+                    $state.go('^.list');
+                });
+
             };
 
             // 编辑

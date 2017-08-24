@@ -32,12 +32,13 @@
                     });
             };
 
-            this.delete = function(id, successCb, cancelCb) {
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
                     function() {
-                        EmergencyAccesss.deleteById({ id: id }, function() {
+                        EmergencyAccesss.deleteMultiple({ multiple: ids }, function() {
                             CoreService.toastSuccess(
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
@@ -54,6 +55,7 @@
                     }
                 );
             };
+
 
 
             this.getFormFields = function() {

@@ -17,6 +17,7 @@
             'btford.markdown',
             'oitozero.ngSweetAlert',
             'config',
+            'ngMessages',
             'formly',
             'formlyBootstrap',
             'lbServices',
@@ -43,10 +44,9 @@
             'permission.ui',
             'openlayers-directive',
             'com.module.core',
-            'com.module.about',
-            'com.module.settings',
-            'com.module.users',
-            'com.module.sandbox',
+            // 'com.module.sandbox',
+            'com.module.road',
+            'com.module.keysite',
             'com.module.advertisement',
             'com.module.keypersion',
             'com.module.monitoring',
@@ -55,7 +55,12 @@
             'com.module.securityequipment',
             'com.module.apropagandapoint',
             'com.module.institutionaiteam',
-            'com.module.openLayer'
+            'com.module.theroadstation',
+            'com.module.keyPlaces',
+            // 'com.module.openLayer'
+            'com.module.about',
+            'com.module.settings',
+            'com.module.users'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {
 

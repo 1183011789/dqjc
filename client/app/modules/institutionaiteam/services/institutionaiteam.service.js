@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.institutionaiteam')
-        .service('InstitutionaIteamService', function(CoreService, InstitutionalTeam, gettextCatalog) {
+        .service('InstitutionalTeamService', function(CoreService, InstitutionalTeam, gettextCatalog) {
             this.find = function(result) {
                 console.log("广播警示柱--2--");
                 return InstitutionalTeam.find().$promise;
@@ -14,24 +14,23 @@
                 }).$promise;
             };
 
-            this.deleteAll = function(ids, successCb, cancelCb) {
-                console.log("要删除的id" + ids);
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
                     function() {
-                        // InstitutionalTeam.destroyAll({ where: { id: { inq: ids } } }, function(error, info) {
-                        //     CoreService.toastSuccess(
-                        //         gettextCatalog.getString('Setting deleted'),
-                        //         gettextCatalog.getString('Your setting is deleted!'));
-                        //     successCb();
-                        // });
-                        //   , function(error) {
-                        //     CoreService.toastError(
-                        //         gettextCatalog.getString('Error deleting setting'),
-                        //         gettextCatalog.getString('Your setting is not deleted! ') + err);
-                        //     cancelCb();
-                        // }
+                        InstitutionalTeam.deleteMultiple({ multiple: ids }, function() {
+                            CoreService.toastSuccess(
+                                gettextCatalog.getString('Setting deleted'),
+                                gettextCatalog.getString('Your setting is deleted!'));
+                            successCb();
+                        }, function(err) {
+                            CoreService.toastError(
+                                gettextCatalog.getString('Error deleting setting'),
+                                gettextCatalog.getString('Your setting is not deleted! ') + err);
+                            cancelCb();
+                        });
                     },
                     function() {
                         cancelCb();

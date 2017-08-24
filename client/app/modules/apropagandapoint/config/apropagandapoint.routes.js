@@ -20,7 +20,14 @@
                     templateUrl: 'modules/apropagandapoint/views/list.html',
                     controller: 'PropagandaPointCtrl'
                 })
-                .state('app.apropagandapoint.add', {
+                .state('app.apropagandapoint.map', {
+                    url: '/map',
+                    templateUrl: 'modules/monitoring/views/map.html',
+                    controller: 'MapCtrl',
+                })
+
+
+            .state('app.apropagandapoint.add', {
                     url: '/add',
                     templateUrl: 'modules/apropagandapoint/views/form.html',
                     controllerAs: 'ctrl',

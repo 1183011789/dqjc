@@ -32,12 +32,13 @@
                     });
             };
 
-            this.delete = function(id, successCb, cancelCb) {
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
                     function() {
-                        Monitoring.deleteById({ id: id }, function() {
+                        Monitoring.deleteMultiple({ multiple: ids }, function() {
                             CoreService.toastSuccess(
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
@@ -56,13 +57,15 @@
             };
 
 
+
             this.getFormFields = function() {
                 var form = [{
                         key: 'Number',
                         type: 'input',
                         templateOptions: {
                             label: '编号:',
-                            required: true
+                            required: true,
+                            placeholder: '请输入编号',
                         }
                     },
                     {
@@ -70,7 +73,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '名称:',
-                            required: true
+                            required: true,
+                            placeholder: '请输入名称',
                         }
                     },
                     {
@@ -78,7 +82,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '监控部位:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入监控设备',
                         }
                     },
                     {
@@ -86,98 +91,112 @@
                         type: 'input',
                         templateOptions: {
                             label: '接入部门:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入接入部门',
                         }
                     }, {
                         key: 'Address',
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入地址',
                         }
                     }, {
                         key: 'LocalPoliceStation',
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入地方派出所',
                         }
                     }, {
                         key: 'AdministrativeDepartment',
                         type: 'input',
                         templateOptions: {
                             label: '管理部门:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入管理部门',
                         }
                     }, {
                         key: 'PersonCharge',
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入负责人',
                         }
                     }, {
                         key: 'ContactNumber',
                         type: 'input',
                         templateOptions: {
                             label: '联系电话:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入联系地址',
                         }
                     }, {
                         key: 'UserName',
                         type: 'input',
                         templateOptions: {
                             label: '用户名:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入用户名',
                         }
                     }, {
                         key: 'Password',
                         type: 'input',
                         templateOptions: {
                             label: '密码:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入密码',
                         }
                     }, {
                         key: 'PortNumber',
                         type: 'input',
                         templateOptions: {
                             label: '端口号:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入端口号',
                         }
                     }, {
                         key: 'ChannelNumber',
                         type: 'input',
                         templateOptions: {
                             label: '通道号:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入通道号',
                         }
                     }, {
                         key: 'CallClass',
                         type: 'input',
                         templateOptions: {
                             label: '调用类:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入通用类',
                         }
                     }, {
                         key: 'longitude',
                         type: 'input',
                         templateOptions: {
                             label: '经度:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度',
                         }
                     }, {
                         key: 'Latitude',
                         type: 'input',
                         templateOptions: {
                             label: '纬度:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度',
                         }
                     }, {
                         key: 'AffiliatedInstitution',
                         type: 'input',
                         templateOptions: {
                             label: '所属机构:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入所属机构',
                         }
                     }
                 ];

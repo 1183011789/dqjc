@@ -25,6 +25,10 @@
             };
 
             this.upsert = function(advertisement) {
+                console.log("修改--------", JSON.stringify(advertisement));
+                // if (!advertisement) {
+                //     CoreService.alertWarning('提示', '内容');
+                // }
                 return BroadcastWarningPost.upsert(advertisement).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -40,12 +44,13 @@
                     });
             };
 
-            this.delete = function(id, successCb, cancelCb) {
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
                     function() {
-                        BroadcastWarningPost.deleteById({ id: id }, function() {
+                        BroadcastWarningPost.deleteMultiple({ multiple: ids }, function() {
                             CoreService.toastSuccess(
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
@@ -64,13 +69,26 @@
             };
 
 
+
             this.getFormFields = function() {
                 var form = [{
                         key: 'name',
                         type: 'input',
                         templateOptions: {
+                            type: 'text',
                             label: '名字:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入名字'
+                        }
+                    },
+                    {
+                        key: 'number',
+                        type: 'input',
+                        templateOptions: {
+                            type: 'text',
+                            label: '编号:',
+                            required: false,
+                            placeholder: '请输入编号'
                         }
                     },
                     {
@@ -78,7 +96,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址：',
-                            required: true
+                            required: false,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -86,7 +105,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },
                     {
@@ -94,35 +114,78 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     }, {
                         key: 'state',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
-                            label: '状态:',
-                            required: true
+                            label: '状态',
+                            required: true,
+                            placeholder: '请选择状态',
+                            options: [
+                                { name: '可用', value: '1' },
+                                { name: '不可用', value: '0' },
+                            ],
+
                         }
-                    }, {
+                    },
+                    {
                         key: 'voicebroadcast',
                         type: 'input',
                         templateOptions: {
                             label: '语音播报:',
-                            required: true
+                            required: false,
+                            placeholder: '请输入语音播报'
                         }
                     }, {
                         key: 'unicast',
                         type: 'input',
                         templateOptions: {
                             label: '单点广播:',
-                            required: true
+                            required: false,
+                            placeholder: '单点广播'
                         }
                     }, {
                         key: 'cameraid',
                         type: 'input',
                         templateOptions: {
                             label: '摄像头id:',
-                            required: true
+                            required: false,
+                            placeholder: '摄像头id'
+                        }
+                    }, {
+                        key: 'personCharge',
+                        type: 'input',
+                        templateOptions: {
+                            label: '负责人:',
+                            required: false,
+                            placeholder: '负责人'
+                        }
+                    }, {
+                        key: 'contactNumber',
+                        type: 'input',
+                        templateOptions: {
+                            label: '电话:',
+                            required: false,
+                            placeholder: '电话'
+                        }
+                    }, {
+                        key: 'affiliatedinstitution',
+                        type: 'input',
+                        templateOptions: {
+                            label: '所属机构:',
+                            required: false,
+                            placeholder: '所属机构'
+                        }
+                    }, {
+                        key: 'remark',
+                        type: 'input',
+                        templateOptions: {
+                            label: '备注:',
+                            required: false,
+                            placeholder: '备注'
                         }
                     }
                 ];

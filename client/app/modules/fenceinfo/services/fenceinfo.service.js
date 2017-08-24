@@ -55,10 +55,34 @@
                 );
             };
 
+            this.deleteMultiple = function(ids, successCb, cancelCb) {
+                console.log('=========' + ids);
+                CoreService.confirm(
+                    gettextCatalog.getString('Are you sure?'),
+                    gettextCatalog.getString('Deleting this cannot be undone'),
+                    function() {
+                        FenceInfo.deleteMultiple({ multiple: ids }, function() {
+                            CoreService.toastSuccess(
+                                gettextCatalog.getString('Setting deleted'),
+                                gettextCatalog.getString('Your setting is deleted!'));
+                            successCb();
+                        }, function(err) {
+                            CoreService.toastError(
+                                gettextCatalog.getString('Error deleting setting'),
+                                gettextCatalog.getString('Your setting is not deleted! ') + err);
+                            cancelCb();
+                        });
+                    },
+                    function() {
+                        cancelCb();
+                    }
+                );
+            };
+
 
             this.getFormFields = function() {
                 var form = [{
-                        key: 'Name',
+                        key: 'name',
                         type: 'input',
                         templateOptions: {
                             label: '名称:',
@@ -74,7 +98,7 @@
                         }
                     },
                     {
-                        key: 'LengthOfRollingCage',
+                        key: 'lengthOfRollingCage',
                         type: 'input',
                         templateOptions: {
                             label: '刺死滚笼长度:',
@@ -82,91 +106,93 @@
                         }
                     },
                     {
-                        key: 'Address',
+                        key: 'address',
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
                             required: true
                         }
                     }, {
-                        key: 'TextureOfMaterial',
+                        key: 'textureOfMaterial',
                         type: 'input',
                         templateOptions: {
                             label: '材质:',
                             required: true
                         }
                     }, {
-                        key: 'Height',
+                        key: 'height',
                         type: 'input',
                         templateOptions: {
                             label: '高度:',
                             required: true
                         }
-                    }, {
-                        key: 'SubgradeSection',
+                    },
+                    {
+                        key: 'subgradeSection',
                         type: 'input',
                         templateOptions: {
                             label: '路基段:',
                             required: true
                         }
-                    }, {
-                        key: 'LineSpeedPerHour',
+                    },
+                    {
+                        key: 'lineSpeedPerHour',
                         type: 'input',
                         templateOptions: {
                             label: '线路段设计时速:',
                             required: true
                         }
                     }, {
-                        key: 'KilometerMark',
+                        key: 'kilometerMark',
                         type: 'input',
                         templateOptions: {
                             label: '公里标:',
                             required: true
                         }
                     }, {
-                        key: 'WorkGateUseUnit',
+                        key: 'workGateUseUnit',
                         type: 'input',
                         templateOptions: {
                             label: '工作门使用单位:',
                             required: true
                         }
                     }, {
-                        key: 'DoOther',
+                        key: 'doOther',
                         type: 'input',
                         templateOptions: {
                             label: '行别:',
                             required: true
                         }
                     }, {
-                        key: 'LocalPoliceStation',
+                        key: 'localPoliceStation',
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所:',
                             required: true
                         }
                     }, {
-                        key: 'AdministrativeDepartment',
+                        key: 'administrativeDepartment',
                         type: 'input',
                         templateOptions: {
                             label: '管理部门:',
                             required: true
                         }
                     }, {
-                        key: 'PersonCharge',
+                        key: 'personCharge',
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
                             required: true
                         }
                     }, {
-                        key: 'ContactNumber',
+                        key: 'contactNumber',
                         type: 'input',
                         templateOptions: {
                             label: '联系电话:',
                             required: true
                         }
                     }, {
-                        key: 'AffiliatedInstitution',
+                        key: 'affiliatedInstitution',
                         type: 'input',
                         templateOptions: {
                             label: '所属机构:',

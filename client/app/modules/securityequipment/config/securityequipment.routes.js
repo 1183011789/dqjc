@@ -20,6 +20,12 @@
                     templateUrl: 'modules/securityequipment/views/list.html',
                     controller: 'SecurityEquipmentCtrl'
                 })
+
+            .state('app.securityequipment.map', {
+                    url: '/map',
+                    templateUrl: 'modules/securityequipment/views/map.html',
+                    controller: 'MapCtrl',
+                })
                 .state('app.securityequipment.add', {
                     url: '/add',
                     templateUrl: 'modules/securityequipment/views/form.html',

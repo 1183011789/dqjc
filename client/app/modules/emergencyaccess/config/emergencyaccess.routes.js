@@ -33,7 +33,14 @@
                     templateUrl: 'modules/emergencyaccess/views/list.html',
                     controller: 'EmergencyaccessListCtrl',
                 })
-                .state('app.emergencyaccess.add', {
+                .state('app.emergencyaccess.map', {
+                    url: '/map',
+                    templateUrl: 'modules/emergencyaccess/views/map.html',
+                    controller: 'MapCtrl',
+                })
+
+
+            .state('app.emergencyaccess.add', {
                     url: '/add',
                     templateUrl: 'modules/emergencyaccess/views/form.html',
                     controllerAs: 'ctrl',

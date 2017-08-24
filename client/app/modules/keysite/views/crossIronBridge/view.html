@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.index" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.crossIronBridge.ironbridgename}}
+        <small>{{ctrl.crossIronBridge.length}}</small>
+
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.crossIronBridge.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <!-- <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.baseStation.id})">
+        <i class="fa fa-trash-o"></i>
+      </a> -->
+    </span>
+    </div>
+    <div class="panel-body">
+        <pre>横跨铁桥名称:{{ctrl.crossIronBridge.ironbridgename}}</pre>
+        <pre>长度:{{ctrl.crossIronBridge.length}}</pre>
+        <pre>中心里程:{{ctrl.crossIronBridge.centermileage}}</pre>
+        <pre>是否有防护措施:{{ctrl.crossIronBridge.protect}}</pre>
+        <pre>是否有限重限速标示:{{ctrl.crossIronBridge.restrictionandspeed}}</pre>
+        <pre>限重:{{ctrl.crossIronBridge.weightlimit}}</pre>
+        <pre>限速:{{ctrl.crossIronBridge.speedlimit}}</pre>
+        <pre>是否移交:{{ctrl.crossIronBridge.transfer}}</pre>
+        <pre>行人通道:{{ctrl.crossIronBridge.pedestrianpassage}}</pre>
+        <pre>移交时间:{{ctrl.crossIronBridge.handovertime}}</pre>
+        <pre>地址:{{ctrl.crossIronBridge.address}}</pre>
+        <pre>所属地方派出所:{{ctrl.crossIronBridge.localpolicestation}}</pre>
+        <pre>管理部门:{{ctrl.crossIronBridge.admimdepartment}}</pre>
+        <pre>负责人:{{ctrl.crossIronBridge.personincharge}}</pre>
+        <pre>联系电话:{{ctrl.crossIronBridge.contactnumber}}</pre>
+        <pre>所属机构:{{ctrl.crossIronBridge.affiliatedinstitution}}</pre>
+        <pre>经度:{{ctrl.crossIronBridge.lng}}</pre>
+        <pre>纬度:{{ctrl.crossIronBridge.lat}}</pre>
+        <pre>说明:{{ctrl.crossIronBridge.explain}}</pre>
+        
+    </div>
+</div>

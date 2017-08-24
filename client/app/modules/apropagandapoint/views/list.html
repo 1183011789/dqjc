@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        护路宣传点位
+        护路宣传点位<span style="color:brown;">[共有 {{totalItems}} 个]</span>
         <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
             <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
               <a href="" class="btn btn-xs btn-success" ng-click="editItem()">
@@ -10,15 +10,26 @@
                   <i class="fa fa-delete"> 删除 </i>
               </a>
               <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图</i></a>
             </span>
         </span>
+    </div>
+
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">名称：</label>
+                <input type="text" ng-model="searchConditions.name" class="form-control" id="exampleInputName2" placeholder="护路宣传点名称">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
+        </form>
     </div>
 
     <!-- 数据列表 table实现 -->
     <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="item in propagandaPoints">
             <td data-title="''" class="text-center" style="vertical-align:middle">
-                <input multi-check type="checkbox" ng-value="{{item.id}}" ng-change="addEditItem(item)" class="input-lg checkbox-lg" ng-model="item.checked">
+                <input multi-check type="checkbox" ng-value="{{item.id}}" ng-change="addEditItem(item)" class=" checkbox-lg" ng-model="item.checked">
             </td>
             <td data-title="'名称'" ng-switch="item.rename" ng-form="name" class="text-center" style="vertical-align:middle">
                 <a href="" ui-sref="^.view({id: item.id})">
@@ -46,10 +57,15 @@
             </td>
         </tr>
     </table>
-
-    <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
-        <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
-            rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
-        </ul>
-    </div>
 </div>
+
+<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+    <ul style=" margin-top:0px; " uib-pagination ng-show="{{tableParams.total()> tableParams.count()}}" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
+    previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div>
+<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+    <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+        rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div> -->

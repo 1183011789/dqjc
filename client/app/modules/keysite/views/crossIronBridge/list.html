@@ -1,0 +1,117 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        信息列表<span style="color:brown;">[共有 {{totalItems}} 个]</span>
+        <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+            <!-- <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()">
+                <i class="fa fa-add">新增</i>
+              </a> -->
+            <!-- <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
+              查看
+            </a> -->
+            <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
+              编辑
+            </a>
+            <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+              删除
+            </a>
+            <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
+          </span>
+    </div>
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">横跨铁桥名：</label>
+                <input type="text" ng-model="searchConditions.ironbridgename" class="form-control" id="exampleInputName2" placeholder="横跨铁桥名">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="exampleInputEmail2">管理部门：</label> -->
+            <!-- <input type="text" ng-model="searchConditions.AdministrativeDepartment" class="form-control" id="exampleInputEmail2" placeholder="管理部门"> -->
+            <!-- <select class="form-control" ng-model="searchConditions.AdministrativeDepartment" id="exampleInputEmail2" placeholder="管理部门">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+            </div> -->
+            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
+        </form>
+    </div>
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in crossIronBridges">
+            <td data-title="''" class="text-center">
+                <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
+            </td>
+            <td data-title="'横跨铁桥名称'" class="text-center" ng-switch="row.rename" ng-form="ironbridgename">
+                <!-- <strong ng-switch-default>{{row.name}}</strong> -->
+                <a href="" ui-sref="^.view({id: row.id})">
+                    <strong ng-switch-default>{{row.ironbridgename}}</strong>
+                </a>
+            </td>
+            <td data-title="'长度'" class="text-center" ng-switch="row.titleEdit" ng-form="length">
+                <span ng-switch-default>{{row.length}}</span>
+            </td>
+            <td data-title="'中心里程'" class="text-center" ng-switch="row.rename" ng-form="centermileage">
+                <strong ng-switch-default>{{row.centermileage}}</strong>
+            </td>
+            <td data-title="'是否有防护措施'" class="text-center" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="protect">
+                <span ng-switch-default>{{row.protect}}</span>
+            </td>
+            <td data-title="'限重'" class="text-center" ng-switch="row.rename" ng-form="weightlimit">
+                <strong ng-switch-default>{{row.weightlimit}}</strong>
+            </td>
+            <td data-title="'限速'" class="text-center" ng-switch="row.titleEdit" ng-form="speedlimit">
+                <span ng-switch-default>{{row.speedlimit}}</span>
+            </td>
+            <td data-title="'是否移交'" class="text-center" ng-switch="row.titleEdit" ng-form="transfer">
+                <span ng-switch-default>{{row.transfer}}</span>
+            </td>
+            <td data-title="'行人通道'" class="text-center" ng-switch="row.titleEdit" ng-form="pedestrianpassage">
+                <span ng-switch-default>{{row.pedestrianpassage}}</span>
+            </td>
+            <td data-title="'移交时间'" class="text-center" ng-switch="row.titleEdit" ng-form="handovertime">
+                <span ng-switch-default>{{row.handovertime}}</span>
+            </td>
+            <td data-title="'地址'" class="text-center" ng-switch="row.titleEdit" ng-form="address">
+                <span ng-switch-default>{{row.address}}</span>
+            </td>
+            <td data-title="'所属地方派出所'" class="text-center" ng-switch="row.titleEdit" ng-form="localpolicestation">
+                <span ng-switch-default>{{row.localpolicestation}}</span>
+            </td>
+            <td data-title="'管理部门'" class="text-center" ng-switch="row.titleEdit" ng-form="admimdepartment">
+                <span ng-switch-default>{{row.admimdepartment}}</span>
+            </td>
+            <td data-title="'负责人'" class="text-center" ng-switch="row.titleEdit" ng-form="personincharge">
+                <span ng-switch-default>{{row.personincharge}}</span>
+            </td>
+            <td data-title="'联系电话'" class="text-center" ng-switch="row.titleEdit" ng-form="contactnumber">
+                <span ng-switch-default>{{row.contactnumber}}</span>
+            </td>
+            <td data-title="'所属机构'" class="text-center" ng-switch="row.titleEdit" ng-form="affiliatedinstitution">
+                <span ng-switch-default>{{row.affiliatedinstitution}}</span>
+            </td>
+            <td data-title="'经度'" class="text-center" ng-switch="row.titleEdit" ng-form="lng">
+                <span ng-switch-default>{{row.lng}}</span>
+            </td>
+            <td data-title="'纬度'" class="text-center" ng-switch="row.titleEdit" ng-form="lat">
+                <span ng-switch-default>{{row.lat}}</span>
+            </td>
+            <td data-title="'说明'" class="text-center" ng-switch="row.titleEdit" ng-form="explain">
+                <span ng-switch-default>{{row.explain}}</span>
+            </td>
+
+        </tr>
+    </table>
+</div>
+<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+    <ul style=" margin-top:0px; " uib-pagination ng-show="{{tableParams.total()> tableParams.count()}}" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
+    previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div>
+<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+    <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+        rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div> -->

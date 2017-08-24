@@ -17,24 +17,25 @@
                         };
                     }
 
-                    if(params._params.filter.AdministrativeDepartment) {
-                      where.AdministrativeDepartment = {
-                        like: `%${params._params.filter.AdministrativeDepartment}%`
-                      };
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
                     }
-                  
+
                     SecurityEquipmentInformation.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     var offset = params._params.count * (params._params.page - 1);
                     SecurityEquipmentInformation.find({
-                      filter: {
-                        limit: params._params.count,
-                        offset: offset,
-                        where: where
-                      }
+                        filter: {
+                            limit: params._params.count,
+                            offset: offset,
+                            where: where
+                        }
                     }).$promise.then(function(value) {
                         $scope.securityEquipments = value;
                     });
@@ -43,33 +44,37 @@
 
             // 查询条件
             $scope.searchConditions = {
-              Name: "",
-              AdministrativeDepartment: ""
+                Name: "",
+                AdministrativeDepartment: ""
             };
 
             $scope.startSearch = function() {
-              // isSearchMode = true;
-              console.log('===========');
-              // console.log(  $scope.tableParams.filter($scope.searchConditions) );
-              $scope.tableParams.filter({ 
-                Name: $scope.searchConditions.Name,
-                AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
-              });
+                // isSearchMode = true;
+                console.log('===========');
+                // console.log(  $scope.tableParams.filter($scope.searchConditions) );
+                $scope.tableParams.filter({
+                    Name: $scope.searchConditions.Name,
+                    AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
+                });
             };
 
-            $scope.deleteItems = function(item) {
-                console.log('=======')
-                console.log($scope.selectedItems)
-                var array = [];
-                for (var value of $scope.selectedItems) {
-                    array.push(value)
+            $scope.deleteItems = function() {
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
                 }
 
-                // SecurityEquipmentService.deleteAll(array, function() {
-                //     $state.go('^.list');
-                // }, function() {
-                //     $state.go('^.list');
-                // });
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                SecurityEquipmentService.deleteMultiple(array, function() {
+                    $state.go('^.list');
+                    $scope.tableParams.reload();
+                }, function() {
+                    $state.go('^.list');
+                });
             };
 
             // 编辑

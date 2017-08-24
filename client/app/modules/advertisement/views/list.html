@@ -9,13 +9,14 @@
               删除
             </a>
             <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+            <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
           </span>
     </div>
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
                 <label for="exampleInputName2">广播警示柱名称：</label>
-                <input type="text" ng-model="searchConditions.Name" class="form-control" id="exampleInputName2" placeholder="警示柱名称">
+                <input type="text" ng-model="searchConditions.name" class="form-control" id="exampleInputName2" placeholder="警示柱名称">
             </div>
 
             <!-- <div class="form-group">
@@ -45,6 +46,9 @@
                         <strong ng-switch-default>{{item.name}}</strong>
                     </a>
                 </td>
+                <td data-title="'编号'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
+                    <span ng-switch-default>{{item.number}}</span>
+                </td>
                 <td data-title="'地址'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
                     <span ng-switch-default>{{item.address}}</span>
                 </td>
@@ -71,6 +75,18 @@
 
                 <td data-title="'摄像头ID'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.cameraid}}</span>
+                </td>
+                <td data-title="'负责人'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.personCharge}}</span>
+                </td>
+                <td data-title="'电话'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.contactNumber}}</span>
+                </td>
+                <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.affiliatedinstitution}}</span>
+                </td>
+                <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                    <span ng-switch-default>{{item.remark}}</span>
                 </td>
             </tr>
         </table>

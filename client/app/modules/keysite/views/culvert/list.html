@@ -1,0 +1,125 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        信息列表<span style="color:brown;">[共有 {{totalItems}} 个]</span>
+        <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+            <!-- <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()">
+                <i class="fa fa-add">新增</i>
+              </a> -->
+            <!-- <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
+              查看
+            </a> -->
+            <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
+              编辑
+            </a>
+            <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-danger" ng-click="deleteItems()">
+              删除
+            </a>
+            <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
+          </span>
+    </div>
+    <div class="panel-body">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">编号：</label>
+                <input type="text" ng-model="searchConditions.culvertnumber" class="form-control" id="exampleInputName2" placeholder="编号">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="exampleInputEmail2">管理部门：</label> -->
+            <!-- <input type="text" ng-model="searchConditions.AdministrativeDepartment" class="form-control" id="exampleInputEmail2" placeholder="管理部门"> -->
+            <!-- <select class="form-control" ng-model="searchConditions.AdministrativeDepartment" id="exampleInputEmail2" placeholder="管理部门">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+            </div> -->
+            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
+        </form>
+    </div>
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in culverts">
+            <td data-title="''" class="text-center">
+                <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
+            </td>
+            <td data-title="'编号'" class="text-center" ng-switch="row.rename" ng-form="culvertnumber">
+                <!-- <strong ng-switch-default>{{row.name}}</strong> -->
+                <a href="" ui-sref="^.view({id: row.id})">
+                    <strong ng-switch-default>{{row.culvertnumber}}</strong>
+                </a>
+            </td>
+            <td data-title="'涵洞名称'" class="text-center" ng-switch="row.titleEdit" ng-form="culvertname">
+                <span ng-switch-default>{{row.culvertname}}</span>
+            </td>
+            <td data-title="'分类'" class="text-center" ng-switch="row.rename" ng-form="classification">
+                <strong ng-switch-default>{{row.classification}}</strong>
+            </td>
+            <td data-title="'长度'" class="text-center" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="culverlength">
+                <span ng-switch-default>{{row.culverlength}}</span>
+            </td>
+            <td data-title="'宽度'" class="text-center" ng-switch="row.rename" ng-form="culverwidth">
+                <strong ng-switch-default>{{row.culverwidth}}</strong>
+            </td>
+            <td data-title="'高度'" class="text-center" ng-switch="row.titleEdit" ng-form="culverheight">
+                <span ng-switch-default>{{row.culverheight}}</span>
+            </td>
+            <td data-title="'半径'" class="text-center" ng-switch="row.titleEdit" ng-form="culverradius">
+                <span ng-switch-default>{{row.culverradius}}</span>
+            </td>
+            <td data-title="'中心里程'" class="text-center" ng-switch="row.titleEdit" ng-form="centermileage">
+                <span ng-switch-default>{{row.centermileage}}</span>
+            </td>
+            <td data-title="'功能'" class="text-center" ng-switch="row.titleEdit" ng-form="culverfunction">
+                <span ng-switch-default>{{row.culverfunction}}</span>
+            </td>
+            <td data-title="'是否积水'" class="text-center" ng-switch="row.titleEdit" ng-form="istherewater">
+                <span ng-switch-default>{{row.istherewater}}</span>
+            </td>
+            <td data-title="'行别'" class="text-center" ng-switch="row.titleEdit" ng-form="crossalignment">
+                <span ng-switch-default>{{row.crossalignment}}</span>
+            </td>
+            <td data-title="'守护情况'" class="text-center" ng-switch="row.titleEdit" ng-form="guardian">
+                <span ng-switch-default>{{row.guardian}}</span>
+            </td>
+            <td data-title="'地址'" class="text-center" ng-switch="row.titleEdit" ng-form="address">
+                <span ng-switch-default>{{row.address}}</span>
+            </td>
+            <td data-title="'所属地方派出所'" class="text-center" ng-switch="row.titleEdit" ng-form="localpolicestation">
+                <span ng-switch-default>{{row.localpolicestation}}</span>
+            </td>
+            <td data-title="'负责人'" class="text-center" ng-switch="row.titleEdit" ng-form="personincharge">
+                <span ng-switch-default>{{row.personincharge}}</span>
+            </td>
+            <td data-title="'联系电话'" class="text-center" ng-switch="row.titleEdit" ng-form="contactnumber">
+                <span ng-switch-default>{{row.contactnumber}}</span>
+            </td>
+            <td data-title="'所属机构'" class="text-center" ng-switch="row.titleEdit" ng-form="affiliatedinstitution">
+                <span ng-switch-default>{{row.affiliatedinstitution}}</span>
+            </td>
+            <td data-title="'经度'" class="text-center" ng-switch="row.titleEdit" ng-form="lng">
+                <span ng-switch-default>{{row.lng}}</span>
+            </td>
+            <td data-title="'纬度'" class="text-center" ng-switch="row.titleEdit" ng-form="lat">
+                <span ng-switch-default>{{row.lat}}</span>
+            </td>
+            <td data-title="'说明'" class="text-center" ng-switch="row.titleEdit" ng-form="explain">
+                <span ng-switch-default>{{row.explain}}</span>
+            </td>
+            <td data-title="'备注'" class="text-center" ng-switch="row.titleEdit" ng-form="remark">
+                <span ng-switch-default>{{row.remark}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+    <ul style=" margin-top:0px; " uib-pagination ng-show="{{tableParams.total()> tableParams.count()}}" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
+    previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div>
+<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+    <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
+        rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
+    </ul>
+</div> -->

@@ -8,8 +8,8 @@
      * @requires $rootScope
      **/
     angular
-        .module('com.module.advertisement')
-        .controller('EmergencyaccessListCtrl', function($scope, CoreService, EmergencyAccesss, EmergencyAccessService, $rootScope, $location, NgTableParams) {
+        .module('com.module.emergencyaccess')
+        .controller('EmergencyaccessListCtrl', function($scope, CoreService, EmergencyAccesss, EmergencyAccessService, $rootScope, $location, NgTableParams, $state) {
 
             // $scope.maxSize = 6;
             // AdvertisementService.count()
@@ -76,18 +76,23 @@
             };
 
             $scope.deleteItems = function(item) {
-                console.log('=======')
-                console.log($scope.selectedItems)
-                var array = [];
-                for (var value of $scope.selectedItems) {
-                    array.push(value)
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
                 }
 
-                // SecurityEquipmentService.deleteAll(array, function() {
-                //     $state.go('^.list');
-                // }, function() {
-                //     $state.go('^.list');
-                // });
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                EmergencyAccessService.deleteMultiple(array, function() {
+                    $state.go('^.list');
+                    $scope.tableParams.reload();
+                }, function() {
+                    $state.go('^.list');
+                });
+
             };
 
             // 编辑
