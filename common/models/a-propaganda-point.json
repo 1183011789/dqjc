@@ -45,7 +45,14 @@
     },
     "aPropagandaPointImgs": {
       "type": "hasMany",
-      "model": "APropagandaPointImg"
+      "model": "APropagandaPointImg",
+      "foreignKey": "aPropagandaPointId"
+    },
+    "affiliatedinstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "affiliatedinstitution",
+      "primaryKey": "id"
     }
   },
   "acls": [],

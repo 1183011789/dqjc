@@ -91,7 +91,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "bridgeId",
-      "through": "RodeBridge"
+      "through": "RodeContain"
     },
     "guardians": {
       "type": "belongsTo",

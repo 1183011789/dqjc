@@ -259,5 +259,13 @@
   "ResponsibilitySection": {
     "dataSource": "bjhlb_mysql",
     "public": true
+  },
+  "RouteMapInformation": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
+  },
+  "AdministrativeAreaMapInformation": {
+    "dataSource": "bjhlb_mysql",
+    "public": true
   }
 }

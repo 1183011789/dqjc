@@ -59,6 +59,12 @@
       "model": "AffiliatedInstitution",
       "foreignKey": "AffiliatedInstitution",
       "primaryKey": "id"
+    },
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "emergencyAccesssId",
+      "through": "RodeContain"
     }
   },
   "acls": [],

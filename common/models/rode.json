@@ -121,7 +121,43 @@
     "tunnels": {
       "type": "hasMany",
       "model": "Tunnel",
-      "foreignKey": "rodeiId",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "theRoadStations": {
+      "type": "hasMany",
+      "model": "TheRoadStation",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "keyPersions": {
+      "type": "hasMany",
+      "model": "KeyPersion",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "monitorings": {
+      "type": "hasMany",
+      "model": "Monitoring",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "emergencyAccessss": {
+      "type": "hasMany",
+      "model": "EmergencyAccesss",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "equipmentInfors": {
+      "type": "hasMany",
+      "model": "EquipmentInfor",
+      "foreignKey": "rodeId",
+      "through": "RodeContain"
+    },
+    "securityEquipmentInformations": {
+      "type": "hasMany",
+      "model": "SecurityEquipmentInformation",
+      "foreignKey": "rodeId",
       "through": "RodeContain"
     },
     "rodeClassifications": {

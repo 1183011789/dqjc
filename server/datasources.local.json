@@ -11,5 +11,6 @@
         "charset": "utf8",
         "maxActive": 0,
         "createDatabase": true
+
     }
 }

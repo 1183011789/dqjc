@@ -77,6 +77,41 @@
       "model": "APropagandaPoint",
       "foreignKey": "aPropagandaPointId"
     },
+    "theRoadStation": {
+      "type": "belongsTo",
+      "model": "TheRoadStation",
+      "foreignKey": "theRoadStationId"
+    },
+    "keyPersion": {
+      "type": "belongsTo",
+      "model": "KeyPersion",
+      "foreignKey": "keyPersionId"
+    },
+    "monitoring": {
+      "type": "belongsTo",
+      "model": "Monitoring",
+      "foreignKey": "monitoringId"
+    },
+    "emergencyAccesss": {
+      "type": "belongsTo",
+      "model": "EmergencyAccesss",
+      "foreignKey": "emergencyAccesssId"
+    },
+    "broadcastWarningPost": {
+      "type": "belongsTo",
+      "model": "BroadcastWarningPost",
+      "foreignKey": "broadcastWarningPostId"
+    },
+    "equipmentInfor": {
+      "type": "belongsTo",
+      "model": "EquipmentInfor",
+      "foreignKey": "equipmentInforId"
+    },
+    "securityEquipmentInformation": {
+      "type": "belongsTo",
+      "model": "SecurityEquipmentInformation",
+      "foreignKey": "securityEquipmentInformationId"
+    },
     "rode": {
       "type": "belongsTo",
       "model": "Rode",

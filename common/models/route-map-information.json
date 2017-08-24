@@ -1,0 +1,58 @@
+{
+  "name": "RouteMapInformation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rodeId": {
+      "type": "string"
+    },
+    "lineName": {
+      "type": "string"
+    },
+    "pointSerialNumber": {
+      "type": "number"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "kilometerMark": {
+      "type": "number"
+    },
+    "alignment": {
+      "type": "string"
+    },
+    "regionalId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "rodes": {
+      "type": "belongsTo",
+      "model": "Rode",
+      "foreignKey": "rodeId",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "regionalId",
+      "primaryKey": "id"
+    },
+    "alignments": {
+      "type": "belongsTo",
+      "model": "Alignment",
+      "foreignKey": "alignment",
+      "primaryKey": "id"
+    }
+
+  },
+  "acls": [],
+  "methods": {}
+}

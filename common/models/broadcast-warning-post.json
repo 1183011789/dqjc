@@ -53,7 +53,7 @@
       "type": "hasMany",
       "model": "Rode",
       "foreignKey": "broadcastWarningPostId",
-      "through": "RodeBroadcastWarningPost"
+      "through": "RodeContain"
     },
     "affiliatedInstitutions": {
       "type": "belongsTo",

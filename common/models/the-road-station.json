@@ -53,6 +53,12 @@
       "model": "ServiceMode",
       "foreignKey": "serviceMode",
       "primaryKey": "id"
+    },
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "theRoadStationId",
+      "through": "RodeContain"
     }
   },
   "acls": [],
