@@ -76,7 +76,8 @@
     },
     "hiddenDangerPlaceImages": {
       "type": "hasMany",
-      "model": "HiddenDangerPlaceImage"
+      "model": "HiddenDangerPlaceImage",
+      "foreignKey": "hiddenDangerPlaceId"
     },
     "hiddenDangerPlaceCategorys": {
       "type": "belongsTo",

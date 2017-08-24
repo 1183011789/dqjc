@@ -54,7 +54,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "keyPersionid",
+      "through": "RodeContain"
+    }
+  },
   "acls": [],
   "methods": {}
 }

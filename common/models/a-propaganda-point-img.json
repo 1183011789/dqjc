@@ -26,11 +26,6 @@
   },
   "validations": [],
   "relations": {
-    "aPropagandaPoints": {
-      "type": "belongsTo",
-      "model": "APropagandaPoint",
-      "foreignKey": "aPropagandaPointId"
-    }
   },
   "acls": [],
   "methods": {}

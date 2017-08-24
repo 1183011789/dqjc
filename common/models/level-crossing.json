@@ -87,7 +87,6 @@
       "foreignKey": "crossproperty",
       "primaryKey": "id"
     },
-
     "affiliatedInstitutions": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",

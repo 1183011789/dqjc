@@ -27,11 +27,7 @@
   },
   "validations": [],
   "relations": {
-    "hiddenDangerPlaces": {
-      "type": "belongsTo",
-      "model": "HiddenDangerPlace",
-      "foreignKey": "hiddenDangerPlaceId"
-    }
+    
   },
   "acls": [],
   "methods": {}

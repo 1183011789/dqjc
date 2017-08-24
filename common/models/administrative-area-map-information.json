@@ -1,0 +1,42 @@
+{
+  "name": "AdministrativeAreaMapInformation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "regionalId": {
+      "type": "string"
+    },
+    "regionalName": {
+      "type": "string"
+    },
+    "pointSerialNumber": {
+      "type": "number"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "lat": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "regionalId",
+      "primaryKey": "id"
+    },
+    "affiliatedInstitutions": {
+      "type": "belongsTo",
+      "model": "AffiliatedInstitution",
+      "foreignKey": "regionalId",
+      "primaryKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

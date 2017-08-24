@@ -59,6 +59,18 @@
       "model": "AffiliatedInstitution",
       "foreignKey": "AffiliatedInstitution",
       "primaryKey": "id"
+    },
+    "stations": {
+      "type": "belongsTo",
+      "model": "Station",
+      "foreignKey": "Station",
+      "primaryKey": "id"
+    },
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "securityEquipmentInformationId",
+      "through": "RodeContain"
     }
   },
   "acls": [],

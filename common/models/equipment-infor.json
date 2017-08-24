@@ -77,6 +77,12 @@
       "model": "Alignment",
       "foreignKey": "DoOther",
       "primaryKey": "id"
+    },
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "equipmentInforId",
+      "through": "RodeContain"
     }
   },
   "acls": [],
