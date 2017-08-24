@@ -10,18 +10,34 @@
                 count: 10
             }, {
                 getData: function(params) {
-                    var offset = params._params.count * (params._params.page - 1);
 
+                    var where = {};
+                    if (params._params.filter.levelcrossname) {
+                        where.levelcrossname = {
+                            like: `%${params._params.filter.levelcrossname}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
+                    var offset = params._params.count * (params._params.page - 1);
                     LevelCrossing.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     LevelCrossing.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
-                        $scope.levelCrossings = value;
+                        $scope.LevelCrossings = value;
                     });
                 }
             });
@@ -29,12 +45,12 @@
 
             // 查询条件
             $scope.searchConditions = {
-                name: ""
+                levelcrossname: ""
             };
 
             $scope.startSearch = function() {
                 $scope.tableParams.filter({
-                    name: $scope.searchConditions.name
+                    levelcrossname: $scope.searchConditions.levelcrossname
                 });
             };
 

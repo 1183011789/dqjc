@@ -9,31 +9,51 @@
                 count: 10
             }, {
                 getData: function(params) {
-                    var offset = params._params.count * (params._params.page - 1);
 
+                    var where = {};
+                    if (params._params.filter.tunnelname) {
+                        where.tunnelname = {
+                            like: `%${params._params.filter.tunnelname}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
+                    var offset = params._params.count * (params._params.page - 1);
                     Tunnel.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     Tunnel.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
                         $scope.tunnels = value;
                     });
+
+
+
+
                 }
             });
 
 
             // 查询条件
             $scope.searchConditions = {
-                name: ""
+                tunnelname: ""
             };
 
             $scope.startSearch = function() {
                 $scope.tableParams.filter({
-                    name: $scope.searchConditions.name
+                    tunnelname: $scope.searchConditions.tunnelname
                 });
             };
 

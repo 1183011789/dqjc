@@ -9,31 +9,51 @@
                 count: 10
             }, {
                 getData: function(params) {
-                    var offset = params._params.count * (params._params.page - 1);
 
+                    var where = {};
+                    if (params._params.filter.StationName) {
+                        where.StationName = {
+                            like: `%${params._params.filter.StationName}%`
+                        };
+                    }
+
+                    if (params._params.filter.AdministrativeDepartment) {
+                        where.AdministrativeDepartment = {
+                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                        };
+                    }
+
+
+                    var offset = params._params.count * (params._params.page - 1);
                     Station.count().$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     Station.find({
                         filter: {
                             limit: params._params.count,
-                            offset: offset
+                            offset: offset,
+                            where: where
                         }
                     }).$promise.then(function(value) {
                         $scope.stations = value;
                     });
+
+
+
+
                 }
             });
 
 
             // 查询条件
             $scope.searchConditions = {
-                name: ""
+                StationName: ""
             };
 
             $scope.startSearch = function() {
                 $scope.tableParams.filter({
-                    name: $scope.searchConditions.name
+                    StationName: $scope.searchConditions.StationName
                 });
             };
 
@@ -63,11 +83,11 @@
                 } else if ($scope.selectedItems.size > 1) {
                     CoreService.alertWarning('提示', '一次只能编辑一个');
                 } else {
-                    // ui-sref="^.edit({id: item.id})"
                     for (var value of $scope.selectedItems) {
                         var editItm = value;
                         break;
                     }
+                    console.log("编辑---------");
                     $state.go('^.edit', { id: editItm });
                 }
             };

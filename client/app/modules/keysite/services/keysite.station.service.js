@@ -4,6 +4,16 @@
         .module('com.module.keysite')
         .service('StationService', function($state, CoreService, Station, gettextCatalog) {
 
+            this.find = function() {
+                return Station.find().$promise;
+            };
+
+            this.findById = function(id) {
+                return Station.findById({
+                    id: id
+                }).$promise;
+            };
+            
             this.upsert = function(station) {
                 return Station.upsert(station).$promise
                     .then(function() {
@@ -48,7 +58,7 @@
                         key: 'StationName',
                         type: 'input',
                         templateOptions: {
-                            label: '名称',
+                            label: '车站名称',
                             required: true
                         }
                     },
@@ -56,7 +66,7 @@
                         key: 'StationRank',
                         type: 'input',
                         templateOptions: {
-                            label: 'StationRank',
+                            label: '车站等级',
                             required: true
                         }
                     },
@@ -64,7 +74,7 @@
                         key: 'StationNature',
                         type: 'input',
                         templateOptions: {
-                            label: 'StationNature',
+                            label: '车站性质',
                             required: true
                         }
                     },
@@ -72,7 +82,7 @@
                         key: 'Highspeed_rail_station',
                         type: 'input',
                         templateOptions: {
-                            label: 'Highspeed_rail_station',
+                            label: '是否高铁站',
                             required: true
                         }
                     },
@@ -80,7 +90,7 @@
                         key: 'CenterMileage',
                         type: 'input',
                         templateOptions: {
-                            label: 'CenterMileage',
+                            label: '中心里程',
                             required: true
                         }
                     },
@@ -88,7 +98,7 @@
                         key: 'Railway_Administration',
                         type: 'input',
                         templateOptions: {
-                            label: 'Railway_Administration',
+                            label: '隶属铁路局',
                             required: true
                         }
                     },
@@ -96,7 +106,7 @@
                         key: 'Address',
                         type: 'input',
                         templateOptions: {
-                            label: 'Address',
+                            label: '地址',
                             required: true
                         }
                     },
@@ -104,7 +114,7 @@
                         key: 'PoliceStation',
                         type: 'input',
                         templateOptions: {
-                            label: 'PoliceStation',
+                            label: '所属地方派出所',
                             required: true
                         }
                     },
@@ -112,7 +122,7 @@
                         key: 'PersonInCharge',
                         type: 'input',
                         templateOptions: {
-                            label: 'PersonInCharge',
+                            label: '负责人',
                             required: true
                         }
                     },
@@ -120,7 +130,7 @@
                         key: 'ContactNumber',
                         type: 'input',
                         templateOptions: {
-                            label: 'ContactNumber',
+                            label: '联系电话',
                             required: true
                         }
                     },
@@ -128,7 +138,7 @@
                         key: 'Longitudelatitude',
                         type: 'input',
                         templateOptions: {
-                            label: 'Longitudelatitude',
+                            label: '经度',
                             required: true
                         }
                     },
@@ -136,7 +146,24 @@
                         key: 'Latitude',
                         type: 'input',
                         templateOptions: {
-                            label: 'Latitude',
+                            label: '纬度',
+                            required: true
+                        }
+                    },
+                    {
+                        key: 'AffiliatedInstitution',
+                        type: 'input',
+                        templateOptions: {
+                            label: '所属机构',
+                            required: true
+                        }
+                    },
+
+                    {
+                        key: 'length',
+                        type: 'input',
+                        templateOptions: {
+                            label: '长度',
                             required: true
                         }
                     },
@@ -144,7 +171,7 @@
                         key: 'Remarks',
                         type: 'input',
                         templateOptions: {
-                            label: 'Remarks',
+                            label: '备注',
                             required: true
                         }
                     }

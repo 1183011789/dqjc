@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+    {{ctrl.levelCrossing.name}}
+    <small>{{ctrl.levelCrossing.address}}</small>
+    
+    <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.levelCrossing.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.levelCrossing.id})">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </span>
+  </div>
+  <div class="panel-body">
+    <pre>名称:{{ctrl.levelCrossing.levelcrossname}}</pre>
+    <pre>中心里程:{{ctrl.levelCrossing.centermileage}}</pre>
+    <pre>道口性质:{{ctrl.levelCrossing.crossproperty}}</pre>
+    <pre>行别:{{ctrl.levelCrossing.crossalignment}}</pre>
+    <pre>守护情况:{{ctrl.levelCrossing.guardian}}</pre>
+    <pre>检查情况:{{ctrl.levelCrossing.inspectionstatus}}</pre>
+    <pre>有无限高:{{ctrl.levelCrossing.infinitelyhigh}}</pre>
+    <pre>所属地方派出所:{{ctrl.levelCrossing.address}}</pre>
+    <pre>负责人:{{ctrl.levelCrossing.personincharge}}</pre>
+    <pre>联系电话:{{ctrl.levelCrossing.contactnumber}}</pre>
+    <pre>所属机构:{{ctrl.levelCrossing.affiliatedinstitution}}</pre>
+    <pre>备注:{{ctrl.levelCrossing.remark}}</pre>
+    
+
+  </div>
+</div>
+
+
+  
+            
+         
+           
+      
