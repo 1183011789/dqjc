@@ -77,6 +77,7 @@
                         },
                         controller: function($scope, KeyPlaceCategory) {
                             KeyPlaceCategory.find().$promise.then(function(value) {
+                                console.log("options--", JSON.stringify(value));
                                 $scope.to.options = value;
                                 return value;
                             });

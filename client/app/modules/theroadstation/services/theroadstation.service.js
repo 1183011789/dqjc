@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.theroadstation')
-        .service('TheRoadStationService', function($state, CoreService, TheRoadStation, gettextCatalog) {
+        .service('TheRoadStationService', function($state, CoreService, AffiliatedInstitution,ServiceMode, TheRoadStation, gettextCatalog) {
             console.log("广播警示柱--1--");
             this.count = function() {
                 // console.log("条数-----");
@@ -73,7 +73,7 @@
                         templateOptions: {
                             type: 'text',
                             label: '名字:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入名字'
                         }
                     },
@@ -82,7 +82,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址：',
-                            required: false,
+                            required: true,
                             placeholder: '请输入地址'
                         }
                     },
@@ -91,24 +91,33 @@
                         type: 'input',
                         templateOptions: {
                             label: '人数:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入人数'
                         }
                     },
-                    {
+                     {
                         key: 'serviceMode',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
-                            label: '勤务模式:',
-                            required: false,
-                            placeholder: '勤务模式'
+                            label: '勤务模式',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "serviceMode"
+                        },
+                        controller: function($scope, ServiceMode) {
+                            ServiceMode.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
-                    }, {
+                    }, 
+                    {
                         key: 'rangeOfPatrol',
                         type: 'input',
                         templateOptions: {
                             label: '巡视范围:',
-                            required: false,
+                            required: true,
                             placeholder: '巡视范围'
                         }
                     },
@@ -117,7 +126,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '守护目标:',
-                            required: false,
+                            required: true,
                             placeholder: '守护目标'
                         }
                     }, {
@@ -125,16 +134,25 @@
                         type: 'input',
                         templateOptions: {
                             label: '隶属巡防队伍:',
-                            required: false,
+                            required: true,
                             placeholder: '隶属巡防队伍'
                         }
-                    }, {
+                    }, 
+                    {
                         key: 'affiliatedinstitution',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构:',
-                            required: false,
-                            placeholder: '所属机构'
+                            label: '所属机构',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     }, {
                         key: 'lng',

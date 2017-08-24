@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.institutionaiteam')
-        .service('InstitutionalTeamService', function(CoreService, InstitutionalTeam, gettextCatalog) {
+        .service('InstitutionalTeamService', function(CoreService, AffiliatedInstitution, InstitutionalTeam, gettextCatalog) {
             this.find = function(result) {
                 console.log("广播警示柱--2--");
                 return InstitutionalTeam.find().$promise;
@@ -118,17 +118,26 @@
                         }
                     }, {
                         key: 'affiliatedinstitution',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构:',
-                            required: true
+                            label: '所属机构',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     }, {
                         key: 'remark',
                         type: 'input',
                         templateOptions: {
                             label: '备注:',
-                            required: true
+                            required: false
                         }
                     }
                 ];

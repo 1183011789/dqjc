@@ -21,6 +21,18 @@
                 //     CoreService.alertWarning('提示', '身份证格式不正确');
                 //     return;
                 // }
+                if (!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(keypersion.idnumber))) {
+                    CoreService.alertWarning('提示', '身份证号格式输入有误');
+                    return;
+                }
+                if (!(/^1[34578]\d{9}$/.test(keypersion.contactnumber))) {
+                    CoreService.alertWarning('提示', '联系人手机号格式输入有误');
+                    return;
+                }
+                if (!(/^1[34578]\d{9}$/.test(keypersion.familycontactnumber))) {
+                    CoreService.alertWarning('提示', '家庭联系人电话输入有误');
+                    return;
+                }
                 return KeyPersion.upsert(keypersion).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -68,7 +80,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '名字:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入名字',
                         }
                     },
@@ -90,7 +102,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '年龄:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入年龄',
                         }
                     },
@@ -123,7 +135,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '身份证号:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入身份证号',
                         }
                     }, {

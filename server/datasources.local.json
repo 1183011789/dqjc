@@ -9,6 +9,7 @@
         "user": "root",
         "connector": "mysql",
         "charset": "utf8",
+        "maxActive": 0,
         "createDatabase": true
     }
 }

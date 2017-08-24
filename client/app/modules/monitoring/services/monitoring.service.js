@@ -16,7 +16,12 @@
             };
 
             this.upsert = function(monitoring) {
-                console.log("添加-------");
+                console.log("添加-------", JSON.stringify(monitoring));
+                if (!(/^1[34578]\d{9}$/.test(monitoring.ContactNumber))) {
+
+                    CoreService.alertWarning('提示', '手机号格式输入有误');
+                    return;
+                }
                 return Monitoring.upsert(monitoring).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -82,7 +87,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '监控部位:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入监控设备',
                         }
                     },
@@ -91,7 +96,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '接入部门:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入接入部门',
                         }
                     }, {
@@ -99,7 +104,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入地址',
                         }
                     }, {
@@ -107,7 +112,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入地方派出所',
                         }
                     }, {
@@ -115,7 +120,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '管理部门:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入管理部门',
                         }
                     }, {
@@ -123,23 +128,31 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入负责人',
                         }
                     }, {
                         key: 'ContactNumber',
                         type: 'input',
                         templateOptions: {
-                            label: '联系电话:',
-                            required: false,
-                            placeholder: '请输入联系地址',
-                        }
+                            label: '联系电话',
+                            required: true
+                        },
+                        // validators: {
+                        //     phone: {
+                        //         expression: function(viewValue, modelValue) {
+                        //             var value = modelValue || viewValue;
+                        //             return /^([0-9]|[-])+$/g.test(value);
+                        //         },
+                        //         message: '$viewValue + " is not a valid IP Address"'
+                        //     }
+                        // }
                     }, {
                         key: 'UserName',
                         type: 'input',
                         templateOptions: {
                             label: '用户名:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入用户名',
                         }
                     }, {
@@ -147,7 +160,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '密码:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入密码',
                         }
                     }, {
@@ -155,7 +168,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '端口号:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入端口号',
                         }
                     }, {
@@ -163,7 +176,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '通道号:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入通道号',
                         }
                     }, {
@@ -171,7 +184,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '调用类:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入通用类',
                         }
                     }, {
@@ -190,13 +203,31 @@
                             required: false,
                             placeholder: '请输入纬度',
                         }
-                    }, {
+                    },
+                    {
                         key: 'AffiliatedInstitution',
+                        type: 'select',
+                        templateOptions: {
+                            label: '所属机构',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                // console.log("所属机构-1--", JSON.stringify(value));
+                                $scope.to.options = value;
+                                return value;
+                            });
+                        }
+                    }, {
+                        key: 'remark',
                         type: 'input',
                         templateOptions: {
-                            label: '所属机构:',
+                            label: '备注:',
                             required: false,
-                            placeholder: '请输入所属机构',
+                            placeholder: '请输入备注',
                         }
                     }
                 ];

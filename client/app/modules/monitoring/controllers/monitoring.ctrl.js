@@ -9,7 +9,7 @@
      **/
     angular
         .module('com.module.monitoring')
-        .controller('MonitoringListCtrl', function($scope, CoreService, Monitoring, MonitoringService, $rootScope, $location, NgTableParams, $state) {
+        .controller('MonitoringListCtrl', function($scope, CoreService, AffiliatedInstitution, Monitoring, MonitoringService, $rootScope, $location, NgTableParams, $state) {
             console.log("广播警示柱界面------");
             // $scope.maxSize = 6;
             // AdvertisementService.count()
@@ -74,7 +74,16 @@
                     AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
                 });
             };
-
+            //查出所属机构
+            AffiliatedInstitution.find().$promise.then(function(value) {
+                console.log("所有所属机构-----", JSON.stringify(value));
+                for (var k in value) {
+                    console.log('key--- ' + JSON.stringify(k));
+                    // console.log('value is' + json[k]);
+                }
+                $scope.affiliateds = value;
+                return value;
+            });
             $scope.deleteItems = function(item) {
                 if ($scope.selectedItems.size == 0) {
                     CoreService.alertWarning('提示', '还没选中');
