@@ -1,16 +1,16 @@
 <section admin-header class="content-header" title="{{ '重点场所'  }}" sub-title="{{ '在这里管理重点场所信息!'  }}">
 </section>
 <section class="content">
-    <div class="row">
-        <div class="col-md-1">
-            <ul class="nav nav-pills nav-stacked">
-                <li ng-repeat="item in items | orderBy: 'id'" ng-class=" item.checked ? 'active': '' " ng-click="chooseItem(item)">
-                    <a href="">{{item.category}}</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10">
-            <div ui-view></div>
-        </div>
+  <div style="display: flex">
+    <div>
+      <ul class="nav nav-pills nav-stacked">
+        <li ng-repeat="item in items | orderBy: 'id'" ng-class="kpCtrl.selectedItemId == item.id ? 'active': '' "
+            ng-click="kpCtrl.chooseItem(item)">
+          <a href="">{{item.category}}</a>
+        </li>
+      </ul>
     </div>
+    <div style="width: 10px"/>
+    <div style="flex-grow: 1" ui-view></div>
+  </div>
 </section>

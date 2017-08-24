@@ -3,6 +3,6 @@
     angular
         .module('com.module.keyPlaces')
         .run(function($rootScope) {
-            $rootScope.addMenu('重点场所', 'app.keyPlaces.list', 'fa-asterisk');
+            $rootScope.addMenu('重点场所', 'app.keyPlaces.list', 'fa-anchor');
         });
 })();

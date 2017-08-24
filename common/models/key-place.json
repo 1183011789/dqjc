@@ -1,96 +1,96 @@
 {
-  "name": "KeyPlace",
-  "plural": "KeyPlaces",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "name": {
-      "type": "string"
+    "name": "KeyPlace",
+    "plural": "KeyPlaces",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "address": {
-      "type": "string"
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string"
+        },
+        "peoplenumber": {
+            "type": "number"
+        },
+        "personincharge": {
+            "type": "string"
+        },
+        "contactnumber": {
+            "type": "string"
+        },
+        "personPost": {
+            "type": "string"
+        },
+        "hazardlevel": {
+            "type": "string"
+        },
+        "affiliatedinstitution": {
+            "type": "string"
+        },
+        "securityProtocol": {
+            "type": "boolean"
+        },
+        "dangerousRailwayNum": {
+            "type": "string"
+        },
+        "stuDangerousRail": {
+            "type": "string"
+        },
+        "region": {
+            "type": "string"
+        },
+        "category": {
+            "type": "string"
+        },
+        "lng": {
+            "type": "number"
+        },
+        "lat": {
+            "type": "number"
+        },
+        "explain": {
+            "type": "string"
+        },
+        "remark": {
+            "type": "string"
+        }
     },
-    "peoplenumber": {
-      "type": "number"
+    "validations": [],
+    "relations": {
+        "rodes": {
+            "type": "hasMany",
+            "model": "Rode",
+            "foreignKey": "keyPlaceid",
+            "through": "RodeContain"
+        },
+        "keyPlaceImgs": {
+            "type": "hasMany",
+            "model": "KeyPlaceImg",
+            "foreignKey": "keyPlaceId"
+        },
+        "keyPlaceCategory": {
+            "type": "belongsTo",
+            "model": "KeyPlaceCategory",
+            "foreignKey": "category",
+            "primaryKey": "id"
+        },
+        "affiliatedInstitutions": {
+            "type": "belongsTo",
+            "model": "AffiliatedInstitution",
+            "foreignKey": "affiliatedinstitution",
+            "primaryKey": "id"
+        },
+        "hazardlevels": {
+            "type": "belongsTo",
+            "model": "Hazardlevel",
+            "foreignKey": "hazardlevel",
+            "primaryKey": "id"
+        }
     },
-    "personincharge": {
-      "type": "string"
-    },
-    "contactnumber": {
-      "type": "string"
-    },
-    "personPost": {
-      "type": "string"
-    },
-    "hazardlevel": {
-      "type": "string"
-    },
-    "affiliatedinstitution": {
-      "type": "string"
-    },
-    "securityProtocol": {
-      "type": "boolean"
-    },
-    "dangerousRailwayNum": {
-      "type": "string"
-    },
-    "stuDangerousRail": {
-      "type": "string"
-    },
-    "region": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
-    "lng": {
-      "type": "number"
-    },
-    "lat": {
-      "type": "number"
-    },
-    "explain": {
-      "type": "string"
-    },
-    "remark": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "rodes": {
-      "type": "hasMany",
-      "model": "Rode",
-      "foreignKey": "keyPlaceid",
-      "through": "RodeContain"
-    },
-    "keyPlaceImgs": {
-      "type": "hasMany",
-      "model": "KeyPlaceImg",
-      "foreignKey": "keyPlaceId"
-    },
-    "keyPlaceCategorys": {
-      "type": "belongsTo",
-      "model": "KeyPlaceCategory",
-      "foreignKey": "category",
-      "primaryKey": "id"
-    },
-    "affiliatedInstitutions": {
-      "type": "belongsTo",
-      "model": "AffiliatedInstitution",
-      "foreignKey": "affiliatedinstitution",
-      "primaryKey": "id"
-    },
-    "hazardlevels": {
-      "type": "belongsTo",
-      "model": "Hazardlevel",
-      "foreignKey": "hazardlevel",
-      "primaryKey": "id"
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }

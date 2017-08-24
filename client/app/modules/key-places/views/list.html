@@ -1,111 +1,78 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
-        信息列表
-        <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
-            <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()">
-                <i class="fa fa-add">新增</i>
-              </a>
-            <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
-              查看
-            </a>
-            <a href="" class="btn btn-xs btn-success" ng-click="editItem()">
-              编辑
-            </a>
-            <a href=""  class="btn btn-xs btn-danger" ng-click="deleteItems()">
-              删除
-            </a>
-          </span>
-    </div>
-    <div class="panel-body">
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="exampleInputName2">重点场所类别：</label>
-                <input type="text" ng-model="searchConditions.category" class="form-control" id="exampleInputName2" placeholder="重点场所类别">
-            </div>
+  <div class="panel-heading">
+    信息列表
+    <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+        <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()"><i class="fa fa-add">新增</i></a>
+        <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">查看</a>
+        <a href="" class="btn btn-xs btn-success" ng-click="editItem()">编辑</a>
+        <a href="" class="btn btn-xs btn-danger" ng-click="deleteItems()">删除</a>
+      </span>
+  </div>
+  <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+    <tr ng-repeat="row in keyPlaces">
+      <td data-title="''">
+        <input multi-check type="checkbox" ng-change="addEditItem(row)" class="input-lg checkbox-lg" ng-model="row.checked">
+      </td>
+      <td data-title="'名称'" ng-switch="row.rename" ng-form="name">
+        <strong ng-switch-default>{{row.name}}</strong>
+      </td>
+      <td data-title="'地址'" ng-switch="row.titleEdit" ng-form="address">
+        <span ng-switch-default>{{row.address}}</span>
+      </td>
+      <td data-title="'人数'" ng-switch="row.titleEdit" ng-form="peoplenumber ">
+        <span ng-switch-default>{{row.peoplenumber }}</span>
+      </td>
+      <td data-title="'负责人'" ng-switch="row.rename" ng-form="personincharge">
+        <strong ng-switch-default>{{row.personincharge}}</strong>
+      </td>
+      <td data-title="'负责人职务'" ng-switch="row.rename" ng-form="personPost">
+        <strong ng-switch-default>{{row.personPost}}</strong>
+      </td>
+      <td data-title="'联系电话'" ng-switch="row.titleEdit" ng-form="contactnumber">
+        <span ng-switch-default>{{row.contactnumber}}</span>
+      </td>
+      <td data-title="'危险级别'" ng-switch="row.rename" ng-form="hazardlevel">
+        <strong ng-switch-default>{{row.hazardlevel}}</strong>
+      </td>
+      <td data-title="'所属机构'" ng-switch="row.rename" ng-form="affiliatedinstitution ">
+        <strong ng-switch-default>{{row.affiliatedinstitution }}</strong>
+      </td>
+      <td data-title="'是否签订安全协议'" ng-switch="row.rename" ng-form="securityProtocol ">
+        <strong ng-switch-default>{{ row.securityProtocol ? '是' : '否' }}</strong>
+      </td>
+      <td data-title="'有危害铁路史人数'" ng-switch="row.rename" ng-form="dangerousRailwayNum ">
+        <strong ng-switch-default>{{ row.dangerousRailwayNum }}</strong>
+      </td>
+      <td data-title="'在校学生危害铁路或发生事故史'" ng-switch="row.rename" ng-form="stuDangerousRail">
+        <strong ng-switch-default>{{ row.stuDangerousRail }}</strong>
+      </td>
+      <td data-title="'区域'" ng-switch="row.rename" ng-form="region">
+        <strong ng-switch-default>{{ row.region }}</strong>
+      </td>
+      <td data-title="'说明'" ng-switch="row.rename" ng-form="explain">
+        <strong ng-switch-default>{{ row.explain }}</strong>
+      </td>
+      <td data-title="'类别'" ng-switch="row.rename" ng-form="affiliatedinstitution">
+        <strong ng-switch-default>{{ row.keyPlaceCategory ? row.keyPlaceCategory.category : '' }}</strong>
+      </td>
+      <td data-title="'经度'" ng-switch="row.titleEdit" ng-form="lng">
+        <span ng-switch-default>{{row.lng}}</span>
+      </td>
+      <td data-title="'纬度'" ng-switch="row.titleEdit" ng-form="lat">
+        <span ng-switch-default>{{row.lat}}</span>
+      </td>
+      <td data-title="'备注'" ng-switch="row.titleEdit" ng-form="remark">
+        <span ng-switch-default>{{row.remark}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
 
-            <!-- <div class="form-group">
-                <label for="exampleInputEmail2">管理部门：</label> -->
-            <!-- <input type="text" ng-model="searchConditions.AdministrativeDepartment" class="form-control" id="exampleInputEmail2" placeholder="管理部门"> -->
-            <!-- <select class="form-control" ng-model="searchConditions.AdministrativeDepartment" id="exampleInputEmail2" placeholder="管理部门">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-            </div> -->
-            <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
-        </form>
-    </div>
-    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
-        <tr ng-repeat="row in keyPlaces">
-            <td data-title="''" class="text-center">
-                <input multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
-            </td>
-            <td data-title="'名称'" class="text-center" ng-switch="name" ng-form="name">
-                <strong ng-switch-default>{{row.name}}</strong>
-            </td>
-            <td data-title="'地址'" class="text-center" ng-switch="row.titleEdit" ng-form="address">
-                <span ng-switch-default>{{row.address}}</span>
-            </td>
-            <td data-title="'人数'" class="text-center" ng-switch="row.titleEdit" ng-form="peoplenumber ">
-                <span ng-switch-default>{{row.peoplenumber }}</span>
-            </td>
-            <td data-title="'负责人'" class="text-center" ng-switch="row.rename" ng-form="personincharge">
-                <strong ng-switch-default>{{row.personincharge}}</strong>
-            </td>
-            <td data-title="'负责人职务'" class="text-center" ng-switch="row.rename" ng-form="personPost">
-                <strong ng-switch-default>{{row.personPost}}</strong>
-            </td>
-            <td data-title="'联系电话'" class="text-center" ng-switch="row.titleEdit" ng-form="contactnumber">
-                <span ng-switch-default>{{row.contactnumber}}</span>
-            </td>
-            <td data-title="'危险级别'" class="text-center" ng-switch="row.rename" ng-form="hazardlevel">
-                <strong ng-switch-default>{{row.hazardlevel}}</strong>
-            </td>
-            <td data-title="'所属机构'" class="text-center" ng-switch="row.rename" ng-form="affiliatedinstitution ">
-                <strong ng-switch-default>{{row.affiliatedinstitution }}</strong>
-            </td>
-            <td data-title="'是否签订安全协议'" class="text-center" ng-switch="row.rename" ng-form="securityProtocol ">
-                <strong ng-switch-default>{{ row.securityProtocol ? '是' : '否' }}</strong>
-            </td>
-            <td data-title="'有危害铁路史人数'" class="text-center" ng-switch="row.rename" ng-form="dangerousRailwayNum ">
-                <strong ng-switch-default>{{ row.dangerousRailwayNum }}</strong>
-            </td>
-            <td data-title="'在校学生危害铁路或发生事故史'" class="text-center" ng-switch="row.rename" ng-form="stuDangerousRail">
-                <strong ng-switch-default>{{ row.stuDangerousRail }}</strong>
-            </td>
-            <td data-title="'区域'" class="text-center" ng-switch="row.rename" ng-form="region">
-                <strong ng-switch-default>{{ row.region }}</strong>
-            </td>
-            <td data-title="'说明'" class="text-center" ng-switch="row.rename" ng-form="explain">
-                <strong ng-switch-default>{{ row.explain }}</strong>
-            </td>
-            <td data-title="'类别'" class="text-center" ng-switch="row.rename" ng-form="affiliatedinstitution">
-                <strong ng-switch-default>{{ row.category }}</strong>
-            </td>
-            <td data-title="'经度'" class="text-center" ng-switch="row.titleEdit" ng-form="lng">
-                <span ng-switch-default>{{row.lng}}</span>
-            </td>
-            <td data-title="'纬度'" class="text-center" ng-switch="row.titleEdit" ng-form="lat">
-                <span ng-switch-default>{{row.lat}}</span>
-            </td>
-            <td data-title="'备注'" class="text-center" ng-switch="row.titleEdit" ng-form="remark">
-                <span ng-switch-default>{{row.remark}}</span>
-            </td>
-        </tr>
-    </table>
-</div>
-<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
-  <ul style=" margin-top:0px; " uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
-    previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
-    </ul>
-</div>
-<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+<div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
   <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()"
       class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage"
       ng-change="tableParams.page(currentPage)" boundary-links="true"
       rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页"
       last-text="尾页">
   </ul>
-</div> -->
+</div>

@@ -2,96 +2,68 @@
     'use strict';
     angular
         .module('com.module.keyPlaces') //['formly', 'formlyBootstrap', 'ngAnimate', 'ngAria', 'ngMessages']
-        .controller('KeyPlaceCtrl', function($scope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams, $stateParams) {
+        .controller('KeyPlaceCtrl', function($scope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
 
-            $scope.items = [{
-                category: '全部',
-                id: -1,
-                checked: true
-            }];
-            var selectedItem = $scope.items[0];
-            KeyPlaceCategory.find().$promise.then(function(value) {
-                $scope.items = $scope.items.concat(value);
-            });
+            // $scope.items = [{
+            //     category: '全部',
+            //     id: -1,
+            //     checked: true
+            // }];
+            // $scope.selectedItemId = -1;
+            // KeyPlaceCategory.find().$promise.then(function(value) {
+            //     $scope.items = $scope.items.concat(value);
+            // });
 
-            $scope.tableParams = new NgTableParams({
+          $scope.$on('KeyPlace.Changed', function(event, data) {
+            // console.log('======data====>', data);
+            // console.log('======event====>', event);
+            $scope.tableParams.filter({
+                  category: data.id
+              });
+          });
+
+          $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
             }, {
                 getData: function(params) {
-                    console.log("item--1----", JSON.stringify(params));
+                  // console.log('------->', params);
                     var where = {};
-                    if (params._params.filter.category) {
-                        where.category = {
-                            like: `%${params._params.filter.category}%`
-                        };
+
+                    if (params.filter().category > 0) {
+                        where.category = params.filter().category
                     }
-                    if (params._params.filter.address) {
-                        where.address = {
-                            like: `%${params._params.filter.address}%`
-                        };
-                    }
-                    // if (params._params.filter.category > 0) {
-                    //     where.category = params._params.filter.category;
-                    // }
-                    // where.name = {
-                    //     like: `%${params._params.filter.name}%`
-                    // };
-                    var offset = params._params.count * (params._params.page - 1);
+                    // console.log('---count-->', params.count());
+                    // console.log('---page-->',params.page());
+                    // console.log('---filter-->',params.filter());
+                    var offset = params.count() * (params.page() - 1);
 
                     KeyPlace.count({ where: where }).$promise.then(function(result) {
-                        console.log("多少条---", result.count);
                         params.total(result.count);
                     });
                     KeyPlace.find({
                         filter: {
-                            limit: params._params.count,
+                            limit: params.count(),
                             offset: offset,
-                            where: where
+                            where: where,
+                            include: "keyPlaceCategory"
                         }
-                    }).$promise.then(function(value) {
-                        $scope.keyPlaces = value;
-                        // $scope.$apply();
-                        // $state.go(0);
-                        // $scope.reload();
-                        // location.reload()
-                        // parent.location.reload();
-                        // history.go(0);
-                        // window.location.reload();
-                        // $scope.tableParams.reload();
-                        console.log("查出数据---", JSON.stringify($scope.keyPlaces));
+                    }).$promise.then(function(results) {
+                      console.log('=====>', results);
+                        $scope.keyPlaces = results;
+                        // return results;
                     });
-
                 }
             });
 
-            // 查询条件
-            $scope.searchConditions = {
-                category: "",
-                address: ""
-            };
-
-            $scope.startSearch = function() {
-                console.log("category---", $scope.searchConditions.category);
-                // isSearchMode = true;
-                console.log('===========');
-                // console.log(  $scope.tableParams.filter($scope.searchConditions) );
-                $scope.tableParams.filter({
-                    category: $scope.searchConditions.category,
-                    address: $scope.searchConditions.address
-                });
-            };
-
-            $scope.chooseItem = function(item) {
-                selectedItem.checked = false;
-                selectedItem = item;
-                item.checked = true;
-                console.log("item-2--", JSON.stringify(item));
-                $scope.tableParams.filter({
-                    category: item.id
-                });
-                $scope.tableParams.reload();
-            };
+            // $scope.chooseItem = function(itemId) {
+            //     $scope.selectedItemId = itemId;
+            //     console.log("item-", JSON.stringify(itemId));
+            //     $scope.tableParams.filter({
+            //         category: $scope.selectedItemId
+            //     });
+            //     $scope.tableParams.reload();
+            // };
 
             $scope.selectedItems = new Set();
 
@@ -129,7 +101,7 @@
                 if (array.length == 1) {
                     array.push(-100);
                 }
-                console.log(array)
+                // console.log(array)
                 KeyPlaceService.deleteMultiple(array, function() {
                     $state.go('^.list');
                     $scope.tableParams.reload();
