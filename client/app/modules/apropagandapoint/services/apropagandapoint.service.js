@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.apropagandapoint')
-        .service('PropagandaPointService', function($state, CoreService, APropagandaPoint, gettextCatalog) {
+        .service('PropagandaPointService', function($state, CoreService, AffiliatedInstitution, APropagandaPoint, gettextCatalog) {
 
             this.count = function() {
                 console.log("条数-----");
@@ -85,6 +85,14 @@
 
             this.getFormFields = function() {
                 var form = [{
+                        key: 'number',
+                        type: 'input',
+                        templateOptions: {
+                            label: '编号:',
+                            required: true
+                        }
+                    },
+                    {
                         key: 'name',
                         type: 'input',
                         templateOptions: {
@@ -105,7 +113,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度:',
-                            required: true
+                            required: false
                         }
                     },
                     {
@@ -113,30 +121,57 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度:',
-                            required: true
+                            required: false
                         }
                     }, {
-                        key: 'number',
+                        key: 'personCharge',
                         type: 'input',
                         templateOptions: {
-                            label: '编号:',
+                            label: '负责人:',
                             required: true
                         }
                     },
-                    // {
-                    //     key: 'images',
-                    //     type: 'input',
-                    //     templateOptions: {
-                    //         label: '图片:',
-                    //         required: true
-                    //     }
-                    // },
+                    {
+                        key: 'contactNumber',
+                        type: 'input',
+                        templateOptions: {
+                            label: '联系电话:',
+                            required: true
+                        }
+                        //   validators: {
+                        //     phone: {
+                        //         expression: function(viewValue, modelValue) {
+                        //             var value = modelValue || viewValue;
+                        //             return /^([0-9]|[-])+$/g.test(value);
+                        //         },
+                        //         message: '$viewValue + " is not a valid IP Address"'
+                        //     }
+                        // }
+                    },
+                    {
+                        key: 'affiliatedinstitution',
+                        type: 'select',
+                        templateOptions: {
+                            label: '所属机构',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
+                        }
+                    },
+                    
                     {
                         key: 'remark',
                         type: 'input',
                         templateOptions: {
                             label: '备注:',
-                            required: true
+                            required: false
                         }
                     }
                 ];

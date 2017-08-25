@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+    {{ctrl.station.name}}
+    <small>{{ctrl.station.address}}</small>
+    
+    <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.station.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.station.id})">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </span>
+  </div>
+  <div class="panel-body">
+    <pre>车站名称:{{ctrl.station.StationName}}</pre>
+    <pre>车站等级:{{ctrl.station.StationRank}}</pre>
+    <pre>车站性质:{{ctrl.station.StationNature}}</pre>
+    <pre>是否高铁站:{{ctrl.station.Highspeed_rail_station}}</pre>
+    <pre>中心里程:{{ctrl.station.CenterMileage}}</pre>
+    <pre>隶属铁路局:{{ctrl.station.Railway_Administration}}</pre>
+
+    <pre>地址:{{ctrl.station.Address}}</pre>
+    <pre>所属地方派出所:{{ctrl.station.PoliceStation}}</pre>
+    <pre>负责人:{{ctrl.station.PersonInCharge}}</pre>
+    <pre>联系电话:{{ctrl.station.ContactNumber}}</pre>
+    <pre>经度:{{ctrl.station.Longitudelatitude}}</pre>
+    <pre>纬度:{{ctrl.station.Latitude}}</pre>
+    <pre>所属机构 :{{ctrl.station.AffiliatedInstitution}}</pre>
+    <pre>长度:{{ctrl.station.length}}</pre>
+    <pre>备注:{{ctrl.station.Remarks}}</pre>
+    
+
+  </div>
+</div>

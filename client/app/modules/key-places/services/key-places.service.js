@@ -87,8 +87,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true,
-                            type: 'text',
+                            required: true
                         },
                         validators: {
                             phone: {
@@ -96,7 +95,7 @@
                                     var value = modelValue || viewValue;
                                     return /^([0-9]|[-])+$/g.test(value);
                                 },
-                                message: '$viewValue + " 不是正确的电话号码格式"'
+                                message: '$viewValue + " is not a valid IP Address"'
                             }
                         }
                     },

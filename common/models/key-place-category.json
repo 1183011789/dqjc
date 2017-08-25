@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "KeyPlaceCategory",
   "base": "PersistedModel",
   "idInjection": true,
@@ -21,3 +22,27 @@
   "acls": [],
   "methods": {}
 }
+=======
+    "name": "KeyPlaceCategory",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "category": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "keyPlaces": {
+            "type": "hasMany",
+            "model": "KeyPlace",
+            "foreignKey": "category"
+        }
+    },
+    "acls": [],
+    "methods": {}
+}
+>>>>>>> 4283780b46ec308bbb03e96886f603d1487ab6f0

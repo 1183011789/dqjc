@@ -44,7 +44,7 @@
             'permission.ui',
             'openlayers-directive',
             'com.module.core',
-            // 'com.module.sandbox',
+            'com.module.sandbox',
             'com.module.road',
             'com.module.keysite',
             'com.module.advertisement',

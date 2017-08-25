@@ -2,72 +2,68 @@
     'use strict';
     angular
         .module('com.module.keyPlaces') //['formly', 'formlyBootstrap', 'ngAnimate', 'ngAria', 'ngMessages']
-        .controller('KeyPlaceCtrl', function($scope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams, $stateParams) {
+        .controller('KeyPlaceCtrl', function($scope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
 
-            $scope.items = [{
-                category: '全部',
-                id: -1,
-                checked: true
-            }];
-            var selectedItem = $scope.items[0];
-            KeyPlaceCategory.find().$promise.then(function(value) {
-                $scope.items = $scope.items.concat(value);
-            });
+            // $scope.items = [{
+            //     category: '全部',
+            //     id: -1,
+            //     checked: true
+            // }];
+            // $scope.selectedItemId = -1;
+            // KeyPlaceCategory.find().$promise.then(function(value) {
+            //     $scope.items = $scope.items.concat(value);
+            // });
 
-            $scope.tableParams = new NgTableParams({
+          $scope.$on('KeyPlace.Changed', function(event, data) {
+            // console.log('======data====>', data);
+            // console.log('======event====>', event);
+            $scope.tableParams.filter({
+                  category: data.id
+              });
+          });
+
+          $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
             }, {
                 getData: function(params) {
-                    console.log("item-", JSON.stringify(params));
+                  // console.log('------->', params);
                     var where = {};
 
-                    if (params._params.filter.category > 0) {
-                        where.category = params._params.filter.category
+                    if (params.filter().category > 0) {
+                        where.category = params.filter().category
                     }
-
-                    var offset = params._params.count * (params._params.page - 1);
+                    // console.log('---count-->', params.count());
+                    // console.log('---page-->',params.page());
+                    // console.log('---filter-->',params.filter());
+                    var offset = params.count() * (params.page() - 1);
 
                     KeyPlace.count({ where: where }).$promise.then(function(result) {
                         params.total(result.count);
                     });
                     KeyPlace.find({
                         filter: {
-                            limit: params._params.count,
+                            limit: params.count(),
                             offset: offset,
-                            where: where
+                            where: where,
+                            include: "keyPlaceCategory"
                         }
-                    }).$promise.then(function(value) {
-                        $scope.keyPlaces = value;
+                    }).$promise.then(function(results) {
+                      console.log('=====>', results);
+                        $scope.keyPlaces = results;
+                        // return results;
                     });
-                    // KeyPlace.find({
-                    //     filter: {
-                    //         limit: params._params.count,
-                    //         offset: offset,
-                    //         where: where
-                    //     }
-                    // }, function(value) {
-                    //     console.log('====value=====');
-                    //     console.log(value);
-                    //     $scope.keyPlaces = value;
-                    // }, function(error) {
-                    //     console.log('=====errror====');
-                    //     console.log(error);
-                    // });
                 }
             });
 
-            $scope.chooseItem = function(item) {
-                selectedItem.checked = false;
-                selectedItem = item;
-                item.checked = true;
-                console.log("item-", JSON.stringify(item));
-                $scope.tableParams.filter({
-                    category: item.id
-                });
-
-                $scope.tableParams.reload();
-            };
+            // $scope.chooseItem = function(itemId) {
+            //     $scope.selectedItemId = itemId;
+            //     console.log("item-", JSON.stringify(itemId));
+            //     $scope.tableParams.filter({
+            //         category: $scope.selectedItemId
+            //     });
+            //     $scope.tableParams.reload();
+            // };
 
             $scope.selectedItems = new Set();
 
@@ -105,7 +101,7 @@
                 if (array.length == 1) {
                     array.push(-100);
                 }
-                console.log(array)
+                // console.log(array)
                 KeyPlaceService.deleteMultiple(array, function() {
                     $state.go('^.list');
                     $scope.tableParams.reload();

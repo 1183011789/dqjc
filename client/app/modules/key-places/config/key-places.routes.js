@@ -7,7 +7,24 @@
         abstract: true,
         url: '/keyPlaces',
         templateUrl: 'modules/key-places/views/main.html',
-        controller: 'KeyPlaceCtrl'
+        controllerAs:'kpCtrl',
+        controller: function ($scope, KeyPlaceCategory) {
+          $scope.items = [{
+            category: '全部',
+            id: -1,
+            checked: true
+          }];
+          this.selectedItemId = -1;
+          KeyPlaceCategory.find().$promise.then(function(value) {
+            $scope.items = $scope.items.concat(value);
+          });
+
+          this.chooseItem = function(item) {
+            this.selectedItemId = item.id;
+            console.log("item-", JSON.stringify(item));
+            $scope.$broadcast('KeyPlace.Changed', item);
+          };
+        }
       })
 
       //全部

@@ -2,25 +2,16 @@
   <div class="panel-heading">
     信息列表
     <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
-            <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()">
-                <i class="fa fa-add">新增</i>
-              </a>
-            <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">
-              查看
-            </a>
-            <a href="" class="btn btn-xs btn-success" ng-click="editItem()">
-              编辑
-            </a>
-            <a href=""  class="btn btn-xs btn-danger" ng-click="deleteItems()">
-              删除
-            </a>
-          </span>
+        <a href="" class="btn btn-xs btn-primary" ui-sref="^.add()"><i class="fa fa-add">新增</i></a>
+        <a href="" class="btn btn-xs btn-primary" ng-click="openLightboxImageChecked()">查看</a>
+        <a href="" class="btn btn-xs btn-success" ng-click="editItem()">编辑</a>
+        <a href="" class="btn btn-xs btn-danger" ng-click="deleteItems()">删除</a>
+      </span>
   </div>
   <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
     <tr ng-repeat="row in keyPlaces">
       <td data-title="''">
-        <input multi-check type="checkbox" ng-change="addEditItem(row)" class="input-lg checkbox-lg"
-               ng-model="row.checked">
+        <input multi-check type="checkbox" ng-change="addEditItem(row)" class="input-lg checkbox-lg" ng-model="row.checked">
       </td>
       <td data-title="'名称'" ng-switch="row.rename" ng-form="name">
         <strong ng-switch-default>{{row.name}}</strong>
@@ -62,7 +53,7 @@
         <strong ng-switch-default>{{ row.explain }}</strong>
       </td>
       <td data-title="'类别'" ng-switch="row.rename" ng-form="affiliatedinstitution">
-        <strong ng-switch-default>{{ row.category }}</strong>
+        <strong ng-switch-default>{{ row.keyPlaceCategory ? row.keyPlaceCategory.category : '' }}</strong>
       </td>
       <td data-title="'经度'" ng-switch="row.titleEdit" ng-form="lng">
         <span ng-switch-default>{{row.lng}}</span>

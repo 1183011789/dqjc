@@ -37,6 +37,7 @@
                         }
                     }).$promise.then(function(value) {
                         $scope.baseStations = value;
+
                     });
 
 

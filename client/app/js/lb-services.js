@@ -24428,9 +24428,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
-            // INTERNAL. Use KeyPlace.keyPlaceCategorys() instead.
-            "prototype$__get__keyPlaceCategorys": {
-              url: urlBase + "/KeyPlaces/:id/keyPlaceCategorys",
+            // INTERNAL. Use KeyPlace.keyPlaceCategory() instead.
+            "prototype$__get__keyPlaceCategory": {
+              url: urlBase + "/KeyPlaces/:id/keyPlaceCategory",
               method: "GET",
             },
 
@@ -25123,6 +25123,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use RodeContain.keyPlace() instead.
             "::get::RodeContain::keyPlace": {
               url: urlBase + "/RodeContains/:id/keyPlace",
+              method: "GET",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.findById() instead.
+            "::findById::KeyPlaceCategory::keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.destroyById() instead.
+            "::destroyById::KeyPlaceCategory::keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.updateById() instead.
+            "::updateById::KeyPlaceCategory::keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces() instead.
+            "::get::KeyPlaceCategory::keyPlaces": {
+              isArray: true,
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "GET",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.create() instead.
+            "::create::KeyPlaceCategory::keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "POST",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.createMany() instead.
+            "::createMany::KeyPlaceCategory::keyPlaces": {
+              isArray: true,
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "POST",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.destroyAll() instead.
+            "::delete::KeyPlaceCategory::keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.count() instead.
+            "::count::KeyPlaceCategory::keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/count",
               method: "GET",
             },
           }
@@ -25981,12 +26040,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.KeyPlace#keyPlaceCategorys
+             * @name lbServices.KeyPlace#keyPlaceCategory
              * @methodOf lbServices.KeyPlace
              *
              * @description
              *
-             * Fetches belongsTo relation keyPlaceCategorys.
+             * Fetches belongsTo relation keyPlaceCategory.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26009,9 +26068,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `KeyPlaceCategory` object.)
              * </em>
              */
-        R.keyPlaceCategorys = function() {
+        R.keyPlaceCategory = function() {
           var TargetResource = $injector.get("KeyPlaceCategory");
-          var action = TargetResource["::get::KeyPlace::keyPlaceCategorys"];
+          var action = TargetResource["::get::KeyPlace::keyPlaceCategory"];
           return action.apply(R, arguments);
         };
 
@@ -46084,6 +46143,58 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.findById() instead.
+            "prototype$__findById__keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.destroyById() instead.
+            "prototype$__destroyById__keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.updateById() instead.
+            "prototype$__updateById__keyPlaces": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces() instead.
+            "prototype$__get__keyPlaces": {
+              isArray: true,
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "GET",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.create() instead.
+            "prototype$__create__keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "POST",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.destroyAll() instead.
+            "prototype$__delete__keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use KeyPlaceCategory.keyPlaces.count() instead.
+            "prototype$__count__keyPlaces": {
+              url: urlBase + "/KeyPlaceCategories/:id/keyPlaces/count",
+              method: "GET",
+            },
+
             /**
              * @ngdoc method
              * @name lbServices.KeyPlaceCategory#create
@@ -46506,9 +46617,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use KeyPlace.keyPlaceCategorys() instead.
-            "::get::KeyPlace::keyPlaceCategorys": {
-              url: urlBase + "/KeyPlaces/:id/keyPlaceCategorys",
+            // INTERNAL. Use KeyPlace.keyPlaceCategory() instead.
+            "::get::KeyPlace::keyPlaceCategory": {
+              url: urlBase + "/KeyPlaces/:id/keyPlaceCategory",
               method: "GET",
             },
           }
@@ -46653,6 +46764,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "KeyPlaceCategory";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.KeyPlaceCategory.keyPlaces
+     * @header lbServices.KeyPlaceCategory.keyPlaces
+     * @object
+     * @description
+     *
+     * The object `KeyPlaceCategory.keyPlaces` groups methods
+     * manipulating `KeyPlace` instances related to `KeyPlaceCategory`.
+     *
+     * Call {@link lbServices.KeyPlaceCategory#keyPlaces KeyPlaceCategory.keyPlaces()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory#keyPlaces
+             * @methodOf lbServices.KeyPlaceCategory
+             *
+             * @description
+             *
+             * Queries keyPlaces of KeyPlaceCategory.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlace` object.)
+             * </em>
+             */
+        R.keyPlaces = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::get::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#count
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Counts keyPlaces of KeyPlaceCategory.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.keyPlaces.count = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::count::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#create
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Creates a new instance in keyPlaces of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlace` object.)
+             * </em>
+             */
+        R.keyPlaces.create = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::create::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#createMany
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Creates a new instance in keyPlaces of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlace` object.)
+             * </em>
+             */
+        R.keyPlaces.createMany = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::createMany::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#destroyAll
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Deletes all keyPlaces of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.keyPlaces.destroyAll = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::delete::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#destroyById
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Delete a related item by id for keyPlaces.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for keyPlaces
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.keyPlaces.destroyById = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::destroyById::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#findById
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Find a related item by id for keyPlaces.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for keyPlaces
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlace` object.)
+             * </em>
+             */
+        R.keyPlaces.findById = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::findById::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.KeyPlaceCategory.keyPlaces#updateById
+             * @methodOf lbServices.KeyPlaceCategory.keyPlaces
+             *
+             * @description
+             *
+             * Update a related item by id for keyPlaces.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for keyPlaces
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `KeyPlace` object.)
+             * </em>
+             */
+        R.keyPlaces.updateById = function() {
+          var TargetResource = $injector.get("KeyPlace");
+          var action = TargetResource["::updateById::KeyPlaceCategory::keyPlaces"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;
