@@ -70,10 +70,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "double"
+      "type": "string"
     },
     "lat": {
-      "type": "double"
+      "type": "string"
     },
     "contactnumber": {
       "type": "string"

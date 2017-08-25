@@ -97,11 +97,6 @@
       "model": "EmergencyAccesss",
       "foreignKey": "emergencyAccesssId"
     },
-    "broadcastWarningPost": {
-      "type": "belongsTo",
-      "model": "BroadcastWarningPost",
-      "foreignKey": "broadcastWarningPostId"
-    },
     "equipmentInfor": {
       "type": "belongsTo",
       "model": "EquipmentInfor",

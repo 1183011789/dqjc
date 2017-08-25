@@ -15,12 +15,6 @@
     "levelCrossings": {
       "type": "hasMany",
       "model": "LevelCrossing",
-      "foreignKey": "crossproperty",
-      "primaryKey": "id"
-    },
-    "levelCrossings": {
-      "type": "hasMany",
-      "model": "LevelCrossing",
       "foreignKey": "crossproperty"
     }
   },

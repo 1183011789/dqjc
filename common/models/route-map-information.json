@@ -51,7 +51,6 @@
             "foreignKey": "alignment",
             "primaryKey": "id"
         }
-
     },
     "acls": [],
     "methods": {}

@@ -31,10 +31,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "double"
+      "type": "string"
     },
     "lat": {
-      "type": "double"
+      "type": "string"
     },
     "explain": {
       "type": "string"
