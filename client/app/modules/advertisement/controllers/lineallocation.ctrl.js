@@ -37,14 +37,12 @@
                     console.log("size-2--", JSON.stringify($scope.selectedItems.size));
                 }
             };
-
+            //保存的时候提交
             $scope.checkedrode = function(item) {
-
                 // if ($scope.selectedItems.size == 0) {
                 //     CoreService.alertWarning('提示', '还没选中');
                 //     return;
                 // }
-
                 // var array = Array.from($scope.selectedItems);
                 // if (array.length == 1) {
                 //     array.push(-100);

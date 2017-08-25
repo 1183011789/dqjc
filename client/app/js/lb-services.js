@@ -8822,6 +8822,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Rode.routeMapInformations.findById() instead.
+            "prototype$__findById__routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.destroyById() instead.
+            "prototype$__destroyById__routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.updateById() instead.
+            "prototype$__updateById__routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Rode.aPropagandaPoints() instead.
             "prototype$__get__aPropagandaPoints": {
               isArray: true,
@@ -9406,6 +9433,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Rode.theRoadStations.count() instead.
             "prototype$__count__theRoadStations": {
               url: urlBase + "/rodes/:id/theRoadStations/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations() instead.
+            "prototype$__get__routeMapInformations": {
+              isArray: true,
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.create() instead.
+            "prototype$__create__routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.destroyAll() instead.
+            "prototype$__delete__routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.count() instead.
+            "prototype$__count__routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations/count",
               method: "GET",
             },
 
@@ -19302,6 +19354,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.administrations = function() {
           var TargetResource = $injector.get("Administration");
           var action = TargetResource["::get::Rode::administrations"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Rode.routeMapInformations
+     * @header lbServices.Rode.routeMapInformations
+     * @object
+     * @description
+     *
+     * The object `Rode.routeMapInformations` groups methods
+     * manipulating `RouteMapInformation` instances related to `Rode`.
+     *
+     * Call {@link lbServices.Rode#routeMapInformations Rode.routeMapInformations()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode#routeMapInformations
+             * @methodOf lbServices.Rode
+             *
+             * @description
+             *
+             * Queries routeMapInformations of Rode.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RouteMapInformation` object.)
+             * </em>
+             */
+        R.routeMapInformations = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::get::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#count
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Counts routeMapInformations of Rode.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.routeMapInformations.count = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::count::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#create
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Creates a new instance in routeMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RouteMapInformation` object.)
+             * </em>
+             */
+        R.routeMapInformations.create = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::create::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#createMany
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Creates a new instance in routeMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RouteMapInformation` object.)
+             * </em>
+             */
+        R.routeMapInformations.createMany = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::createMany::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#destroyAll
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Deletes all routeMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.routeMapInformations.destroyAll = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::delete::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#destroyById
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Delete a related item by id for routeMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for routeMapInformations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.routeMapInformations.destroyById = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::destroyById::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#findById
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Find a related item by id for routeMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for routeMapInformations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RouteMapInformation` object.)
+             * </em>
+             */
+        R.routeMapInformations.findById = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::findById::Rode::routeMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Rode.routeMapInformations#updateById
+             * @methodOf lbServices.Rode.routeMapInformations
+             *
+             * @description
+             *
+             * Update a related item by id for routeMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for routeMapInformations
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RouteMapInformation` object.)
+             * </em>
+             */
+        R.routeMapInformations.updateById = function() {
+          var TargetResource = $injector.get("RouteMapInformation");
+          var action = TargetResource["::updateById::Rode::routeMapInformations"];
           return action.apply(R, arguments);
         };
 
@@ -65163,6 +65516,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.findById() instead.
+            "prototype$__findById__administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.destroyById() instead.
+            "prototype$__destroyById__administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.updateById() instead.
+            "prototype$__updateById__administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use AffiliatedInstitution.bridges() instead.
             "prototype$__get__bridges": {
               isArray: true,
@@ -65610,6 +65990,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use AffiliatedInstitution.teamMemberss.count() instead.
             "prototype$__count__teamMemberss": {
               url: urlBase + "/AffiliatedInstitutions/:id/teamMemberss/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations() instead.
+            "prototype$__get__administrativeAreaMapInformations": {
+              isArray: true,
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.create() instead.
+            "prototype$__create__administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.destroyAll() instead.
+            "prototype$__delete__administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.count() instead.
+            "prototype$__count__administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/count",
               method: "GET",
             },
 
@@ -71724,6 +72129,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.teamMemberss.updateById = function() {
           var TargetResource = $injector.get("TeamMembers");
           var action = TargetResource["::updateById::AffiliatedInstitution::teamMemberss"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+     * @header lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+     * @object
+     * @description
+     *
+     * The object `AffiliatedInstitution.administrativeAreaMapInformations` groups methods
+     * manipulating `AdministrativeAreaMapInformation` instances related to `AffiliatedInstitution`.
+     *
+     * Call {@link lbServices.AffiliatedInstitution#administrativeAreaMapInformations AffiliatedInstitution.administrativeAreaMapInformations()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution#administrativeAreaMapInformations
+             * @methodOf lbServices.AffiliatedInstitution
+             *
+             * @description
+             *
+             * Queries administrativeAreaMapInformations of AffiliatedInstitution.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `AdministrativeAreaMapInformation` object.)
+             * </em>
+             */
+        R.administrativeAreaMapInformations = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::get::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#count
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Counts administrativeAreaMapInformations of AffiliatedInstitution.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.administrativeAreaMapInformations.count = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::count::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#create
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Creates a new instance in administrativeAreaMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `AdministrativeAreaMapInformation` object.)
+             * </em>
+             */
+        R.administrativeAreaMapInformations.create = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::create::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#createMany
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Creates a new instance in administrativeAreaMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `AdministrativeAreaMapInformation` object.)
+             * </em>
+             */
+        R.administrativeAreaMapInformations.createMany = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::createMany::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#destroyAll
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Deletes all administrativeAreaMapInformations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.administrativeAreaMapInformations.destroyAll = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::delete::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#destroyById
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Delete a related item by id for administrativeAreaMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for administrativeAreaMapInformations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.administrativeAreaMapInformations.destroyById = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::destroyById::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#findById
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Find a related item by id for administrativeAreaMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for administrativeAreaMapInformations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `AdministrativeAreaMapInformation` object.)
+             * </em>
+             */
+        R.administrativeAreaMapInformations.findById = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::findById::AffiliatedInstitution::administrativeAreaMapInformations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.AffiliatedInstitution.administrativeAreaMapInformations#updateById
+             * @methodOf lbServices.AffiliatedInstitution.administrativeAreaMapInformations
+             *
+             * @description
+             *
+             * Update a related item by id for administrativeAreaMapInformations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for administrativeAreaMapInformations
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `AdministrativeAreaMapInformation` object.)
+             * </em>
+             */
+        R.administrativeAreaMapInformations.updateById = function() {
+          var TargetResource = $injector.get("AdministrativeAreaMapInformation");
+          var action = TargetResource["::updateById::AffiliatedInstitution::administrativeAreaMapInformations"];
           return action.apply(R, arguments);
         };
 
@@ -87124,6 +87830,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/RouteMapInformations/change-stream",
               method: "POST",
             },
+
+            // INTERNAL. Use Rode.routeMapInformations.findById() instead.
+            "::findById::Rode::routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.destroyById() instead.
+            "::destroyById::Rode::routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.updateById() instead.
+            "::updateById::Rode::routeMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/rodes/:id/routeMapInformations/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations() instead.
+            "::get::Rode::routeMapInformations": {
+              isArray: true,
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.create() instead.
+            "::create::Rode::routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.createMany() instead.
+            "::createMany::Rode::routeMapInformations": {
+              isArray: true,
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.destroyAll() instead.
+            "::delete::Rode::routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rode.routeMapInformations.count() instead.
+            "::count::Rode::routeMapInformations": {
+              url: urlBase + "/rodes/:id/routeMapInformations/count",
+              method: "GET",
+            },
           }
         );
 
@@ -87832,6 +88597,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/AdministrativeAreaMapInformations/change-stream",
               method: "POST",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.findById() instead.
+            "::findById::AffiliatedInstitution::administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.destroyById() instead.
+            "::destroyById::AffiliatedInstitution::administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.updateById() instead.
+            "::updateById::AffiliatedInstitution::administrativeAreaMapInformations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations() instead.
+            "::get::AffiliatedInstitution::administrativeAreaMapInformations": {
+              isArray: true,
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.create() instead.
+            "::create::AffiliatedInstitution::administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.createMany() instead.
+            "::createMany::AffiliatedInstitution::administrativeAreaMapInformations": {
+              isArray: true,
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.destroyAll() instead.
+            "::delete::AffiliatedInstitution::administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use AffiliatedInstitution.administrativeAreaMapInformations.count() instead.
+            "::count::AffiliatedInstitution::administrativeAreaMapInformations": {
+              url: urlBase + "/AffiliatedInstitutions/:id/administrativeAreaMapInformations/count",
+              method: "GET",
             },
           }
         );
