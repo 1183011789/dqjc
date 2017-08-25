@@ -37,10 +37,10 @@
       "type": "number"
     },
     "Longitudelatitude": {
-      "type": "double"
+      "type": "string"
     },
     "Latitude": {
-      "type": "double"
+      "type": "string"
     },
     "length": {
       "type": "string"

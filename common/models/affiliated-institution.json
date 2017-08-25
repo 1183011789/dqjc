@@ -12,6 +12,11 @@
   },
   "validations": [],
   "relations": {
+    "administrativeAreaMapInformations": {
+      "type": "hasMany",
+      "model": "AdministrativeAreaMapInformation",
+      "foreignKey": "regionalId"
+    },
     "bridges": {
       "type": "hasMany",
       "model": "Bridge",

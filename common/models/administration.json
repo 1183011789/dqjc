@@ -22,7 +22,6 @@
       "model": "Station",
       "foreignKey": "Railway_Administration"
     }
-
   },
   "acls": [],
   "methods": {}

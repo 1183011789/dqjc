@@ -16,10 +16,10 @@
       "type": "number"
     },
     "lng": {
-      "type": "double"
+      "type": "string"
     },
     "lat": {
-      "type": "double"
+      "type": "string"
     },
     "kilometerMark": {
       "type": "number"
@@ -51,7 +51,6 @@
       "foreignKey": "alignment",
       "primaryKey": "id"
     }
-
   },
   "acls": [],
   "methods": {}

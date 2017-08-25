@@ -46,6 +46,11 @@
   },
   "validations": [],
   "relations": {
+    "routeMapInformations": {
+      "type": "hasMany",
+      "model": "RouteMapInformation",
+      "foreignKey": "rodeId"
+    },
     "aPropagandaPoints": {
       "type": "hasMany",
       "model": "APropagandaPoint",
