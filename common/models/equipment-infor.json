@@ -46,10 +46,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -60,19 +60,19 @@
   },
   "validations": [],
   "relations": {
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "AffiliatedInstitution",
       "primaryKey": "id"
     },
-    "categorys": {
+    "category": {
       "type": "belongsTo",
       "model": "Category",
       "foreignKey": "Category",
       "primaryKey": "id"
     },
-    "alignments": {
+    "alignment": {
       "type": "belongsTo",
       "model": "Alignment",
       "foreignKey": "DoOther",

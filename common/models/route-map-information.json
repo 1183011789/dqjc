@@ -16,10 +16,10 @@
       "type": "number"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "kilometerMark": {
       "type": "number"
@@ -39,13 +39,13 @@
       "foreignKey": "rodeId",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "regionalId",
       "primaryKey": "id"
     },
-    "alignments": {
+    "alignment": {
       "type": "belongsTo",
       "model": "Alignment",
       "foreignKey": "alignment",

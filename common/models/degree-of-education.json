@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "teamMemberss": {
+      "type": "hasMany",
+      "model": "TeamMembers",
+      "foreignKey": "degreeOfEducation"
+    }
+  },
   "acls": [],
   "methods": {}
 }

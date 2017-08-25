@@ -70,10 +70,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "string"
+      "type": "double"
     },
     "lat": {
-      "type": "string"
+      "type": "double"
     },
     "contactnumber": {
       "type": "string"
@@ -93,25 +93,25 @@
       "foreignKey": "bridgeId",
       "through": "RodeContain"
     },
-    "guardians": {
+    "guardian": {
       "type": "belongsTo",
       "model": "Guardian",
       "foreignKey": "guardian",
       "primaryKey": "id"
     },
-    "bridgeClasss": {
+    "bridgeClass": {
       "type": "belongsTo",
       "model": "BridgeClass",
       "foreignKey": "bridgeclass",
       "primaryKey": "id"
     },
-    "alignments": {
+    "alignment": {
       "type": "belongsTo",
       "model": "Alignment",
       "foreignKey": "bridgealignment",
       "primaryKey": "id"
     },
-    "affiliatedinstitutions": {
+    "affiliatedinstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

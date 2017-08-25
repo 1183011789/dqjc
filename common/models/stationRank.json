@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "stations": {
+      "type": "hasMany",
+      "model": "Station",
+      "foreignKey": "StationRank"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -55,10 +55,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "string"
+      "type": "double"
     },
     "lat": {
-      "type": "string"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -75,7 +75,7 @@
       "foreignKey": "crossIronBridgeId",
       "through": "RodeContain"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

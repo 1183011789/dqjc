@@ -50,14 +50,13 @@
       "type": "string"
     },
     "state": {
-      "type": "boolean",
-      "default": false
+      "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -79,25 +78,25 @@
       "model": "HiddenDangerPlaceImage",
       "foreignKey": "hiddenDangerPlaceId"
     },
-    "hiddenDangerPlaceCategorys": {
+    "hiddenDangerPlaceCategory": {
       "type": "belongsTo",
       "model": "HiddenDangerPlaceCategory",
       "foreignKey": "category",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     },
-    "hazardlevels": {
+    "hazardlevel": {
       "type": "belongsTo",
       "model": "Hazardlevel",
       "foreignKey": "hazardlevel",
       "primaryKey": "id"
     },
-    "states": {
+    "state": {
       "type": "belongsTo",
       "model": "State",
       "foreignKey": "state",

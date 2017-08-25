@@ -11,7 +11,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "rodes": {
+      "type": "hasMany",
+      "model": "Rode",
+      "foreignKey": "railwayadministrat"
+    },
+    "stations": {
+      "type": "hasMany",
+      "model": "Station",
+      "foreignKey": "Railway_Administration"
+    }
+
+  },
   "acls": [],
   "methods": {}
 }

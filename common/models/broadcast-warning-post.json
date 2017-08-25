@@ -26,13 +26,13 @@
       "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "state": {
-      "type": "boolean"
+      "type": "string"
     },
     "voicebroadcast": {
       "type": "string"
@@ -55,13 +55,13 @@
       "foreignKey": "broadcastWarningPostId",
       "through": "RodeContain"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     },
-    "states": {
+    "state": {
       "type": "belongsTo",
       "model": "State",
       "foreignKey": "state",

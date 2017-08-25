@@ -37,10 +37,10 @@
       "type": "number"
     },
     "Longitudelatitude": {
-      "type": "number"
+      "type": "double"
     },
     "Latitude": {
-      "type": "number"
+      "type": "double"
     },
     "length": {
       "type": "string"
@@ -60,29 +60,34 @@
       "foreignKey": "stationId",
       "through": "RodeContain"
     },
-    "stationRanks": {
+    "stationRank": {
       "type": "belongsTo",
       "model": "StationRank",
       "foreignKey": "StationRank",
       "primaryKey": "id"
     },
-    "stationNatures": {
+    "stationNature": {
       "type": "belongsTo",
       "model": "StationNature",
       "foreignKey": "StationNature",
       "primaryKey": "id"
     },
-    "administrations": {
+    "administration": {
       "type": "belongsTo",
       "model": "Administration",
       "foreignKey": "Railway_Administration",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
+    },
+    "securityEquipmentInformations": {
+      "type": "hasMany",
+      "model": "SecurityEquipmentInformation",
+      "foreignKey": "Station"
     }
   },
   "acls": [],
