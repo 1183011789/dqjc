@@ -1,58 +1,58 @@
 {
-  "name": "RouteMapInformation",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "rodeId": {
-      "type": "string"
+    "name": "RouteMapInformation",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "lineName": {
-      "type": "string"
+    "properties": {
+        "rodeId": {
+            "type": "string"
+        },
+        "lineName": {
+            "type": "string"
+        },
+        "pointSerialNumber": {
+            "type": "number"
+        },
+        "lng": {
+            "type": "string"
+        },
+        "lat": {
+            "type": "string"
+        },
+        "kilometerMark": {
+            "type": "number"
+        },
+        "alignment": {
+            "type": "string"
+        },
+        "regionalId": {
+            "type": "string"
+        }
     },
-    "pointSerialNumber": {
-      "type": "number"
-    },
-    "lng": {
-      "type": "double"
-    },
-    "lat": {
-      "type": "double"
-    },
-    "kilometerMark": {
-      "type": "number"
-    },
-    "alignment": {
-      "type": "string"
-    },
-    "regionalId": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "rodes": {
-      "type": "belongsTo",
-      "model": "Rode",
-      "foreignKey": "rodeId",
-      "primaryKey": "id"
-    },
-    "affiliatedInstitution": {
-      "type": "belongsTo",
-      "model": "AffiliatedInstitution",
-      "foreignKey": "regionalId",
-      "primaryKey": "id"
-    },
-    "alignment": {
-      "type": "belongsTo",
-      "model": "Alignment",
-      "foreignKey": "alignment",
-      "primaryKey": "id"
-    }
+    "validations": [],
+    "relations": {
+        "rodes": {
+            "type": "belongsTo",
+            "model": "Rode",
+            "foreignKey": "rodeId",
+            "primaryKey": "id"
+        },
+        "affiliatedInstitution": {
+            "type": "belongsTo",
+            "model": "AffiliatedInstitution",
+            "foreignKey": "regionalId",
+            "primaryKey": "id"
+        },
+        "alignment": {
+            "type": "belongsTo",
+            "model": "Alignment",
+            "foreignKey": "alignment",
+            "primaryKey": "id"
+        }
 
-  },
-  "acls": [],
-  "methods": {}
+    },
+    "acls": [],
+    "methods": {}
 }

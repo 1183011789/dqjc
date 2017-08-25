@@ -1,0 +1,106 @@
+<div class="panel panel-default">
+    <!-- <div class="panel-heading">
+        <div class="panel-title">
+            线路分配
+        </div>
+    </div> -->
+    <div class="panel-body">
+        <div class="panel-heading">
+            <!-- <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> -->
+            <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> 线路分配情况
+            <small>{{ctrl.advertisement.address}}</small>
+        </div>
+        <div class="row">
+            <!-- 用来显示所有下属成员的 -->
+            <div class="col col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title" style="width: 100%">
+                            广播警示柱
+                        </h4>
+                    </div>
+                    <div class="box-body list-group">
+                        <!-- 每次点击要查询用户所控制的所有机械 -->
+                        <!--underlings.showing &&-->
+                        <div ng-repeat-end class="list-group-item list-group" style="background: #eeeeff">
+                            <div ng-repeat="warningpost in warningPosts" class="list-group-item" ng-click="selectUser(warningpost.id)">
+                                <div class="pull-right btn-group">
+                                    <!-- <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
+                                    <i class="fa fa-th-list"></i> 分配
+                                </a> -->
+                                    <a ng-click="selectwarningpost(warningpost.id, role);stop($event)" class="btn btn-xs btn-warning" ng-if="status.showing == 'allot' && current.accountId == warningpost.id">
+                                        <i class="fa fa-backward"></i> 撤销
+                                    </a>
+                                    <a ng-click="saveAllot();stop($event)" class="btn btn-xs btn-success" ng-if="status.showing == 'allot' && current.accountId == warningpost.id">
+                                        <i class="fa fa-check"></i> 保存
+                                    </a>
+                                </div>
+                                <div>
+                                    {{$index+1}}. {{warningpost.name}}-{{warningpost.address}}
+                                    <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
+                                        <i class="fa fa-th-list"></i> 分配
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 用于分配机械的？ ng-show="status.showing == 'allot'" -->
+            <div class="col col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title" style="width: 100%">
+                            铁路列表
+                        </h4>
+                    </div>
+                    <!-- 怎么搞。。直接显示当前用户可控制的机组列表 -->
+                    <div class="box-body list-group">
+                        <!-- <div class="box-body list-group  checkbox"> -->
+                        <!-- 就是说，每次点击左边的下属，这个下属名下有多少机械，并显示出来 -->
+                        <!-- <div class="list-group-item" ng-repeat-start="(groupId, group) in options.groups">
+                                <div class="pull-left btn-group">
+                                    <a class="btn btn-xs btn-default" ng-show="current.role == 'operator'" ng-click="expandGroupWhenAllot(group)">
+                                        <i class="fa fa-fw {{group.expanded? 'fa-angle-double-down': 'fa-angle-right'}}"></i>
+                                    </a>
+                                </div>
+                                <div ng-click="checkedGroup(group)">
+                                    <i class="fa fa-fw {{current.form.groups[groupId]? 'fa-check-square-o':'fa-square-o'}}" ng-show="current.accountId"></i>
+                                    <label>
+                                         {{group.name}}
+                                        <small>({{group.remark}})</small>
+                                    /label>
+                                </div>
+                            </div> -->
+                        <div class="list-group-item" ng-repeat-end>
+                            <div class="list-group">
+                                <div class="list-group-item" ng-repeat="rode in rodes">
+                                    <div ng-click="checkedrode(rode)">
+                                        <i class="fa fa-fw "></i>
+                                        <input type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
+                                        <label>
+                                             {{rode.rodename}}
+                                              <small>({{rode.rodename}})</small>
+                                            </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <!-- 点击机组后，查询到该机组下的所有机械 -->
+                    <!-- 这里可以缓存一下机械列表 -->
+                    <!-- <div class="box-body list-group">
+                        <div class="list-group-item" ng-repeat="robot in robots">
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

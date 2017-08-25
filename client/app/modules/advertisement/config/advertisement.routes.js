@@ -22,10 +22,16 @@
                 })
 
             .state('app.advertisement.map', {
-                url: '/map',
-                templateUrl: 'modules/advertisement/views/map.html',
-                controller: 'MapCtrl',
-            })
+                    url: '/map',
+                    templateUrl: 'modules/advertisement/views/map.html',
+                    controller: 'MapCtrl',
+                })
+                //线路分配
+                .state('app.advertisement.line', {
+                    url: '/line',
+                    templateUrl: 'modules/advertisement/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
 
             .state('app.advertisement.add', {
                     url: '/add',

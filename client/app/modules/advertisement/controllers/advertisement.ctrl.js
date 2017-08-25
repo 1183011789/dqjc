@@ -102,6 +102,7 @@
                     CoreService.alertWarning('提示', '还没选中');
                 } else if ($scope.selectedItems.size > 1) {
                     CoreService.alertWarning('提示', '一次只能编辑一个');
+                    // console.log("多选-------");
                 } else {
                     // ui-sref="^.edit({id: item.id})"
                     for (var value of $scope.selectedItems) {

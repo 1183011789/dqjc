@@ -1,42 +1,42 @@
 {
-  "name": "AdministrativeAreaMapInformation",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "regionalId": {
-      "type": "string"
+    "name": "AdministrativeAreaMapInformation",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "regionalName": {
-      "type": "string"
+    "properties": {
+        "regionalId": {
+            "type": "string"
+        },
+        "regionalName": {
+            "type": "string"
+        },
+        "pointSerialNumber": {
+            "type": "number"
+        },
+        "lng": {
+            "type": "string"
+        },
+        "lat": {
+            "type": "string"
+        }
     },
-    "pointSerialNumber": {
-      "type": "number"
+    "validations": [],
+    "relations": {
+        "affiliatedInstitution": {
+            "type": "belongsTo",
+            "model": "AffiliatedInstitution",
+            "foreignKey": "regionalId",
+            "primaryKey": "id"
+        },
+        "affiliatedInstitution": {
+            "type": "belongsTo",
+            "model": "AffiliatedInstitution",
+            "foreignKey": "regionalId",
+            "primaryKey": "id"
+        }
     },
-    "lng": {
-      "type": "double"
-    },
-    "lat": {
-      "type": "double"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "affiliatedInstitution": {
-      "type": "belongsTo",
-      "model": "AffiliatedInstitution",
-      "foreignKey": "regionalId",
-      "primaryKey": "id"
-    },
-    "affiliatedInstitution": {
-      "type": "belongsTo",
-      "model": "AffiliatedInstitution",
-      "foreignKey": "regionalId",
-      "primaryKey": "id"
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "acls": [],
+    "methods": {}
 }
