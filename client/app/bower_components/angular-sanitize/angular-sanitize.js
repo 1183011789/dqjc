@@ -604,7 +604,8 @@ function sanitizeText(chars) {
 // define ngSanitize module and register $sanitize service
 angular.module('ngSanitize', [])
   .provider('$sanitize', $SanitizeProvider)
-  .info({ angularVersion: '1.6.6' });
+  // .info({ angularVersion: '1.6.6' })
+  ;
 
 /**
  * @ngdoc filter
