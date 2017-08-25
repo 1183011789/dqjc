@@ -26,10 +26,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "remark": {
       "type": "string"
@@ -48,7 +48,7 @@
       "model": "APropagandaPointImg",
       "foreignKey": "aPropagandaPointId"
     },
-    "affiliatedinstitutions": {
+    "affiliatedinstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

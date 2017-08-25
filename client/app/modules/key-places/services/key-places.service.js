@@ -54,7 +54,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '名称',
-                            required: true
+                            required: true,
+                            minlength: 6
                         }
                     },
                     {
@@ -95,7 +96,7 @@
                                     var value = modelValue || viewValue;
                                     return /^([0-9]|[-])+$/g.test(value);
                                 },
-                                message: '$viewValue + " is not a valid IP Address"'
+                                message: '$viewValue + " 不是正确的电话格式"'
                             }
                         }
                     },

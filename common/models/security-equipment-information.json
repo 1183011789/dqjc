@@ -40,10 +40,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -54,13 +54,13 @@
   },
   "validations": [],
   "relations": {
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "AffiliatedInstitution",
       "primaryKey": "id"
     },
-    "stations": {
+    "station": {
       "type": "belongsTo",
       "model": "Station",
       "foreignKey": "Station",

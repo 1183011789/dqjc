@@ -11,7 +11,28 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "guardian"
+    },
+    "tunnels": {
+      "type": "hasMany",
+      "model": "Tunnel",
+      "foreignKey": "guardian"
+    },
+    "levelCrossings": {
+      "type": "hasMany",
+      "model": "LevelCrossing",
+      "foreignKey": "guardian"
+    },
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "guardian"
+    }
+  },
   "acls": [],
   "methods": {}
 }

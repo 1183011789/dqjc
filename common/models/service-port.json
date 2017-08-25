@@ -30,11 +30,11 @@
     "admimdepartment": {
       "type": "string"
     },
-    "long": {
-      "type": "number"
+    "lng": {
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -51,7 +51,7 @@
       "foreignKey": "servicePortId",
       "through": "RodeContain"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "classification"
+    }
+  },
   "acls": [],
   "methods": {}
 }

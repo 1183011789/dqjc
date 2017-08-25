@@ -3,7 +3,7 @@
     "host": "localhost",
     "port": 3306,
     "url": "",
-    "database": "demo",
+    "database": "demoo",
     "password": "orcl",
     "name": "bjhlb_mysql",
     "user": "root",

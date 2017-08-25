@@ -37,11 +37,11 @@
 </div>
 
 
-<script type="text/ng-template" id="validation.html">
-      <div ng-message="required">This field is required</div>
-      <div ng-message="minlength">Too short</div>
-      <div ng-message="maxlength">Too long</div>
-      <div ng-message="email">Invalid email address</div>
+    <script type="text/ng-template" id="error-messages">
+      <div ng-message="required">此项为必填项</div>
+      <div ng-message="minlength">字符长度过短</div>
+      <div ng-message="maxlength">字符长度过长</div>
+      <div ng-message="email">不合法的邮件地址格式</div>
     </script>
     
     <script type="text/ng-template" id="input-template.html">

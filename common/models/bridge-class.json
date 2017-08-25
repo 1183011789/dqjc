@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "bridgeclass"
+    }
+  },
   "acls": [],
   "methods": {}
 }

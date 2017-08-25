@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "hiddenDangerPlaces": {
+      "type": "hasMany",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "category"
+    }
+  },
   "acls": [],
   "methods": {}
 }

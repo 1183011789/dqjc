@@ -11,7 +11,43 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "bridgealignment"
+    },
+    "tunnels": {
+      "type": "hasMany",
+      "model": "Tunnel",
+      "foreignKey": "tunnelalignment"
+    },
+    "levelCrossings": {
+      "type": "hasMany",
+      "model": "LevelCrossing",
+      "foreignKey": "crossalignment"
+    },
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "crossalignment"
+    },
+    "equipmentInfors": {
+      "type": "hasMany",
+      "model": "EquipmentInfor",
+      "foreignKey": "DoOther"
+    },
+    "emergencyAccessss": {
+      "type": "hasMany",
+      "model": "EmergencyAccesss",
+      "foreignKey": "DoOther"
+    },
+    "fenceInfos": {
+      "type": "hasMany",
+      "model": "FenceInfo",
+      "foreignKey": "doOther"
+    }
+  },
   "acls": [],
   "methods": {}
 }

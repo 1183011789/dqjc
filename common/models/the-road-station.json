@@ -31,10 +31,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     },
     "remark": {
       "type": "string"
@@ -42,13 +42,13 @@
   },
   "validations": [],
   "relations": {
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",
       "primaryKey": "id"
     },
-    "serviceModes": {
+    "serviceMode": {
       "type": "belongsTo",
       "model": "ServiceMode",
       "foreignKey": "serviceMode",
