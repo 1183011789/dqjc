@@ -11,7 +11,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "hiddenDangerPlaces": {
+      "type": "hasMany",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "state"
+    },
+    "broadcastWarningPosts": {
+      "type": "hasMany",
+      "model": "BroadcastWarningPost",
+      "foreignKey": "state"
+    }
+  },
   "acls": [],
   "methods": {}
 }

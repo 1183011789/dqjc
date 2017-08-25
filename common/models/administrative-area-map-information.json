@@ -16,21 +16,21 @@
       "type": "number"
     },
     "lng": {
-      "type": "number"
+      "type": "double"
     },
     "lat": {
-      "type": "number"
+      "type": "double"
     }
   },
   "validations": [],
   "relations": {
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "regionalId",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "regionalId",

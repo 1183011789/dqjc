@@ -11,7 +11,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "equipmentInfors": {
+      "type": "hasMany",
+      "model": "EquipmentInfor",
+      "foreignKey": "Category"
+    }
+  },
   "acls": [],
   "methods": {}
 }

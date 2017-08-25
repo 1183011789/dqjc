@@ -43,10 +43,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "string"
+      "type": "double"
     },
     "lat": {
-      "type": "string"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -63,31 +63,31 @@
       "foreignKey": "levelcrossingId",
       "through": "RodeContain"
     },
-    "guardians": {
+    "guardian": {
       "type": "belongsTo",
       "model": "Guardian",
       "foreignKey": "guardian",
       "primaryKey": "id"
     },
-    "levelCrossingCrosspropertys": {
+    "levelCrossingCrossproperty": {
       "type": "belongsTo",
       "model": "LevelCrossingCrossproperty",
       "foreignKey": "crossproperty",
       "primaryKey": "id"
     },
-    "crossAlignments": {
+    "alignment": {
       "type": "belongsTo",
-      "model": "CrossAlignment",
+      "model": "Alignment",
       "foreignKey": "crossalignment",
       "primaryKey": "id"
     },
-    "crossPropertys": {
+    "crossProperty": {
       "type": "belongsTo",
       "model": "CrossProperty",
       "foreignKey": "crossproperty",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

@@ -1,4 +1,5 @@
 {
+
     "name": "KeyPlace",
     "plural": "KeyPlaces",
     "base": "PersistedModel",
@@ -47,10 +48,10 @@
             "type": "string"
         },
         "lng": {
-            "type": "number"
+            "type": "double"
         },
         "lat": {
-            "type": "number"
+            "type": "double"
         },
         "explain": {
             "type": "string"

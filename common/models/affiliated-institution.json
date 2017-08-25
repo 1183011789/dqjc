@@ -11,7 +11,98 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "bridges": {
+      "type": "hasMany",
+      "model": "Bridge",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "tunnels": {
+      "type": "hasMany",
+      "model": "Tunnel",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "culverts": {
+      "type": "hasMany",
+      "model": "Culvert",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "crossIronBridges": {
+      "type": "hasMany",
+      "model": "CrossIronBridge",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "servicePorts": {
+      "type": "hasMany",
+      "model": "ServicePort",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "baseStations": {
+      "type": "hasMany",
+      "model": "BaseStation",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "equipmentInfors": {
+      "type": "hasMany",
+      "model": "EquipmentInfor",
+      "foreignKey": "AffiliatedInstitution"
+    },
+    "emergencyAccessss": {
+      "type": "hasMany",
+      "model": "EmergencyAccesss",
+      "foreignKey": "AffiliatedInstitution"
+    },
+    "securityEquipmentInformations": {
+      "type": "hasMany",
+      "model": "SecurityEquipmentInformation",
+      "foreignKey": "AffiliatedInstitution"
+    },
+    "fenceInfos": {
+      "type": "hasMany",
+      "model": "FenceInfo",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "keyPlaces": {
+      "type": "hasMany",
+      "model": "KeyPlace",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "hiddenDangerPlaces": {
+      "type": "hasMany",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "theRoadStations": {
+      "type": "hasMany",
+      "model": "TheRoadStation",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "broadcastWarningPosts": {
+      "type": "hasMany",
+      "model": "BroadcastWarningPost",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "aPropagandaPoints": {
+      "type": "hasMany",
+      "model": "APropagandaPoint",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "monitorings": {
+      "type": "hasMany",
+      "model": "Monitoring",
+      "foreignKey": "AffiliatedInstitution"
+    },
+    "institutionalTeams": {
+      "type": "hasMany",
+      "model": "InstitutionalTeam",
+      "foreignKey": "affiliatedinstitution"
+    },
+    "teamMemberss": {
+      "type": "hasMany",
+      "model": "TeamMembers",
+      "foreignKey": "affiliatedInstitution"
+    }
+  },
   "acls": [],
   "methods": {}
 }

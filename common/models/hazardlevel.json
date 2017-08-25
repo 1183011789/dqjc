@@ -5,9 +5,24 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "hazardlevel": {
+      "type": "string"
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "keyPlaces": {
+      "type": "hasMany",
+      "model": "KeyPlace",
+      "foreignKey": "hazardlevel"
+    },
+    "hiddenDangerPlaces": {
+      "type": "hasMany",
+      "model": "HiddenDangerPlace",
+      "foreignKey": "hazardlevel"
+    }
+  },
   "acls": [],
   "methods": {}
 }

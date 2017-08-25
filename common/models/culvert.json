@@ -58,10 +58,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "string"
+      "type": "double"
     },
     "lat": {
-      "type": "string"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -78,25 +78,25 @@
       "foreignKey": "culvertId",
       "through": "RodeContain"
     },
-    "guardians": {
+    "guardian": {
       "type": "belongsTo",
       "model": "Guardian",
       "foreignKey": "guardian",
       "primaryKey": "id"
     },
-    "classIfications": {
+    "classIfication": {
       "type": "belongsTo",
       "model": "ClassIfication",
       "foreignKey": "classification",
       "primaryKey": "id"
     },
-    "crossAlignments": {
+    "alignment": {
       "type": "belongsTo",
-      "model": "CrossAlignment",
+      "model": "Alignment",
       "foreignKey": "crossalignment",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",

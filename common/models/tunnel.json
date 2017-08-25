@@ -44,10 +44,10 @@
       "type": "string"
     },
     "lng": {
-      "type": "string"
+      "type": "double"
     },
     "lat": {
-      "type": "string"
+      "type": "double"
     },
     "explain": {
       "type": "string"
@@ -64,19 +64,19 @@
       "foreignKey": "tunnelId",
       "through": "RodeContain"
     },
-    "guardians": {
+    "guardian": {
       "type": "belongsTo",
       "model": "Guardian",
       "foreignKey": "guardian",
       "primaryKey": "id"
     },
-    "alignments": {
+    "alignment": {
       "type": "belongsTo",
       "model": "Alignment",
       "foreignKey": "tunnelalignment",
       "primaryKey": "id"
     },
-    "affiliatedInstitutions": {
+    "affiliatedInstitution": {
       "type": "belongsTo",
       "model": "AffiliatedInstitution",
       "foreignKey": "affiliatedinstitution",
