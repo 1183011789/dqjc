@@ -6,7 +6,11 @@
     </div> -->
     <div class="panel-body">
         <div class="panel-heading">
-            <!-- <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> -->
+            <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+                        <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="preservationItem()">
+                          保存
+                        </a>
+                      </span>
             <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> 线路分配情况
             <small>{{ctrl.advertisement.address}}</small>
         </div>
@@ -22,12 +26,14 @@
                     <div class="box-body list-group">
                         <!-- 每次点击要查询用户所控制的所有机械 -->
                         <!--underlings.showing &&-->
-                        <div ng-repeat-end class="list-group-item list-group" style="background: #eeeeff">
-                            <div ng-repeat="warningpost in warningPosts" class="list-group-item" ng-click="selectUser(warningpost.id)">
+                        <div class="list-group-item list-group" style="background: #eeeeff">
+                            <div ng-repeat="warningpost in warningPosts" class="list-group-item" style="{{warning===warningpost.id ? 'background: #6cf':''}}" ng-click="selectRow(warningpost)">
                                 <div class="pull-right btn-group">
-                                    <!-- <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
-                                    <i class="fa fa-th-list"></i> 分配
-                                </a> -->
+                                    <!-- <a ng-click="doAllot(warningpost.id" style="{{allots===warningpost.id ? 'background: #6cf':''}};float:right;" class="btn btn-xs btn-default">
+                                        <i class="fa fa-th-list"></i> 分配
+                                    </a> -->
+                                    <input type="checkbox" ng-value="{{warningpost.id}}" ng-change="selectwarningpost(warningpost)" class="checkbox-lg" ng-model="warningpost.checked">
+
                                     <a ng-click="selectwarningpost(warningpost.id, role);stop($event)" class="btn btn-xs btn-warning" ng-if="status.showing == 'allot' && current.accountId == warningpost.id">
                                         <i class="fa fa-backward"></i> 撤销
                                     </a>
@@ -37,9 +43,10 @@
                                 </div>
                                 <div>
                                     {{$index+1}}. {{warningpost.name}}---{{warningpost.address}}
-                                    <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
+
+                                    <!-- <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
                                         <i class="fa fa-th-list"></i> 分配
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -75,7 +82,7 @@
                         <div class="list-group-item" ng-repeat-end>
                             <div class="list-group">
                                 <div class="list-group-item" ng-repeat="rode in rodes">
-                                    <div ng-click="checkedrode(rode)">
+                                    <div ng-click="addEditItem(rode)">
                                         <i class="fa fa-fw "></i>
                                         <input type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
                                         <label>
