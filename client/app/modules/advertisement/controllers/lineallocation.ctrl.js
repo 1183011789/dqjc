@@ -15,11 +15,14 @@
                 $scope.warningPosts = value;
                 console.log("广播警示柱---", JSON.stringify(value));
             });
-            Rode.find({}).$promise.then(function(value) {
-                $scope.rodes = value;
-                console.log("铁路信息---", JSON.stringify(value));
-            });
-            //点击铁路
+            $scope.findeAllRode = function() {
+                Rode.find({}).$promise.then(function(value) {
+                    $scope.rodes = value;
+                    // console.log("铁路信息---", JSON.stringify(value));
+                });
+            }
+            $scope.findeAllRode();
+            //点击铁路 选择要分配的铁路
             $scope.selectedRodes = new Set();
             $scope.addEditItem = function(item) {
                 // 将需要删除的item加入selectedRodes
@@ -39,14 +42,16 @@
                 }
             };
 
-            //选择广播警示住的时候
+            //选择广播警示住的时候 
             $scope.selectedWarningposts = new Set();
             $scope.selectRow = function(warningpost) {
+
                     if ($scope.biaoji) {
                         console.log("分配----", warningpost.id);
                         $scope.biaoji = false;
                     } else {
                         console.log("查看------");
+                        $scope.findeAllRode();
                         console.log("id-1----", warningpost.id);
                         $scope.warning = warningpost.id;
 
@@ -60,12 +65,30 @@
                                 }
                             }
                         }, function(result) {
-                            console.log("result--", JSON.stringify(result));
-                        }, function() {
+                            // console.log("result--", JSON.stringify(result));
+                            var selRode = result;
+                            //查出所有的路
+                            for (var i = 0; i < $scope.rodes.length; i++) {
+                                var rode = $scope.rodes[i];
+                                //标记单个警示柱 所关联的铁路
+                                for (var j = 0; j < selRode.length; j++) {
+                                    if (selRode[j].rode.id === rode.id) {
+                                        rode.checked = true;
+                                        //添加到数组中的
+                                        $scope.selectedRodes.add(rode.id)
+                                    }
+                                }
 
+                            }
+
+                            $scope.RodesArray = Array.from($scope.selectedRodes);
+                            console.log("添加关系的数组-1-", JSON.stringify($scope.RodesArray));
+                            console.log('scope.rodes---', JSON.stringify($scope.selectedRodes.size));
+
+
+                        }, function(err) {
+                            console.log("出错了--", JSON.stringify(err));
                         });
-
-
 
 
                     }
@@ -126,7 +149,7 @@
                         console.log('最后提交---------');
                         var array = Array.from($scope.selectedRodes);
                         console.log("array-2-", JSON.stringify(array));
-                        console.log("$scope.warningPosts", JSON.stringify($scope.rodes[0].checked));
+
                         for (var i = 0; i < $scope.rodes.length; i++) {
                             $scope.rodes[i].checked = false;
                         }
