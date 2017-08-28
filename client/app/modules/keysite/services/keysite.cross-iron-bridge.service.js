@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('CrossIronBridgeService', function($state, CoreService, CrossIronBridge, gettextCatalog) {
+        .service('CrossIronBridgeService', function($state, AffiliatedInstitution,CoreService, CrossIronBridge, gettextCatalog) {
 
             this.find = function() {
                 return CrossIronBridge.find().$promise;
@@ -81,8 +81,9 @@
                         key: 'ironbridgename',
                         type: 'input',
                         templateOptions: {
-                            label: '检修口名称',
-                            required: true
+                            label: '横跨铁桥名称',
+                            required: true,
+                            placeholder: '请输入横跨铁桥名称'
                         }
                     },
                     {
@@ -90,7 +91,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '长度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入长度'
                         }
                     },
                     {
@@ -98,7 +100,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入中心里程'
                         }
                     },
                     {
@@ -106,7 +109,12 @@
                         type: 'input',
                         templateOptions: {
                             label: '是否有防护措施',
-                            required: true
+                            required: true,
+                            placeholder: '请选择是否',
+                            options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
                         }
                     },
                     {
@@ -114,7 +122,12 @@
                         type: 'input',
                         templateOptions: {
                             label: '是否有限重限速标示',
-                            required: true
+                            required: true,
+                            placeholder: '请选择是否',
+                             options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
                         }
                     },
                     {
@@ -122,7 +135,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '限重',
-                            required: true
+                            required: true,
+                            placeholder: '请输入限重'
                         }
                     },
                     {
@@ -130,7 +144,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '限速',
-                            required: true
+                            required: true,
+                            placeholder: '请输入限速'
                         }
                     },
                     {
@@ -138,7 +153,12 @@
                         type: 'input',
                         templateOptions: {
                             label: '是否移交',
-                            required: true
+                            required: true,
+                            placeholder: '请选择是否',
+                             options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
                         }
                     },
                     {
@@ -146,15 +166,17 @@
                         type: 'input',
                         templateOptions: {
                             label: '行人通道',
-                            required: true
+                            required: true,
+                            placeholder: '请输入行人通道'
                         }
                     },
                     {
                         key: 'handovertime',
-                        type: 'input',
+                        type: 'datepicker',
                         templateOptions: {
                             label: '移交时间',
-                            required: true
+                            required: true,
+
                         }
                     },
                     {
@@ -162,7 +184,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -170,7 +193,9 @@
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所',
-                            required: true
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
+
                         }
                     },
                     {
@@ -178,7 +203,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '管理部门',
-                            required: true
+                            required: true,
+                            placeholder: '请输入管理部门'
                         }
                     },
                     {
@@ -186,7 +212,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     },
                     {
@@ -194,23 +221,44 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话'
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     },
                     {
-                        key: 'affiliatedinstitution',
-                        type: 'input',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构',
-                            required: true
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'lng',
                         type: 'input',
                         templateOptions: {
                             label: '经度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },
                     {
@@ -218,7 +266,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     },
                     {
@@ -226,7 +275,17 @@
                         type: 'input',
                         templateOptions: {
                             label: '说明',
-                            required: true
+                            required: false,
+                            placeholder: '请输入说明'
+                        }
+                    },{
+                        key: 'remark',
+                        type: 'input',
+                        templateOptions: {
+                            label: '备注',
+                            required: false,
+                            placeholder: '请输入备注'
+
                         }
                     }
                 ];

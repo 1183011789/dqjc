@@ -13,14 +13,19 @@
     </div>
     <div class="panel-body">
         <!-- <pre>{{ctrl.advertisement | json}}</pre> -->
-        <p>广告警示柱名：{{ctrl.advertisement.name}}</p>
-        <p>所在地址：{{ctrl.advertisement.address}}</p>
-        <p>经度：{{ctrl.advertisement.lng}}</p>
-        <p>纬度：{{ctrl.advertisement.lat}}</p>
+        <p>广告警示柱名:{{ctrl.advertisement.name}}</p>
+        <p>所在地址:{{ctrl.advertisement.address}}</p>
+        <p>经度:{{ctrl.advertisement.lng}}</p>
+        <p>纬度:{{ctrl.advertisement.lat}}</p>
         <p ng-if="ctrl.advertisement.state===true">现在状态：正常</p>
         <p ng-if="ctrl.advertisement.state===false">现在状态：不正常</p>
-        <p>语音播报：{{ctrl.advertisement.voicebroadcast}}</p>
-        <p>单点广播：{{ctrl.advertisement.unicast}}</p>
-        <p>摄像头ID：{{ctrl.advertisement.cameraid}}</p>
+        <p>语音播报:{{ctrl.advertisement.voicebroadcast}}</p>
+        <p>单点广播:{{ctrl.advertisement.unicast}}</p>
+        <p>摄像头ID:{{ctrl.advertisement.cameraid}}</p>
+        <p>编号:{{ctrl.advertisement.number}}</p>
+        <p>负责人:{{ctrl.advertisement.personCharge}}</p>
+        <p>联系电话:{{ctrl.advertisement.contactNumber}}</p>
+        <p>所属机构:{{ctrl.advertisement.affiliatedInstitution}}</p>
+        <p>备注:{{ctrl.advertisement.remark}}</p>
     </div>
 </div>

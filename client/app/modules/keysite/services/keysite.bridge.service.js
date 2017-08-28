@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('BridgeService', function($state, CoreService, Bridge, gettextCatalog) {
+        .service('BridgeService', function($state, CoreService, AffiliatedInstitution,Guardian,Bridge,Alignment, BridgeClass,gettextCatalog) {
 
             this.find = function() {
                 return Bridge.find().$promise;
@@ -81,40 +81,54 @@
                         key: 'brdgenumber',
                         type: 'input',
                         templateOptions: {
-                            label: '编号',
-                            required: true
+                            label: '桥梁编号',
+                            required: true,
+                            placeholder: '请输入编号'
                         }
                     },
                     {
                         key: 'bridgename',
                         type: 'input',
                         templateOptions: {
-                            label: '名称',
-                            required: true
+                            label: '桥梁名称',
+                            required: true,
+                            placeholder: '请输入名称'
                         }
                     },
-                    {
-                        key: 'bridgeclass',
-                        type: 'input',
+                     {
+                        key: 'bridgeClass',
+                        type: 'select',
                         templateOptions: {
-                            label: '类别',
-                            required: true
+                        label: '桥梁类别',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "bridgeClass"
+                        },
+                        controller: function($scope, BridgeClass) {
+                            BridgeClass.find().$promise.then(function(value) {
+                            console.log("桥梁类别--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'bridgestructure',
                         type: 'input',
                         templateOptions: {
-                            label: '结构',
-                            required: true
+                            label: '桥梁结构',
+                            required: true,
+                            placeholder: '请输入桥梁结构'
                         }
                     },
                     {
                         key: 'bridgematerial',
                         type: 'input',
                         templateOptions: {
-                            label: '材料',
-                            required: true
+                            label: '桥梁材质',
+                            required: true,
+                            placeholder: '请输入桥梁材质'
                         }
                     },
                     {
@@ -122,7 +136,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '长度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入长度'
                         }
                     },
                     {
@@ -130,22 +145,34 @@
                         type: 'input',
                         templateOptions: {
                             label: '高度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入高度'
                         }
                     },
-                    {
-                        key: 'bridgealignment',
-                        type: 'input',
+                     {
+                        key: 'alignment',
+                        type: 'select',
                         templateOptions: {
-                            label: '桥梁线形',
-                            required: true
+                        label: '行别',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "alignment"
+                        },
+                        controller: function($scope, Alignment) {
+                            Alignment.find().$promise.then(function(value) {
+                            console.log("行别--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    }, {
+                      }, {
                         key: 'startendmileage',
                         type: 'input',
                         templateOptions: {
                             label: '起始里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入起始里程'
                         }
                     }
 
@@ -154,16 +181,24 @@
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入中心里程'
+
                         }
                     }
 
                     , {
                         key: 'railwayhighwaypublic',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
-                            label: 'railwayhighwaypublic',
-                            required: true
+                            label: '是否公路铁路一起用',
+                            required: true,
+                            placeholder: '请选择是否',
+                            options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
+
                         }
                     }
 
@@ -171,8 +206,9 @@
                         key: 'crosshighway',
                         type: 'input',
                         templateOptions: {
-                            label: '高路交叉',
-                            required: true
+                            label: '跨越公路',
+                            required: false,
+                            placeholder: '请输入跨越公路'
                         }
                     }
 
@@ -180,8 +216,9 @@
                         key: 'crosswatersystem',
                         type: 'input',
                         templateOptions: {
-                            label: '十字水系',
-                            required: true
+                            label: '跨越水系',
+                            required: false,
+                            placeholder: '请输入跨越水系'
                         }
                     }
 
@@ -189,8 +226,9 @@
                         key: 'crossbrooks',
                         type: 'input',
                         templateOptions: {
-                            label: '交叉',
-                            required: true
+                            label: '跨越山涧',
+                            required: false,
+                            placeholder: '请输入跨越山涧'
                         }
                     }
 
@@ -198,26 +236,34 @@
                         key: 'crossother',
                         type: 'input',
                         templateOptions: {
-                            label: 'crossother',
-                            required: true
+                            label: '跨越其他',
+                            required: false,
+                            placeholder: '请输入跨越其他'
                         }
-                    }
-
-                    , {
-                        key: 'guardian',
-                        type: 'input',
+                    }, {
+                        key: 'Guardian',
+                        type: 'select',
                         templateOptions: {
-                            label: '监护人',
-                            required: true
+                        label: '守护情况',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "Guardian"
+                        },
+                        controller: function($scope, Guardian) {
+                            Guardian.find().$promise.then(function(value) {
+                            console.log("守护情况--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    }
-
-                    , {
+                      },  {
                         key: 'address',
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     }
 
@@ -225,8 +271,9 @@
                         key: 'localpolicestation',
                         type: 'input',
                         templateOptions: {
-                            label: '当地派出所',
-                            required: true
+                            label: '所属当地派出所',
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
                         }
                     }
 
@@ -234,8 +281,9 @@
                         key: 'admimdepartment',
                         type: 'input',
                         templateOptions: {
-                            label: '行政部',
-                            required: true
+                            label: '管理部门',
+                            required: true,
+                            placeholder: '请输入管理部门'
                         }
                     }
 
@@ -244,25 +292,57 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
-                    }
-
-                    , {
-                        key: 'affiliatedinstitution',
+                    }, {
+                        key: 'affiliatedInstitution',
+                        type: 'select',
+                        templateOptions: {
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
+                        }
+                      }, {
+                        key: 'lng',
                         type: 'input',
                         templateOptions: {
-                            label: 'affiliatedinstitution',
-                            required: true
+                            label: '经度',
+                            required: false,
+                            placeholder: '请输入经度'
                         }
-                    }
-
-                    , {
+                    }, {
+                        key: 'lat',
+                        type: 'input',
+                        templateOptions: {
+                            label: '纬度',
+                            required: false,
+                            placeholder: '请输入纬度'
+                        }
+                    }, {
+                        key: 'explain',
+                        type: 'input',
+                        templateOptions: {
+                            label: '说明',
+                            required: false,
+                            placeholder: '请输入说明'
+                        }
+                    }, {
                         key: 'brdgeremark',
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true
+                            required: false,
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

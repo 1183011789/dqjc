@@ -8,8 +8,8 @@
      * @requires $rootScope
      **/
     angular
-        .module('com.module.road')
-        .controller('MapCtrl', function($scope, olData) {
+        .module('com.module.keyPlaces')
+        .controller('keyplacesCtrl', function($scope, olData) {
             var format = 'image/png';
             var bounds = [115.4168701171875, 39.4354248046875, 117.5042724609375, 41.0614013671875];
             var projection = new ol.proj.Projection({

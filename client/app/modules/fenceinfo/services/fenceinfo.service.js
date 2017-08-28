@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.fenceinfo')
-        .service('FenceInfoService', function($state, CoreService, FenceInfo, gettextCatalog) {
+        .service('FenceInfoService', function($state, CoreService,AffiliatedInstitution, Alignment,FenceInfo, gettextCatalog) {
             console.log("广播警示柱--1--");
             this.find = function(result) {
                 console.log("广播警示柱--2--");
@@ -16,11 +16,10 @@
             };
 
             this.upsert = function(fenceinfo) {
-                if (!(/^1[34578]\d{9}$/.test(fenceinfo.contactNumber))) {
-                    CoreService.alertWarning('提示', '手机号格式输入有误');
-                    return;
-                }
-
+                // if (!(/^1[34578]\d{9}$/.test(fenceinfo.contactNumber))) {
+                //     CoreService.alertWarning('提示', '手机号格式输入有误');
+                //     return;
+                // }
 
                 console.log("添加-------");
                 return FenceInfo.upsert(fenceinfo).$promise
@@ -93,7 +92,7 @@
                         templateOptions: {
                             label: '名称:',
                             required: true,
-                            placeholder: "名称"
+                            placeholder: "请输入名称"
                         }
                     },
                     {
@@ -102,7 +101,7 @@
                         templateOptions: {
                             label: '长度:',
                             required: true,
-                            placeholder: "长度"
+                            placeholder: "请输入长度"
                         }
                     },
                     {
@@ -111,7 +110,7 @@
                         templateOptions: {
                             label: '刺死滚笼长度:',
                             required: true,
-                            placeholder: "刺死滚笼长度"
+                            placeholder: "请输入刺死滚笼长度"
                         }
                     },
                     {
@@ -120,7 +119,7 @@
                         templateOptions: {
                             label: '地址:',
                             required: true,
-                            placeholder: "地址"
+                            placeholder: "请输入地址"
                         }
                     }, {
                         key: 'textureOfMaterial',
@@ -128,7 +127,7 @@
                         templateOptions: {
                             label: '材质:',
                             required: true,
-                            placeholder: "材质"
+                            placeholder: "请输入材质"
                         }
                     }, {
                         key: 'height',
@@ -136,7 +135,7 @@
                         templateOptions: {
                             label: '高度:',
                             required: true,
-                            placeholder: "高度"
+                            placeholder: "请输入高度"
                         }
                     },
                     {
@@ -145,7 +144,11 @@
                         templateOptions: {
                             label: '是否路基段:',
                             required: true,
-                            placeholder: "是否路基段"
+                            placeholder: "请选择是否",
+                            options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
                         }
                     },
                     {
@@ -154,7 +157,7 @@
                         templateOptions: {
                             label: '线路段设计时速:',
                             required: true,
-                            placeholder: "线路段设计时速"
+                            placeholder: "请输入线路段设计时速"
                         }
                     }, {
                         key: 'kilometerMark',
@@ -162,7 +165,7 @@
                         templateOptions: {
                             label: '公里标:',
                             required: true,
-                            placeholder: "公里标"
+                            placeholder: "请输入公里标"
                         }
                     }, {
                         key: 'workGateUseUnit',
@@ -170,10 +173,10 @@
                         templateOptions: {
                             label: '工作门使用单位:',
                             required: true,
-                            placeholder: "工作门使用单位"
+                            placeholder: "请输入工作门使用单位"
                         }
                     }, {
-                        key: 'doOther',
+                        key: 'alignment',
                         type: 'select',
                         templateOptions: {
                             label: '行别',
@@ -190,12 +193,12 @@
                             });
                         }
                     }, {
-                        key: 'workGateUseUnit',
+                        key: 'address',
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
                             required: true,
-                            placeholder: "地址"
+                            placeholder: "请输入地址"
                         }
                     }, {
                         key: 'localPoliceStation',
@@ -203,7 +206,7 @@
                         templateOptions: {
                             label: '所属地方派出所:',
                             required: true,
-                            placeholder: "所属地方派出所"
+                            placeholder: "请输入所属地方派出所"
 
                         }
                     }, {
@@ -212,7 +215,7 @@
                         templateOptions: {
                             label: '管理部门:',
                             required: true,
-                            placeholder: "管理部门"
+                            placeholder: "请输入管理部门"
 
                         }
                     }, {
@@ -221,7 +224,7 @@
                         templateOptions: {
                             label: '负责人:',
                             required: true,
-                            placeholder: "负责人"
+                            placeholder: "请输入负责人"
                         }
                     }, {
                         key: 'contactNumber',
@@ -229,15 +232,33 @@
                         templateOptions: {
                             label: '联系电话:',
                             required: true,
-                            placeholder: "联系电话"
+                            placeholder: "请输入联系电话"
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
+
                     }, {
-                        key: 'affiliatedInstitution',
-                        type: 'input',
+                        key: 'affiliatedinstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构:',
+                            label: '所属机构',
                             required: true,
-                            placeholder: "所属机构"
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     },
                     {
@@ -246,7 +267,7 @@
                         templateOptions: {
                             label: '经度:',
                             required: false,
-                            placeholder: "经度"
+                            placeholder: "请输入经度"
                         }
                     }, {
                         key: 'lat',
@@ -254,7 +275,7 @@
                         templateOptions: {
                             label: '纬度:',
                             required: false,
-                            placeholder: "纬度"
+                            placeholder: "请输入纬度"
 
                         }
                     }, {
@@ -263,7 +284,7 @@
                         templateOptions: {
                             label: '说明:',
                             required: false,
-                            placeholder: "说明"
+                            placeholder: "请输入说明"
 
                         }
                     }, {
@@ -272,7 +293,7 @@
                         templateOptions: {
                             label: '备注:',
                             required: false,
-                            placeholder: "备注"
+                            placeholder: "请输入备注"
                         }
                     }
                 ];

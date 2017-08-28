@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('CulvertService', function($state, CoreService, Culvert, gettextCatalog) {
+        .service('CulvertService', function($state, CoreService,Guardian,AffiliatedInstitution, Alignment,Culvert, gettextCatalog) {
 
             this.find = function() {
                 return Culvert.find().$promise;
@@ -82,7 +82,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '编号',
-                            required: true
+                            required: true,
+                            placeholder: '请输入编号'
                         }
                     },
                     {
@@ -90,7 +91,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '涵洞名',
-                            required: true
+                            required: true,
+                            placeholder: '请输入涵洞名'
                         }
                     },
                     {
@@ -98,7 +100,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '分类',
-                            required: true
+                            required: true,
+                            placeholder: '请输入分类'
                         }
                     },
                     {
@@ -106,7 +109,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '长度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入长度' 
                         }
                     },
                     {
@@ -114,7 +118,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '宽度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入宽度'
                         }
                     },
                     {
@@ -122,7 +127,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '高度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入高度'
                         }
                     },
                     {
@@ -130,7 +136,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '半径',
-                            required: true
+                            required: true,
+                            placeholder: '请输入半径'
                         }
                     },
                     {
@@ -138,7 +145,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入中心里程'
                         }
                     },
                     {
@@ -146,7 +154,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '功能',
-                            required: true
+                            required: true,
+                            placeholder: '请输入功能'
                         }
                     },
                     {
@@ -154,31 +163,57 @@
                         type: 'input',
                         templateOptions: {
                             label: '是否积水',
-                            required: true
+                            required: true,
+                            placeholder: '请选择是否',
+                            options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
                         }
                     },
                     {
-                        key: 'crossalignment',
-                        type: 'input',
+                        key: 'alignment',
+                        type: 'select',
                         templateOptions: {
-                            label: '行别',
-                            required: true
+                        label: '行别',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "alignment"
+                        },
+                        controller: function($scope, Alignment) {
+                            Alignment.find().$promise.then(function(value) {
+                            console.log("行别--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
-                        key: 'guardian',
-                        type: 'input',
+                        key: 'Guardian',
+                        type: 'select',
                         templateOptions: {
-                            label: '守护情况',
-                            required: true
+                        label: '守护情况',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "Guardian"
+                        },
+                        controller: function($scope, Guardian) {
+                            Guardian.find().$promise.then(function(value) {
+                            console.log("守护情况--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'address',
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -186,7 +221,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所',
-                            required: true
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
                         }
                     },
                     {
@@ -194,7 +230,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     },
                     {
@@ -202,23 +239,44 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话'
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     },
                     {
-                        key: 'affiliatedinstitution',
-                        type: 'input',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构',
-                            required: true
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'lng',
                         type: 'input',
                         templateOptions: {
                             label: '经度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },
                     {
@@ -226,7 +284,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     },
                     {
@@ -234,7 +293,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '说明',
-                            required: true
+                            required: false,
+                            placeholder: '请输入说明'
                         }
                     },
                     {
@@ -242,7 +302,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true
+                            required: false,
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

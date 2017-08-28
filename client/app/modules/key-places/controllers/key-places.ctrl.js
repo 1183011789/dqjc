@@ -14,20 +14,20 @@
             //     $scope.items = $scope.items.concat(value);
             // });
 
-          $scope.$on('KeyPlace.Changed', function(event, data) {
-            // console.log('======data====>', data);
-            // console.log('======event====>', event);
-            $scope.tableParams.filter({
-                  category: data.id
-              });
-          });
+            $scope.$on('KeyPlace.Changed', function(event, data) {
+                // console.log('======data====>', data);
+                // console.log('======event====>', event);
+                $scope.tableParams.filter({
+                    category: data.id
+                });
+            });
 
-          $scope.tableParams = new NgTableParams({
+            $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
             }, {
                 getData: function(params) {
-                  // console.log('------->', params);
+                    // console.log('------->', params);
                     var where = {};
 
                     if (params.filter().category > 0) {
@@ -49,7 +49,7 @@
                             include: "keyPlaceCategory"
                         }
                     }).$promise.then(function(results) {
-                      console.log('=====>', results);
+                        console.log('=====>', results);
                         $scope.keyPlaces = results;
                         // return results;
                     });
@@ -77,19 +77,32 @@
             };
 
             // 编辑
+            // $scope.editItem = function() {
+            //     console.log($scope.selectedItems);
+            //     if ($scope.selectedItems.size < 1) {
+            //         CoreService.alertWarning('提示', '还没选中');
+            //     } else if ($scope.selectedItems.size > 1) {
+            //         CoreService.alertWarning('提示', '一次只能编辑一个');
+            //     } else {
+            //         var a = Array.from($scope.selectedItems);
+            //         console.log(a[0]);
+            //         $state.go('^.edit', { id: a[0] });
+            //     }
+            // };
             $scope.editItem = function() {
-                console.log($scope.selectedItems);
                 if ($scope.selectedItems.size < 1) {
                     CoreService.alertWarning('提示', '还没选中');
                 } else if ($scope.selectedItems.size > 1) {
                     CoreService.alertWarning('提示', '一次只能编辑一个');
                 } else {
-                    var a = Array.from($scope.selectedItems);
-                    console.log(a[0]);
-                    $state.go('^.edit', { id: a[0] });
+                    // ui-sref="^.edit({id: item.id})"
+                    for (var value of $scope.selectedItems) {
+                        var editItm = value;
+                        break;
+                    }
+                    $state.go('^.edit', { id: editItm });
                 }
             };
-
             // 删除
             $scope.deleteItems = function() {
                 if ($scope.selectedItems.size == 0) {

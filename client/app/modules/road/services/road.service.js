@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.road')
-        .service('RoadService', function($state, CoreService, Rode, gettextCatalog) {
+        .service('RoadService', function($state, CoreService,ClassIfication, Rode,Administration, gettextCatalog) {
             console.log("路况信息--1--");
             this.count = function() {
                 console.log("条数-----");
@@ -67,15 +67,26 @@
             type: 'input',
             templateOptions: {
               label: '铁路名',
-              required: true
+              required: true,
+              placeholder: '请输入铁路名'
             }
           },
           {
-            key: 'classification',
-            type: 'input',
+            key: 'classIfication',
+            type: 'select',
             templateOptions: {
-              label: '分类',
-              required: true
+            label: '分类',
+            required: true,
+            options: [],
+            valueProp: "id",
+            labelProp: "classIfication"
+            },
+            controller: function($scope, ClassIfication) {
+                ClassIfication.find().$promise.then(function(value) {
+                console.log("分类--", JSON.stringify(value));
+                $scope.to.options = value;
+                return value;
+                });
             }
           },
           {
@@ -83,70 +94,105 @@
             type: 'input',
             templateOptions: {
               label: '起始里程',
-              required: true
+              required: true,
+              placeholder: '请输入起始里程'
             }
           },
+          // {
+          //   key: 'K',
+          //   type: 'input',
+          //   templateOptions: {
+          //     label: '起始里程K',
+          //     required: true,
+          //     placeholder: '请输入起始里程的千米数'
+          //   }
+          // },{
+          //   key: 'M',
+          //   type: 'input',
+          //   templateOptions: {
+          //     label: '起始里程M',
+          //     required: true,
+          //     placeholder: '请输入起始里程的百米数'
+          //   }
+          // },
           {
             key: 'rodelenth',
             type: 'input',
             templateOptions: {
               label: '长度',
-              required: true
+              required: true,
+              placeholder: '请输入长度'
             }
           },
-          {
-            key: 'railwayadministrat',
-            type: 'input',
+         {
+            key: 'administration',
+            type: 'select',
             templateOptions: {
-              label: '隶属铁路局',
-              required: true
+            label: '隶属铁路局',
+            required: true,
+            options: [],
+            valueProp: "id",
+            labelProp: "administration"
+            },
+            controller: function($scope, Administration) {
+                Administration.find().$promise.then(function(value) {
+                console.log("隶属铁路局--", JSON.stringify(value));
+                $scope.to.options = value;
+                return value;
+                });
             }
           },
           {
             key: 'stationnumber',
             type: 'input',
             templateOptions: {
-              label: '车站',
-              required: true
+              label: '车站数量',
+              required: true,
+              placeholder: '请输入车站数量'
             }
           },
           {
             key: 'bridgenumber',
             type: 'input',
             templateOptions: {
-              label: '桥梁',
-              required: true
+              label: '桥梁数量',
+              required: true,
+              placeholder: '请输入桥梁数量'
             }
           },
           {
             key: 'tunnelnumber',
             type: 'input',
             templateOptions: {
-              label: '隧道',
-              required: true
+              label: '隧道数量',
+              required: true,
+              placeholder: '请输入隧道数量'
             }
           },
           {
             key: 'levelcrossingnumber',
             type: 'input',
             templateOptions: {
-              label: '道口',
-              required: true
+              label: '道口数量',
+              required: true,
+              placeholder: '请输入道口数量'
             }
           },
           {
             key: 'culvertnumber',
             type: 'input',
             templateOptions: {
-              label: '涵洞',
-              required: true
+              label: '涵洞数量',
+              required: true,
+              placeholder: '请输入道口数量'
             }
           },{
             key: 'Kwamerailwaynumber',
             type: 'input',
             templateOptions: {
               label: '跨铁路数',
-              required: true
+              required: true,
+              placeholder: '请输入跨铁路数'
             }
           },
           {
@@ -154,7 +200,8 @@
             type: 'input',
             templateOptions: {
               label: '备注',
-              required: true
+              required: false,
+              placeholder: '请输入备注'
             }
           }
 

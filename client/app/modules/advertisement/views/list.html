@@ -16,7 +16,7 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">广播警示柱名称：</label>
+                <label for="exampleInputName2">广播警示柱名称:</label>
                 <input type="text" ng-model="searchConditions.name" class="form-control" id="exampleInputName2" placeholder="警示柱名称">
             </div>
 
@@ -83,8 +83,8 @@
                 <td data-title="'电话'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.contactNumber}}</span>
                 </td>
-                <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
-                    <span ng-switch-default>{{item.affiliatedinstitution}}</span>
+                <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="affiliatedInstitution">
+                    <span ng-switch-default>{{item.affiliatedInstitution}}</span>
                 </td>
                 <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
                     <span ng-switch-default>{{item.remark}}</span>

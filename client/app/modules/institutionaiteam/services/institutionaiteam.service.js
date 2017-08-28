@@ -84,7 +84,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '机构名:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入机构名"
                         }
                     },
                     {
@@ -92,7 +93,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入地址"
                         }
                     },
                     {
@@ -100,22 +102,35 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入负责人"
                         }
                     }, {
                         key: 'admimdepartment',
                         type: 'input',
                         templateOptions: {
                             label: '管理部门:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入管理部门"
                         }
                     }, {
                         key: 'contactnumber',
                         type: 'input',
                         templateOptions: {
                             label: '联系电话:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入联系电话"
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
+
                     }, {
                         key: 'affiliatedinstitution',
                         type: 'select',
@@ -137,7 +152,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注:',
-                            required: false
+                            required: false,
+                            placeholder: "请输入备注"
                         }
                     }
                 ];

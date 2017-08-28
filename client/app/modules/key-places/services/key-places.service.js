@@ -6,11 +6,15 @@
 
             this.findById = function(id) {
                 console.log(id);
-                return KeyPlace.findById(id).$promise;
+                console.log("对象-----", JSON.stringify(KeyPlace.findById(id).$promise));
+                // return KeyPlace.findById(id).$promise;
+                return KeyPlace.findById({
+                    id: id
+                }).$promise;
             };
-            this.upsert = function(bridge) {
-
-                return KeyPlace.upsert(bridge).$promise
+            this.upsert = function(keyPlace) {
+                console.log("-----------------");
+                return KeyPlace.upsert(keyPlace).$promise
                     .then(function() {
                         CoreService.toastSuccess(
                             gettextCatalog.getString('Setting saved'),
@@ -54,8 +58,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '名称',
-                            required: true,
-                            minlength: 6
+                            required: true
                         }
                     },
                     {
@@ -96,7 +99,7 @@
                                     var value = modelValue || viewValue;
                                     return /^([0-9]|[-])+$/g.test(value);
                                 },
-                                message: '$viewValue + " 不是正确的电话格式"'
+                                message: '$viewValue + " is not a valid IP Address"'
                             }
                         }
                     },

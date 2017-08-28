@@ -21,7 +21,7 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">隧道名称：</label>
+                <label for="exampleInputName2">隧道名称:</label>
                 <input type="text" ng-model="searchConditions.tunnelname" class="form-control" id="exampleInputName2" placeholder="隧道名称">
             </div>
 
@@ -44,7 +44,7 @@
             <td data-title="''" class="text-center">
                 <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
             </td>
-            <td data-title="'名称'" ng-switch="row.rename" ng-form="tunnelname">
+            <td data-title="'隧道名称'" ng-switch="row.rename" ng-form="tunnelname">
              <a href="" ui-sref="^.view({id: row.id})">
                 <strong ng-switch-default>{{row.tunnelname}}</strong>
             </a>
@@ -81,6 +81,15 @@
             </td>
             <td data-title="'所属机构'" ng-switch="row.titleEdit" ng-form="affiliatedinstitution">
                 <span ng-switch-default>{{row.affiliatedinstitution}}</span>
+            </td>
+             <td data-title="'经度'" ng-switch="row.titleEdit" ng-form="lng">
+                <span ng-switch-default>{{row.lng}}</span>
+            </td>
+             <td data-title="'纬度'" ng-switch="row.titleEdit" ng-form="lat">
+                <span ng-switch-default>{{row.lat}}</span>
+            </td>
+             <td data-title="'说明'" ng-switch="row.titleEdit" ng-form="explain">
+                <span ng-switch-default>{{row.explain}}</span>
             </td>
             <td data-title="'备注'" ng-switch="row.titleEdit" ng-form="remark">
                 <span ng-switch-default>{{row.remark}}</span>

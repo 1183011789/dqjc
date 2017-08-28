@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('StationService', function($state, CoreService, Station, gettextCatalog) {
+        .service('StationService', function($state, CoreService,AffiliatedInstitution,StationNature,Administration, Station,StationRank, gettextCatalog) {
 
             this.find = function() {
                 return Station.find().$promise;
@@ -59,31 +59,58 @@
                         type: 'input',
                         templateOptions: {
                             label: '车站名称',
-                            required: true
+                            required: true,
+                            placeholder: '请输入车站名称'
                         }
                     },
                     {
-                        key: 'StationRank',
-                        type: 'input',
+                        key: 'Rank',
+                        type: 'select',
                         templateOptions: {
-                            label: '车站等级',
-                            required: true
+                        label: '车站等级',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "Rank"
+                        },
+                        controller: function($scope, StationRank) {
+                            StationRank.find().$promise.then(function(value) {
+                            console.log("车站等级--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
-                        key: 'StationNature',
-                        type: 'input',
+                        key: 'naturen',
+                        type: 'select',
                         templateOptions: {
-                            label: '车站性质',
-                            required: true
+                        label: '车站性质',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "naturen"
+                        },
+                        controller: function($scope, StationNature) {
+                            StationNature.find().$promise.then(function(value) {
+                            console.log("车站性质--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'Highspeed_rail_station',
                         type: 'input',
                         templateOptions: {
-                            label: '是否高铁站',
-                            required: true
+                            label: '是否有高铁站',
+                            required: true,
+                            placeholder: '请选择是否',
+                            options: [
+                                { name: '是', value: '1' },
+                                { name: '否', value: '0' },
+                            ],
+
                         }
                     },
                     {
@@ -91,23 +118,35 @@
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入中心里程'
                         }
                     },
                     {
-                        key: 'Railway_Administration',
-                        type: 'input',
+                        key: 'administration',
+                        type: 'select',
                         templateOptions: {
-                            label: '隶属铁路局',
-                            required: true
+                        label: '隶属铁路局',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "administration"
+                        },
+                        controller: function($scope, Administration) {
+                            Administration.find().$promise.then(function(value) {
+                            console.log("隶属铁路局--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'Address',
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -115,7 +154,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所',
-                            required: true
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
                         }
                     },
                     {
@@ -123,7 +163,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     },
                     {
@@ -131,7 +172,17 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话'
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     },
                     {
@@ -139,7 +190,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },
                     {
@@ -147,24 +199,36 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     },
                     {
-                        key: 'AffiliatedInstitution',
-                        type: 'input',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构',
-                            required: true
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
 
                     {
                         key: 'length',
                         type: 'input',
                         templateOptions: {
                             label: '长度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入长度'
                         }
                     },
                     {
@@ -172,7 +236,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true
+                            required: false,
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

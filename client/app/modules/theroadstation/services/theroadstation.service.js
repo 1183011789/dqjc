@@ -103,7 +103,7 @@
                             required: true,
                             options: [],
                             valueProp: "id",
-                            labelProp: "serviceMode"
+                            labelProp: "serviceMode",
                         },
                         controller: function($scope, ServiceMode) {
                             ServiceMode.find().$promise.then(function(value) {
@@ -118,7 +118,7 @@
                         templateOptions: {
                             label: '巡视范围:',
                             required: true,
-                            placeholder: '巡视范围'
+                            placeholder: '请输入巡视范围'
                         }
                     },
                     {
@@ -127,7 +127,7 @@
                         templateOptions: {
                             label: '守护目标:',
                             required: true,
-                            placeholder: '守护目标'
+                            placeholder: '请输入守护目标'
                         }
                     }, {
                         key: 'fireBrigade',
@@ -135,7 +135,7 @@
                         templateOptions: {
                             label: '隶属巡防队伍:',
                             required: true,
-                            placeholder: '隶属巡防队伍'
+                            placeholder: '请输入隶属巡防队伍'
                         }
                     }, 
                     {
@@ -146,7 +146,7 @@
                             required: true,
                             options: [],
                             valueProp: "id",
-                            labelProp: "affiliatedInstitution"
+                            labelProp: "affiliatedInstitution",
                         },
                         controller: function($scope, AffiliatedInstitution) {
                             AffiliatedInstitution.find().$promise.then(function(value) {
@@ -160,7 +160,7 @@
                         templateOptions: {
                             label: '经度:',
                             required: false,
-                            placeholder: '经度'
+                            placeholder: '请输入经度'
                         }
                     }, {
                         key: 'lat',
@@ -168,7 +168,7 @@
                         templateOptions: {
                             label: '纬度:',
                             required: false,
-                            placeholder: '纬度'
+                            placeholder: '请输入纬度'
                         }
                     }, {
                         key: 'remark',
@@ -176,7 +176,7 @@
                         templateOptions: {
                             label: '备注:',
                             required: false,
-                            placeholder: '备注'
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

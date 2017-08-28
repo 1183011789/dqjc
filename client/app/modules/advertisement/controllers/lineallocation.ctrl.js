@@ -18,7 +18,7 @@
             $scope.findeAllRode = function() {
                 Rode.find({}).$promise.then(function(value) {
                     $scope.rodes = value;
-                    console.log("铁路信息---", JSON.stringify(value));
+                    // console.log("铁路信息---", JSON.stringify(value));
                 });
             }
             $scope.findeAllRode();
@@ -26,79 +26,122 @@
             $scope.selectedRodes = new Set();
             $scope.selectedRodeCommits = new Set();
             $scope.selectedRodeCommitsArray = [];
+            $scope.deleteIds = [];
+            //点击rode
             $scope.addEditItem = function(item) {
+                // if ($scope.RodesArray) {
+                //     CoreService.alertWarning('提示', '还没选中信息列表');
+                //     return;
+                // }
                 // 将需要删除的item加入selectedRodes
                 console.log("item--", JSON.stringify(item));
                 if (item.checked) {
-                    if ($scope.RodesArray.length) {
-
-                        console.log("有关联的铁路-id--", JSON.stringify($scope.RodesArray));
-                        //对比
-                        for (var i = 0; i < $scope.RodesArray.length; i++) {
-                            if ($scope.RodesArray[i].id === item.id) {
-
-                            } else {
-                                $scope.selectedRodeCommits.add(item.id);
-                                $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
-                            }
-                        }
-
-                    } else {
-                        $scope.selectedRodeCommits.add(item.id);
-                        $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
-                    }
-
-                    // $scope.selectedRodes.add(item.id)
-                    // $scope.RodesArray = Array.from($scope.selectedRodes);
-                    // console.log("selectedRodes-1-", JSON.stringify($scope.selectedRodes));
+                    $scope.selectedRodeCommits.add(item.id);
+                    $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
                     console.log("修改后的铁路 --id-", JSON.stringify($scope.selectedRodeCommitsArray));
                     console.log("size-1--", JSON.stringify($scope.selectedRodeCommits.size));
-                } else {
-                    console.log("删除------------");
-
-                    // $scope.selectedRodes.delete(item.id)
-                    // $scope.RodesArray = Array.from($scope.selectedRodes);
-                    // console.log("selectedRodes-2-", JSON.stringify($scope.selectedRodes));
-                    // console.log("array-2-", JSON.stringify($scope.RodesArray));
-                    // console.log("size-2--", JSON.stringify($scope.selectedRodes.size));
-                    for (var k = 0; k < $scope.RodesArray.length; k++) {
-                        //撤销的是原有的id 
-                        if ($scope.RodesArray[k] === item.id) {
-                            //加个标记 判断撤销的时候的  数据不变
-                            $scope.cancelSign = true;
-                            console.log("加个标记----");
-                            console.log("id------", item.id);
-                            $scope.selectedRodeCommits.add(item.id);
-                            $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits); // = [item.id];
-                            console.log("添加无用的ID--1----", JSON.stringify($scope.selectedRodeCommitsArray));
-                        } else {
-                            //  不是初始化的  直接删除id
-                            // $scope.selectedRodeCommits.delete(item.id)
-                            // $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommitsArray);
-                        }
-                        console.log("添加无用的ID--2----", JSON.stringify($scope.selectedRodeCommitsArray));
-
+                    //实时保存添加的关联的铁路
+                    var objs = {
+                        rodeId: $scope.selectedRodeCommitsArray[0],
+                        broadcastWarningPostId: $scope.warningPostsArray[0]
                     }
+                    RodeContain.create(objs, function(result) {
+                        console.log("更新成功----", JSON.stringify(result));
+                        CoreService.toastSuccess(
+                            '分配成功!'
+                        );
+                        // $scope.selectedWarningposts.clear();
+                        $scope.selectedRodeCommits.clear();
+                        $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
+                        console.log("提交后的铁路数组id-", JSON.stringify($scope.selectedRodeCommitsArray));
+                        console.log("结果----", JSON.stringify(result));
+                        console.log("广播警示柱id----", JSON.stringify($scope.warningPostsArray[0]));
+                        RodeContain.find({
+                            filter: {
+                                include: [
+                                    "rode"
+                                ],
+                                where: {
+                                    broadcastWarningPostId: $scope.warningPostsArray[0],
+                                }
+                            }
+                        }, function(res) {
+                            //查出当前选择的关系数据
+                            console.log("关系数据所有的--", JSON.stringify(res));
+                            $scope.allRodeContians = res;
+                        }, function() {
 
-
-
+                        })
+                    }, function(err) {
+                        CoreService.toastError(
+                            '提示',
+                            '分配失败，请您重新分配' + err
+                        );
+                        console.log("错误--", JSON.stringify(err));
+                    });
+                } else {
+                    console.log("实时删除------------", item.id);
+                    // 直接删除id
+                    for (var i = 0; i < $scope.allRodeContians.length; i++) {
+                        if ($scope.allRodeContians[i].rode.id === item.id) {
+                            $scope.deleteIds.push($scope.allRodeContians[i].id);
+                        }
+                    }
+                    $scope.deleteArry = new Array();
+                    for (var j in $scope.deleteIds) {
+                        //该元素在tmp内部不存在才允许追加
+                        if ($scope.deleteArry.indexOf($scope.deleteIds[j]) == -1) {
+                            $scope.deleteArry.push($scope.deleteIds[j]);
+                        }
+                    }
+                    console.log("所有要删除的-id---", JSON.stringify($scope.deleteArry));
+                    deleteload(0);
                 }
             };
+            $scope.clickRodeRow = function(rode) {
+                    console.log("选中铁路---");
+                    if (rode.checked) {
+                        rode.checked = false;
+                        $scope.addEditItem(rode);
+                    } else {
+                        rode.checked = true;
+                        $scope.addEditItem(rode);
+                    }
+                }
+                //最后删除
+            function deleteload(index) {
+                RodeContain.delete({
+                        id: $scope.deleteArry[index]
+                    },
+                    function(result) {
+                        if (index === $scope.deleteArry.length - 1) {
+                            console.log('最后提交------成功---');
+                            CoreService.toastSuccess(
+                                '取消成功!'
+                            );
+                            // $scope.deleteArry = [];
+                        } else {
+                            deleteload(index + 1);
+                        }
+                        console.log("结果----", JSON.stringify(result));
+                    },
+                    function(err) {
+                        console.log("错误--", JSON.stringify(err));
+                        CoreService.toastError(
+                            '提示',
+                            '取消失败，请您重新操作' + err
+                        );
+                    });
+            }
 
             //选择广播警示住的时候 
+            $scope.RodesArray = [];
             $scope.selectedWarningposts = new Set();
             $scope.selectRow = function(warningpost) {
-
-                    // if ($scope.biaoji) {
-                    //     console.log("分配----", warningpost.id);
-                    //     $scope.biaoji = false;
-                    // } 
-                    // else {
                     console.log("查看------");
                     $scope.findeAllRode();
                     console.log("id-1----", warningpost.id);
                     // $scope.warning = warningpost.id;
-
                     RodeContain.find({
                         filter: {
                             include: [
@@ -109,7 +152,7 @@
                             }
                         }
                     }, function(result) {
-                        // console.log("result--", JSON.stringify(result));
+                        $scope.allRodeContians = result;
                         //每次检索的时候清空 选择的铁路id 重新刷新
                         $scope.selectedRodes.clear();
                         var selRode = result;
@@ -124,25 +167,18 @@
                                     $scope.selectedRodes.add(rode.id)
                                 }
                             }
-
                         }
-
+                        // console.log("查出的关系表里的数据和铁路关系--", JSON.stringify(result));
                         $scope.RodesArray = Array.from($scope.selectedRodes);
                         console.log("添加关系的数组-1-", JSON.stringify($scope.RodesArray));
                         console.log('scope.rodes---', JSON.stringify($scope.selectedRodes.size));
-
-
                     }, function(err) {
                         console.log("出错了--", JSON.stringify(err));
                     });
-
-
-                    // }
                 }
-                //select 
+                //select 某项
+            $scope.hindenOrshow = true;
             $scope.selectwarningpost = function(warningpost) {
-                    $scope.biaoji = true;
-
                     console.log("广播警示柱---", JSON.stringify(warningpost));
                     if (warningpost.checked) {
                         $scope.selectedWarningposts.add(warningpost.id)
@@ -160,112 +196,50 @@
                         $scope.hindenOrshow = true;
                         // $scope.findeAllRode();
                         $scope.warningPostsArray = Array.from($scope.selectedWarningposts);
-                        console.log("selectedWarningposts-1-", JSON.stringify($scope.selectedWarningposts));
-                        console.log("array-1-", JSON.stringify($scope.warningPostsArray));
-                        console.log("size-1--", JSON.stringify($scope.selectedWarningposts.size));
                     } else {
                         $scope.hindenOrshow = false;
                         $scope.selectedWarningposts.delete(warningpost.id)
                         $scope.findeAllRode();
                         $scope.warningPostsArray = Array.from($scope.selectedWarningposts);
-                        console.log("selectedWarningposts-2-", JSON.stringify($scope.selectedWarningposts));
-                        console.log("array-2-", JSON.stringify($scope.warningPostsArray));
-                        console.log("size-2--", JSON.stringify($scope.selectedWarningposts.size));
                     }
                 }
-                //撤销
-            $scope.selectCancel = function() {
-                console.log("撤销-----");
-                if ($scope.cancelSign) {
-                    console.log("原有的铁路-----", JSON.stringify($scope.rodes));
-                    for (var i = 0; i < $scope.rodes.length; i++) {
-                        for (var j = 0; j < $scope.selectedRodeCommitsArray.length; j++) {
-                            if ($scope.rodes[i].id === $scope.selectedRodeCommitsArray[j]) {
-                                $scope.rodes[i].checked = true;
-                                $scope.selectedRodeCommits.delete($scope.selectedRodeCommitsArray[j]);
-                                $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits)
+                //选择信息某项
+            $scope.selectRows = function(row) {
+                $scope.warning = row.id;
+                // if (row.checked) {
+                //     row.checked = false;
+                //     $scope.selectwarningpost(row);
+                // } else {
+                //     row.checked = true;
+                //     $scope.selectwarningpost(row);
+                // }
 
-                            }
+                if ($scope.hindenOrshow) {
+                    console.log("查看所有分配---");
+                    for (var j = 0; j < $scope.warningPosts.length; j++) {
+                        if ($scope.warningPosts[j].id === row.id) {
+                            $scope.selectedWarningposts.clear();
+                            $scope.selectedWarningposts.add($scope.warningPosts[j].id);
+                            $scope.warningPosts[j].checked = true
+                            $scope.rowobj = $scope.warningPosts[j];
+                            $scope.selectwarningpost($scope.rowobj);
+                            $scope.hindenOrshow = true;
+                            console.log("改变的对象-----", JSON.stringify($scope.rowobj));
+                        } else {
+                            $scope.warningPosts[j].checked = false;
+                            // $scope.selectedWarningposts.clear();
                         }
                     }
-                    $scope.selectedRodeCommits.clear();
-                    $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits)
-                    console.log("打印撤销初始化有的----");
-                    $scope.cancelSign = false;
                 } else {
-                    // $scope.selectedRodeCommitsArray 
-                    //$scope.rodes
-                    console.log('撤销前的铁路列表--', JSON.stringify($scope.rodes));
-                    for (var i = 0; i < $scope.rodes.length; i++) {
-                        for (var j = 0; j < $scope.selectedRodeCommitsArray.length; j++) {
-                            if ($scope.rodes[i].id === $scope.selectedRodeCommitsArray[j]) {
+                    console.log("取消查看所有分配---");
+                    // $scope.hindenOrshow = true;
 
-                                $scope.rodes[i].checked = false;
-                                $scope.selectedRodeCommits.delete($scope.selectedRodeCommitsArray[j]);
-                                $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits)
+                    $scope.selectedRodes.clear();
+                    $scope.RodesArray = Array.from($scope.selectedRodes);
+                    console.log("警示柱---id--" + JSON.stringify($scope.RodesArray));
 
-                            }
-                        }
-                    }
                 }
-                console.log('撤销前的铁路列表--', JSON.stringify($scope.selectedRodeCommitsArray));
-
             }
-
-
-
-
-
-            //最后保存
-            $scope.allows = [];
-            var objs = {};
-            $scope.preservationItem = function() {
-                    if (!$scope.selectedRodeCommitsArray || !$scope.warningPostsArray) {
-                        CoreService.alertWarning('提示', '还没选中');
-                        return;
-                    }
-                    for (var a = 0; a < $scope.selectedRodeCommitsArray.length; a++) {
-                        objs = {
-                            rodeId: $scope.selectedRodeCommitsArray[a],
-                            broadcastWarningPostId: $scope.warningPostsArray[0]
-                        }
-                        console.log("objs---", JSON.stringify(objs));
-                        $scope.allows.push(objs);
-                    }
-                    upload(0);
-                    console.log("$scope.allows----", JSON.stringify($scope.allows));
-                }
-                //提交
-            function upload(index) {
-                RodeContain.create($scope.allows[index], function(result) {
-                    if (index === $scope.allows.length - 1) {
-                        console.log("全部上传成功----");
-                        $scope.selectedWarningposts.clear();
-                        $scope.selectedRodeCommits.clear();
-                        console.log('最后提交---------');
-                        $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
-                        console.log("提交后的铁路数组id-", JSON.stringify($scope.selectedRodeCommitsArray));
-                        //隐藏铁路选择框
-                        $scope.hindenOrshow = false;
-                        for (var i = 0; i < $scope.rodes.length; i++) {
-                            $scope.rodes[i].checked = false;
-                        }
-                        for (var k = 0; k < $scope.warningPosts.length; k++) {
-                            $scope.warningPosts[k].checked = false;
-                        }
-                    } else {
-                        upload(index + 1);
-                    }
-                    console.log("结果----", JSON.stringify(result));
-                }, function(err) {
-                    console.log("错误--", JSON.stringify(err));
-                });
-            }
-
-
-
-
-
         });
 
 })();

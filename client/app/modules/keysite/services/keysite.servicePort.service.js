@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('ServicePortService', function($state, CoreService, ServicePort, gettextCatalog) {
+        .service('ServicePortService', function($state, CoreService, ServicePort,AffiliatedInstitution, gettextCatalog) {
 
             this.find = function() {
                 return ServicePort.find().$promise;
@@ -82,7 +82,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '检修口名称',
-                            required: true
+                            required: true,
+                            placeholder: '请输入检修口名称'
                         }
                     },
                     {
@@ -90,7 +91,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -98,7 +100,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     },
                     {
@@ -106,36 +109,59 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话'
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     },
-                    {
-                        key: 'affiliatedinstitution',
-                        type: 'input',
+                     {
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构',
-                            required: true
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },{
+                      }, {
                         key: 'localpolicestation',
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所',
-                            required: true
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
                         }
                     },{
                         key: 'admimdepartment',
                         type: 'input',
                         templateOptions: {
                             label: '管理部门',
-                            required: true
+                            required: true,
+                            placeholder: '请输入管理部门'
                         }
                     },{
                         key: 'centermileage',
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入中心里程'
                         }
                     },
                     {
@@ -143,7 +169,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },
                     {
@@ -151,7 +178,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度',
-                            required: true
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     },
                     {
@@ -159,7 +187,16 @@
                         type: 'input',
                         templateOptions: {
                             label: '说明',
-                            required: true
+                            required: false,
+                            placeholder: '请输入说明'
+                        }
+                    },{
+                        key: 'remark',
+                        type: 'input',
+                        templateOptions: {
+                            label: '备注',
+                            required: false,
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

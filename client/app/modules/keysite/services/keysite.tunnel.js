@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keysite')
-        .service('TunnelService', function($state, CoreService, Tunnel, gettextCatalog) {
+        .service('TunnelService', function($state, CoreService, Tunnel,Guardian,AffiliatedInstitution, Alignment,gettextCatalog) {
 
             this.findById = function(id) {
                 return Tunnel.findById({
@@ -78,7 +78,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '隧道名',
-                            required: true
+                            required: true,
+                            placeholder: '请输入隧道名'
                         }
                     },
                     {
@@ -86,7 +87,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '隧道编号',
-                            required: true
+                            required: true,
+                            placeholder: '请输入隧道编号'
                         }
                     },
                     {
@@ -94,23 +96,35 @@
                         type: 'input',
                         templateOptions: {
                             label: '长度',
-                            required: true
+                            required: true,
+                            placeholder: '请输入长度'
                         }
                     },
-                    {
-                        key: 'tunnelalignment',
-                        type: 'input',
+                   {
+                        key: 'alignment',
+                        type: 'select',
                         templateOptions: {
-                            label: '行别',
-                            required: true
+                        label: '行别',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "alignment"
+                        },
+                        controller: function($scope, Alignment) {
+                            Alignment.find().$promise.then(function(value) {
+                            console.log("行别--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'startendmileage',
                         type: 'input',
                         templateOptions: {
                             label: '起始里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输入起始里程'
                         }
                     },
                     {
@@ -118,23 +132,35 @@
                         type: 'input',
                         templateOptions: {
                             label: '中心里程',
-                            required: true
+                            required: true,
+                            placeholder: '请输中心里程'
                         }
                     },
                     {
-                        key: 'guardian',
-                        type: 'input',
+                        key: 'Guardian',
+                        type: 'select',
                         templateOptions: {
-                            label: '守护情况',
-                            required: true
+                        label: '守护情况',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "Guardian"
+                        },
+                        controller: function($scope, Guardian) {
+                            Guardian.find().$promise.then(function(value) {
+                            console.log("守护情况--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
                         }
-                    },
+                      }, 
                     {
                         key: 'address',
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: '请输入地址'
                         }
                     },
                     {
@@ -142,7 +168,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '所属地方派出所',
-                            required: true
+                            required: true,
+                            placeholder: '请输入所属地方派出所'
                         }
                     },
                     {
@@ -150,7 +177,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     },
                     {
@@ -158,23 +186,64 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话',
+                        },
+                         validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     },
                     {
-                        key: 'affiliatedinstitution',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
+                        templateOptions: {
+                        label: '所属机构',
+                        required: true,
+                        options: [],
+                        valueProp: "id",
+                        labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                            console.log("所属机构--", JSON.stringify(value));
+                            $scope.to.options = value;
+                            return value;
+                            });
+                        }
+                      },
+                    {
+                        key: 'lng',
                         type: 'input',
                         templateOptions: {
-                            label: '所属机构',
-                            required: true
+                            label: '经度',
+                            required: false
                         }
-                    },
-                    {
+                    },{
+                        key: 'lat',
+                        type: 'input',
+                        templateOptions: {
+                            label: '纬度',
+                            required: false
+                        }
+                    },{
+                        key: 'explain',
+                        type: 'input',
+                        templateOptions: {
+                            label: '说明',
+                            required: false
+                        }
+                    },{
                         key: 'remark',
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true
+                            required: false
                         }
                     }
                 ];

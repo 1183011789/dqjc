@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.securityequipment')
-        .service('SecurityEquipmentService', function($state, CoreService, Station, SecurityEquipmentInformation, gettextCatalog) {
+        .service('SecurityEquipmentService', function($state, CoreService, Station, AffiliatedInstitution,SecurityEquipmentInformation, gettextCatalog) {
             console.log("广播警示柱--1--");
             this.find = function(result) {
                 console.log("广播警示柱--2--");
@@ -90,7 +90,7 @@
                         templateOptions: {
                             label: '名称:',
                             required: true,
-                            placeholder: "名称"
+                            placeholder: "请输入名称"
                         }
                     },
                     {
@@ -99,10 +99,10 @@
                         templateOptions: {
                             label: '部位:',
                             required: true,
-                            placeholder: "部位"
+                            placeholder: "请输入部位"
                         }
                     }, {
-                        key: 'Station',
+                        key: 'StationName',
                         type: 'select',
                         templateOptions: {
                             label: '车站',
@@ -125,7 +125,7 @@
                         templateOptions: {
                             label: '其他:',
                             required: true,
-                            placeholder: "其他"
+                            placeholder: "请输入其他"
                         }
                     }, {
                         key: 'Number',
@@ -133,7 +133,7 @@
                         templateOptions: {
                             label: '数量:',
                             required: true,
-                            placeholder: "数量"
+                            placeholder: "请输入数量"
                         }
                     }, {
                         key: 'SiteOfUse',
@@ -141,7 +141,7 @@
                         templateOptions: {
                             label: '使用地点:',
                             required: true,
-                            placeholder: "使用站点"
+                            placeholder: "请输入使用站点"
                         }
                     }, {
                         key: 'LocalPoliceStation',
@@ -149,7 +149,7 @@
                         templateOptions: {
                             label: '所属地方派出所:',
                             required: true,
-                            placeholder: "所属地方派出所"
+                            placeholder: "请输入所属地方派出所"
                         }
                     }, {
                         key: 'AdministrativeDepartment',
@@ -157,7 +157,7 @@
                         templateOptions: {
                             label: '管理部门:',
                             required: true,
-                            placeholder: "管理部门"
+                            placeholder: "请输入管理部门"
                         }
                     }, {
                         key: 'PersonCharge',
@@ -165,7 +165,7 @@
                         templateOptions: {
                             label: '负责人:',
                             required: true,
-                            placeholder: "负责人"
+                            placeholder: "请输入负责人"
                         }
                     }, {
                         key: 'ContactNumber',
@@ -173,10 +173,20 @@
                         templateOptions: {
                             label: '联系电话:',
                             required: true,
-                            placeholder: "联系电话"
+                            placeholder: "请输入联系电话"
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
+
                     }, {
-                        key: 'AffiliatedInstitution',
+                        key: 'affiliatedInstitution',
                         type: 'select',
                         templateOptions: {
                             label: '所属机构',
@@ -198,7 +208,7 @@
                         templateOptions: {
                             label: '经度:',
                             required: false,
-                            placeholder: "经度"
+                            placeholder: "请输入经度"
                         }
                     }, {
                         key: 'lat',
@@ -206,7 +216,7 @@
                         templateOptions: {
                             label: '纬度:',
                             required: false,
-                            placeholder: "纬度"
+                            placeholder: "请输入纬度"
 
                         }
                     }, {
@@ -215,7 +225,7 @@
                         templateOptions: {
                             label: '说明:',
                             required: false,
-                            placeholder: "说明"
+                            placeholder: "请输入说明"
 
                         }
                     }, {
@@ -224,7 +234,7 @@
                         templateOptions: {
                             label: '备注:',
                             required: false,
-                            placeholder: "备注"
+                            placeholder: "请输入备注"
                         }
                     }
                 ];

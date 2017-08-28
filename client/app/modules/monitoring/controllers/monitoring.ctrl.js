@@ -34,11 +34,7 @@
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    
 
                     Monitoring.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
@@ -62,7 +58,7 @@
             // 查询条件
             $scope.searchConditions = {
                 DeviceName: "",
-                AdministrativeDepartment: ""
+                
             };
 
             $scope.startSearch = function() {
@@ -71,7 +67,7 @@
                 // console.log(  $scope.tableParams.filter($scope.searchConditions) );
                 $scope.tableParams.filter({
                     DeviceName: $scope.searchConditions.DeviceName,
-                    AdministrativeDepartment: $scope.searchConditions.AdministrativeDepartment
+                    
                 });
             };
             //查出所属机构

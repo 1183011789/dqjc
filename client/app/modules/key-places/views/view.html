@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.keyPlace.name}}
+        <small>{{ctrl.keyPlace.address}}</small>
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.keyPlace.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.keyPlace.id})">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </span>
+    </div>
+    <div class="panel-body">
+        <!-- <pre>{{ctrl.fenceinfo | json}}</pre> -->
+
+        <p>名称：{{ctrl.keyPlace.name}}</p>
+        <p>长度：{{ctrl.fenceinfo.length}}</p>
+        <p>刺死滚笼长度：{{ctrl.fenceinfo.LengthOfRollingCage}}</p>
+        <p>材质：{{ctrl.fenceinfo.TextureOfMaterial}}</p>
+        <p>高度：{{ctrl.fenceinfo.Height}}</p>
+        <p>路基段：{{ctrl.fenceinfo.SubgradeSection}}</p>
+        <p>线路段设计时速：{{ctrl.fenceinfo.LineSpeedPerHour}}</p>
+        <p>公里标：{{ctrl.fenceinfo.KilometerMark}}</p>
+        <p>工作门使用单位：{{ctrl.fenceinfo.WorkGateUseUnit}}</p>
+        <p>行别：{{ctrl.fenceinfo.DoOther}}</p>
+        <p>地址：{{ctrl.fenceinfo.Address}}</p>
+        <p>所属地方派出所：{{ctrl.fenceinfo.LocalPoliceStation}}</p>
+        <p>管理部门：{{ctrl.fenceinfo.AdministrativeDepartment}}</p>
+        <p>负责人：{{ctrl.fenceinfo.PersonCharge}}</p>
+        <p>联系电话：{{ctrl.fenceinfo.ContactNumber}}</p>
+        <p>所属机构：{{ctrl.fenceinfo.AffiliatedInstitution}}</p>
+    </div>
+</div>

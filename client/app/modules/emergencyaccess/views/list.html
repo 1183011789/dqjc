@@ -43,7 +43,9 @@
                 </td>
 
                 <td data-title="'名称'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
-                    <span> {{item.Name}}</span>
+                    <a href="" ui-sref="^.view({id: item.id})">
+                        <strong ng-switch-default>{{item.Name}}</strong>
+                    </a>
                     <!-- <span ng-if="item.gender===false">女{{item.address}}</span> -->
                     <!-- <p ng-if="ctrl.keypersion.gender===true">性别：男</p>
                                     <p ng-if="ctrl.keypersion.gender===false">性别：女</p> -->
@@ -76,13 +78,16 @@
                 </td>
 
                 <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
-                    <span ng-switch-default>{{item.AffiliatedInstitution}}</span>
+                    <span ng-switch-default>{{item.affiliatedInstitution}}</span>
                 </td>
                 <td data-title="'经度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
                     <span ng-switch-default>{{item.lng}}</span>
                 </td>
                 <td data-title="'纬度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
                     <span ng-switch-default>{{item.lat}}</span>
+                </td>
+                <td data-title="'说明'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
+                    <span ng-switch-default>{{item.explain}}</span>
                 </td>
                 <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
                     <span ng-switch-default>{{item.remark}}</span>

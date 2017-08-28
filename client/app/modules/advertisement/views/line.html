@@ -7,15 +7,6 @@
     <div class="panel-body">
         <div class="panel-heading">
             <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
-                        <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="preservationItem()">
-                          保存
-                        </a>
-                        <!-- <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="preservationItem()">
-                            修改
-                          </a> -->
-                          <a href="" ng-show="selectedRodeCommitsArray.length>0" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="selectCancel()">
-                            撤销
-                          </a>
                       </span>
             <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> 线路分配情况
             <small>{{ctrl.advertisement.address}}</small>
@@ -26,7 +17,7 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <h4 class="box-title" style="width: 100%">
-                            广播警示柱
+                            信息列表
                         </h4>
                     </div>
                     <div class="box-body list-group">
@@ -35,24 +26,10 @@
                         <div class="list-group-item list-group" style="background: #eeeeff">
                             <div ng-repeat="warningpost in warningPosts" class="list-group-item" style="{{warning===warningpost.id ? 'background: #6cf':''}}" ng-click="selectRows(warningpost)">
                                 <div class="pull-right btn-group">
-                                    <!-- <a ng-click="doAllot(warningpost.id" style="{{allots===warningpost.id ? 'background: #6cf':''}};float:right;" class="btn btn-xs btn-default">
-                                        <i class="fa fa-th-list"></i> 分配
-                                    </a> -->
-                                    <input type="checkbox" ng-value="{{warningpost.id}}" ng-change="selectwarningpost(warningpost)" class="checkbox-lg" ng-model="warningpost.checked">
-
-                                    <a ng-click="selectwarningpost(warningpost.id, role);stop($event)" class="btn btn-xs btn-warning" ng-if="status.showing == 'allot' && current.accountId == warningpost.id">
-                                        <i class="fa fa-backward"></i> 撤销
-                                    </a>
-                                    <a ng-click="saveAllot();stop($event)" class="btn btn-xs btn-success" ng-if="status.showing == 'allot' && current.accountId == warningpost.id">
-                                        <i class="fa fa-check"></i> 保存
-                                    </a>
+                                    <input style="background:purple;" type="checkbox" ng-value="{{warningpost.id}}" ng-change="selectwarningpost(warningpost)" class="checkbox-lg" ng-model="warningpost.checked">
                                 </div>
                                 <div>
                                     {{$index+1}}. {{warningpost.name}}---{{warningpost.address}}
-
-                                    <!-- <a style="float:right;" ng-click="doAllot(warningpost.id, role);stop($event)" class="btn btn-xs btn-default">
-                                        <i class="fa fa-th-list"></i> 分配
-                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -72,7 +49,7 @@
                         <div class="list-group-item" ng-repeat-end>
                             <div class="list-group">
                                 <div class="list-group-item" ng-repeat="rode in rodes">
-                                    <div ng-click="addEditItem(rode)">
+                                    <div ng-click="clickRodeRow(rode)">
                                         <i class="fa fa-fw "></i>
                                         <input ng-show="hindenOrshow===true" type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
                                         <label>
@@ -87,7 +64,6 @@
                     </div>
                 </div>
             </div>
-
 
 
         </div>

@@ -123,12 +123,15 @@
                         templateOptions: {
                             label: '状态',
                             required: true,
-                            placeholder: '请选择状态',
-                            options: [
-                                { name: '可用', value: '1' },
-                                { name: '不可用', value: '0' },
-                            ],
-
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "state"
+                        },
+                        controller: function($scope, State) {
+                            State.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     },
                     {
@@ -136,7 +139,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '语音播报:',
-                            required: false,
+                            required: true,
                             placeholder: '请输入语音播报'
                         }
                     }, {
@@ -144,40 +147,59 @@
                         type: 'input',
                         templateOptions: {
                             label: '单点广播:',
-                            required: false,
-                            placeholder: '单点广播'
+                            required: true,
+                            placeholder: '请输入单点广播'
                         }
                     }, {
                         key: 'cameraid',
                         type: 'input',
                         templateOptions: {
                             label: '摄像头id:',
-                            required: false,
-                            placeholder: '摄像头id'
+                            required: true,
+                            placeholder: '请输入摄像头id'
                         }
                     }, {
                         key: 'personCharge',
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
-                            required: false,
-                            placeholder: '负责人'
+                            required: true,
+                            placeholder: '请输入负责人'
                         }
                     }, {
                         key: 'contactNumber',
                         type: 'input',
                         templateOptions: {
                             label: '电话:',
-                            required: false,
-                            placeholder: '电话'
+                            required: true,
+                            placeholder: '请输入电话'
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
+
+
                     }, {
-                        key: 'affiliatedinstitution',
-                        type: 'input',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
-                            label: '所属机构:',
-                            required: false,
-                            placeholder: '所属机构'
+                            label: '所属机构',
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     }, {
                         key: 'remark',
@@ -185,7 +207,7 @@
                         templateOptions: {
                             label: '备注:',
                             required: false,
-                            placeholder: '备注'
+                            placeholder: '请输入备注'
                         }
                     }
                 ];

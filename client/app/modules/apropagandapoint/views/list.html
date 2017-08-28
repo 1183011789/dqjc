@@ -4,7 +4,7 @@
         <span ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
             <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
               <a href="" class="btn btn-xs btn-success" ng-click="editItem()">
-                  <i class="fa fa-edit"> 编辑 </i>
+                  编辑
               </a>
               <a href="" class="btn btn-xs btn-danger" ng-click="deleteItems()">
                   <i class="fa fa-delete"> 删除 </i>
@@ -18,7 +18,7 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">名称：</label>
+                <label for="exampleInputName2">护路宣传点位名称:</label>
                 <input type="text" ng-model="searchConditions.name" class="form-control" id="exampleInputName2" placeholder="护路宣传点名称">
             </div>
             <button type="submit" class="btn btn-default" ng-click="startSearch()"><i class="fa fa-search"> 查询 </i></button>
@@ -51,7 +51,15 @@
             <td data-title="'编号'" ng-switch="item.number" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="number" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.number}}</span>
             </td>
-
+             <td data-title="'负责人'" ng-switch="item.personCharge" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="personCharge" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.personCharge}}</span>
+            </td>
+             <td data-title="'联系电话'" ng-switch="item.contactNumber" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="contactNumber" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.contactNumber}}</span>
+            </td>
+             <td data-title="'所属机构'" ng-switch="item.affiliatedinstitution" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="affiliatedinstitution" class="text-center" style="vertical-align:middle">
+                <span ng-switch-default>{{item.affiliatedinstitution}}</span>
+            </td>
             <td data-title="'备注'" ng-switch="item.remark" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="remark" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.remark}}</span>
             </td>

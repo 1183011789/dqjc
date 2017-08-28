@@ -21,8 +21,8 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">桥梁名：</label>
-                <input type="text" ng-model="searchConditions.bridgename" class="form-control" id="exampleInputName2" placeholder="桥梁名">
+                <label for="exampleInputName2">桥梁名称:</label>
+                <input type="text" ng-model="searchConditions.bridgename" class="form-control" id="exampleInputName2" placeholder="桥梁名称">
             </div>
 
             <!-- <div class="form-group">
@@ -44,22 +44,22 @@
             <td data-title="''" class="text-center">
                 <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
             </td>
-            <td data-title="'编号'" class="text-center" ng-switch="row.rename" ng-form="brdgenumber">
+            <td data-title="'桥梁编号'" class="text-center" ng-switch="row.rename" ng-form="brdgenumber">
                 <strong ng-switch-default>{{row.brdgenumber}}</strong>
             </td>
-            <td data-title="'名称'" class="text-center" ng-switch="row.titleEdit" ng-form="bridgename">
+            <td data-title="'桥梁名称'" class="text-center" ng-switch="row.titleEdit" ng-form="bridgename">
                 <!-- <span ng-switch-default>{{row.bridgename}}</span> -->
                 <a href="" ui-sref="^.view({id: row.id})">
                     <strong ng-switch-default>{{row.bridgename}}</strong>
                 </a>
             </td>
-            <td data-title="'桥类'" class="text-center" ng-switch="row.rename" ng-form="bridgeclass">
+            <td data-title="'桥梁类别'" class="text-center" ng-switch="row.rename" ng-form="bridgeclass">
                 <strong ng-switch-default>{{row.bridgeclass}}</strong>
             </td>
-            <td data-title="'结构'" class="text-center" ng-switch="row.titleEdit" ng-form="bridgestructure">
+            <td data-title="'桥梁结构'" class="text-center" ng-switch="row.titleEdit" ng-form="bridgestructure">
                 <span ng-switch-default>{{row.bridgestructure}}</span>
             </td>
-            <td data-title="'材质'" class="text-center" ng-switch="row.rename" ng-form="bridgematerial">
+            <td data-title="'桥梁材质'" class="text-center" ng-switch="row.rename" ng-form="bridgematerial">
                 <strong ng-switch-default>{{row.bridgematerial}}</strong>
             </td>
             <td data-title="'长度'" class="text-center" ng-switch="row.titleEdit" ng-form="brgdgelength">
@@ -70,6 +70,60 @@
             </td>
             <td data-title="'行别'" class="text-center" ng-switch="row.titleEdit" ng-form="bridgealignment">
                 <span ng-switch-default>{{row.bridgealignment}}</span>
+            </td>
+            <td data-title="'起始里程'" class="text-center" ng-switch="row.titleEdit" ng-form="startendmileage">
+                <span ng-switch-default>{{row.startendmileage}}</span>
+            </td>
+            <td data-title="'中心里程'" class="text-center" ng-switch="row.titleEdit" ng-form="centermileage">
+                <span ng-switch-default>{{row.centermileage}}</span>
+            </td>
+            <td data-title="'是否公路铁路一起用'" class="text-center" ng-switch="row.titleEdit" ng-form="railwayhighwaypublic">
+                <span ng-switch-default>{{ row.railwayhighwaypublic ? '是' : '否' }}</span>
+            </td>
+            <td data-title="'跨越公路'" class="text-center" ng-switch="row.titleEdit" ng-form="crosshighway">
+                <span ng-switch-default>{{row.crosshighway}}</span>
+            </td>
+            <td data-title="'跨越水系'" class="text-center" ng-switch="row.titleEdit" ng-form="crosswatersystem">
+                <span ng-switch-default>{{row.crosswatersystem}}</span>
+            </td>
+            <td data-title="'跨越山涧'" class="text-center" ng-switch="row.titleEdit" ng-form="crossbrooks">
+                <span ng-switch-default>{{row.crossbrooks}}</span>
+            </td>
+            <td data-title="'跨越其他'" class="text-center" ng-switch="row.titleEdit" ng-form="crossother">
+                <span ng-switch-default>{{row.crossother}}</span>
+            </td>
+            <td data-title="'守护情况'" class="text-center" ng-switch="row.titleEdit" ng-form="guardian">
+                <span ng-switch-default>{{row.guardian}}</span>
+            </td>
+            <td data-title="'地址'" class="text-center" ng-switch="row.titleEdit" ng-form="address">
+                <span ng-switch-default>{{row.address}}</span>
+            </td>
+            <td data-title="'所属地方派出所'" class="text-center" ng-switch="row.titleEdit" ng-form="localpolicestation">
+                <span ng-switch-default>{{row.localpolicestation}}</span>
+            </td>
+            <td data-title="'管理部门'" class="text-center" ng-switch="row.titleEdit" ng-form="admimdepartment">
+                <span ng-switch-default>{{row.admimdepartment}}</span>
+            </td>
+            <td data-title="'负责人'" class="text-center" ng-switch="row.titleEdit" ng-form="personincharge">
+                <span ng-switch-default>{{row.personincharge}}</span>
+            </td>
+            <td data-title="'联系电话'" class="text-center" ng-switch="row.titleEdit" ng-form="contactnumber">
+                <span ng-switch-default>{{row.contactnumber}}</span>
+            </td>
+            <td data-title="'所属机构'" class="text-center" ng-switch="row.titleEdit" ng-form="affiliatedinstitution">
+                <span ng-switch-default>{{row.affiliatedinstitution}}</span>
+            </td>
+            <td data-title="'经度'" class="text-center" ng-switch="row.titleEdit" ng-form="lng">
+                <span ng-switch-default>{{row.lng}}</span>
+            </td>
+            <td data-title="'纬度'" class="text-center" ng-switch="row.titleEdit" ng-form="lat">
+                <span ng-switch-default>{{row.lat}}</span>
+            </td>
+            <td data-title="'说明'" class="text-center" ng-switch="row.titleEdit" ng-form="explain">
+                <span ng-switch-default>{{row.explain}}</span>
+            </td>
+            <td data-title="'备注'" class="text-center" ng-switch="row.titleEdit" ng-form="remark">
+                <span ng-switch-default>{{row.remark}}</span>
             </td>
         </tr>
     </table>

@@ -21,7 +21,7 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">基站名：</label>
+                <label for="exampleInputName2">基站名:</label>
                 <input type="text" ng-model="searchConditions.name" class="form-control" id="exampleInputName2" placeholder="基站名">
             </div>
 
@@ -50,6 +50,15 @@
                     <strong ng-switch-default>{{row.name}}</strong>
                 </a>
             </td>
+             <td data-title="'中心里程'" class="text-center" ng-switch="row.titleEdit" ng-form="centermileage">
+                <span ng-switch-default>{{row.centermileage}}</span>
+            </td>
+             <td data-title="'所属地方派出所'" class="text-center" ng-switch="row.titleEdit" ng-form="localpolicestation">
+                <span ng-switch-default>{{row.localpolicestation}}</span>
+            </td>
+             <td data-title="'管理部门'" class="text-center" ng-switch="row.titleEdit" ng-form="admimdepartment">
+                <span ng-switch-default>{{row.admimdepartment}}</span>
+            </td>
             <td data-title="'地址'" class="text-center" ng-switch="row.titleEdit" ng-form="address">
                 <span ng-switch-default>{{row.address}}</span>
             </td>
@@ -59,7 +68,7 @@
             <td data-title="'联系电话'" class="text-center" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="contactnumber">
                 <span ng-switch-default>{{row.contactnumber}}</span>
             </td>
-            <td data-title="'附属机构'" class="text-center" ng-switch="row.rename" ng-form="affiliatedinstitution">
+            <td data-title="'所属机构'" class="text-center" ng-switch="row.rename" ng-form="affiliatedinstitution">
                 <strong ng-switch-default>{{row.affiliatedinstitution}}</strong>
             </td>
             <td data-title="'经度'" class="text-center" ng-switch="row.titleEdit" ng-form="lng">
@@ -67,6 +76,9 @@
             </td>
             <td data-title="'纬度'" class="text-center" ng-switch="row.titleEdit" ng-form="lat">
                 <span ng-switch-default>{{row.lat}}</span>
+            </td>
+            <td data-title="'说明'" class="text-center" ng-switch="row.titleEdit" ng-form="explain">
+                <span ng-switch-default>{{row.explain}}</span>
             </td>
             <td data-title="'备注'" class="text-center" ng-switch="row.titleEdit" ng-form="remark">
                 <span ng-switch-default>{{row.remark}}</span>

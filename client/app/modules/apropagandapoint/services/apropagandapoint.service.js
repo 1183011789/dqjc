@@ -89,7 +89,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '编号:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入编号"
                         }
                     },
                     {
@@ -97,7 +98,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '名称:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入名称"
                         }
                     },
                     {
@@ -105,7 +107,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入地址"
                         }
                     },
                     {
@@ -113,7 +116,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度:',
-                            required: false
+                            required: false,
+                            placeholder: "请输入经度"
                         }
                     },
                     {
@@ -121,14 +125,16 @@
                         type: 'input',
                         templateOptions: {
                             label: '纬度:',
-                            required: false
+                            required: false,
+                            placeholder: "请输入备注"
                         }
                     }, {
                         key: 'personCharge',
                         type: 'input',
                         templateOptions: {
                             label: '负责人:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入负责人"
                         }
                     },
                     {
@@ -136,7 +142,17 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话:',
-                            required: true
+                            required: true,
+                            placeholder: "请输入联系电话",
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                         //   validators: {
                         //     phone: {
@@ -156,7 +172,7 @@
                             required: true,
                             options: [],
                             valueProp: "id",
-                            labelProp: "affiliatedInstitution"
+                            labelProp: "affiliatedInstitution",
                         },
                         controller: function($scope, AffiliatedInstitution) {
                             AffiliatedInstitution.find().$promise.then(function(value) {
@@ -171,7 +187,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注:',
-                            required: false
+                            required: false,
+                            placeholder: "请输入备注"
                         }
                     }
                 ];

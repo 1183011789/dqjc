@@ -145,6 +145,15 @@
                             label: '联系电话:',
                             required: false,
                             placeholder: '请输入联系电话',
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     }, {
                         key: 'residencenow',
@@ -193,6 +202,15 @@
                             label: '家庭联系电话:',
                             required: false,
                             placeholder: '请输入家庭联系电话',
+                        },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
                         }
                     }, {
                         key: 'remark',

@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.monitoring')
-        .service('MonitoringService', function($state, CoreService, Monitoring, gettextCatalog) {
+        .service('MonitoringService', function($state, CoreService, Monitoring,AffiliatedInstitution, gettextCatalog) {
             console.log("广播警示柱--1--");
             this.find = function(result) {
                 console.log("广播警示柱--2--");
@@ -136,8 +136,19 @@
                         type: 'input',
                         templateOptions: {
                             label: '联系电话',
-                            required: true
+                            required: true,
+                            placeholder: '请输入联系电话',
                         },
+                        validators: {
+                            phone: {
+                                expression: function(viewValue, modelValue) {
+                                    var value = modelValue || viewValue;
+                                    return /^([0-9]|[-])+$/g.test(value);
+                                },
+                                message: '$viewValue + " 不是正确的电话格式"'
+                            }
+                        }
+
                         // validators: {
                         //     phone: {
                         //         expression: function(viewValue, modelValue) {
@@ -205,7 +216,7 @@
                         }
                     },
                     {
-                        key: 'AffiliatedInstitution',
+                        key: 'affiliatedInstitution',
                         type: 'select',
                         templateOptions: {
                             label: '所属机构',

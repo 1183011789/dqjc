@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        线路情况
+        线路情况<span style="color:brown;">[共有 {{totalItems}} 个]</span>
         <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
             <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="editItem()">
               编辑
@@ -16,7 +16,7 @@
     <div class="panel-body">
         <form class="form-inline">
             <div class="form-group">
-                <label for="exampleInputName2">铁路名：</label>
+                <label for="exampleInputName2">铁路名:</label>
                 <input type="text" ng-model="searchConditions.rodename" class="form-control" id="exampleInputName2" placeholder="关键字">
             </div>
 
@@ -47,8 +47,8 @@
                         <strong ng-switch-default>{{item.rodename}}</strong>
                     </a>
                 </td>
-                <td data-title="'分类'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="Position">
-                    <span ng-switch-default>{{item.classification}}</span>
+                <td data-title="'分类'" ng-switch="item.titleEdit" class="text-center" style="vertical-align:middle" ng-form="classIfication">
+                    <span ng-switch-default>{{item.classIfication}}</span>
                 </td>
 
                 <td data-title="'起始里程'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="Station">
@@ -84,11 +84,11 @@
                     <span ng-switch-default>{{item.culvertnumber}}</span>
                 </td>
 
-                <td data-title="'跨铁路数'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'跨铁路数'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="Kwamerailwaynumber">
                     <span ng-switch-default>{{item.Kwamerailwaynumber}}</span>
                 </td>
 
-                <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AdministrativeDepartment">
+                <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="remark1">
                     <span ng-switch-default>{{item.remark1}}</span>
                 </td>
             </tr>
