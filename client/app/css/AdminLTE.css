@@ -241,7 +241,7 @@ img {
 }
 
 .bg-gray {
-    background-color: #eaeaec !important;
+    /*background-color: #eaeaec !important;*/
 }
 
 .bg-black {
@@ -256,13 +256,13 @@ img {
     background-color: #f39c12 !important;
 }
 
-.bg-aqua {
+/*.bg-aqua {
     background-color: #00c0ef !important;
 }
 
 .bg-blue {
     background-color: #0073b7 !important;
-}
+}*/
 
 .bg-light-blue {
     background-color: #3c8dbc !important;
@@ -276,7 +276,7 @@ img {
     background-color: #001f3f !important;
 }
 
-.bg-teal {
+/*.bg-teal {
     background-color: #39cccc !important;
 }
 
@@ -290,19 +290,19 @@ img {
 
 .bg-orange {
     background-color: #ff851b !important;
-}
+}*/
 
-.bg-fuchsia {
+/*.bg-fuchsia {
     background-color: #f012be !important;
-}
+}*/
 
-.bg-purple {
+/*.bg-purple {
     background-color: #932ab6 !important;
-}
+}*/
 
-.bg-maroon {
+/*.bg-maroon {
     background-color: #85144b !important;
-}
+}*/
 
 
 /* Text colors */
@@ -2936,7 +2936,7 @@ Component: timeline
 
 .form-box {
     width: 360px;
-    padding-top: 5%;
+    padding-top: 5px;
     margin: 0px auto 0 auto;
 }
 
@@ -3314,13 +3314,13 @@ Component: timeline
 
 /* skin-black navbar */
 
-.skin-black .navbar {
+/*.skin-black .navbar {
     background-color: #ffffff;
     border-bottom: 1px solid #eee;
-}
+}*/
 
 .skin-black .navbar .nav a {
-    color: #333333;
+    color: white;
 }
 
 .skin-black .navbar .nav>li>a:hover,
@@ -3349,7 +3349,7 @@ Component: timeline
 /* skin-black logo */
 
 .skin-black .logo {
-    background-color: #333333;
+    /*background-color: #333333;*/
     color: #f9f9f9;
 }
 
@@ -3358,7 +3358,7 @@ Component: timeline
 }
 
 .skin-black .logo:hover {
-    background: #303030;
+    /*background: #303030;*/
 }
 
 

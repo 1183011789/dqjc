@@ -53,3 +53,202 @@
 .nav-tabs > li > a, .nav-tabs > li > a:hover {
   cursor: pointer;
 }
+.jh-background{
+  background: url(../images/background.png) no-repeat;
+  background-size: 100% 100%;
+  
+}
+.jh-form{
+  background: url(../images/secondback.png) no-repeat;
+  background-size: 100% 100%;
+  width: 548px;
+  height: 287px;
+  position: relative;
+  bottom: -200px;
+ 
+}
+.form-box .header{
+  box-shadow: none;
+}
+.form-box .body, .form-box .footer{
+
+  background: none;
+
+}
+.jh-btnleft{
+    background: url(../images/login.png) no-repeat;
+    color: #ffffff;
+    border: none;
+    background-size: 100% 100%;
+    float: left;
+    width: 131px;
+    height: 27px;
+    outline: none;
+   
+}
+
+.jh-btnright{
+    background: url(../images/reset.png) no-repeat;
+    color: #ffffff;
+    float: right;
+    border: none;
+    background-size: 100% 100%;
+    width: 131px;
+    height: 27px;
+    outline: none;
+}
+.jh-footer-btn{
+    width: 385px;
+    height: 135px;
+    margin: -10px auto;
+    overflow: hidden;
+}
+.email{
+ background: url(../images/people.png) left no-repeat;
+    width: 385px;
+    margin: 10px auto;
+    height: 30px;
+}
+.password{
+ width: 385px;
+  margin: 0 auto;
+}
+.form-group.has-success label{
+  display: none;
+}
+.jh-email{
+ 
+  width: 10px;
+  height: 10px;
+
+}
+.jh-email input{
+
+  width: 375px;
+  float: right;
+}
+.jh-formerror{
+  background:none;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  width: 385px;
+  margin: 0 auto;
+  
+}
+.jh-formerror p{
+  font-size: 15px;
+  font-family: "Microsoft YaHei";
+
+}
+.callout.callout-danger{
+  background:none;
+  border: none;
+}
+.jh-header{
+  /*background: url(../images/nav.png) no-repeat;*/
+ /* background-size: 100% 100%;
+  width: 100%;
+  height: 100%;*/
+}
+/*.navbar-right:hover{
+  background-color: red;
+}*/
+/*.logo{
+  background: url(../images/secondlogo.png) center no-repeat;
+}*/ 
+.logo img{
+  background-size:100% 100%;
+
+}
+header.header .logo{
+  width: 390px;
+  height: 47px;
+  padding: 0;
+  margin: 1px 10px;
+  background: url(../images/secondlogo.png) center no-repeat;
+
+}
+header.header{
+  background: url(../images/nav.png) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  max-height: 50px;
+
+}
+/*.jh-navbar{
+  background: url(../images/nav.png) no-repeat;
+  
+
+}*/
+.bg-blue{
+  background: url(../images/jh-jcxx.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-aqua{
+  background: url(../images/jh-spjk.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-maroon{
+  background: url(../images/jh-xfgl.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-purple{
+  background: url(../images/jh-yhcz.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-orange{
+  background: url(../images/jh-bgoa.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-lime{
+  background: url(../images/jh-jypx.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-olive{
+  background: url(../images/jh-ypfx.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-teal{
+  background: url(../images/jh-sphy.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.bg-fuchsia{
+  background: url(../images/jh-ywgl.png) no-repeat;
+  background-size: 100% 100%;
+  width: 219px;
+  height: 130px;
+}
+.skin-blue .navbar{
+  background: none;
+}
+.skin-blue .logo:hover{
+  background: url(../images/secondlogo.png) center no-repeat;
+
+}
+.skin-blue .navbar .nav a:hover{
+  background: none
+}
+.bg-light-blue{
+  background: #ea63d3;
+  color: #fff;
+
+}
