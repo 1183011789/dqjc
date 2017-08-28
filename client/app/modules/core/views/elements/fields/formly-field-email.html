@@ -3,6 +3,7 @@
 		{{options.label || 'Email'}}
 		{{options.required ? '*' : ''}}
 	</label>
+	<div class="jh-email">
 	<input type="email"
 		   class="form-control"
 		   id="{{id}}"
@@ -13,5 +14,6 @@
 		   ng-required="options.required"
 		   ng-disabled="options.disabled"
 		   ng-model="result[options.key || index]">
+	</div>
    <p id="{{id}}_description" class="help-block" ng-if="options.description">{{options.description}}</p>
 </div>
