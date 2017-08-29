@@ -38,7 +38,12 @@
                     templateUrl: 'modules/key-places/views/map.html',
                     controller: 'MapCtrl',
                 })
-
+                //线路分配
+                .state('app.keyPlaces.line', {
+                    url: '/line',
+                    templateUrl: 'modules/key-places/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
             // add
             .state('app.keyPlaces.add', {
                 url: '/add',

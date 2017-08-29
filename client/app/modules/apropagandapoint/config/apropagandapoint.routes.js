@@ -20,10 +20,17 @@
                     templateUrl: 'modules/apropagandapoint/views/list.html',
                     controller: 'PropagandaPointCtrl'
                 })
+                
                 .state('app.apropagandapoint.map', {
                     url: '/map',
                     templateUrl: 'modules/monitoring/views/map.html',
                     controller: 'MapCtrl',
+                })
+                //线路分配
+                .state('app.apropagandapoint.line', {
+                    url: '/line',
+                    templateUrl: 'modules/apropagandapoint/views/line.html',
+                    controller: 'LineAllocationCtrl',
                 })
 
 

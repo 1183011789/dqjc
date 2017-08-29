@@ -15,6 +15,10 @@
             };
             
             this.upsert = function(station) {
+                var k=parseInt(station.K);
+                var m=parseInt(station.M);
+                var num=k*1000+m;
+                station.CenterMileage=num;
                 return Station.upsert(station).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -113,13 +117,31 @@
 
                         }
                     },
+                    // {
+                    //     key: 'CenterMileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
                     {
-                        key: 'CenterMileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
                         }
                     },
                     {

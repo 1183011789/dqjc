@@ -15,6 +15,10 @@
             };
 
             this.upsert = function(crossIronBridge) {
+                var k=parseInt(crossIronBridge.K);
+                var m=parseInt(crossIronBridge.M);
+                var num=k*1000+m;
+                crossIronBridge.centermileage=num;
                 return CrossIronBridge.upsert(crossIronBridge).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -95,13 +99,31 @@
                             placeholder: '请输入长度'
                         }
                     },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
                     {
-                        key: 'centermileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
                         }
                     },
                     {

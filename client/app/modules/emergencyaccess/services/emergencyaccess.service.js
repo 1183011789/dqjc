@@ -16,6 +16,10 @@
             };
 
             this.upsert = function(emergencyaccess) {
+                var k=parseInt(emergencyaccess.K);
+                var m=parseInt(emergencyaccess.M);
+                var num=k*1000+m;
+                emergencyaccess.CenterMileage=num;
                 if (!(/^1[34578]\d{9}$/.test(emergencyaccess.ContactNumber))) {
 
                     CoreService.alertWarning('提示', '手机号格式输入有误');
@@ -74,15 +78,33 @@
                             placeholder: '请输入名称'
                         }
                     },
+                    // {
+                    //     key: 'CenterMileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程:',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
                     {
-                        key: 'CenterMileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程:',
+                            label: '中心里程K:',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
                         }
                     }, {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M:',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
+                        }
+                    },  
+                    {
                         key: 'alignment',
                         type: 'select',
                         templateOptions: {

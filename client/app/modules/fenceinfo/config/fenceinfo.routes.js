@@ -25,6 +25,12 @@
                     templateUrl: 'modules/fenceinfo/views/map.html',
                     controller: 'MapCtrl',
                 })
+                //线路分配
+                .state('app.fenceinfo.line', {
+                    url: '/line',
+                    templateUrl: 'modules/fenceinfo/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
                 .state('app.fenceinfo.add', {
                     url: '/add',
                     templateUrl: 'modules/fenceinfo/views/form.html',

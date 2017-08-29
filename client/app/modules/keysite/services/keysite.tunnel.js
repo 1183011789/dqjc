@@ -11,6 +11,15 @@
             };
 
             this.upsert = function(tunnel) {
+                var k=parseInt(tunnel.K);
+                var m=parseInt(tunnel.M);
+                var num=k*1000+m;
+                tunnel.startendmileage=num;
+
+                var a=parseInt(tunnel.K);
+                var b=parseInt(tunnel.M);
+                var num=a*1000+b;
+                tunnel.centermileage=num;
                 return Tunnel.upsert(tunnel).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -118,22 +127,58 @@
                             });
                         }
                       }, 
+                    // {
+                    //     key: 'startendmileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '起始里程',
+                    //         required: true,
+                    //         placeholder: '请输入起始里程'
+                    //     }
+                    // },
                     {
-                        key: 'startendmileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '起始里程',
+                            label: '起始里程K',
                             required: true,
-                            placeholder: '请输入起始里程'
+                            placeholder: '请输入起始里程的千米数'
                         }
                     },
                     {
-                        key: 'centermileage',
+                        key: 'M',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '起始里程M',
                             required: true,
-                            placeholder: '请输中心里程'
+                            placeholder: '请输入起始里程的百米数'
+                        }
+                    },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输中心里程'
+                    //     }
+                    // },
+                    {
+                        key: 'K',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程K',
+                            required: true,
+                            placeholder: '请输中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输中心里程的百米数'
                         }
                     },
                     {

@@ -38,8 +38,12 @@
                     templateUrl: 'modules/emergencyaccess/views/map.html',
                     controller: 'MapCtrl',
                 })
-
-
+                 //线路分配
+                .state('app.emergencyaccess.line', {
+                    url: '/line',
+                    templateUrl: 'modules/emergencyaccess/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
             .state('app.emergencyaccess.add', {
                     url: '/add',
                     templateUrl: 'modules/emergencyaccess/views/form.html',

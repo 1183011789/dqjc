@@ -26,8 +26,9 @@
 
                     var offset = params._params.count * (params._params.page - 1);
                     BaseStation.count().$promise.then(function(result) {
-                        params.total(result.count);
                         $scope.totalItems = result.count;
+                        params.total(result.count);
+                        
                     });
                     BaseStation.find({
                         filter: {

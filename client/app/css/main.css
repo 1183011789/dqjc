@@ -186,56 +186,47 @@ header.header{
 .bg-blue{
   background: url(../images/jh-jcxx.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-aqua{
   background: url(../images/jh-spjk.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-maroon{
   background: url(../images/jh-xfgl.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-purple{
   background: url(../images/jh-yhcz.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-orange{
   background: url(../images/jh-bgoa.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-lime{
   background: url(../images/jh-jypx.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-olive{
   background: url(../images/jh-ypfx.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-teal{
   background: url(../images/jh-sphy.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .bg-fuchsia{
   background: url(../images/jh-ywgl.png) no-repeat;
   background-size: 100% 100%;
-  width: 219px;
-  height: 130px;
+  height: 150px;
 }
 .skin-blue .navbar{
   background: none;
@@ -251,4 +242,8 @@ header.header{
   background: #ea63d3;
   color: #fff;
 
+}
+.row{
+    margin-right: 76px;
+    margin-left: -15px;
 }

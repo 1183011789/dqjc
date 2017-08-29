@@ -38,6 +38,12 @@
                     templateUrl: 'modules/keypersion/views/map.html',
                     controller: 'MapCtrl',
                 })
+                //线路分配
+                .state('app.keypersion.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keypersion/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
 
             .state('app.keypersion.add', {
                     url: '/add',

@@ -20,6 +20,12 @@
                     templateUrl: 'modules/theroadstation/views/list.html',
                     controller: 'TheRoadStationListCtrl',
                 })
+                 //线路分配
+                .state('app.theroadstation.line', {
+                    url: '/line',
+                    templateUrl: 'modules/theroadstation/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
                 .state('app.theroadstation.map', {
                     url: '/map',
                     templateUrl: 'modules/theroadstation/views/map.html',

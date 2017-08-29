@@ -15,6 +15,10 @@
             };
 
             this.upsert = function(servicePort) {
+                var k=parseInt(servicePort.K);
+                var m=parseInt(servicePort.M);
+                var num=k*1000+m;
+                servicePort.centermileage=num;
                 return ServicePort.upsert(servicePort).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -155,13 +159,32 @@
                             required: true,
                             placeholder: '请输入管理部门'
                         }
-                    },{
-                        key: 'centermileage',
+                    },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
+                    {
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
                         }
                     },
                     {

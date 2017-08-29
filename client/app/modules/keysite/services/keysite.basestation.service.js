@@ -13,8 +13,12 @@
                     id: id
                 }).$promise;
             };
-
+            
             this.upsert = function(baseStation) {
+                var k=parseInt(baseStation.K);
+                var m=parseInt(baseStation.M);
+                var num=k*1000+m;
+                baseStation.centermileage=num;
                 return BaseStation.upsert(baseStation).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -94,15 +98,35 @@
                             required: true,
                             placeholder: '请输入地址'
                         }
-                    },{
-                        key: 'centermileage',
+                    },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
+                    {
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
                         }
-                    },{
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
+                        }
+                    },
+                    {
                         key: 'localpolicestation',
                         type: 'input',
                         templateOptions: {
