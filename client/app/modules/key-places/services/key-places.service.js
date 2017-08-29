@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keyPlaces')
-        .service('KeyPlaceService', function($state, CoreService, KeyPlaceCategory, KeyPlace, gettextCatalog) {
+        .service('KeyPlaceService', function($state, CoreService,AffiliatedInstitution, KeyPlaceCategory,Hazardlevel, KeyPlace, gettextCatalog) {
 
             this.findById = function(id) {
                 console.log(id);
@@ -58,7 +58,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '名称',
-                            required: true
+                            required: true,
+                            placeholder: "请输入名称"
                         }
                     },
                     {
@@ -66,7 +67,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '地址',
-                            required: true
+                            required: true,
+                            placeholder: "请输入地址"
                         }
                     },
                     {
@@ -109,10 +111,15 @@
                         templateOptions: {
                             label: '危险级别',
                             required: true,
-                            options: [
-                                { "value": "1", "name": "一级" },
-                                { "value": "2", "name": "一级" }
-                            ]
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "hazardlevel"
+                        },
+                        controller: function($scope, Hazardlevel) {
+                            Hazardlevel.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
                     },
                     {
@@ -121,7 +128,8 @@
                         templateOptions: {
                             label: '人数',
                             required: true,
-                            type: 'number'
+                            type: 'number',
+                            placeholder: "请输入人数"
                         }
                     },
                     {
@@ -129,14 +137,16 @@
                         type: 'input',
                         templateOptions: {
                             label: '负责人',
-                            required: true
+                            required: true,
+                            placeholder: "请输入负责人"
                         }
                     }, {
                         key: 'personPost',
                         type: 'input',
                         templateOptions: {
                             label: '负责人职务',
-                            required: true
+                            required: true,
+                            placeholder: "请输入负责人职务"
                         }
                     }
 
@@ -146,7 +156,8 @@
                         templateOptions: {
                             label: '有危害铁路史人数',
                             required: true,
-                            type: 'number'
+                            type: 'number',
+                            placeholder: "请输入有危害铁路史人数"
                         }
                     }
 
@@ -155,7 +166,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '在校学生危害铁路或发生事故史',
-                            required: true
+                            required: true,
+                            placeholder: "请输入在校学生危害铁路或发生事故史"
                         }
                     }
 
@@ -165,7 +177,8 @@
                         templateOptions: {
                             label: '经度',
                             required: false,
-                            type: 'number'
+                            type: 'number',
+                            placeholder: "请输入经度"
                         }
                     }
 
@@ -175,7 +188,8 @@
                         templateOptions: {
                             label: '纬度',
                             required: false,
-                            type: 'number'
+                            type: 'number',
+                            placeholder: "请输入纬度"
                         }
                     }
 
@@ -184,7 +198,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '说明',
-                            required: true
+                            required: true,
+                            placeholder: "请输入说明"
                         }
                     }
 
@@ -193,29 +208,41 @@
                         type: 'input',
                         templateOptions: {
                             label: '当地派出所',
-                            required: true
+                            required: true,
+                            placeholder: "请输入当地派出所"
                         }
                     }
 
                     , {
-                        key: 'affiliatedinstitution',
-                        type: 'input',
+                        key: 'affiliatedInstitution',
+                        type: 'select',
                         templateOptions: {
                             label: '所属机构',
-                            required: true
+                            required: true,
+                            options: [],
+                            valueProp: "id",
+                            labelProp: "affiliatedInstitution"
+                        },
+                        controller: function($scope, AffiliatedInstitution) {
+                            AffiliatedInstitution.find().$promise.then(function(value) {
+                                $scope.to.options = value;
+                                return value;
+                            });
                         }
-                    }
+                     },
+                   // {
+                    //     key: 'region',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '区域',
+                    //         required: true,
+                    //         placeholder: "请输入区域"
 
-                    , {
-                        key: 'region',
-                        type: 'input',
-                        templateOptions: {
-                            label: '区域',
-                            required: true
-                        }
-                    }
+                    //     }
+                    // }
 
-                    , {
+                    // ,
+                     {
                         key: 'securityProtocol',
                         type: 'checkbox',
                         templateOptions: {
@@ -229,7 +256,8 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true
+                            required: true,
+                            placeholder: "请输入备注"
                         }
                     }
                 ];

@@ -6,29 +6,31 @@
       <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.keyPlace.id})">
         <i class="fa fa-pencil"></i>
       </a>
-      <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: ctrl.keyPlace.id})">
-        <i class="fa fa-trash-o"></i>
-      </a>
+     <!-- 
+      -->
     </span>
     </div>
     <div class="panel-body">
         <!-- <pre>{{ctrl.fenceinfo | json}}</pre> -->
 
-        <p>名称：{{ctrl.keyPlace.name}}</p>
-        <p>长度：{{ctrl.fenceinfo.length}}</p>
-        <p>刺死滚笼长度：{{ctrl.fenceinfo.LengthOfRollingCage}}</p>
-        <p>材质：{{ctrl.fenceinfo.TextureOfMaterial}}</p>
-        <p>高度：{{ctrl.fenceinfo.Height}}</p>
-        <p>路基段：{{ctrl.fenceinfo.SubgradeSection}}</p>
-        <p>线路段设计时速：{{ctrl.fenceinfo.LineSpeedPerHour}}</p>
-        <p>公里标：{{ctrl.fenceinfo.KilometerMark}}</p>
-        <p>工作门使用单位：{{ctrl.fenceinfo.WorkGateUseUnit}}</p>
-        <p>行别：{{ctrl.fenceinfo.DoOther}}</p>
-        <p>地址：{{ctrl.fenceinfo.Address}}</p>
-        <p>所属地方派出所：{{ctrl.fenceinfo.LocalPoliceStation}}</p>
-        <p>管理部门：{{ctrl.fenceinfo.AdministrativeDepartment}}</p>
-        <p>负责人：{{ctrl.fenceinfo.PersonCharge}}</p>
-        <p>联系电话：{{ctrl.fenceinfo.ContactNumber}}</p>
-        <p>所属机构：{{ctrl.fenceinfo.AffiliatedInstitution}}</p>
+        <p>名称:{{ctrl.keyPlace.name}}</p>
+        <p>地址:{{ctrl.keyPlace.address}}</p>
+        <p>人数:{{ctrl.keyPlace.peoplenumber}}</p>
+        <p>负责人:{{ctrl.keyPlace.personincharge}}</p>
+        <p>负责人职务:{{ctrl.keyPlace.personPost}}</p>
+        <p>危险级别:{{ctrl.keyPlace.hazardlevel}}</p>
+        <p>所属机构:{{ctrl.keyPlace.affiliatedinstitution}}</p>
+        <p>是否签订安全协议:{{ctrl.keyPlace.securityProtocol}}</p>
+        <p>有危害铁路史人数:{{ctrl.keyPlace.dangerousRailwayNum}}</p>
+        <p>在校学生危害铁路或发生事故史:{{ctrl.keyPlace.stuDangerousRail}}</p>
+        <p>区域:{{ctrl.keyPlace.region}}</p>
+        <p>说明:{{ctrl.keyPlace.explain}}</p>
+        <p>联系电话:{{ctrl.keyPlace.contactnumber}}</p>
+        <p>类别:{{ctrl.keyPlace.category}}</p>
+        <p>危险级别:{{ctrl.keyPlace.hazardlevel}}</p>
+        <p>经度:{{ctrl.keyPlace.lng}}</p>
+        <p>纬度:{{ctrl.keyPlace.lat}}</p>
+        <p>备注:{{ctrl.keyPlace.remark}}</p>
+
     </div>
 </div>

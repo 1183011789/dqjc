@@ -36,7 +36,7 @@
                 .state('app.keyPlaces.map', {
                     url: '/map',
                     templateUrl: 'modules/key-places/views/map.html',
-                    controller: 'keyplacesCtrl',
+                    controller: 'MapCtrl',
                 })
 
             // add

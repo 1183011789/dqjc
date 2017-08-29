@@ -30,6 +30,12 @@
                     // console.log('------->', params);
                     var where = {};
 
+                    if (params._params.filter.name) {
+                        where.name = {
+                            like: `%${params._params.filter.name}%`
+                        };
+                    }
+
                     if (params.filter().category > 0) {
                         where.category = params.filter().category
                     }
@@ -40,6 +46,7 @@
 
                     KeyPlace.count({ where: where }).$promise.then(function(result) {
                         params.total(result.count);
+                        $scope.totalItems = result.count;
                     });
                     KeyPlace.find({
                         filter: {
@@ -56,14 +63,35 @@
                 }
             });
 
-            // $scope.chooseItem = function(itemId) {
-            //     $scope.selectedItemId = itemId;
-            //     console.log("item-", JSON.stringify(itemId));
-            //     $scope.tableParams.filter({
-            //         category: $scope.selectedItemId
-            //     });
-            //     $scope.tableParams.reload();
-            // };
+           $scope.searchConditions = {
+                name: ""
+            };
+
+            $scope.startSearch = function() {
+                $scope.tableParams.filter({
+                    name: $scope.searchConditions.name
+                });
+            };
+
+            $scope.deleteItems = function(item) {
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
+                }
+
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                InstitutionalTeamService.deleteMultiple(array, function() {
+                    $state.go('^.list');
+                    $scope.tableParams.reload();
+                }, function() {
+                    $state.go('^.list');
+                });
+            };
+
 
             $scope.selectedItems = new Set();
 
