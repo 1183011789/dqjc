@@ -1,23 +1,26 @@
 {
-  "name": "KeyPlaceCategory",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "category": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "keyPlaces": {
-      "type": "hasMany",
-      "model": "KeyPlace",
-      "foreignKey": "category"
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "name": "KeyPlaceCategory",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "category": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "keyPlaces": {
+            "type": "hasMany",
+            "model": "KeyPlace",
+            "foreignKey": "category"
+        }
+    },
+    "acls": [],
+    "methods": {}
 }

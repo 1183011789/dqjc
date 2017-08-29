@@ -46,20 +46,20 @@
                     </div>
                     <!-- 怎么搞。。直接显示当前用户可控制的机组列表 -->
                     <div class="box-body list-group">
-                        <div class="list-group-item" ng-repeat-end>
-                            <div class="list-group">
-                                <div class="list-group-item" ng-repeat="rode in rodes">
-                                    <div ng-click="clickRodeRow(rode)">
-                                        <i class="fa fa-fw "></i>
-                                        <input ng-show="hindenOrshow===true" type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
-                                        <label>
+                        <!-- <div class="list-group-item" ng-repeat-end> -->
+                        <div class="list-group list-group-item" style="background: #eeeeff">
+                            <div class="list-group-item" ng-repeat="rode in rodes">
+                                <div ng-click="clickRodeRow(rode)">
+                                    <i class="fa fa-fw "></i>
+                                    <input ng-show="hindenOrshow===true" type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
+                                    <label>
                                             {{$index+1}}.  {{rode.rodename}}
                                               <small>({{rode.rodename}})</small>
                                             </label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- </div> -->
                         <!-- </div> -->
                     </div>
                 </div>
