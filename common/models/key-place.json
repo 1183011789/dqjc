@@ -41,7 +41,8 @@
             "type": "string"
         },
         "region": {
-            "type": "number"
+            "type": "string",
+            "length": 2000
         },
         "category": {
             "type": "string"

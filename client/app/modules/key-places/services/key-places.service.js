@@ -121,7 +121,8 @@
                                 return value;
                             });
                         }
-                    },
+                     }
+                    ,
                     {
                         key: 'peoplenumber',
                         type: 'input',
@@ -256,7 +257,7 @@
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: true,
+                            required: false,
                             placeholder: "请输入备注"
                         }
                     }

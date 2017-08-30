@@ -25,6 +25,7 @@
                     templateUrl: 'modules/institutionaiteam/views/map.html',
                     controller: 'MapCtrl',
                 })
+                
                 .state('app.institutionaiteam.add', {
                     url: '/add',
                     templateUrl: 'modules/institutionaiteam/views/form.html',

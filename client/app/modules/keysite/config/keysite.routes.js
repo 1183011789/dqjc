@@ -22,7 +22,12 @@
                 templateUrl: 'modules/keysite/views/baseStation/map.html',
                 controller: 'MapCtrl',
             })
-
+            //线路分配
+            .state('app.keysite.baseStation.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/baseStation/line.html',
+                    controller: 'BlineCtrl',
+            })
             .state('app.keysite.baseStation.index', {
                 url: '',
                 templateUrl: 'modules/keysite/views/baseStation/list.html',
@@ -97,6 +102,12 @@
                     templateUrl: 'modules/keysite/views/bridge/list.html',
                     controller: 'BridgeCtrl',
                 })
+            //线路分配
+            .state('app.keysite.bridge.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/bridge/line.html',
+                    controller: 'BrlineCtrl',
+            })
                 .state('app.keysite.bridge.map', {
                     url: '/map',
                     templateUrl: 'modules/keysite/views/bridge/map.html',
@@ -183,6 +194,12 @@
                     templateUrl: 'modules/keysite/views/crossIronBridge/map.html',
                     controller: 'CrossIronBridgeMapCtrl',
                 })
+                //线路分配
+                .state('app.keysite.crossIronBridge.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/crossIronBridge/line.html',
+                    controller: 'ClineCtrl',
+                })
                 .state('app.keysite.crossIronBridge.list', {
                     url: '',
                     templateUrl: 'modules/keysite/views/crossIronBridge/list.html',
@@ -264,6 +281,12 @@
                     templateUrl: 'modules/keysite/views/culvert/map.html',
                     controller: 'CulvertMapCtrl',
                 })
+                //线路分配
+                .state('app.keysite.culvert.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/culvert/line.html',
+                    controller: 'CulineCtrl',
+                })
                 .state('app.keysite.culvert.list', {
                     url: '',
                     templateUrl: 'modules/keysite/views/culvert/list.html',
@@ -340,7 +363,12 @@
                 templateUrl: 'modules/keysite/views/levelCrossing/list.html',
                 controller: 'LevelCrossingCtrl',
             })
-
+            //线路分配
+            .state('app.keysite.levelCrossing.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/levelCrossing/line.html',
+                    controller: 'LlineCtrl',
+                })
             .state('app.keysite.levelCrossing.list', {
                     url: '',
                     templateUrl: 'modules/keysite/views/levelCrossing/list.html',
@@ -424,6 +452,12 @@
                     templateUrl: 'modules/keysite/views/servicePort/list.html',
                     controller: 'ServicePortCtrl',
                 })
+                //线路分配
+                .state('app.keysite.servicePort.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/servicePort/line.html',
+                    controller: 'SlineCtrl',
+                })
                 .state('app.keysite.servicePort.map', {
                     url: '/map',
                     templateUrl: 'modules/keysite/views/servicePort/map.html',
@@ -505,7 +539,12 @@
                 templateUrl: 'modules/keysite/views/station/list.html',
                 controller: 'StationCtrl',
             })
-
+            //线路分配
+            .state('app.keysite.station.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/station/line.html',
+                    controller: 'StlineCtrl',
+                })
             .state('app.keysite.station.list', {
                     url: '',
                     templateUrl: 'modules/keysite/views/station/list.html',
@@ -587,7 +626,12 @@
                 templateUrl: 'modules/keysite/views/tunnel/list.html',
                 controller: 'TunnelCtrl',
             })
-
+            //线路分配
+            .state('app.keysite.tunnel.line', {
+                    url: '/line',
+                    templateUrl: 'modules/keysite/views/tunnel/line.html',
+                    controller: 'TlineCtrl',
+                })
             .state('app.keysite.tunnel.list', {
                     url: '',
                     templateUrl: 'modules/keysite/views/tunnel/list.html',

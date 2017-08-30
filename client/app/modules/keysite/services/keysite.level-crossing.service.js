@@ -11,6 +11,10 @@
             };
 
             this.upsert = function(levelCrossing) {
+                var k=parseInt(levelCrossing.K);
+                var m=parseInt(levelCrossing.M);
+                var num=k*1000+m;
+                levelCrossing.centermileage=num;
                 return LevelCrossing.upsert(levelCrossing).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -59,13 +63,31 @@
                             placeholder: '请输入道口名称'
                         }
                     },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
                     {
-                        key: 'centermileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
                         }
                     },
                     {

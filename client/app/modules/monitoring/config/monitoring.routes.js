@@ -38,7 +38,12 @@
                     templateUrl: 'modules/monitoring/views/map.html',
                     controller: 'MapCtrl',
                 })
-
+                //线路分配
+                .state('app.monitoring.line', {
+                    url: '/line',
+                    templateUrl: 'modules/monitoring/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
             .state('app.monitoring.add', {
                     url: '/add',
                     templateUrl: 'modules/monitoring/views/form.html',

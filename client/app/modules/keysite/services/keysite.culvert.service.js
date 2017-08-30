@@ -15,6 +15,10 @@
             };
 
             this.upsert = function(culvert) {
+                var k=parseInt(culvert.K);
+                var m=parseInt(culvert.M);
+                var num=k*1000+m;
+                culvert.centermileage=num;
                 return Culvert.upsert(culvert).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -140,13 +144,31 @@
                             placeholder: '请输入半径'
                         }
                     },
+                    // {
+                    //     key: 'centermileage',
+                    //     type: 'input',
+                    //     templateOptions: {
+                    //         label: '中心里程',
+                    //         required: true,
+                    //         placeholder: '请输入中心里程'
+                    //     }
+                    // },
                     {
-                        key: 'centermileage',
+                        key: 'K',
                         type: 'input',
                         templateOptions: {
-                            label: '中心里程',
+                            label: '中心里程K',
                             required: true,
-                            placeholder: '请输入中心里程'
+                            placeholder: '请输入中心里程的千米数'
+                        }
+                    },
+                    {
+                        key: 'M',
+                        type: 'input',
+                        templateOptions: {
+                            label: '中心里程M',
+                            required: true,
+                            placeholder: '请输入中心里程的百米数'
                         }
                     },
                     {

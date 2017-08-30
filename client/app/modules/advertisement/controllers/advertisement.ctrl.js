@@ -33,7 +33,7 @@
                             like: `%${params._params.filter.name}%`
                         };
                     }
-
+                    
                     if (params._params.filter.address) {
                         where.address = {
                             like: `%${params._params.filter.address}%`

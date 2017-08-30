@@ -1,67 +1,42 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
-    条件筛选
-  </div>
-  <div class="panel-body">
-    <div class="row" style="margin-bottom: 10px" ng-controller="RoadMapFilterCtrl">
-      <div class="col-md-12" >
-        <strong>部位：</strong>
-        <div class="checkbox-inline" ng-repeat="item in keySiteFilters">
-          <label><input type="checkbox" ng-model="item.checked" ng-click="addKeySiteFilterItem(item)">{{ item.category }}</label>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <strong>场所：</strong>
-        <div class="checkbox-inline" ng-repeat="item in keyPlaceFiltes">
-          <label><input type="checkbox" ng-model="item.checked" ng-click="addKeyPlaceFilterItem(item)">{{ item.category }}</label>
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <strong>其他：</strong>
-        <div class="checkbox-inline" ng-repeat="item in otherFilters">
-          <label><input type="checkbox" ng-model="item.checked" ng-click="addOtherFilterItem(item)">{{ item.category }}</label>
-        </div>
-      </div>
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+        <span> Zoom: {{ center.zoom }}; Center: {{ center.lat }} (lat) , {{ center.lon }} (lon)</span>
     </div>
 
     <div class="row">
-      <div class="col-md-2">
-        <div class="list-group">
-          <li class="list-group-item">线路地图信息</li>
-          <a class="list-group-item" ng-repeat="row in railways" ng-class="row.checked ? 'active': ''" ng-click="selectRailwayRouteMap(row)">
+        <div class="col-md-2">
+            <div class="list-group">
+                <li class="list-group-item">线路地图信息</li>
+                <a class="list-group-item" ng-repeat="row in railways" ng-class="row.checked ? 'active': ''" ng-click="selectRailwayRouteMap(row)">
             {{ row.rodename }}
           </a>
+            </div>
         </div>
-      </div>
-      <div class="col-md-8" style="padding: 0px">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span> Zoom: {{ center.zoom }}; Center: {{ center.lat }} (lat) , {{ center.lon }} (lon)</span>
-          </div>
-          <div class="panel-body" style="height: 100%">
-            <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
-              <ol-layer ol-layer-properties="below_wms"></ol-layer>
-              <ol-layer ol-layer-properties="above_wms"></ol-layer>
-              <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
-              <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}"
-                       ol-style="path.style"></ol-path>
-              <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
-              </ol-marker>
-            </openlayers>
-          </div>
+        <div class="col-md-8" style="padding: 0px">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span> Zoom: {{ center.zoom }}; Center: {{ center.lat }} (lat) , {{ center.lon }} (lon)</span>
+                </div>
+                <div class="panel-body" style="height: 100%">
+                    <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
+                        <ol-layer ol-layer-properties="below_wms"></ol-layer>
+                        <ol-layer ol-layer-properties="above_wms"></ol-layer>
+                        <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
+                        <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}" ol-style="path.style"></ol-path>
+                        <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
+                        </ol-marker>
+                    </openlayers>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-2">
-        <div class="list-group">
-          <li class="list-group-item">行政区域地图信息</li>
-          <a class="list-group-item" ng-repeat="aami in affiliatedInstitutions" ng-class="aami.checked ? 'active': ''" ng-click="selectAdminAreaMap(aami)">
+        <div class="col-md-2">
+            <div class="list-group">
+                <li class="list-group-item">行政区域地图信息</li>
+                <a class="list-group-item" ng-repeat="aami in affiliatedInstitutions" ng-class="aami.checked ? 'active': ''" ng-click="selectAdminAreaMap(aami)">
             {{ aami.affiliatedInstitution }}
           </a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-

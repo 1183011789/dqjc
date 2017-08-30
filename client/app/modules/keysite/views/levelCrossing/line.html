@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+    <!-- <div class="panel-heading">
+        <div class="panel-title">
+            线路分配
+        </div>
+    </div> -->
+    <div class="panel-body">
+        <div class="panel-heading">
+            <span class="pull-right btn-group" ng-hide="modalInstance.imageCheckAdd||modalInstance.imageRadioAdd">
+                      </span>
+            <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> 线路分配情况
+            <small>{{ctrl.levelCrossing.address}}</small>
+        </div>
+        <div class="row">
+            <!-- 用来显示所有下属成员的 -->
+            <div class="col col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title" style="width: 100%">
+                            信息列表
+                        </h4>
+                    </div>
+                    <div class="box-body list-group">
+                        <!-- 每次点击要查询用户所控制的所有机械 -->
+                        <!--underlings.showing &&-->
+                        <div class="list-group-item list-group" style="background: #eeeeff">
+                            <div ng-repeat="warningpost in warningPosts" class="list-group-item" style="{{warning===warningpost.id ? 'background: #6cf':''}}" ng-click="selectRows(warningpost)">
+                                <div class="pull-right btn-group">
+                                    <input style="background:purple;" type="checkbox" ng-value="{{warningpost.id}}" ng-change="selectwarningpost(warningpost)" class="checkbox-lg" ng-model="warningpost.checked">
+                                </div>
+                                <div>
+                                    {{$index+1}}. {{warningpost.name}}---{{warningpost.address}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 用于分配机械的？ ng-show="status.showing == 'allot'" -->
+            <div class="col col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title" style="width: 100%">
+                            铁路列表
+                        </h4>
+                    </div>
+                    <!-- 怎么搞。。直接显示当前用户可控制的机组列表 -->
+                    <div class="box-body list-group">
+                        <!-- <div class="list-group-item" ng-repeat-end> -->
+                        <div class="list-group list-group-item" style="background: #eeeeff">
+                            <div class="list-group-item" ng-repeat="rode in rodes">
+                                <div ng-click="clickRodeRow(rode)">
+                                    <i class="fa fa-fw "></i>
+                                    <input ng-show="hindenOrshow===true" type="checkbox" ng-value="{{rode.id}}" ng-change="addEditItem(rode)" class="checkbox-lg" ng-model="rode.checked">
+                                    <label>
+                                            {{$index+1}}.  {{rode.rodename}}
+                                              <small>({{rode.rodename}})</small>
+                                            </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

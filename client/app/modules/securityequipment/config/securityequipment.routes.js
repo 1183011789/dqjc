@@ -20,7 +20,12 @@
                     templateUrl: 'modules/securityequipment/views/list.html',
                     controller: 'SecurityEquipmentCtrl'
                 })
-
+                //线路分配
+                .state('app.securityequipment.line', {
+                    url: '/line',
+                    templateUrl: 'modules/securityequipment/views/line.html',
+                    controller: 'LineAllocationCtrl',
+                })
             .state('app.securityequipment.map', {
                     url: '/map',
                     templateUrl: 'modules/securityequipment/views/map.html',
