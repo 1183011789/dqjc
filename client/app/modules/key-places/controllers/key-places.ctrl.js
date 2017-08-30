@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keyPlaces') //['formly', 'formlyBootstrap', 'ngAnimate', 'ngAria', 'ngMessages']
-        .controller('KeyPlaceCtrl', function($scope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
+        .controller('KeyPlaceCtrl', function($scope, $rootScope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
 
             // $scope.items = [{
             //     category: '全部',
@@ -63,7 +63,7 @@
                 }
             });
 
-           $scope.searchConditions = {
+            $scope.searchConditions = {
                 name: ""
             };
 
@@ -117,6 +117,22 @@
             //         $state.go('^.edit', { id: a[0] });
             //     }
             // };
+            $scope.addImage = function() {
+                if ($scope.selectedItems.size < 1) {
+                    CoreService.alertWarning('提示', '还没选中');
+                } else if ($scope.selectedItems.size > 1) {
+                    CoreService.alertWarning('提示', '一次只能编辑一个');
+                } else {
+                    // ui-sref="^.edit({id: item.id})"
+                    for (var value of $scope.selectedItems) {
+                        var addItm = value;
+                        console.log("id---", addItm);
+                        $rootScope.imageId = addItm;
+                        break;
+                    }
+                    $state.go('^.upload', { id: addItm });
+                }
+            }
             $scope.editItem = function() {
                 if ($scope.selectedItems.size < 1) {
                     CoreService.alertWarning('提示', '还没选中');

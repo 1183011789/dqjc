@@ -33,7 +33,23 @@
         },
         view: $scope.view
       }
-      $scope.wms = {
+      $scope.below_wms = {
+        source: {
+          type: 'TileWMS',
+          // url: 'http://58.56.96.171:10903/geoserver/BJMap/wms',
+          url: 'http://58.56.96.171:10903/geoserver/gwc/service/wms',
+          crossOrigin: null,
+          params: {
+            // LAYERS: 'BJMapDB:BJMapDB',
+            LAYERS: 'BJMap:BJMap',
+            FORMAT: format,
+            VERSION: '1.1.1',
+            STYLES: ''
+            // tilesOrigin: bounds[1] + ',' + bounds[0]
+          }
+        }
+      };
+      $scope.above_wms = {
         source: {
           type: 'TileWMS',
           // url: 'http://58.56.96.171:10903/geoserver/BJMap/wms',
@@ -41,6 +57,7 @@
           crossOrigin: null,
           params: {
             LAYERS: 'BJMapDB:BJMapDB',
+            // LAYERS: 'BJMap:BJMap',
             FORMAT: format,
             VERSION: '1.1.1',
             STYLES: ''
@@ -65,19 +82,27 @@
       // 除地图外的其他数据
       /////////////////////////////////////////////////////////////
 
-      $scope.$on("MapFilterAdded", function (event, data) {
+      $scope.paths = [];
+      $scope.markers = [];
+
+      $scope.$on("MapMarkerAdded", function (event, data) {
         $scope.markers = $scope.markers.concat(data);
         // _.concat($scope.markers, data);
       });
 
-      $scope.$on("MapFilterRemoved", function (event, item) {
-// 另一种方式
-//         $scope.markers = $scope.markers.filter(function (i, index, array) {
-//           return i.category != item.id;
-//         });
-
+      $scope.$on("MapMarkerRemoved", function (event, item) {
         _.remove($scope.markers, function (i) {
           return i.category == item.id;
+        });
+      });
+
+      $scope.$on("MapPathAdded", function (event, data) {
+        $scope.paths = $scope.paths.concat(data);
+      });
+
+      $scope.$on("MapPathRemoved", function (event, item) {
+        _.remove($scope.paths, function (i) {
+          return i.place_id == item.id;
         });
       });
 
@@ -90,7 +115,7 @@
         $scope.affiliatedInstitutions = value;
       });
 
-      // 铁路线路地图
+      // 铁路线路地图 (线)
       $scope.selectRailwayRouteMap = function (item) {
         item.checked = !item.checked;
         if (item.checked) {
@@ -127,16 +152,12 @@
             });
           });
         } else {
-          $scope.paths = $scope.paths.filter(function (i, index, array) {
-            return i.path_id != item.id;
+          _.remove($scope.paths, function (i) {
+            return i.path_id == item.id;
           });
-
-          // _.remove($scope.paths, function (i) {
-          //   return i.path_id == item.id;
-          // });
         }
       };
-      // 行政区域地图 affiliatedInstitution
+      // 行政区域地图 affiliatedInstitution（面）
       $scope.selectAdminAreaMap = function (item) {
         item.checked = !item.checked;
         if (item.checked) { // 查询并展示数据
@@ -144,8 +165,7 @@
             filter: {
               where:{
                 regionalId: item.id
-              },
-              order: ['lng DESC', 'lat DESC']
+              }
             }
           }).$promise.then(function (value) {
             var c = value.map(function (i) {
@@ -164,13 +184,9 @@
             });
           });
         } else {
-          $scope.paths = $scope.paths.filter(function (i, index, array) {
-            return i.area_id != item.id;
+          _.remove($scope.paths, function (i) {
+            return i.area_id == item.id;
           });
-
-          // _.remove($scope.paths, function (i) {
-          //   return i.area_id == item.id;
-          // });
         }
       };
 
@@ -183,91 +199,92 @@
         zoom: 10
       };
 
-      $scope.markers = [{
-        lat: (bounds[1] + bounds[3]) / 2,
-        lon: (bounds[0] + bounds[2]) / 2,
-        label: {
-          message: '<span style="color:red;">Test arker</span>',
-          show: false,
-          showOnMouseOver: false,
-          showOnMouseClick: true,
-          keepOneOverlayVisible: false
-        },
-        style: {
-          image: {
-            icon: {
-              anchor: [0.5, 1],
-              anchorXUnits: 'fraction',
-              anchorYUnits: 'fraction',
-              opacity: 0.90,
-              src: 'images/村庄.png'
-            }
-          }
-        }
-      }];
+      // $scope.markers = [{
+      //   lat: (bounds[1] + bounds[3]) / 2,
+      //   lon: (bounds[0] + bounds[2]) / 2,
+      //   label: {
+      //     message: '<span style="color:red;">Test arker</span>',
+      //     show: false,
+      //     showOnMouseOver: false,
+      //     showOnMouseClick: true,
+      //     keepOneOverlayVisible: false
+      //   },
+      //   style: {
+      //     image: {
+      //       icon: {
+      //         anchor: [0.5, 1],
+      //         anchorXUnits: 'fraction',
+      //         anchorYUnits: 'fraction',
+      //         opacity: 0.90,
+      //         src: 'images/村庄.png'
+      //       }
+      //     }
+      //   }
+      // }];
 
-      $scope.paths = [{
-        message: 'Test Area!!!',
-        style: {
-          fill: {
-            "color": "rgba(255, 0, 255, 0.6)"
-          },
-          stroke: {
-            color: [0, 225, 0, 0.7],
-            width: 5
-          }
-        },
-        coords: [
-          [
-            [116.2720166815729, 39.83681016129364],
-            [116.2720269616892, 39.83726814319131],
-            [116.2719604304608, 39.83752586725619],
-            [116.2719186598635, 39.83779035627363],
-            [116.2718155849266, 39.83811419496216],
-            [116.2716854338556, 39.83841346185489],
-            [116.2715023519512, 39.83874553800589],
-            [116.2713149664068, 39.83905138379967],
-            [116.2708898719198, 39.83954945426746],
-            [116.2704046142097, 39.84006074939639],
-            [116.2697951945997, 39.84067360296604],
-            [116.2692727207009, 39.84124289008672],
-            [116.2687752009756, 39.84171165757021],
-            [116.2680599409045, 39.84247838269626],
-            [116.2673767340772, 39.8431521471501],
-            [116.2668777476082, 39.84365421692757],
-            [116.2663822551182, 39.84409998064898],
-            [116.2660576397036, 39.84435404551056],
-            [116.2654996978072, 39.84469202723114],
-            [116.2650309426084, 39.84492303028461],
-            [116.2644832619745, 39.84510591877611],
-            [116.2640550922213, 39.84529621611856],
-            [116.2636442618165, 39.84544091826757],
-            [116.2631655204835, 39.84560114047613],
-            [116.2628311913608, 39.84571270782228],
-            [116.2625401524385, 39.84580229088169]
-          ]
-        ]
-      },
-        {
-          message: 'Test Path!!!',
-          style: {
-            stroke: {
-              color: [0, 0, 0, 0.7],
-              width: 3
-            }
-          },
-          coords: [
-            [
-              [116.4347927747106, 39.89547531742212],
-              [116.55178016662598, 40.522943267822266]
-            ],
-            [
-              [116.55178016662598, 40.522943267822266],
-              [117.11854414506392, 40.54504394531251]
-            ]
-          ]
-        }
-      ];
+
+      // $scope.paths = [{
+      //   message: 'Test Area!!!',
+      //   style: {
+      //     fill: {
+      //       "color": "rgba(255, 0, 255, 0.6)"
+      //     },
+      //     stroke: {
+      //       color: [0, 225, 0, 0.7],
+      //       width: 5
+      //     }
+      //   },
+      //   coords: [
+      //     [
+      //       [116.2720166815729, 39.83681016129364],
+      //       [116.2720269616892, 39.83726814319131],
+      //       [116.2719604304608, 39.83752586725619],
+      //       [116.2719186598635, 39.83779035627363],
+      //       [116.2718155849266, 39.83811419496216],
+      //       [116.2716854338556, 39.83841346185489],
+      //       [116.2715023519512, 39.83874553800589],
+      //       [116.2713149664068, 39.83905138379967],
+      //       [116.2708898719198, 39.83954945426746],
+      //       [116.2704046142097, 39.84006074939639],
+      //       [116.2697951945997, 39.84067360296604],
+      //       [116.2692727207009, 39.84124289008672],
+      //       [116.2687752009756, 39.84171165757021],
+      //       [116.2680599409045, 39.84247838269626],
+      //       [116.2673767340772, 39.8431521471501],
+      //       [116.2668777476082, 39.84365421692757],
+      //       [116.2663822551182, 39.84409998064898],
+      //       [116.2660576397036, 39.84435404551056],
+      //       [116.2654996978072, 39.84469202723114],
+      //       [116.2650309426084, 39.84492303028461],
+      //       [116.2644832619745, 39.84510591877611],
+      //       [116.2640550922213, 39.84529621611856],
+      //       [116.2636442618165, 39.84544091826757],
+      //       [116.2631655204835, 39.84560114047613],
+      //       [116.2628311913608, 39.84571270782228],
+      //       [116.2625401524385, 39.84580229088169]
+      //     ]
+      //   ]
+      // },
+      //   {
+      //     message: 'Test Path!!!',
+      //     style: {
+      //       stroke: {
+      //         color: [0, 0, 0, 0.7],
+      //         width: 3
+      //       }
+      //     },
+      //     coords: [
+      //       [
+      //         [116.4347927747106, 39.89547531742212],
+      //         [116.55178016662598, 40.522943267822266]
+      //       ],
+      //       [
+      //         [116.55178016662598, 40.522943267822266],
+      //         [117.11854414506392, 40.54504394531251]
+      //       ]
+      //     ]
+      //   }
+      // ];
 
     });
 })();

@@ -8,26 +8,27 @@
                                                ServicePort, LevelCrossing, Culvert, Bridge, BaseStation,
                                                Monitoring, FenceInfo, APropagandaPoint, TheRoadStation) {
 
-      $scope.otherFilters = [{
-        category: '监控设备',
-        id: 'monitoring',
-        model: Monitoring
-      }
-      , {
-        category: '防护栏',
-        id: 'fenceInfo',
-        model: FenceInfo
-      }
-      , {
-        category: '护路宣传点',
-        id: 'propagandaPoint',
-        model: APropagandaPoint
-      }
-      , {
-        category: '护路工作站',
-        id: 'roadStation',
-        model: TheRoadStation
-      }];
+      $scope.otherFilters = [
+        {
+          category: '监控设备',
+          id: 'monitoring',
+          model: Monitoring
+        }
+        , {
+          category: '防护栏',
+          id: 'fenceInfo',
+          model: FenceInfo
+        }
+        , {
+          category: '护路宣传点',
+          id: 'propagandaPoint',
+          model: APropagandaPoint
+        }
+        , {
+          category: '护路工作站',
+          id: 'roadStation',
+          model: TheRoadStation
+        }];
 
       $scope.addOtherFilterItem = function (item) {
         if (item.checked) {
@@ -47,10 +48,10 @@
           //       }
           //     };
           //   });
-          //   $scope.$emit("MapFilterAdded", c);
+          //   $scope.$emit("MapMarkerAdded", c);
           // });
         } else {
-          // $scope.$emit("MapFilterRemoved", item);
+          // $scope.$emit("MapMarkerRemoved", item);
         }
       };
 
@@ -106,10 +107,10 @@
                 }
               };
             });
-            $scope.$emit("MapFilterAdded", c);
+            $scope.$emit("MapMarkerAdded", c);
           });
         } else {
-          $scope.$emit("MapFilterRemoved", item);
+          $scope.$emit("MapMarkerRemoved", item);
         }
       };
 
@@ -118,45 +119,68 @@
       });
 
       // 添加筛选条件后，进行数据筛选
+      // type: 1点 2面
       $scope.addKeyPlaceFilterItem = function (item) {
+        console.log('======> ', item);
         if (item.checked) {
           KeyPlace.find({
             filter: {
               where: {
                 category: item.id
-              },
-              include: ['keyPlaceCategory']
+              }
             }
           }).$promise.then(function (values) {
-            var c = values.map(function (i, index, array) {
-              return {
-                category: i.category,
-                lat: i.lat,
-                lon: i.lng,
-                label: {
-                  message: '<span style="color:red;">' + i.name + '</span>',
-                  show: false,
-                  showOnMouseOver: false,
-                  showOnMouseClick: true,
-                  keepOneOverlayVisible: false
-                },
-                style: {
-                  image: {
-                    icon: {
-                      anchor: [0.5, 1],
-                      anchorXUnits: 'fraction',
-                      anchorYUnits: 'fraction',
-                      opacity: 0.90,
-                      src: 'images/' + i.keyPlaceCategory.category + '.png'
+            if (item.type == 1) { // 这是点
+              var c = values.map(function (i, index, array) {
+                return {
+                  category: item.id,
+                  lat: i.lat,
+                  lon: i.lng,
+                  label: {
+                    message: '<span style="color:red;">' + i.name + '</span>',
+                    show: false,
+                    showOnMouseOver: false,
+                    showOnMouseClick: true,
+                    keepOneOverlayVisible: false
+                  },
+                  style: {
+                    image: {
+                      icon: {
+                        anchor: [0.5, 1],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'fraction',
+                        opacity: 0.90,
+                        src: 'images/' + item.category + '.png'
+                      }
                     }
                   }
-                }
-              };
-            });
-            $scope.$emit("MapFilterAdded", c);
+                };
+              });
+              $scope.$emit("MapMarkerAdded", c);
+            } else if (item.type == 2) { // 这是面
+              var c = values.map(function (i, index, array) {
+                console.log('====region====>', i.region);
+                return {
+                  place_id: item.id,
+                  message: i.name,
+                  style: {
+                    stroke: {
+                      color: [0, 0, 255, 1],
+                      width: 2
+                    }
+                  },
+                  coords: [JSON.parse(i.region)]
+                };
+              });
+              $scope.$emit("MapPathAdded", c);
+            }
           });
         } else { // 未选中， 那么移除所有相关 marker
-          $scope.$emit("MapFilterRemoved", item);
+          if (item.type == 1) { // 点被移除
+            $scope.$emit("MapMarkerRemoved", item);
+          } else if (item.type == 2) { // 面被移除
+            $scope.$emit("MapPathRemoved", item);
+          }
         }
       };
     });

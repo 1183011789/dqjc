@@ -42,7 +42,8 @@
           </div>
           <div class="panel-body" style="height: 100%">
             <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
-              <ol-layer ol-layer-properties="wms"></ol-layer>
+              <ol-layer ol-layer-properties="below_wms"></ol-layer>
+              <ol-layer ol-layer-properties="above_wms"></ol-layer>
               <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
               <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}"
                        ol-style="path.style"></ol-path>

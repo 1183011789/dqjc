@@ -11,8 +11,15 @@
         <a href="" class="btn btn-xs btn-danger" ng-click="deleteItems()">删除</a>
         <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
         <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
-      
-      </span>
+        <!-- <span class="pull-right btn-group" style="margin-right:10px;"> -->
+            <!-- <a href="" class="btn btn-xs btn-success" ui-sref="^.upload()">
+              上传图片
+            </a> -->
+            <a href="" ng-class="{disabled:getSelectedCount()<=0}" class="btn btn-xs btn-success" ng-click="addImage()">
+                上传图片
+              </a>
+          <!-- </span> -->
+        </span>
     </div>
 
 
@@ -65,7 +72,7 @@
             <td data-title="'在校学生危害铁路或发生事故史'" class="text-center" ng-switch="row.rename" ng-form="stuDangerousRail">
                 <strong ng-switch-default>{{ row.stuDangerousRail }}</strong>
             </td>
-          <!--   <td data-title="'区域'" class="text-center" ng-switch="row.rename" ng-form="region">
+            <!--   <td data-title="'区域'" class="text-center" ng-switch="row.rename" ng-form="region">
                 <strong ng-switch-default>{{ row.region }}</strong>
             </td> -->
             <td data-title="'说明'" class="text-center" ng-switch="row.rename" ng-form="explain">

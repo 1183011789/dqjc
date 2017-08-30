@@ -38,28 +38,33 @@
                     templateUrl: 'modules/key-places/views/map.html',
                     controller: 'MapCtrl',
                 })
-
-            // add
-            .state('app.keyPlaces.add', {
-                url: '/add',
-                templateUrl: 'modules/key-places/views/form.html',
-                controllerAs: 'ctrl',
-                controller: function($state, KeyPlaceService, keyPlace) {
-                    this.keyPlace = keyPlace;
-                    this.formFields = KeyPlaceService.getFormFields();
-                    this.formOptions = {};
-                    this.submit = function() {
-                        KeyPlaceService.upsert(this.keyPlace).then(function() {
-                            $state.go('^.list');
-                        });
-                    };
-                },
-                resolve: {
-                    keyPlace: function() {
-                        return {};
+                .state('app.keyPlaces.upload', {
+                    url: '/upload',
+                    templateUrl: 'modules/key-places/views/upload.html',
+                    // controllerAs: 'ctrl',
+                    controller: 'ImageUploadCtrl'
+                })
+                // add
+                .state('app.keyPlaces.add', {
+                    url: '/add',
+                    templateUrl: 'modules/key-places/views/form.html',
+                    controllerAs: 'ctrl',
+                    controller: function($state, KeyPlaceService, keyPlace) {
+                        this.keyPlace = keyPlace;
+                        this.formFields = KeyPlaceService.getFormFields();
+                        this.formOptions = {};
+                        this.submit = function() {
+                            KeyPlaceService.upsert(this.keyPlace).then(function() {
+                                $state.go('^.list');
+                            });
+                        };
+                    },
+                    resolve: {
+                        keyPlace: function() {
+                            return {};
+                        }
                     }
-                }
-            })
+                })
 
             .state('app.keyPlaces.view', {
                     url: '/:id',
