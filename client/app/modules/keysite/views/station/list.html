@@ -45,16 +45,16 @@
             <td data-title="''" class="text-center">
                 <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
             </td>
-             <td data-title="'车站名称'" ng-switch="row.rename" ng-form="StationName">
+             <td data-title="'车站名称'" ng-switch="row.StationName" ng-form="StationName">
                 <a href="" ui-sref="^.view({id: row.id})">
                     <strong ng-switch-default>{{row.StationName}}</strong>
                 </a>
             </td>
-            <td data-title="'车站等级'" ng-switch="row.titleEdit" ng-form="StationRank">
-                <span ng-switch-default>{{row.StationRank}}</span>
+            <td data-title="'车站等级'" ng-switch="row.titleEdit" ng-form="Rank">
+                <span ng-switch-default>{{row.Rank}}</span>
             </td>
-            <td data-title="'车站性质'" ng-switch="row.rename" ng-form="StationNature">
-                <strong ng-switch-default>{{row.StationNature}}</strong>
+            <td data-title="'车站性质'" ng-switch="row.rename" ng-form="naturen">
+                <strong ng-switch-default>{{row.naturen}}</strong>
             </td>
             <td data-title="'是否有高铁'" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="Highspeed_rail_station">
                 <span ng-switch-default>{{row.Highspeed_rail_station}}</span>
@@ -62,8 +62,8 @@
             <td data-title="'中心里程'" ng-switch="row.rename" ng-form="CenterMileage">
                 <strong ng-switch-default>{{row.CenterMileage}}</strong>
             </td>
-            <td data-title="'隶属铁路局'" ng-switch="row.titleEdit" ng-form="Railway_Administration">
-                <span ng-switch-default>{{row.Railway_Administration}}</span>
+            <td data-title="'隶属铁路局'" ng-switch="row.titleEdit" ng-form="administration">
+                <span ng-switch-default>{{row.administration}}</span>
             </td>
             <td data-title="'所属地方派出所'" ng-switch="row.titleEdit" ng-form="Address">
                 <span ng-switch-default>{{row.Address}}</span>
@@ -80,8 +80,8 @@
             <td data-title="'纬度'" ng-switch="row.titleEdit" ng-form="Latitude">
                 <span ng-switch-default>{{row.Latitude}}</span>
             </td>
-            <td data-title="'所属机构'" ng-switch="row.titleEdit" ng-form="AffiliatedInstitution">
-                <span ng-switch-default>{{row.AffiliatedInstitution}}</span>
+            <td data-title="'所属机构'" ng-switch="row.titleEdit" ng-form="affiliatedInstitution">
+                <span ng-switch-default>{{row.affiliatedInstitution}}</span>
             </td>
             <td data-title="'备注'" ng-switch="row.titleEdit" ng-form="Remarks">
                 <span ng-switch-default>{{row.Remarks}}</span>

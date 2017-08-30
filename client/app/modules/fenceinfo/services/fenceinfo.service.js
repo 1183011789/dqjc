@@ -192,15 +192,7 @@
                                 return value;
                             });
                         }
-                    }, {
-                        key: 'address',
-                        type: 'input',
-                        templateOptions: {
-                            label: '地址:',
-                            required: true,
-                            placeholder: "请输入地址"
-                        }
-                    }, {
+                    },  {
                         key: 'localPoliceStation',
                         type: 'input',
                         templateOptions: {

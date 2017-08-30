@@ -56,11 +56,11 @@
             <td data-title="'道口性质'" ng-switch="row.rename" ng-form="crossproperty">
                 <strong ng-switch-default>{{row.crossproperty}}</strong>
             </td>
-            <td data-title="'行别'" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="crossalignment">
-                <span ng-switch-default>{{row.crossalignment}}</span>
+            <td data-title="'行别'" ng-switch="row.titleEdit" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="alignment">
+                <span ng-switch-default>{{row.alignment}}</span>
             </td>
-            <td data-title="'守护情况'" ng-switch="row.rename" ng-form="guardian">
-                <strong ng-switch-default>{{row.guardian}}</strong>
+            <td data-title="'守护情况'" ng-switch="row.rename" ng-form="Guardian">
+                <strong ng-switch-default>{{row.Guardian}}</strong>
             </td>
             <td data-title="'检查情况'" ng-switch="row.titleEdit" ng-form="inspectionstatus">
                 <span ng-switch-default>{{row.inspectionstatus}}</span>
@@ -77,8 +77,8 @@
             <td data-title="'联系电话'" ng-switch="row.titleEdit" ng-form="contactnumber">
                 <span ng-switch-default>{{row.contactnumber}}</span>
             </td>
-            <td data-title="'所属机构'" ng-switch="row.titleEdit" ng-form="affiliatedinstitution">
-                <span ng-switch-default>{{row.affiliatedinstitution}}</span>
+            <td data-title="'所属机构'" ng-switch="row.titleEdit" ng-form="affiliatedInstitution">
+                <span ng-switch-default>{{row.affiliatedInstitution}}</span>
             </td>
             <td data-title="'备注'" ng-switch="row.titleEdit" ng-form="remark">
                 <span ng-switch-default>{{row.remark}}</span>

@@ -9,7 +9,7 @@
                 删除
               </a>
               <a href="" class="btn btn-xs btn-success" ui-sref="^.add()"><i class="fa fa-plus"> 新增 </i></a>
-              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa fa-plus"> 查看地图 </i></a>
+              <a href="" class="btn btn-xs btn-success" ui-sref="^.map()"><i class="fa "> 查看地图 </i></a>
               <a href="" class="btn btn-xs btn-success" ui-sref="^.line()"><i class="fa "> 线路分配 </i></a>
             </span>
     </div>
@@ -50,8 +50,8 @@
                 <span ng-switch-default>{{item.Position}}</span>
             </td>
 
-            <td data-title="'车站'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="Station">
-                <span ng-switch-default>{{item.Station}}</span>
+            <td data-title="'车站'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="StationName">
+                <span ng-switch-default>{{item.StationName}}</span>
             </td>
 
             <td data-title="'其他'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="Other">
@@ -80,19 +80,19 @@
             <td data-title="'联系电话'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="ContactNumber">
                 <span ng-switch-default>{{item.ContactNumber}}</span>
             </td>
-            <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
-                <span ng-switch-default>{{item.AffiliatedInstitution}}</span>
+            <td data-title="'所属机构'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="affiliatedInstitution">
+                <span ng-switch-default>{{item.affiliatedInstitution}}</span>
             </td>
-            <td data-title="'经度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
+            <td data-title="'经度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="lng">
                 <span ng-switch-default>{{item.lng}}</span>
             </td>
-            <td data-title="'纬度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
+            <td data-title="'纬度'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="lat">
                 <span ng-switch-default>{{item.lat}}</span>
             </td>
-            <td data-title="'说明'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
+            <td data-title="'说明'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="explain">
                 <span ng-switch-default>{{item.explain}}</span>
             </td>
-            <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="AffiliatedInstitution">
+            <td data-title="'备注'" class="text-center" ng-switch="item.titleEdit" style="vertical-align:middle" ng-form="remark">
                 <span ng-switch-default>{{item.remark}}</span>
             </td>
         </tr>

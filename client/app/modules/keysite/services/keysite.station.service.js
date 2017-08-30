@@ -105,7 +105,7 @@
                       }, 
                     {
                         key: 'Highspeed_rail_station',
-                        type: 'input',
+                        type: 'select',
                         templateOptions: {
                             label: '是否有高铁站',
                             required: true,
