@@ -8,7 +8,7 @@
      * @requires $rootScope
      **/
     angular
-        .module('com.module.emergencyacces')
+        .module('com.module.emergencyaccess')
         .controller('LineAllocationCtrl', function($scope, $state, CoreService, RodeContain, $rootScope, EmergencyAccesss, Rode, $location) {
             console.log("线路分配----------");
             EmergencyAccesss.find({}).$promise.then(function(value) {
@@ -62,7 +62,7 @@
                                     "rode"
                                 ],
                                 where: {
-                                emergencyAccesssId: $scope.warningPostsArray[0],
+                                    emergencyAccesssId: $scope.warningPostsArray[0],
                                 }
                             }
                         }, function(res) {
@@ -148,7 +148,7 @@
                                 "rode"
                             ],
                             where: {
-                            emergencyAccesssId: warningpost.id
+                                emergencyAccesssId: warningpost.id
                             }
                         }
                     }, function(result) {

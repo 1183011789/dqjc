@@ -7,7 +7,7 @@
                                                CrossIronBridge, Tunnel, Station,
                                                ServicePort, LevelCrossing, Culvert, Bridge, BaseStation,
                                                Monitoring, FenceInfo, APropagandaPoint, TheRoadStation) {
-
+// 既有点，又有线
       $scope.otherFilters = [
         {
           category: '监控设备',
@@ -32,29 +32,70 @@
 
       $scope.addOtherFilterItem = function (item) {
         if (item.checked) {
-          // item.model.find().$promise.then(function (values) {
-          //   console.log('=======>', values);
-          //   var c = values.map(function (i, index, array) {
-          //     return {
-          //       category: item.id,
-          //       lat: i.lat,
-          //       lon: i.lng,
-          //       label: {
-          //         message: '<span style="color:red;">' + i.name + '</span>',
-          //         show: false,
-          //         showOnMouseOver: false,
-          //         showOnMouseClick: true,
-          //         keepOneOverlayVisible: false
-          //       }
-          //     };
-          //   });
-          //   $scope.$emit("MapMarkerAdded", c);
-          // });
+          if(item.id == 'fenceInfo') { // 当为fenceInfo时，为一条线
+            item.model.find({
+              filter: {
+                include: 'fenceMapInfos'
+              }
+            }).$promise.then(function (values) {
+              console.log('=======>', values);
+              var c = values.map(function (i, index, array) {
+                var co = i.fenceMapInfos.map(function (j, index2, array2) {
+                  if(index2 >= array2.length - 1) {
+                    return [];
+                  }
+                  var item1 = array2[index2 + 1];
+                  console.log('====>', item1);
+                  return [
+                    [parseFloat(j.lng), parseFloat(j.lat)],
+                    [parseFloat(item1.lng), parseFloat(item1.lat)]
+                  ];
+                });
+
+                return {
+                  place_id: item.id,
+                  message: item.name,
+                  style: {
+                    stroke: {
+                      color: [255, 0, 255, 0.7],
+                      width: 2
+                    }
+                  },
+                  coords: co
+                };
+              });
+              $scope.$emit("MapPathAdded", c);
+            });
+          } else { // 其他时，为一个点
+            item.model.find().$promise.then(function (values) {
+              console.log('=======>', values);
+              var c = values.map(function (i, index, array) {
+                return {
+                  category: item.id,
+                  lat: i.lat,
+                  lon: i.lng,
+                  label: {
+                    message: '<span style="color:red;">' + i.name + '</span>',
+                    show: false,
+                    showOnMouseOver: false,
+                    showOnMouseClick: true,
+                    keepOneOverlayVisible: false
+                  }
+                };
+              });
+              $scope.$emit("MapMarkerAdded", c);
+            });
+          }
         } else {
-          // $scope.$emit("MapMarkerRemoved", item);
+          if(item.id == 'fenceInfo') {
+            $scope.$emit("MapPathRemoved", item);
+          } else {
+            $scope.$emit("MapMarkerRemoved", item);
+          }
         }
       };
 
+      // 点（marker）
       $scope.keySiteFilters = [{
         category: '横跨铁桥',
         id: 'crossIronBridge',
@@ -88,7 +129,6 @@
         id: 'tunnel',
         model: Tunnel
       }];
-
       $scope.addKeySiteFilterItem = function (item) {
         if (item.checked) {
           item.model.find().$promise.then(function (values) {
@@ -101,8 +141,8 @@
                 label: {
                   message: '<span style="color:red;">' + i.name + '</span>',
                   show: false,
-                  showOnMouseOver: false,
-                  showOnMouseClick: true,
+                  showOnMouseOver: true,
+                  showOnMouseClick: false,
                   keepOneOverlayVisible: false
                 }
               };
@@ -114,12 +154,11 @@
         }
       };
 
+      // 添加筛选条件后，进行数据筛选
+      // type: 1点 2面
       KeyPlaceCategory.find().$promise.then(function (value) {
         $scope.keyPlaceFiltes = value;
       });
-
-      // 添加筛选条件后，进行数据筛选
-      // type: 1点 2面
       $scope.addKeyPlaceFilterItem = function (item) {
         console.log('======> ', item);
         if (item.checked) {
@@ -141,7 +180,7 @@
                     show: false,
                     showOnMouseOver: false,
                     showOnMouseClick: true,
-                    keepOneOverlayVisible: false
+                    keepOneOverlayVisible: true
                   },
                   style: {
                     image: {

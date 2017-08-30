@@ -22,10 +22,6 @@
             };
 
             this.upsert = function(road) {
-                var k=parseInt(road.K);
-                var m=parseInt(road.M);
-                var num=k*1000+m;
-                road.startendmileage=num;
                 return Rode.upsert(road).$promise
                     .then(function() {
                         CoreService.toastSuccess(
@@ -41,8 +37,7 @@
                     });
             };
 
-            this.deleteById = function(id, successCb, cancelCb) {
-              console.log('====='+id);
+            this.delete = function(id, successCb, cancelCb) {
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),
@@ -52,15 +47,12 @@
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
                             successCb();
-                        },
-                        function(err) {
+                        }, function(err) {
                             CoreService.toastError(
                                 gettextCatalog.getString('Error deleting setting'),
                                 gettextCatalog.getString('Your setting is not deleted! ') + err);
                             cancelCb();
-
                         });
-
                     },
                     function() {
                         cancelCb();
@@ -97,32 +89,32 @@
                 });
             }
           },
-          // {
-          //   key: 'startendmileage',
-          //   type: 'input',
-          //   templateOptions: {
-          //     label: '起始里程',
-          //     required: true,
-          //     placeholder: '请输入起始里程'
-          //   }
-          // },
           {
-            key: 'K',
+            key: 'startendmileage',
             type: 'input',
             templateOptions: {
-              label: '起始里程K',
+              label: '起始里程',
               required: true,
-              placeholder: '请输入起始里程的千米数'
-            }
-          },{
-            key: 'M',
-            type: 'input',
-            templateOptions: {
-              label: '起始里程M',
-              required: true,
-              placeholder: '请输入起始里程的百米数'
+              placeholder: '请输入起始里程'
             }
           },
+          // {
+          //   key: 'K',
+          //   type: 'input',
+          //   templateOptions: {
+          //     label: '起始里程K',
+          //     required: true,
+          //     placeholder: '请输入起始里程的千米数'
+          //   }
+          // },{
+          //   key: 'M',
+          //   type: 'input',
+          //   templateOptions: {
+          //     label: '起始里程M',
+          //     required: true,
+          //     placeholder: '请输入起始里程的百米数'
+          //   }
+          // },
           {
             key: 'rodelenth',
             type: 'input',

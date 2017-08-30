@@ -30,13 +30,13 @@
                     var where = {};
                     if (params._params.filter.rodename) {
                         where.rodename = {
-                            like: `%${params._params.filter.rodename}%`
+                            like: '%' + params._params.filter.rodename + '%'
                         };
                     }
 
                     if (params._params.filter.AdministrativeDepartment) {
                         where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
+                            like: '%' + params._params.filter.AdministrativeDepartment + '%'
                         };
                     }
 
@@ -76,23 +76,13 @@
             };
 
             $scope.deleteItems = function(item) {
-
-                if ($scope.selectedItems.size == 0) {
-                    CoreService.alertWarning('提示', '还没选中');
-                    return;
+                console.log('=======')
+                console.log($scope.selectedItems)
+                var array = [];
+                for (var value of $scope.selectedItems) {
+                    array.push(value)
                 }
 
-                var array = Array.from($scope.selectedItems);
-                if (array.length == 1) {
-                    array.push(-100);
-                }
-                console.log(array)
-                RoadService.deleteById(array, function() {
-                    $state.go('^.list');
-                    $scope.tableParams.reload();
-                }, function() {
-                    $state.go('^.list');
-                });
 
             };
 

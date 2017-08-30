@@ -1,20 +1,22 @@
 {
-  "bjhlb_mysql": {
-    "host": "localhost",
-    "port": 3306,
-    "url": "",
-    "database": "demoo",
-    "password": "orcl",
-    "name": "bjhlb_mysql",
-    "user": "root",
-    "connector": "mysql",
-    "charset": "utf8",
-    "createDatabase": true
-  },
-  "storage": {
-    "name": "storage",
-    "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "root": "./storage"
-  }
+    "bjhlb_mysql": {
+        "host": "localhost",
+        "port": 3306,
+        "url": "",
+        "database": "bjhlb",
+        "password": "901659",
+        "name": "bjhlb_mysql",
+        "user": "root",
+        "connector": "mysql",
+        "charset": "utf8",
+        "maxActive": 0,
+        "createDatabase": true
+
+    },
+    "storage": {
+        "name": "storage",
+        "connector": "loopback-component-storage",
+        "provider": "filesystem",
+        "root": "./storage"
+    }
 }
