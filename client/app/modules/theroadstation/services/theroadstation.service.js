@@ -44,7 +44,7 @@
                     });
             };
 
-            this.delete = function(id, successCb, cancelCb) {
+            this.deleteById = function(id, successCb, cancelCb) {
                 CoreService.confirm(
                     gettextCatalog.getString('Are you sure?'),
                     gettextCatalog.getString('Deleting this cannot be undone'),

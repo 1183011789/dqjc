@@ -22,7 +22,12 @@
                             like: `%${params._params.filter.AdministrativeDepartment}%`
                         };
                     }
-
+                    CrossIronBridge.count({ where: where }).$promise.then(function(result) {
+                        console.log('===SEI=====')
+                        console.log(result.count)
+                        $scope.totalItems = result.count;
+                        params.total(result.count);
+                    });
 
                     var offset = params._params.count * (params._params.page - 1);
                     CrossIronBridge.count().$promise.then(function(result) {

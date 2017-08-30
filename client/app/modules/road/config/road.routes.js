@@ -31,7 +31,7 @@
                     templateUrl: 'modules/road/views/line.html',
                     controller: 'LineAllocationCtrl',
                 })
-            .state('app.road.add', {
+                .state('app.road.add', {
                     url: '/add',
                     templateUrl: 'modules/road/views/form.html',
                     controllerAs: 'ctrl',
@@ -85,18 +85,21 @@
                     }
                 })
 
-            .state('app.road.delete', {
-                url: '/:id/delete',
-                template: '',
-                controllerAs: 'ctrl',
-                controller: function($stateParams, $state, RoadService) {
-                    RoadService.delete($stateParams.id, function() {
-                        $state.go('^.list');
-                    }, function() {
-                        $state.go('^.list');
-                    });
-                }
-            });
+                .state('app.road.delete', {
+                    url: '/:id/delete',
+                    template: '',
+                    controllerAs: 'ctrl',
+                    controller: function($stateParams, $state, RoadService) {
+                        RoadService.delete($stateParams.id, function() {
+                            $state.go('^.list');
+                        }, function() {
+                            $state.go('^.list');
+                        });
+                    }
+                });
+
+
+                
         });
 
 

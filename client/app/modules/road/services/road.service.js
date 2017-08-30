@@ -52,12 +52,15 @@
                                 gettextCatalog.getString('Setting deleted'),
                                 gettextCatalog.getString('Your setting is deleted!'));
                             successCb();
-                        }, function(err) {
+                        },
+                        function(err) {
                             CoreService.toastError(
                                 gettextCatalog.getString('Error deleting setting'),
                                 gettextCatalog.getString('Your setting is not deleted! ') + err);
                             cancelCb();
+
                         });
+
                     },
                     function() {
                         cancelCb();

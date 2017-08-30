@@ -76,13 +76,23 @@
             };
 
             $scope.deleteItems = function(item) {
-                console.log('=======')
-                console.log($scope.selectedItems)
-                var array = [];
-                for (var value of $scope.selectedItems) {
-                    array.push(value)
+
+                if ($scope.selectedItems.size == 0) {
+                    CoreService.alertWarning('提示', '还没选中');
+                    return;
                 }
 
+                var array = Array.from($scope.selectedItems);
+                if (array.length == 1) {
+                    array.push(-100);
+                }
+                console.log(array)
+                RoadService.deleteById(array, function() {
+                    $state.go('^.list');
+                    $scope.tableParams.reload();
+                }, function() {
+                    $state.go('^.list');
+                });
 
             };
 

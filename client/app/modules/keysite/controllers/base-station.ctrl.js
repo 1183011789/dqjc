@@ -22,7 +22,12 @@
                             like: `%${params._params.filter.AdministrativeDepartment}%`
                         };
                     }
-
+                    BaseStation.count({ where: where }).$promise.then(function(result) {
+                        console.log('===SEI=====')
+                        console.log(result.count)
+                        $scope.totalItems = result.count;
+                        params.total(result.count);
+                    });
 
                     var offset = params._params.count * (params._params.page - 1);
                     BaseStation.count().$promise.then(function(result) {

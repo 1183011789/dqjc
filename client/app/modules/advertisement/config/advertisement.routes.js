@@ -21,7 +21,7 @@
                     controller: 'OrdersListCtrl',
                 })
 
-            .state('app.advertisement.map', {
+                .state('app.advertisement.map', {
                     url: '/map',
                     templateUrl: 'modules/advertisement/views/map.html',
                     controller: 'MapCtrl',
@@ -33,7 +33,7 @@
                     controller: 'LineAllocationCtrl',
                 })
 
-            .state('app.advertisement.add', {
+                .state('app.advertisement.add', {
                     url: '/add',
                     templateUrl: 'modules/advertisement/views/form.html',
                     controllerAs: 'ctrl',
@@ -87,18 +87,18 @@
                     }
                 })
 
-            .state('app.advertisement.delete', {
-                url: '/:id/delete',
-                template: '',
-                controllerAs: 'ctrl',
-                controller: function($stateParams, $state, AdvertisementService) {
-                    AdvertisementService.delete($stateParams.id, function() {
-                        $state.go('^.list');
-                    }, function() {
-                        $state.go('^.list');
-                    });
-                }
-            });
+                .state('app.advertisement.delete', {
+                    url: '/:id/delete',
+                    template: '',
+                    controllerAs: 'ctrl',
+                    controller: function($stateParams, $state, AdvertisementService) {
+                        AdvertisementService.delete($stateParams.id, function() {
+                            $state.go('^.list');
+                        }, function() {
+                            $state.go('^.list');
+                        });
+                    }
+                });
         });
 
 })();
