@@ -124,7 +124,7 @@ module.exports = function(Keyplaceimg) {
                                 '/download/' + item.name,
                         });
                     });
-                    return cb(null, objs);
+                    cb(null, objs);
                     // Keyplaceimg.create(objs, function(err, instances) {
                     //     if (err) {
                     //         return cb(null, {

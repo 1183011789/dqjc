@@ -82,12 +82,12 @@
             };
             uploader.onSuccessItem = function(fileItem, response, status, headers) {
                 console.info('onSuccessItem', fileItem);
-                //     var image = {};
-                //     image.type = fileItem.file.type;
-                //     image.name = fileItem._file.name;
-                //     image.url = "/api/containers/common2/download/" + fileItem._file.name;
-                //     image.keyPlaceId = $rootScope.imageId;
-                //     KeyPlaceImg.create(image);
+                var image = {};
+                image.type = fileItem.file.type;
+                image.name = fileItem._file.name;
+                image.url = response[0].url;
+                image.keyPlaceId = $rootScope.imageId;
+                KeyPlaceImg.create(image);
             };
 
 

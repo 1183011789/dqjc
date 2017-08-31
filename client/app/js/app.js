@@ -43,6 +43,7 @@
             'permission',
             'permission.ui',
             'openlayers-directive',
+            'bootstrapLightbox',
             'com.module.core',
             // 'com.module.sandbox',
             'com.module.road',
