@@ -83,6 +83,7 @@
       /////////////////////////////////////////////////////////////
 
       $scope.paths = [];
+      $scope.lines = [];
       $scope.markers = [];
 
       $scope.$on("MapMarkerAdded", function (event, data) {
@@ -117,7 +118,6 @@
 
       // 铁路线路地图 (线)
       $scope.selectRailwayRouteMap = function (item) {
-        item.checked = !item.checked;
         if (item.checked) {
           // 根据铁路信息，获取该条线路
         // ,order: ['lng DESC', 'lat DESC']
@@ -128,38 +128,45 @@
               }
             }
           }).$promise.then(function (value) {
-            var c = value.map(function (item, index, array) {
-              if(index >= array.length - 1) {
-                return [];
-              }
-              var item1 = array[index + 1];
-              console.log('====>', item1);
-              return [
-                [parseFloat(item.lng), parseFloat(item.lat)],
-                [parseFloat(item1.lng), parseFloat(item1.lat)]
-              ];
+
+            var c = value.map(function (i) {
+              return [parseFloat(i.lng), parseFloat(i.lat)];
             });
-            $scope.paths.push({
-              path_id: item.id,
+            $scope.lines.push({
+              line_id: item.id,
               message: item.rodename,
               style: {
                 stroke: {
-                  color: [255, 0, 255, 0.7],
-                  width: 2
+                  color: [255, 255, 255, 1],
+                  width: 4
+                }
+              },
+              coords: c
+            });
+
+            $scope.lines.push({
+              line_id: item.id,
+              message: item.rodename,
+              style: {
+                stroke: {
+                  color: [0, 0, 0, 1],
+                  width: 4,
+                  lineDash: [20, 20],
+                  lineCap: 'butt',
+                  lineJoin: 'miter'
                 }
               },
               coords: c
             });
           });
         } else {
-          _.remove($scope.paths, function (i) {
-            return i.path_id == item.id;
+          _.remove($scope.lines, function (i) {
+            return i.line_id == item.id;
           });
         }
       };
       // 行政区域地图 affiliatedInstitution（面）
       $scope.selectAdminAreaMap = function (item) {
-        item.checked = !item.checked;
         if (item.checked) { // 查询并展示数据
           AdministrativeAreaMapInformation.find({
             filter: {

@@ -58,7 +58,7 @@
                   style: {
                     stroke: {
                       color: [255, 0, 255, 0.7],
-                      width: 2
+                      width: 4
                     }
                   },
                   coords: co
