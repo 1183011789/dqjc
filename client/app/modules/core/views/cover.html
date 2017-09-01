@@ -1,20 +1,101 @@
-<header class="jh-header header">
-  <a class="logo" href="/"></a>
+<header class="header" style="position: fixed">
+  <a class="logo" href="/">{{ settings.appName }}</a>
   <navbar-no-menu></navbar-no-menu>
 </header>
-<div class="wrapper row-offcanvas row-offcanvas-left">
-  <div class="container" style="margin-top: 50px">
-    <div class="row">
-      <div class="col-md-3 col-md-offset-1" ng-repeat="box in boxes | orderBy:['-quantity', 'name']">
-      <div class="small-box {{ box.color }}" ui-sref="{{ box.href }}">
-        <div class="inner">
-          <!-- <h3>{{box.quantity}} &nbsp;</h3>
-          <p>{{ box.name | translate }}</p> -->
-        </div>
-         <!-- <div class="icon"><i class="ion {{ box.icon }}"></i></div> -->
-       <!--  <a  class="small-box-footer" >{{ 'More info' | translate }} <i class="fa fa-arrow-circle-right"></i></a>  -->
-      </div>
 
+<div class="container" style=" margin-right: 15px; padding:0px; display: flex;align-items: center;position: absolute;right: 0px; top: 100px;z-index: 1000; width: auto; height: 510px;" >
+
+  <div ng-click="shownine = !shownine;" style="width: 30px; background-color: #0a6ebd;height: fit-content; padding: 10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">
+    <p style="color: white; text-align: center" class="text-center">点我打开九大模块</p>
+  </div>
+
+  <div ng-if="shownine" style="display: flex;flex-direction: column;width: 120px; padding: 15px 15px 0px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; background-color: #0a6ebd">
+    <div ng-repeat="box in boxes | orderBy:['-quantity', 'name']" style="">
+      <div class="small-box" style="background-color: #00c0ef" ui-sref="{{ box.href }}">
+        <div class="inner">
+          <span>{{ box.name | translate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-controller="RoadMapFilterCtrl" style="display: flex;position: absolute; left: 60px; top: 60px; z-index: 1000;">
+  <div class="dropdown">
+    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Markers
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dLabel">
+      <div class="row" style="width: 500px; padding: 10px;" ng-controller="RoadMapFilterCtrl">
+        <div class="col-md-12" style="display: flex;">
+          <strong style="width: 50px;">部位：</strong>
+          <div style="display: flex">
+            <div class="checkbox-inline" ng-repeat="item in keySiteFilters">
+              <label><input type="checkbox" ng-model="item.checked" ng-click="addKeySiteFilterItem(item)">{{ item.category }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" style="display: flex; ">
+          <strong>场所：</strong>
+          <div class="checkbox-inline" ng-repeat="item in keyPlaceFiltes">
+            <label><input type="checkbox" ng-model="item.checked" ng-click="addKeyPlaceFilterItem(item)">{{ item.category }}</label>
+          </div>
+        </div>
+
+        <div class="col-md-12" style="display: flex; ">
+          <strong>其他：</strong>
+          <div class="checkbox-inline" ng-repeat="item in otherFilters">
+            <label><input type="checkbox" ng-model="item.checked" ng-click="addOtherFilterItem(item)">{{ item.category }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      线路地图信息
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu list-group" aria-labelledby="dLabel2">
+      <div class="checkbox-inline" ng-repeat="item in railways">
+        <label><input type="checkbox" ng-model="item.checked" ng-click="selectRailwayRouteMap(item)">{{ item.rodename }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button id="dLabel3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      行政区域地图信息
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dLabel3">
+      <div class="checkbox-inline" ng-repeat="item in affiliatedInstitutions">
+        <label><input type="checkbox" ng-model="item.checked" ng-click="selectAdminAreaMap(item)">{{ item.affiliatedInstitution }}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default" style="margin-top: 50px;">
+  <div class="panel-body" style="padding: 0px;">
+    <div class="row">
+      <div class="col-md-12" style="height: 100%;">
+        <!--<div class="panel-heading">-->
+        <!--<span> Zoom: {{ center.zoom }}; Center: {{ center.lat }} (lat) , {{ center.lon }} (lon)</span>-->
+        <!--</div>-->
+        <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
+          <ol-layer ol-layer-properties="below_wms"></ol-layer>
+          <ol-layer ol-layer-properties="above_wms"></ol-layer>
+          <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
+          <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}"
+                   ol-style="path.style"></ol-path>
+          <ol-line ng-repeat="line in lines" message="{{ line.message }}" coords="{{ line.coords }}"
+                   ol-style="line.style"></ol-line>
+          <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
+          </ol-marker>
+        </openlayers>
       </div>
     </div>
   </div>
