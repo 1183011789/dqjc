@@ -47,7 +47,7 @@
             // 'com.module.sandbox',
             'com.module.road',
             'com.module.keysite',
-            'com.module.advertisement',
+            // 'com.module.advertisement',
             'com.module.keypersion',
             'com.module.monitoring',
             'com.module.emergencyaccess',

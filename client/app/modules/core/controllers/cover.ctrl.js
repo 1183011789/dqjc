@@ -9,7 +9,9 @@
      **/
     angular
         .module('com.module.core')
-        .controller('CoverCtrl', function($scope, $rootScope) {
+        .controller('CoverCtrl', function($scope, olData,
+                                          Rode, RouteMapInformation,
+                                          AffiliatedInstitution, AdministrativeAreaMapInformation) {
             $scope.boxes = [{
                     name: '基础数据',
                     color: 'bg-blue',
@@ -146,7 +148,7 @@
           /////////////////////////////////////////////////////////////
 
           $scope.paths = [];
-          ($scope.lines = [];
+          $scope.lines = [];
           $scope.markers = [];
 
           $scope.$on("MapMarkerAdded", function (event, data) {
@@ -189,28 +191,29 @@
                   }
                 }
               }).$promise.then(function (value) {
+                // console.log('===value=====>', value);
                 var c = value.map(function (i) {
                   return [parseFloat(i.lng), parseFloat(i.lat)];
                 });
-                $scope.paths.push({
+                $scope.lines.push({
                   line_id: item.id,
                   message: item.rodename,
                   style: {
                     stroke: {
-                      color: [255, 255, 255, 0.7],
-                      width: 2
+                      color: [255, 255, 255, 1],
+                      width: 4
                     }
                   },
                   coords: c
                 });
 
-                $scope.paths.push({
+                $scope.lines.push({
                   line_id: item.id,
                   message: item.rodename,
                   style: {
                     stroke: {
-                      color: [0, 0, 0, 0.7],
-                      width: 2,
+                      color: [0, 0, 0, 1],
+                      width: 4,
                       lineDash: [20, 20],
                       lineCap: 'butt',
                       lineJoin: 'miter'
