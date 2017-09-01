@@ -53,14 +53,29 @@
     </div>
   </div>
 
+  <!-- 线路 -->
   <div class="dropdown">
     <button id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       线路地图信息
       <span class="caret"></span>
     </button>
-    <div class="dropdown-menu list-group" style="width: 500px; padding: 10px;" aria-labelledby="dLabel2">
-      <div class="checkbox-inline" ng-repeat="item in railways">
-        <label><input type="checkbox" ng-model="item.checked" ng-click="selectRailwayRouteMap(item)">{{ item.rodename }}</label>
+    <div class="dropdown-menu " style="width: 500px; padding: 10px;" aria-labelledby="dLabel2">
+      <div class="list-group">
+        <div class="checkbox-inline" ng-repeat="item in railways">
+          <label><input type="checkbox" ng-model="item.checked" ng-click="selectRailwayRouteMap(item)">{{ item.rodename }}</label>
+        </div>
+      </div>
+
+      <div class="list-group">
+        <div class="checkbox-inline">
+          <label><input type="radio" ng-model="linesCheckedType" value="1" ng-checked="true" ng-change="onLinesSelect(linesCheckedType)">全选</label>
+        </div>
+        <div class="checkbox-inline">
+          <label><input type="radio" ng-model="linesCheckedType" value="0" ng-change="onLinesSelect(linesCheckedType)">全不选</label>
+        </div>
+        <div class="checkbox-inline">
+          <label><input type="radio" ng-model="linesCheckedType" value="-1" ng-change="onLinesSelect(linesCheckedType)">反选</label>
+        </div>
       </div>
     </div>
   </div>
@@ -76,6 +91,8 @@
       </div>
     </div>
   </div>
+
+  <button type="button" ng-click="showAbove = !showAbove">卫星</button>
 </div>
 
 <div class="panel panel-default" style="margin-top: 50px;">
@@ -84,14 +101,14 @@
         <!--<span> Zoom: {{ center.zoom }}; Center: {{ center.lat }} (lat) , {{ center.lon }} (lon)</span>-->
         <!--</div>-->
       <openlayers custom-layers="true" ol-center="center" ol-defaults="defaults" height="100%">
-        <ol-layer ol-layer-properties="below_wms"></ol-layer>
-        <ol-layer ol-layer-properties="above_wms"></ol-layer>
+        <ol-layer ol-layer-properties="below_wms" z-index="2" ></ol-layer>
+        <ol-layer ol-layer-properties="above_wms" z-index="3" ng-if="showAbove"></ol-layer>
         <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
         <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}"
-                 ol-style="path.style"></ol-path>
+                 ol-style="path.style" z-index="5"></ol-path>
         <ol-line ng-repeat="line in lines" message="{{ line.message }}" coords="{{ line.coords }}"
-                 ol-style="line.style"></ol-line>
-        <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
+                 ol-style="line.style" z-index="6"></ol-line>
+        <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" z-index="7" style="color:red;">
         </ol-marker>
       </openlayers>
   </div>
