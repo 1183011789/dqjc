@@ -20,15 +20,15 @@
   </div>
 </div>
 
-<div ng-controller="RoadMapFilterCtrl" style="display: flex;position: absolute; left: 60px; top: 60px; z-index: 1000;">
-  <div class="dropdown">
+<div style="display: flex;position: absolute; left: 60px; top: 60px; z-index: 1000;">
+  <div class="dropdown" ng-controller="RoadMapFilterCtrl">
     <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Markers
       <span class="caret"></span>
     </button>
     <div class="dropdown-menu" aria-labelledby="dLabel">
-      <div class="row" style="width: 500px; padding: 10px;" ng-controller="RoadMapFilterCtrl">
-        <div class="col-md-12" style="display: flex;">
+      <div style="width: 500px; padding: 10px; display: flex; flex-direction: column;" ng-controller="RoadMapFilterCtrl">
+        <div style="display: flex;">
           <strong style="width: 50px;">部位：</strong>
           <div style="display: flex">
             <div class="checkbox-inline" ng-repeat="item in keySiteFilters">
@@ -36,14 +36,14 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12" style="display: flex; ">
+        <div style="display: flex; ">
           <strong>场所：</strong>
           <div class="checkbox-inline" ng-repeat="item in keyPlaceFiltes">
             <label><input type="checkbox" ng-model="item.checked" ng-click="addKeyPlaceFilterItem(item)">{{ item.category }}</label>
           </div>
         </div>
 
-        <div class="col-md-12" style="display: flex; ">
+        <div style="display: flex; ">
           <strong>其他：</strong>
           <div class="checkbox-inline" ng-repeat="item in otherFilters">
             <label><input type="checkbox" ng-model="item.checked" ng-click="addOtherFilterItem(item)">{{ item.category }}</label>
@@ -58,7 +58,7 @@
       线路地图信息
       <span class="caret"></span>
     </button>
-    <div class="dropdown-menu list-group" aria-labelledby="dLabel2">
+    <div class="dropdown-menu list-group" style="width: 500px; padding: 10px;" aria-labelledby="dLabel2">
       <div class="checkbox-inline" ng-repeat="item in railways">
         <label><input type="checkbox" ng-model="item.checked" ng-click="selectRailwayRouteMap(item)">{{ item.rodename }}</label>
       </div>
@@ -70,7 +70,7 @@
       行政区域地图信息
       <span class="caret"></span>
     </button>
-    <div class="dropdown-menu" aria-labelledby="dLabel3">
+    <div class="dropdown-menu" style="width: 500px; padding: 10px;" aria-labelledby="dLabel3">
       <div class="checkbox-inline" ng-repeat="item in affiliatedInstitutions">
         <label><input type="checkbox" ng-model="item.checked" ng-click="selectAdminAreaMap(item)">{{ item.affiliatedInstitution }}</label>
       </div>

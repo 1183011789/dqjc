@@ -30,9 +30,15 @@
       <div class="col-md-2">
         <div class="list-group">
           <li class="list-group-item">线路地图信息</li>
-          <a class="list-group-item" ng-repeat="row in railways" ng-class="row.checked ? 'active': ''" ng-click="selectRailwayRouteMap(row)">
-            {{ row.rodename }}
-          </a>
+          <li class=" list-group-item" ng-repeat="item in railways">
+            <div class="checkbox-inline">
+              <label><input type="checkbox" ng-model="item.checked" ng-click="selectRailwayRouteMap(item)"> {{ item.rodename }}</label>
+            </div>
+          </li>
+
+          <!--<a class="list-group-item" ng-repeat="row in railways" ng-class="row.checked ? 'active': ''" ng-click="selectRailwayRouteMap(row)">-->
+            <!--{{ row.rodename }}-->
+          <!--</a>-->
         </div>
       </div>
       <div class="col-md-8" style="padding: 0px">
@@ -47,6 +53,8 @@
               <!-- <ol-layer ol-layer-properties="kml"></ol-layer> -->
               <ol-path ng-repeat="path in paths" message="{{ path.message }}" coords="{{ path.coords }}"
                        ol-style="path.style"></ol-path>
+              <ol-line ng-repeat="line in lines" message="{{ line.message }}" coords="{{ line.coords }}"
+                       ol-style="line.style"></ol-line>
               <ol-marker ng-repeat="marker in markers" ol-marker-properties="marker" style="color:red;">
               </ol-marker>
             </openlayers>
@@ -56,9 +64,14 @@
       <div class="col-md-2">
         <div class="list-group">
           <li class="list-group-item">行政区域地图信息</li>
-          <a class="list-group-item" ng-repeat="aami in affiliatedInstitutions" ng-class="aami.checked ? 'active': ''" ng-click="selectAdminAreaMap(aami)">
-            {{ aami.affiliatedInstitution }}
-          </a>
+          <li class=" list-group-item" ng-repeat="item in affiliatedInstitutions">
+            <div class="checkbox-inline">
+              <label><input type="checkbox" ng-model="item.checked" ng-click="selectAdminAreaMap(item)"> {{ item.affiliatedInstitution }}</label>
+            </div>
+          </li>
+          <!--<a class="list-group-item" ng-repeat="aami in affiliatedInstitutions" ng-class="aami.checked ? 'active': ''" ng-click="selectAdminAreaMap(aami)">-->
+            <!--{{ aami.affiliatedInstitution }}-->
+          <!--</a>-->
         </div>
       </div>
     </div>
