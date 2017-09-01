@@ -13,15 +13,16 @@
                     var where = {};
                     if (params._params.filter.ironbridgename) {
                         where.ironbridgename = {
-                            like: `%${params._params.filter.ironbridgename}%`
+                            // like: `%${params._params.filter.ironbridgename}%`
+                            like: '%' + params._params.filter.ironbridgename + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     CrossIronBridge.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)

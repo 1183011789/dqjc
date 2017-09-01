@@ -13,15 +13,16 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            // like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     BaseStation.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)

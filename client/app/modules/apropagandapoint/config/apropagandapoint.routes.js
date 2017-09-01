@@ -20,8 +20,8 @@
                     templateUrl: 'modules/apropagandapoint/views/list.html',
                     controller: 'PropagandaPointCtrl'
                 })
-                
-                .state('app.apropagandapoint.map', {
+
+            .state('app.apropagandapoint.map', {
                     url: '/map',
                     templateUrl: 'modules/monitoring/views/map.html',
                     controller: 'MapCtrl',
@@ -32,7 +32,12 @@
                     templateUrl: 'modules/apropagandapoint/views/line.html',
                     controller: 'LineAllocationCtrl',
                 })
-
+                .state('app.apropagandapoint.upload', {
+                    url: '/upload',
+                    templateUrl: 'modules/apropagandapoint/views/upload.html',
+                    // controllerAs: 'ctrl',
+                    controller: 'PointImageUploadCtrl'
+                })
 
             .state('app.apropagandapoint.add', {
                     url: '/add',

@@ -13,7 +13,8 @@
                     var where = {};
                     if (params._params.filter.culvertnumber) {
                         where.culvertnumber = {
-                            like: `%${params._params.filter.culvertnumber}%`
+                            // like: `%${params._params.filter.culvertnumber}%`
+                            like: '%' + params._params.filter.culvertnumber + '%'
                         };
                     }
 

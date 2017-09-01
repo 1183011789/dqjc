@@ -60,7 +60,7 @@
             'com.module.keyPlaces',
             // 'com.module.openLayer'
             'com.module.about',
-            'com.module.settings',
+            // 'com.module.settings',
             'com.module.users'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {

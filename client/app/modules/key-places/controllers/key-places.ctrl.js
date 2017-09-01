@@ -32,7 +32,7 @@
 
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
 
@@ -195,15 +195,13 @@
                     if (result.length === 0) {
                         CoreService.alertWarning('提示', '还没上传照片,请上传照片后浏览');
                     } else {
-                        Lightbox.openModal($scope.images, index);
+                        Lightbox.openModal($scope.images, 0);
 
                     }
 
                 }, function(error) {
 
                 });
-
-
             };
 
         });

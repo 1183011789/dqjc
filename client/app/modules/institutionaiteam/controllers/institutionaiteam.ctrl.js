@@ -12,7 +12,7 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
                     InstitutionalTeam.count({ where: where }).$promise.then(function(result) {

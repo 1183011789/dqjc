@@ -13,15 +13,16 @@
                     var where = {};
                     if (params._params.filter.StationName) {
                         where.StationName = {
-                            like: `%${params._params.filter.StationName}%`
+                            // like: `%${params._params.filter.StationName}%`
+                            like: '%' + params._params.filter.StationName + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     Station.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)

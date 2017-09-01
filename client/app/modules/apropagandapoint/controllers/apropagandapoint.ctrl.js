@@ -9,7 +9,7 @@
      **/
     angular
         .module('com.module.apropagandapoint')
-        .controller('PropagandaPointCtrl', function($scope, CoreService, $state, APropagandaPoint, PropagandaPointService, NgTableParams, $location) {
+        .controller('PropagandaPointCtrl', function($scope, CoreService, $rootScope, APropagandaPointImg, $state, Lightbox, APropagandaPoint, PropagandaPointService, NgTableParams, $location) {
             $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
@@ -19,7 +19,7 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
                     APropagandaPoint.count({ where: where }).$promise.then(function(result) {
@@ -38,7 +38,6 @@
                     });
                 }
             });
-
             // 查询条件
             $scope.searchConditions = {
                 name: ""
@@ -61,8 +60,24 @@
                     name: $scope.searchConditions.name
                 });
             };
-
-            // 编辑, 每次只能编辑一个
+            //添加图片
+            $scope.addImage = function() {
+                    if ($scope.selectedItems.size < 1) {
+                        CoreService.alertWarning('提示', '还没选中');
+                    } else if ($scope.selectedItems.size > 1) {
+                        CoreService.alertWarning('提示', '一次只能编辑一个');
+                    } else {
+                        // ui-sref="^.edit({id: item.id})"
+                        for (var value of $scope.selectedItems) {
+                            var addItm = value;
+                            console.log("id---", addItm);
+                            $rootScope.imageId = addItm;
+                            break;
+                        }
+                        $state.go('^.upload', { id: addItm });
+                    }
+                }
+                // 编辑, 每次只能编辑一个
             $scope.editItem = function() {
                 if ($scope.selectedItems.size < 1) {
                     CoreService.alertWarning('提示', '还没选中');
@@ -95,6 +110,29 @@
                     $scope.tableParams.reload();
                 }, function() {
                     $state.go('^.list');
+                });
+            };
+            $scope.openLightboxImageModal = function(index) {
+                $scope.images = [];
+                console.log("-2----------", index);
+                APropagandaPointImg.find({
+                    filter: {
+                        where: {
+                            aPropagandaPointId: index
+                        }
+                    }
+
+                }, function(result) {
+                    console.log("result--", JSON.stringify(result));
+                    $scope.images = result;
+                    if (result.length === 0) {
+                        CoreService.alertWarning('提示', '还没上传照片,请上传照片后浏览');
+                    } else {
+                        Lightbox.openModal($scope.images, 0);
+                    }
+
+                }, function(error) {
+
                 });
             };
 

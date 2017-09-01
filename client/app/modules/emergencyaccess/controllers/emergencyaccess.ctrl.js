@@ -30,15 +30,14 @@
                     var where = {};
                     if (params._params.filter.Name) {
                         where.Name = {
-                            like: `%${params._params.filter.Name}%`
+                            like: '%' + params._params.filter.Name + '%'
                         };
                     }
-
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
 
                     EmergencyAccesss.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
