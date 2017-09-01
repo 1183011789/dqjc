@@ -3,6 +3,7 @@
     angular
         .module('com.module.institutionaiteam')
         .controller('InstitutionalTeamCtrl', function($scope, CoreService, InstitutionalTeam, InstitutionalTeamService, NgTableParams, $state) {
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
                 count: 10
@@ -11,7 +12,7 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
                     InstitutionalTeam.count({ where: where }).$promise.then(function(result) {

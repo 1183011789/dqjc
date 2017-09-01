@@ -13,12 +13,11 @@
             console.log("线路分配----------");
             Station.find({}).$promise.then(function(value) {
                 $scope.warningPosts = value;
-                console.log("广播警示柱---", JSON.stringify(value));
+
             });
             $scope.findeAllRode = function() {
                 Rode.find({}).$promise.then(function(value) {
                     $scope.rodes = value;
-                    // console.log("铁路信息---", JSON.stringify(value));
                 });
             }
             $scope.findeAllRode();
@@ -29,11 +28,7 @@
             $scope.deleteIds = [];
             //点击rode
             $scope.addEditItem = function(item) {
-                // if ($scope.RodesArray) {
-                //     CoreService.alertWarning('提示', '还没选中信息列表');
-                //     return;
-                // }
-                // 将需要删除的item加入selectedRodes
+
                 console.log("item--", JSON.stringify(item));
                 if (item.checked) {
                     $scope.selectedRodeCommits.add(item.id);
@@ -94,7 +89,6 @@
                             $scope.deleteArry.push($scope.deleteIds[j]);
                         }
                     }
-                    console.log("所有要删除的-id---", JSON.stringify($scope.deleteArry));
                     deleteload(0);
                 }
             };
@@ -119,7 +113,6 @@
                             CoreService.toastSuccess(
                                 '取消成功!'
                             );
-                            // $scope.deleteArry = [];
                         } else {
                             deleteload(index + 1);
                         }
@@ -168,7 +161,6 @@
                                 }
                             }
                         }
-                        // console.log("查出的关系表里的数据和铁路关系--", JSON.stringify(result));
                         $scope.RodesArray = Array.from($scope.selectedRodes);
                         console.log("添加关系的数组-1-", JSON.stringify($scope.RodesArray));
                         console.log('scope.rodes---', JSON.stringify($scope.selectedRodes.size));
@@ -213,7 +205,6 @@
                 //     row.checked = true;
                 //     $scope.selectwarningpost(row);
                 // }
-
                 if ($scope.hindenOrshow) {
                     console.log("查看所有分配---");
                     for (var j = 0; j < $scope.warningPosts.length; j++) {
@@ -233,11 +224,8 @@
                 } else {
                     console.log("取消查看所有分配---");
                     // $scope.hindenOrshow = true;
-
                     $scope.selectedRodes.clear();
                     $scope.RodesArray = Array.from($scope.selectedRodes);
-                    console.log("警示柱---id--" + JSON.stringify($scope.RodesArray));
-
                 }
             }
         });

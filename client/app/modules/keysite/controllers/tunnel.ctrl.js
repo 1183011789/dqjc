@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('TunnelCtrl', function($scope, CoreService, Tunnel, TunnelService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
@@ -13,16 +13,16 @@
                     var where = {};
                     if (params._params.filter.tunnelname) {
                         where.tunnelname = {
-                            like: `%${params._params.filter.tunnelname}%`
+                            // like: `%${params._params.filter.tunnelname}%`
+                            like: '%' + params._params.filter.tunnelname + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
-
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     Tunnel.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)

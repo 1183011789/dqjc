@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('com.module.keyPlaces') //['formly', 'formlyBootstrap', 'ngAnimate', 'ngAria', 'ngMessages']
-        .controller('KeyPlaceCtrl', function($scope, $rootScope, CoreService, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
+        .controller('KeyPlaceCtrl', function($scope, $rootScope, CoreService, KeyPlaceImg, Lightbox, KeyPlaceCategory, KeyPlace, KeyPlaceService, $state, NgTableParams) {
 
             // $scope.items = [{
             //     category: '全部',
@@ -13,7 +13,7 @@
             // KeyPlaceCategory.find().$promise.then(function(value) {
             //     $scope.items = $scope.items.concat(value);
             // });
-
+            $scope.maxSize = 6;
             $scope.$on('KeyPlace.Changed', function(event, data) {
                 // console.log('======data====>', data);
                 // console.log('======event====>', event);
@@ -32,7 +32,7 @@
 
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
 
@@ -91,7 +91,6 @@
                     $state.go('^.list');
                 });
             };
-
 
             $scope.selectedItems = new Set();
 
@@ -153,7 +152,6 @@
                     CoreService.alertWarning('提示', '还没选中');
                     return;
                 }
-
                 var array = Array.from($scope.selectedItems);
                 if (array.length == 1) {
                     array.push(-100);
@@ -164,6 +162,45 @@
                     $scope.tableParams.reload();
                 }, function() {
                     $state.go('^.list');
+                });
+            };
+            // $scope.images = [{ "mimeType": "image/png", "key": "Fsj8WTLuHuK8-3BGyGd079Nffn09", "name": "铁路内部单位.png", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/Fsj8WTLuHuK8-3BGyGd079Nffn09", "container": "aoc-news", "size": 2301, "height": null, "width": null, "created": "2017-08-31T03:54:22.000Z", "lastUpdated": "2017-08-31T03:54:22.000Z", "id": 97, "userId": 22 }, { "mimeType": "image/png", "key": "FqHhcjHf35E2oHUtqU_YAdZqvVNL", "name": "yeoman.png", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/FqHhcjHf35E2oHUtqU_YAdZqvVNL", "container": "aoc-news", "size": 13501, "height": null, "width": null, "created": "2017-08-31T03:54:22.000Z", "lastUpdated": "2017-08-31T03:54:22.000Z", "id": 98, "userId": 22 }, { "mimeType": "image/png", "key": "FpBmP4e5kLuKeSLAHUsfYBAnirRC", "name": "屏幕快照 2017-05-05 下午2.58.39.png", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/FpBmP4e5kLuKeSLAHUsfYBAnirRC", "container": "aoc-news", "size": 50915, "height": null, "width": null, "created": "2017-08-29T08:01:13.000Z", "lastUpdated": "2017-08-29T08:01:13.000Z", "id": 95, "userId": 22 }, { "mimeType": "image/png", "key": "FjxAX3yuaT2tqDZ5fwCk9GQ2kmue", "name": "屏幕快照 2017-05-04 下午4.36.20.png", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/FjxAX3yuaT2tqDZ5fwCk9GQ2kmue", "container": "aoc-news", "size": 126620, "height": null, "width": null, "created": "2017-08-29T08:01:13.000Z", "lastUpdated": "2017-08-29T08:01:13.000Z", "id": 96, "userId": 22 }, { "mimeType": "image/jpeg", "key": "FnjXhuOEiaQ70JV3Uotc6bbffZmr", "name": "o1.jpg", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/FnjXhuOEiaQ70JV3Uotc6bbffZmr", "container": "aoc-news", "size": 187088, "height": null, "width": null, "created": "2017-08-29T07:55:06.000Z", "lastUpdated": "2017-08-29T07:55:06.000Z", "id": 94, "userId": 22 }, { "mimeType": "image/jpeg", "key": "FnjXhuOEiaQ70JV3Uotc6bbffZmr", "name": "o1.jpg", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/FnjXhuOEiaQ70JV3Uotc6bbffZmr", "container": "aoc-news", "size": 187088, "height": null, "width": null, "created": "2017-08-29T02:35:08.000Z", "lastUpdated": "2017-08-29T02:35:08.000Z", "id": 93, "userId": 22 }, { "mimeType": "image/png", "key": "Foc1hVb_IBHQXjgIxxKqZJVjMZM3", "name": "D97A0A2E-9F54-4EB1-8025-C25EACC890C5.png", "title": "", "url": "http://obxk6rroh.bkt.clouddn.com/Foc1hVb_IBHQXjgIxxKqZJVjMZM3", "container": "aoc-news", "size": 91044, "height": null, "width": null, "created": "2017-08-22T01:37:15.000Z", "lastUpdated": "2017-08-22T01:37:15.000Z", "id": 91, "userId": 22 }];
+            // $scope.openLightboxImageChecked = function() {
+            //     console.log("-1----------");
+            //     var count = 0;
+            //     var tempIndex = -1;
+            //     for (var i = 0; i < $scope.images.length; i++) {
+            //         if ($scope.images[i].checked) {
+            //             count += 1;
+            //             tempIndex = i;
+            //         }
+            //     }
+            //     if (count === 1) {
+            //         Lightbox.openModal($scope.images, tempIndex);
+            //     }
+            // };
+            $scope.openLightboxImageModal = function(index) {
+                $scope.images = [];
+                console.log("-2----------", index);
+                KeyPlaceImg.find({
+                    filter: {
+                        where: {
+                            keyPlaceId: index
+                        }
+                    }
+
+                }, function(result) {
+                    console.log("result--", JSON.stringify(result));
+                    $scope.images = result;
+                    if (result.length === 0) {
+                        CoreService.alertWarning('提示', '还没上传照片,请上传照片后浏览');
+                    } else {
+                        Lightbox.openModal($scope.images, 0);
+
+                    }
+
+                }, function(error) {
+
                 });
             };
 

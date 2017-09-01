@@ -8,14 +8,15 @@
      * @requires $rootScope
      **/
     angular
-        .module('com.module.keyPlaces')
-        .controller('ImageUploadCtrl', function($scope, $rootScope, KeyPlaceImg, FileUploader, $http, CoreService, $timeout) {
+        .module('com.module.apropagandapoint')
+        .controller('PointImageUploadCtrl', function($scope, $rootScope, APropagandaPointImg, FileUploader, Lightbox, $http, CoreService, $timeout) {
             /*** upload ***/
             // create a uploader with options
-            console.log("$rootScope.imageId--", $rootScope.imageId);
+
+            console.log("$rootScope.imageId-护路宣传点-", $rootScope.imageId);
             var uploader = $scope.uploader = new FileUploader({
                 scope: $scope, // to automatically update the html. Default: $rootScope
-                url: '/api/Keyplaceimgs/upload'
+                url: '/api/APropagandaPointImgs/upload'
 
             });
             // console.log('Add filters and callbacks to the uploader object:', uploader);
@@ -30,9 +31,6 @@
             // CALLBACKS
             var failedFiles = [];
             uploader.onWhenAddingFileFailed = function(item, filter, options) {
-                console.info('onWhenAddingFileFailed', item, filter, options);
-                console.log("item---", JSON.stringify(item));
-                console.log("filter---", JSON.stringify(filter));
 
                 if (filter.name === 'imageFilter') {
                     failedFiles.push(item);
@@ -56,17 +54,11 @@
             };
             uploader.onAfterAddingFile = function(fileItem) {
                 console.info('onAfterAddingFile', fileItem);
-                // fileItem.formData.push({
-                //     token: $scope.token
-                // });
             };
             //获取上传的图片
             // $scope.imageArray = [];
             uploader.onAfterAddingAll = function(addedFileItems) {
                 console.info('onAfterAddingAll', addedFileItems[0].file);
-                // console.log("获取文件---", JSON.stringify(addedFileItems[0].file));
-                // $scope.imageArray.push(addedFileItems[0].file);
-                // console.log("imageArray--", JSON.stringify($scope.imageArray));
             };
             uploader.onBeforeUploadItem = function(item) {
                 console.info('onBeforeUploadItem', item);
@@ -82,12 +74,14 @@
             };
             uploader.onSuccessItem = function(fileItem, response, status, headers) {
                 console.info('onSuccessItem', fileItem);
+                console.log("url--", JSON.stringify(response));
                 var image = {};
                 image.type = fileItem.file.type;
                 image.name = fileItem._file.name;
                 image.url = response[0].url;
-                image.keyPlaceId = $rootScope.imageId;
-                KeyPlaceImg.create(image);
+                image.aPropagandaPointId = $rootScope.imageId;
+                APropagandaPointImg.create(image);
+                $rootScope.imageId = "";
             };
 
 

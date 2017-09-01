@@ -11,7 +11,7 @@
         .module('com.module.monitoring')
         .controller('MonitoringListCtrl', function($scope, CoreService, AffiliatedInstitution, Monitoring, MonitoringService, $rootScope, $location, NgTableParams, $state) {
             console.log("广播警示柱界面------");
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // AdvertisementService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;
@@ -34,7 +34,7 @@
                         };
                     }
 
-                    
+
 
                     Monitoring.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
@@ -58,7 +58,7 @@
             // 查询条件
             $scope.searchConditions = {
                 DeviceName: "",
-                
+
             };
 
             $scope.startSearch = function() {
@@ -67,7 +67,7 @@
                 // console.log(  $scope.tableParams.filter($scope.searchConditions) );
                 $scope.tableParams.filter({
                     DeviceName: $scope.searchConditions.DeviceName,
-                    
+
                 });
             };
             //查出所属机构

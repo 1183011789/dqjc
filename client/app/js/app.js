@@ -43,6 +43,7 @@
             'permission',
             'permission.ui',
             'openlayers-directive',
+            'bootstrapLightbox',
             'com.module.core',
             // 'com.module.sandbox',
             'com.module.road',
@@ -59,7 +60,7 @@
             'com.module.keyPlaces',
             // 'com.module.openLayer'
             'com.module.about',
-            'com.module.settings',
+            // 'com.module.settings',
             'com.module.users'
         ])
         .run(function($rootScope, $cookies, gettextCatalog, $q) {

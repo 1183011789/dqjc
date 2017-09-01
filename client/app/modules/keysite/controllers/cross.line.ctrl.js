@@ -13,12 +13,11 @@
             console.log("线路分配----------");
             CrossIronBridge.find({}).$promise.then(function(value) {
                 $scope.warningPosts = value;
-                console.log("广播警示柱---", JSON.stringify(value));
             });
             $scope.findeAllRode = function() {
                 Rode.find({}).$promise.then(function(value) {
                     $scope.rodes = value;
-                    // console.log("铁路信息---", JSON.stringify(value));
+
                 });
             }
             $scope.findeAllRode();
@@ -29,33 +28,24 @@
             $scope.deleteIds = [];
             //点击rode
             $scope.addEditItem = function(item) {
-                // if ($scope.RodesArray) {
-                //     CoreService.alertWarning('提示', '还没选中信息列表');
-                //     return;
-                // }
-                // 将需要删除的item加入selectedRodes
+
                 console.log("item--", JSON.stringify(item));
                 if (item.checked) {
                     $scope.selectedRodeCommits.add(item.id);
                     $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
-                    console.log("修改后的铁路 --id-", JSON.stringify($scope.selectedRodeCommitsArray));
-                    console.log("size-1--", JSON.stringify($scope.selectedRodeCommits.size));
                     //实时保存添加的关联的铁路
                     var objs = {
                         rodeId: $scope.selectedRodeCommitsArray[0],
                         crossIronBridgeId: $scope.warningPostsArray[0]
                     }
                     RodeContain.create(objs, function(result) {
-                        console.log("更新成功----", JSON.stringify(result));
                         CoreService.toastSuccess(
                             '分配成功!'
                         );
                         // $scope.selectedWarningposts.clear();
                         $scope.selectedRodeCommits.clear();
                         $scope.selectedRodeCommitsArray = Array.from($scope.selectedRodeCommits);
-                        console.log("提交后的铁路数组id-", JSON.stringify($scope.selectedRodeCommitsArray));
-                        console.log("结果----", JSON.stringify(result));
-                        console.log("广播警示柱id----", JSON.stringify($scope.warningPostsArray[0]));
+
                         RodeContain.find({
                             filter: {
                                 include: [
@@ -67,7 +57,6 @@
                             }
                         }, function(res) {
                             //查出当前选择的关系数据
-                            console.log("关系数据所有的--", JSON.stringify(res));
                             $scope.allRodeContians = res;
                         }, function() {
 
@@ -80,7 +69,6 @@
                         console.log("错误--", JSON.stringify(err));
                     });
                 } else {
-                    console.log("实时删除------------", item.id);
                     // 直接删除id
                     for (var i = 0; i < $scope.allRodeContians.length; i++) {
                         if ($scope.allRodeContians[i].rode.id === item.id) {
@@ -94,7 +82,6 @@
                             $scope.deleteArry.push($scope.deleteIds[j]);
                         }
                     }
-                    console.log("所有要删除的-id---", JSON.stringify($scope.deleteArry));
                     deleteload(0);
                 }
             };
@@ -115,7 +102,6 @@
                     },
                     function(result) {
                         if (index === $scope.deleteArry.length - 1) {
-                            console.log('最后提交------成功---');
                             CoreService.toastSuccess(
                                 '取消成功!'
                             );
@@ -123,7 +109,6 @@
                         } else {
                             deleteload(index + 1);
                         }
-                        console.log("结果----", JSON.stringify(result));
                     },
                     function(err) {
                         console.log("错误--", JSON.stringify(err));
@@ -133,7 +118,6 @@
                         );
                     });
             }
-
             //选择广播警示住的时候 
             $scope.RodesArray = [];
             $scope.selectedWarningposts = new Set();
@@ -168,10 +152,8 @@
                                 }
                             }
                         }
-                        // console.log("查出的关系表里的数据和铁路关系--", JSON.stringify(result));
                         $scope.RodesArray = Array.from($scope.selectedRodes);
-                        console.log("添加关系的数组-1-", JSON.stringify($scope.RodesArray));
-                        console.log('scope.rodes---', JSON.stringify($scope.selectedRodes.size));
+
                     }, function(err) {
                         console.log("出错了--", JSON.stringify(err));
                     });
@@ -213,7 +195,6 @@
                 //     row.checked = true;
                 //     $scope.selectwarningpost(row);
                 // }
-
                 if ($scope.hindenOrshow) {
                     console.log("查看所有分配---");
                     for (var j = 0; j < $scope.warningPosts.length; j++) {
@@ -224,19 +205,14 @@
                             $scope.rowobj = $scope.warningPosts[j];
                             $scope.selectwarningpost($scope.rowobj);
                             $scope.hindenOrshow = true;
-                            console.log("改变的对象-----", JSON.stringify($scope.rowobj));
                         } else {
                             $scope.warningPosts[j].checked = false;
                             // $scope.selectedWarningposts.clear();
                         }
                     }
                 } else {
-                    console.log("取消查看所有分配---");
-                    // $scope.hindenOrshow = true;
-
                     $scope.selectedRodes.clear();
                     $scope.RodesArray = Array.from($scope.selectedRodes);
-                    console.log("警示柱---id--" + JSON.stringify($scope.RodesArray));
 
                 }
             }

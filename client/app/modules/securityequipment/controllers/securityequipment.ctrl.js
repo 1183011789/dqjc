@@ -4,6 +4,7 @@
         .module('com.module.securityequipment')
         .controller('SecurityEquipmentCtrl', function($scope, CoreService, SecurityEquipmentInformation, SecurityEquipmentService, NgTableParams, $state) {
             // var isSearchMode = false;
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
                 count: 10

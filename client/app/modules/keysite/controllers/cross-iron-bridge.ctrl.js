@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('CrossIronBridgeCtrl', function($scope, CoreService, CrossIronBridge, CrossIronBridgeService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
@@ -13,15 +13,16 @@
                     var where = {};
                     if (params._params.filter.ironbridgename) {
                         where.ironbridgename = {
-                            like: `%${params._params.filter.ironbridgename}%`
+                            // like: `%${params._params.filter.ironbridgename}%`
+                            like: '%' + params._params.filter.ironbridgename + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     CrossIronBridge.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)

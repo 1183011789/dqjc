@@ -11,7 +11,7 @@
         .module('com.module.keypersion')
         .controller('KeyPersionListCtrl', function($scope, CoreService, KeyPersion, KeypersionService, $rootScope, $location, NgTableParams, $state) {
             console.log("广播警示柱界面------");
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // AdvertisementService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;
@@ -30,7 +30,7 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
 

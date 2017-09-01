@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('BaseStationCtrl', function($scope, CoreService, BaseStation, BaseStationService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
@@ -13,15 +13,16 @@
                     var where = {};
                     if (params._params.filter.name) {
                         where.name = {
-                            like: `%${params._params.filter.name}%`
+                            // like: `%${params._params.filter.name}%`
+                            like: '%' + params._params.filter.name + '%'
                         };
                     }
 
-                    if (params._params.filter.AdministrativeDepartment) {
-                        where.AdministrativeDepartment = {
-                            like: `%${params._params.filter.AdministrativeDepartment}%`
-                        };
-                    }
+                    // if (params._params.filter.AdministrativeDepartment) {
+                    //     where.AdministrativeDepartment = {
+                    //         like: `%${params._params.filter.AdministrativeDepartment}%`
+                    //     };
+                    // }
                     BaseStation.count({ where: where }).$promise.then(function(result) {
                         console.log('===SEI=====')
                         console.log(result.count)
@@ -33,7 +34,7 @@
                     BaseStation.count().$promise.then(function(result) {
                         $scope.totalItems = result.count;
                         params.total(result.count);
-                        
+
                     });
                     BaseStation.find({
                         filter: {

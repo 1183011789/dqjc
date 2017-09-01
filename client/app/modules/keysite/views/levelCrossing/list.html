@@ -45,9 +45,9 @@
             <td data-title="''" class="text-center">
                 <input ng-value="{{row.id}}" multi-check type="checkbox" ng-change="addEditItem(row)" class=" checkbox-lg" ng-model="row.checked">
             </td>
-             <td data-title="'名称'" ng-switch="row.rename" ng-form="levelcrossname">
-              <a href="" ui-sref="^.view({id: row.id})">
-                <strong ng-switch-default>{{row.levelcrossname}}</strong>
+            <td data-title="'名称'" ng-switch="row.rename" ng-form="levelcrossname">
+                <a href="" ui-sref="^.view({id: row.id})">
+                    <strong ng-switch-default>{{row.levelcrossname}}</strong>
                 </a>
             </td>
             <td data-title="'中心里程'" ng-switch="row.titleEdit" ng-form="centermileage">
@@ -86,13 +86,13 @@
         </tr>
     </table>
 </div>
-<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+<!-- <div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
     <ul style=" margin-top:0px; " uib-pagination ng-show="{{tableParams.total()> tableParams.count()}}" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
     previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
     </ul>
-</div>
-<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+</div> -->
+<div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
     <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
         rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
     </ul>
-</div> -->
+</div>
