@@ -172,7 +172,7 @@
                             required: true,
                             options: [],
                             valueProp: "id",
-                            labelProp: "affiliatedInstitution",
+                            labelProp: "affiliatedinstitution",
                         },
                         controller: function($scope, AffiliatedInstitution) {
                             AffiliatedInstitution.find().$promise.then(function(value) {

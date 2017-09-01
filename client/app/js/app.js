@@ -58,6 +58,7 @@
             'com.module.institutionaiteam',
             'com.module.theroadstation',
             'com.module.keyPlaces',
+            'com.module.hiddenplace',
             // 'com.module.openLayer'
             'com.module.about',
             // 'com.module.settings',

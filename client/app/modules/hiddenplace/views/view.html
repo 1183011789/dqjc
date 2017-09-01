@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a> {{ctrl.hiddenplace.name}}
+        <small>{{ctrl.hiddenplace.address}}</small>
+        <span class="pull-right btn-group">
+      <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({id: ctrl.hiddenplace.id})">
+        <i class="fa fa-pencil"></i>
+      </a>
+      
+    </span>
+    </div>
+    <div class="panel-body">
+        <!-- <pre>{{ctrl.hiddenplace | json}}</pre> -->
+        <p>名称:{{ctrl.hiddenplace.name}}</p>
+        <p>地址:{{ctrl.hiddenplace.address}}</p>
+        <p>详情:{{ctrl.hiddenplace.detail}}</p>
+        <p>图片:{{ctrl.hiddenplace.images}}</p>
+        <p>状态:{{ctrl.hiddenplace.state}}</p>
+        <p>类别:{{ctrl.hiddenplace.category}}</p>
+        <p>所属地方派出所:{{ctrl.hiddenplace.LocalPoliceStation}}</p>
+        <p>负责人:{{ctrl.hiddenplace.personCharge}}</p>
+        <p>负责人职务:{{ctrl.hiddenplace.personPost}}</p>
+        <p>联系电话:{{ctrl.hiddenplace.contactNumber}}</p>
+        <p>危险级别:{{ctrl.hiddenplace.hazardlevel}}</p>
+        <p>所属机构:{{ctrl.hiddenplace.affiliatedinstitution}}</p>
+        <p>是否签订安全协议:{{ctrl.hiddenplace.securityProtocol}}</p>
+        <p>有危害铁路史人数:{{ctrl.hiddenplace.dangerousRailwayNum}}</p>
+        <p>在校学生危害铁路或发生事故史:{{ctrl.hiddenplace.stuDangerousRail}}</p>
+        <p>经度:{{ctrl.hiddenplace.lng}}</p>
+        <p>纬度:{{ctrl.hiddenplace.lat}}</p>
+        <p>说明:{{ctrl.hiddenplace.explain}}</p>
+        <p>备注:{{ctrl.hiddenplace.remark}}</p>
+    </div>
+</div>

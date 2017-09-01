@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+        <span translate>图片上传</span>
+    </div>
+    <div class="panel-body">
+        <div class="drop" nv-file-drop uploader="uploader" ng-class="dropClass" ng-drag-enter="dropClass='drag-over'" ng-drag-leave="dropClass=''">
+            <span class="file-input btn btn-primary btn-outline btn-file">
+          上传图片&hellip;
+          <input nv-file-select type="file" uploader="uploader"/>
+        </span>
+            <h5>或者，将你的图片拖拽到这儿</h5>
+        </div>
+        <br>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    {{ 'Upload queue' | translate }}
+                    <small>{{ uploader.queue.length }} {{ 'in queue' | translate }}</small>
+                </h3>
+                <div class="box-tools upload-image-tools">
+                    <div class="pull-right btn-group btn-group-xs" style="margin-top:8px;">
+                        <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                <span class="glyphicon glyphicon-upload"></span>
+               全部上传
+              </button>
+                        <button type="button" class="btn btn-warning btn-xs" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span>
+               取消所有
+              </button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                <span class="glyphicon glyphicon-trash"></span>
+               删除所有
+              </button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-stiped">
+                <tr>
+                    <th width="50%" translate>名字</th>
+                    <th ng-show="uploader.isHTML5" translate>尺寸</th>
+                    <th ng-show="uploader.isHTML5" translate>进度</th>
+                    <th translate>状态</th>
+                    <!--   <th translate>行为</th> -->
+                </tr>
+                <tr ng-repeat="item in uploader.queue">
+                    <td><strong>{{ item.file.name }}</strong>
+                    </td>
+                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB
+                    </td>
+                    <td ng-show="uploader.isHTML5">
+                        <div class="progress" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                    </td>
+                    <!--    <td nowrap>
+                        <div class="input-group pull-left btn-group btn-group-xs">
+                            <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                  <span class="glyphicon glyphicon-upload"></span>
+                </button>
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                  <span class="glyphicon glyphicon-ban-circle"></span>
+                </button>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                        </div>
+                    </td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

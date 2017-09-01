@@ -9,9 +9,9 @@
      **/
     angular
         .module('com.module.apropagandapoint')
-        .controller('LineAllocationCtrl', function($scope, $state, CoreService, RodeContain, $rootScope, HiddenDangerPlace, Rode, $location) {
+        .controller('LineAllocationCtrl', function($scope, $state, CoreService, RodeContain, $rootScope, APropagandaPoint, Rode, $location) {
             console.log("线路分配----------");
-            HiddenDangerPlace.find({}).$promise.then(function(value) {
+            APropagandaPoint.find({}).$promise.then(function(value) {
                 $scope.warningPosts = value;
 
             });
@@ -37,7 +37,7 @@
                     var objs = {
                         rodeId: $scope.selectedRodeCommitsArray[0],
 
-                        hiddenDangerPlaceId: $scope.warningPostsArray[0]
+                        aPropagandaPointId: $scope.warningPostsArray[0]
                     }
                     RodeContain.create(objs, function(result) {
 
@@ -53,7 +53,7 @@
                                     "rode"
                                 ],
                                 where: {
-                                    hiddenDangerPlaceId: $scope.warningPostsArray[0],
+                                    aPropagandaPointId: $scope.warningPostsArray[0],
                                 }
                             }
                         }, function(res) {
@@ -129,7 +129,7 @@
                                 "rode"
                             ],
                             where: {
-                                hiddenDangerPlaceId: warningpost.id
+                                aPropagandaPointId: warningpost.id
                             }
                         }
                     }, function(result) {

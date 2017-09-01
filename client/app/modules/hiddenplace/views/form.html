@@ -1,0 +1,21 @@
+<form name="form">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
+            <span ng-show="!ctrl.hiddenplace.id" translate>添加一个新的隐患处所信息!</span>
+            <span ng-show="ctrl.hiddenplace.id" translate>修改一个隐患处所信息!</span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <formly-form model="ctrl.hiddenplace" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary btn-success" ng-click="ctrl.submit()" ng-disabled="form.$invalid">
+        保存
+      </button>
+        </div>
+    </div>
+</form>

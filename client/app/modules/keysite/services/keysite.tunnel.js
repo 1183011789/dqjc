@@ -267,28 +267,32 @@
                         type: 'input',
                         templateOptions: {
                             label: '经度',
-                            required: false
+                            required: false,
+                            placeholder: '请输入经度'
                         }
                     },{
                         key: 'lat',
                         type: 'input',
                         templateOptions: {
                             label: '纬度',
-                            required: false
+                            required: false,
+                            placeholder: '请输入纬度'
                         }
                     },{
                         key: 'explain',
                         type: 'input',
                         templateOptions: {
                             label: '说明',
-                            required: false
+                            required: false,
+                            placeholder: '请输入说明'
                         }
                     },{
                         key: 'remark',
                         type: 'input',
                         templateOptions: {
                             label: '备注',
-                            required: false
+                            required: false,
+                            placeholder: '请输入备注'
                         }
                     }
                 ];
