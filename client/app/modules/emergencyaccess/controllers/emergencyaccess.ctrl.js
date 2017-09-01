@@ -11,7 +11,7 @@
         .module('com.module.emergencyaccess')
         .controller('EmergencyaccessListCtrl', function($scope, CoreService, EmergencyAccesss, EmergencyAccessService, $rootScope, $location, NgTableParams, $state) {
 
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // AdvertisementService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;

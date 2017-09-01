@@ -13,7 +13,7 @@
             // KeyPlaceCategory.find().$promise.then(function(value) {
             //     $scope.items = $scope.items.concat(value);
             // });
-
+            $scope.maxSize = 6;
             $scope.$on('KeyPlace.Changed', function(event, data) {
                 // console.log('======data====>', data);
                 // console.log('======event====>', event);

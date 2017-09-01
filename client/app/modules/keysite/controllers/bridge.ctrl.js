@@ -3,6 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('BridgeCtrl', function($scope, CoreService, Bridge, BridgeService, $state, NgTableParams) {
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10

@@ -11,7 +11,7 @@
         .module('com.module.advertisement')
         .controller('OrdersListCtrl', function($scope, $state, CoreService, BroadcastWarningPost, AdvertisementService, $rootScope, $location, NgTableParams) {
             console.log("广播警示柱界面------");
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // AdvertisementService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;
@@ -33,7 +33,7 @@
                             like: `%${params._params.filter.name}%`
                         };
                     }
-                    
+
                     if (params._params.filter.address) {
                         where.address = {
                             like: `%${params._params.filter.address}%`

@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('StationCtrl', function($scope, CoreService, Station, StationService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10

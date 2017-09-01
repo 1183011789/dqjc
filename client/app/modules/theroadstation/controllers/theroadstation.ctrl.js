@@ -9,9 +9,9 @@
      **/
     angular
         .module('com.module.theroadstation')
-        .controller('TheRoadStationListCtrl', function($scope, $state,CoreService, TheRoadStation, TheRoadStationService, $rootScope, $location, NgTableParams) {
+        .controller('TheRoadStationListCtrl', function($scope, $state, CoreService, TheRoadStation, TheRoadStationService, $rootScope, $location, NgTableParams) {
             console.log("广播警示柱界面------");
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // TheRoadStationService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;
@@ -75,7 +75,7 @@
                 });
             };
 
-           $scope.deleteItems = function(item) {
+            $scope.deleteItems = function(item) {
 
                 if ($scope.selectedItems.size == 0) {
                     CoreService.alertWarning('提示', '还没选中');

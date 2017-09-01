@@ -10,6 +10,7 @@
     angular
         .module('com.module.apropagandapoint')
         .controller('PropagandaPointCtrl', function($scope, CoreService, $state, APropagandaPoint, PropagandaPointService, NgTableParams, $location) {
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
                 count: 10

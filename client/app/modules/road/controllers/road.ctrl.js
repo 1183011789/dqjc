@@ -11,7 +11,7 @@
         .module('com.module.road')
         .controller('RoadCtrl', function($scope, $route, $state, CoreService, Rode, RoadService, $rootScope, $location, NgTableParams) {
             console.log("线路情况列表------");
-            // $scope.maxSize = 6;
+            $scope.maxSize = 6;
             // AdvertisementService.count()
             //     .then(function(result) {
             //         $scope.totalItems = result.count;

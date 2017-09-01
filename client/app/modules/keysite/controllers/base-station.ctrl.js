@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('BaseStationCtrl', function($scope, CoreService, BaseStation, BaseStationService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10
@@ -33,7 +33,7 @@
                     BaseStation.count().$promise.then(function(result) {
                         $scope.totalItems = result.count;
                         params.total(result.count);
-                        
+
                     });
                     BaseStation.find({
                         filter: {

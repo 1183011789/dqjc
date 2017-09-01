@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('CulvertCtrl', function($scope, CoreService, Culvert, CulvertService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10

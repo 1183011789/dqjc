@@ -3,7 +3,7 @@
     angular
         .module('com.module.keysite')
         .controller('ServicePortCtrl', function($scope, CoreService, ServicePort, ServicePortService, $state, NgTableParams) {
-
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1,
                 count: 10

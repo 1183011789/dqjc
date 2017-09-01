@@ -10,6 +10,7 @@
     angular
         .module('com.module.fenceinfo')
         .controller('FenceInfoCtrl', function($scope, CoreService, FenceInfo, FenceInfoService, NgTableParams, $location, $state) {
+            $scope.maxSize = 6;
             $scope.tableParams = new NgTableParams({
                 page: 1, // show first page
                 count: 10

@@ -52,13 +52,13 @@
             <td data-title="'编号'" ng-switch="item.number" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="number" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.number}}</span>
             </td>
-             <td data-title="'负责人'" ng-switch="item.personCharge" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="personCharge" class="text-center" style="vertical-align:middle">
+            <td data-title="'负责人'" ng-switch="item.personCharge" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="personCharge" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.personCharge}}</span>
             </td>
-             <td data-title="'联系电话'" ng-switch="item.contactNumber" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="contactNumber" class="text-center" style="vertical-align:middle">
+            <td data-title="'联系电话'" ng-switch="item.contactNumber" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="contactNumber" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.contactNumber}}</span>
             </td>
-             <td data-title="'所属机构'" ng-switch="item.affiliatedinstitution" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="affiliatedinstitution" class="text-center" style="vertical-align:middle">
+            <td data-title="'所属机构'" ng-switch="item.affiliatedinstitution" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="affiliatedinstitution" class="text-center" style="vertical-align:middle">
                 <span ng-switch-default>{{item.affiliatedinstitution}}</span>
             </td>
             <td data-title="'备注'" ng-switch="item.remark" ng-class="title.$dirty ? 'bg-warning' : ''" ng-form="remark" class="text-center" style="vertical-align:middle">
@@ -68,13 +68,13 @@
     </table>
 </div>
 
-<div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
+<!-- <div ng-show="tableParams.total()" ng-cloak class=" mh-image-pager>
     <ul style=" margin-top:0px; " uib-pagination ng-show="{{tableParams.total()> tableParams.count()}}" class="mh-images-pagination pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true" rotate="false" items-per-page="tableParams.count()"
     previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
     </ul>
-</div>
-<!-- <div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
+</div> -->
+<div ng-show="tableParams.total()" ng-cloak class="mh-image-pager">
     <ul style="margin-top:0px;" uib-pagination ng-show="tableParams.total()>tableParams.count()" class="mh-images-pagination" total-items="tableParams.total()" max-size="maxSize" ng-model="currentPage" ng-change="tableParams.page(currentPage)" boundary-links="true"
         rotate="false" items-per-page="tableParams.count()" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页">
     </ul>
-</div> -->
+</div>
